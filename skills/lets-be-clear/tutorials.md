@@ -28,7 +28,7 @@ These are illustrative conversations, not real interactions.
 
 **User:** “Why it oscillates and what sets the frequency. Use the ideal spring–mass model. Keep it symbolic and show how initial conditions select the motion.”
 
-**Why this works:** When definitions did not help, the agent changed the explanation and connected each model to a question the user could recognize. The answer settles the scope; no further confirmation is needed.
+**Why this works:** When definitions did not help, the agent changed the explanation and connected each model to a question the user could recognize. The answer explicitly authorizes the clarified scope, so no further confirmation is needed.
 
 **Agent:** “We'll assume one-dimensional motion of a positive mass on a linear spring, with no damping or drive. Let $m$ be mass, $k>0$ spring stiffness, $t$ time, and $x(t)$ displacement from equilibrium. Dots mean time derivatives: $\dot{x}$ is velocity and $\ddot{x}$ acceleration. The spring force is $-kx$, so Newton's law gives
 
@@ -54,17 +54,21 @@ Energy moves between motion and spring deformation while the total stays constan
 
 The symbolic task is complete: the agreed model, solution, frequency, and energy have been explained and checked.
 
-## Enough information: solve without an interview
+## Enough information: confirm without an interview
 
 **User:** “Use $lets-be-clear. For an ideal spring–mass oscillator, mass is 2 kg, stiffness is 8 N/m, initial displacement is 0.10 m, and initial velocity is zero. Find motion, frequency, and energy.”
 
 **Why the prompt works:** The model, values, initial conditions, and outputs are supplied.
 
-**Bad agent response:** “What system is this? Which method should I use? Can I begin?” These questions add no useful information.
+**Bad agent response:** “What system is this? Which method should I use?” These questions add no useful information.
+
+**Agent:** “I'll calculate displacement over time, frequency, and energy for the ideal spring–mass model using your mass, stiffness, initial displacement, and zero initial velocity. Please confirm that scope.”
+
+**User:** “Yes, go ahead.”
 
 **Agent:** “Using the quantities defined above, $\omega_0=2\,\mathrm{rad/s}$, $x(t)=(0.10\,\mathrm{m})\cos[(2\,\mathrm{rad/s})t]$, $f\approx0.318\,\mathrm{Hz}$, and $E=0.040\,\mathrm{J}$. The formula gives the stated initial displacement and zero initial velocity, and satisfies the governing equation. The energy is constant under the ideal assumptions.”
 
-The supplied information was enough to finish the calculation without a clarification interview.
+The supplied information was enough to skip clarification questions. The agent confirmed the scope before calculating.
 
 ## An everyday decision: make an evening fit
 
@@ -90,7 +94,7 @@ The supplied information was enough to finish the calculation without a clarific
 
 **Agent:** “That is seventy minutes altogether. Dinner, packing, and rest take fifty. I recommend postponing laundry and the desk, leaving ten minutes of margin. You could do one of those chores and keep the rest, but then there's no margin. Which fits your priorities?”
 
-**User:** “Keep the rest and the margin.”
+**User:** “Keep the rest and the margin. Go ahead with that plan.”
 
 **Agent:** “Your plan is twenty minutes for dinner, ten for packing, twenty for rest, and ten for overruns or extra rest. That totals sixty minutes. Laundry and the desk wait until tomorrow. It fits using your estimates; if dinner and packing overrun by more than ten minutes, the end time or rest would need to change.”
 
@@ -104,6 +108,8 @@ A stronger starting prompt would be: “I have one hour. Dinner and packing must
 
 **User:** “Am I clear? I want a symbolic solution of an ideal spring–mass oscillator, with no damping or forcing. Just restate the scope for now.”
 
-**Agent:** “You want the general symbolic motion, frequency, and energy for an ideal spring–mass oscillator, assuming no damping or forcing. For now, the task is to confirm that scope.”
+**Agent:** “You want a general symbolic solution for an ideal spring–mass oscillator, assuming no damping or forcing. For now, I will only restate that scope. Is that correct?”
+
+**User:** “Yes.”
 
 The request is already clear, so no decision interview is needed. The agent stops at the brief because that is the requested deliverable. Likewise, a brief delegated by `schematic-designer` returns to that skill after its required confirmation, reusing a matching brief already confirmed in the conversation.

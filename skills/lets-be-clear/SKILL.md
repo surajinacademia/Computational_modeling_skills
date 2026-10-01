@@ -1,6 +1,6 @@
 ---
 name: lets-be-clear
-description: Clarify a problem, help the user work through decisions, and complete the agreed task. Use when invoked, when the user checks shared understanding, when they are stuck and ask for help thinking or deciding, or when schematic-designer delegates a figure brief. A vague prompt alone does not trigger this skill.
+description: Clarify a problem, help the user work through decisions, confirm the scope, and complete the agreed task. Use when invoked, when the user checks shared understanding, when a request is ambiguous, when they are stuck and ask for help deciding, or when schematic-designer delegates a figure brief. Do not activate for ordinary retrieval or definition requests alone.
 ---
 
 # Let's Be Clear
@@ -12,10 +12,10 @@ Keep the writing human, direct, thoughtful, and conversational. Preserve the use
 ## Step-by-step process
 
 1. **Understand the desired outcome.** Identify what the user is trying to achieve and what a useful result would look like. Use what they have already decided.
-2. **Identify decisions and assumptions.** Find the choices that affect the solution. Tell the user what is missing, unclear, or internally inconsistent, and why it matters. Distinguish stated assumptions from assumptions you would introduce.
-3. **Provide decision support and ask answerable questions.** Identify whether the gap concerns facts, the user's context, priorities, or difficulty comparing options. Find or explain available facts; ask the user for context and priorities. Narrow options using the goal and constraints. Explain tradeoffs, give a justified recommendation, and support factual claims with evidence where needed. Before asking, test: “Would different answers change what I do?” Bundle independent questions; ask dependent questions after their prerequisites.
-4. **Use the answers to define the problem.** Update the agreed scope and state the chosen assumptions. Ask again only when an unresolved decision prevents a useful result. When enough is known, proceed without a mandatory confirmation.
-5. **Complete and check the task.** Choose routine technical methods yourself, do the agreed work, and check the result. Explain the result and any limitations. Finish when the agreed deliverable is complete; if it is not, say what remains.
+2. **Identify decisions and assumptions.** Find the choices that affect the solution. Tell the user what is missing, unclear, or internally inconsistent, and why it matters. Distinguish stated assumptions, implicit assumptions, and assumptions you would introduce.
+3. **Provide decision support and ask answerable questions.** Identify whether the gap concerns facts, the user's context, priorities, or difficulty comparing options. Explain facts from the available context; ask the user for context and priorities. Narrow options using the goal and constraints. Explain tradeoffs, give a justified recommendation, and support factual claims with evidence where needed. Before asking, test: “Would different answers change what I do?” Bundle independent questions; ask dependent questions after their prerequisites. If research is needed to resolve a choice, confirm that bounded research task before using tools; this does not confirm the larger task.
+4. **Define the problem and confirm the scope.** Restate the goal, action, constraints, assumptions, and desired result. Preserve exact quotations and identifiers without adding requirements or permissions. Ask the user to confirm before starting the underlying work, including searching, editing, running commands, calling tools, delegating, or external communication. If their answer explicitly authorizes the corrected scope, accept it without asking again. Reuse an already confirmed matching brief.
+5. **Complete and check the task.** After confirmation, choose routine technical methods yourself, do the agreed work, and check the result. Explain the result and any limitations. Finish when the agreed deliverable is complete; if it is not, say what remains.
 
 At step 3, **“I don't know yet” means keep helping.** If the information you provided does not help, try a different explanation, a concrete example, or a smaller decision. Find what is still unclear and iterate together until the user can choose, agrees to a provisional approach, or wants to pause. Keep their priorities theirs.
 
@@ -31,7 +31,7 @@ Before asking the user to decide, give a short response in this order:
 - **Options and recommendation:** The useful choices, their tradeoffs, and what I recommend with reasons.
 - **Your input:** The specific question to answer and the context you need to supply. “I don't know yet” is welcome.
 
-Repeat the decision-specific parts only for consequential open choices. If enough is known, proceed without questions. After the answers, state the agreed problem and assumptions, then do the work.
+Repeat the decision-specific parts only for consequential open choices. If enough is known, skip clarification questions and move to scope confirmation. After confirmation, do the work. Do not ask again when the user has already explicitly confirmed the same scope.
 
 ## Flowchart
 
@@ -39,11 +39,10 @@ Repeat the decision-specific parts only for consequential open choices. If enoug
 flowchart TD
     A["1. Read the user's prompt and understand the outcome"] --> B["2. Identify decisions and assumptions"]
     B -- "Need help deciding" --> C["3. Explain options and work through questions"]
-    B -- "Enough information" --> D["4. Use the answers to define the problem"]
+    B -- "Enough information" --> D["4. Define the problem and confirm the scope"]
     C -- "Still stuck: try another way" --> C
     C -- "Ready" --> D
     D -- "An important decision remains unresolved" --> C
-    D -- "Scope is clear" --> E["5. Complete and check the agreed task"]
+    D -- "Scope confirmed" --> E["5. Complete and check the agreed task"]
 ```
-
 See [tutorials](tutorials.md) for worked conversations and good and bad examples.
