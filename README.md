@@ -17,7 +17,7 @@ My goal for making these skills is **not** to replace the scientist but only to 
 | [data-visualization](skills/data-visualization/SKILL.md) | Create and refine publication-quality quantitative plots from completed scientific data, including notebook figures |
 | [schematic-designer](skills/schematic-designer/SKILL.md) | Design scientifically faithful figures and schematics with editable sources, PDF, and outlined SVG |
 | [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce, assess, or apply a paper’s computational model, method, claims, or results |
-| [lets-be-clear](skills/lets-be-clear/SKILL.md) | Restate a request and confirm shared understanding before acting |
+| [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify the problem, work through decisions, and complete the agreed task |
 | [slurm](skills/slurm/SKILL.md) | Prepare, submit, inspect, and cancel one CPU batch job with native Slurm |
 
 

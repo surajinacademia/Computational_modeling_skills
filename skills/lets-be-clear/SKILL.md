@@ -1,35 +1,49 @@
 ---
 name: lets-be-clear
-description: >-
-  Restate a user's request clearly and ask for confirmation before acting. Use
-  when the user invokes this skill or checks whether the agent understood them,
-  with phrases such as "let's be clear," "am I clear?", "do you get me?", or a
-  semantic equivalent, or when schematic-designer explicitly delegates its
-  figure-brief confirmation. Do not trigger from ambiguity alone or from an
-  ordinary retrieval or definition request.
-metadata: 
-  short-description: Restate a request and confirm it before action
+description: Clarify a problem, help the user work through decisions, and complete the agreed task. Use when invoked, when the user checks shared understanding, when they are stuck and ask for help thinking or deciding, or when schematic-designer delegates a figure brief. A vague prompt alone does not trigger this skill.
 ---
 
 # Let's Be Clear
 
-For a delegated `schematic-designer` brief, reuse an explicitly confirmed matching
-brief from the current session and return control without a second confirmation.
-Otherwise apply the steps below to that brief before figure work starts. This
-delegation does not activate other skills or broaden the requested deliverables.
+Help the user frame a problem, resolve decisions that block progress, and learn while doing. Make missing information and unstated assumptions visible, provide enough context to support decisions, and explain what the user needs to answer.
 
-1. Restate the user's goal, requested action, scope, constraints, and desired
-   result in plain language. Preserve exact quotations and identifiers. Do not
-   add requirements or permissions.
-2. If different interpretations would change the work, state the ambiguity or
-   ask one focused question. Keep the restatement concise.
-3. Ask the user to confirm. Before confirmation, do not start the underlying
-   request, including searching, editing, running commands, calling tools,
-   delegating, or external communication.
-4. If the user corrects the request and explicitly authorizes that corrected
-   request in the same reply, accept the confirmation and proceed within that
-   scope. Ask again only when the correction or what the user authorized remains
-   unclear, or when the user has not confirmed the corrected request.
+Keep the writing human, direct, thoughtful, and conversational. Preserve the user's voice. Be candid and constructive: critique the request and its consequences, not the person.
 
-If explicit invocation has no current or relevant prior request, ask what the
-user wants restated.
+## Step-by-step process
+
+1. **Understand the desired outcome.** Identify what the user is trying to achieve and what a useful result would look like. Use what they have already decided.
+2. **Identify decisions and assumptions.** Find the choices that affect the solution. Tell the user what is missing, unclear, or internally inconsistent, and why it matters. Distinguish stated assumptions from assumptions you would introduce.
+3. **Provide decision support and ask answerable questions.** Identify whether the gap concerns facts, the user's context, priorities, or difficulty comparing options. Find or explain available facts; ask the user for context and priorities. Narrow options using the goal and constraints. Explain tradeoffs, give a justified recommendation, and support factual claims with evidence where needed. Before asking, test: “Would different answers change what I do?” Bundle independent questions; ask dependent questions after their prerequisites.
+4. **Use the answers to define the problem.** Update the agreed scope and state the chosen assumptions. Ask again only when an unresolved decision prevents a useful result. When enough is known, proceed without a mandatory confirmation.
+5. **Complete and check the task.** Choose routine technical methods yourself, do the agreed work, and check the result. Explain the result and any limitations. Finish when the agreed deliverable is complete; if it is not, say what remains.
+
+At step 3, **“I don't know yet” means keep helping.** If the information you provided does not help, try a different explanation, a concrete example, or a smaller decision. Find what is still unclear and iterate together until the user can choose, agrees to a provisional approach, or wants to pause. Keep their priorities theirs.
+
+For a request only to clarify or check understanding, the clarified brief is the deliverable. For a delegated brief, return control to the calling skill and honor its required confirmation; reuse an already confirmed matching brief. Clarification does not authorize work beyond the agreed scope.
+
+## Agent response structure
+
+Before asking the user to decide, give a short response in this order:
+
+- **Goal:** What we are trying to achieve.
+- **Undecided:** What needs deciding and why it matters.
+- **Information:** What we already know, what is missing, and what information would resolve the decision.
+- **Options and recommendation:** The useful choices, their tradeoffs, and what I recommend with reasons.
+- **Your input:** The specific question to answer and the context you need to supply. “I don't know yet” is welcome.
+
+Repeat the decision-specific parts only for consequential open choices. If enough is known, proceed without questions. After the answers, state the agreed problem and assumptions, then do the work.
+
+## Flowchart
+
+```mermaid
+flowchart TD
+    A["1. Read the user's prompt and understand the outcome"] --> B["2. Identify decisions and assumptions"]
+    B -- "Need help deciding" --> C["3. Explain options and work through questions"]
+    B -- "Enough information" --> D["4. Use the answers to define the problem"]
+    C -- "Still stuck: try another way" --> C
+    C -- "Ready" --> D
+    D -- "An important decision remains unresolved" --> C
+    D -- "Scope is clear" --> E["5. Complete and check the agreed task"]
+```
+
+See [tutorials](tutorials.md) for worked conversations and good and bad examples.
