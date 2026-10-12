@@ -8,17 +8,10 @@ Original layered dome design, recolored with the Minimalist palette. The floor c
 
 ## Design lesson
 
-- **Use when:** A reader needs to compare a planar footprint with its image on
-  a curved surface.
+- **Use when:** A reader needs to compare a planar footprint with its image on a curved surface.
 - **Choice and benefit:** The floor and elevated circles share horizontal coordinates. Their original translucent fills and layer order reveal depth and overlap while the dotted hemisphere locates the projected surfaces. Preserve those depth cues when changing the palette; replacing them with wireframes changes the design.
-- **Transfer:** Separate the reference surface, source objects, and transformed
-  objects into drawing layers. Compute corresponding geometry from shared inputs
-  so a restyle cannot accidentally change the mapping.
-- **Check when adapting:** This dense view does not individually label circle
-  correspondences. If one-to-one matching is the question, highlight a selected
-  pair or add identifiers. Verify new footprints lie within the projection's
-  domain; the appearance of the projected shapes does not establish area
-  preservation.
+- **Transfer:** Separate the reference surface, source objects, and transformed objects into drawing layers. Compute corresponding geometry from shared inputs so a restyle cannot accidentally change the mapping.
+- **Check when adapting:** This dense view does not individually label circle correspondences. If one-to-one matching is the question, highlight a selected pair or add identifiers. Verify new footprints lie within the projection's domain; the appearance of the projected shapes does not establish area preservation.
 
 ## Rebuild
 

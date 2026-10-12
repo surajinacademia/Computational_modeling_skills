@@ -1,4 +1,4 @@
 interface:
   display_name: "Slurm"
-  short_description: "Prepare and manage one CPU batch job with Slurm"
-  default_prompt: "Use $slurm to prepare a CPU batch script for my specified command and check it before submission."
+  short_description: "Run jobs and sweeps across eligible idle capacity"
+  default_prompt: "Use $slurm to run or expand this workload across all eligible idle capacity with disjoint assignments and verified resource limits."

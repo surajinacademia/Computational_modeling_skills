@@ -8,20 +8,10 @@ The parabola, P/Q coordinates, secant endpoints, difference construction, and sl
 
 ## Design lesson
 
-- **Use when:** An equation needs a geometric explanation of how its terms are
-  constructed, rather than only a symbolic statement.
-- **Choice and benefit:** The secant joins two marked points on the analytic
-  curve. Dashed guides connect those points to the horizontal and vertical
-  differences, while dimension arrows sit outside the main curve. The equation
-  occupies open space above the construction, making its ratio available without
-  obscuring the geometry.
-- **Transfer:** Derive points, guides, and difference annotations from the same
-  coordinates, then reserve distinct spaces for the equation and labels. Keep
-  curve shape and sampling separate from these layout choices.
-- **Check when adapting:** Recompute every dependent guide after changing the
-  function or point positions. Preserve the displayed horizontal and vertical
-  differences; a visually convenient triangle is not interchangeable with the
-  one defined by the selected points.
+- **Use when:** An equation needs a geometric explanation of how its terms are constructed, rather than only a symbolic statement.
+- **Choice and benefit:** The secant joins two marked points on the analytic curve. Dashed guides connect those points to the horizontal and vertical differences, while dimension arrows sit outside the main curve. The equation occupies open space above the construction, making its ratio available without obscuring the geometry.
+- **Transfer:** Derive points, guides, and difference annotations from the same coordinates, then reserve distinct spaces for the equation and labels. Keep curve shape and sampling separate from these layout choices.
+- **Check when adapting:** Recompute every dependent guide after changing the function or point positions. Preserve the displayed horizontal and vertical differences; a visually convenient triangle is not interchangeable with the one defined by the selected points.
 
 ## Rebuild
 

@@ -1,12 +1,12 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "computational-modeling-skills",
-  "version": "2.0.0",
-  "description": "Nine skills for scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs.",
+  "version": "2.1.0",
+  "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },
-  "repository": "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills",
+  "repository": "https://github.com/surajinacademia/Computational_modeling_skills",
   "license": "SEE LICENSE IN LICENSE",
   "keywords": [
     "computational-modeling",
@@ -23,10 +23,11 @@
       "interface": {
         "displayName": "Computational Modeling Skills",
         "shortDescription": "Scientific models, paper reproduction, and research workflows",
-        "longDescription": "Nine skills for scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs.",
+        "longDescription": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
         "developerName": "Computational Modeling Skills contributors",
         "category": "Productivity",
         "capabilities": [
+          "Research project setup",
           "Scientific modeling",
           "Paper reproduction",
           "Model documentation",
@@ -35,14 +36,14 @@
           "Data visualization",
           "Scientific schematics",
           "Request clarification",
-          "Single-job Slurm workflows"
+          "Slurm jobs and sweeps"
         ],
         "defaultPrompt": [
           "Use $computational-modeling to address my modeling task.",
           "Use $paper-reproduce to reproduce the specified paper result.",
           "Use $scientific-notebook to create an editable research notebook."
         ],
-        "websiteURL": "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills",
+        "websiteURL": "https://github.com/surajinacademia/Computational_modeling_skills",
         "composerIcon": "./assets/icon.svg",
         "logo": "./assets/logo.svg"
       }

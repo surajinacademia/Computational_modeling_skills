@@ -9,11 +9,7 @@ Determine whether infinitesimal perturbations of a specified stationary state gr
 
 ## Runtime
 
-Use Python 3.10+ with the dependencies in `requirements.txt` in the project
-environment. A separately installed LaTeX engine is needed for the PDF report;
-no engine or third-party font is bundled. The structural checker uses only the
-Python standard library. Installation and report compilation are explicit
-workflow steps, never automatic side effects of reading this skill.
+Use Python 3.10+ with the dependencies in `requirements.txt` in the project environment. A separately installed LaTeX engine is needed for the PDF report; no engine or third-party font is bundled. The structural checker uses only the Python standard library. Installation and report compilation are explicit workflow steps, never automatic side effects of reading this skill.
 
 ## Scope
 
@@ -50,8 +46,7 @@ when this Fourier form is admissible. Define \(s\in\mathbb{C}\) as the temporal 
 ## Derive The Linear Problem With SymPy
 
 1. Use the specified reference state or, for tractable homogeneous systems, solve the stationary equations and identify all physically admissible branches. Do not silently choose among branches with different stability questions. Substitute the selected state into the governing equations, boundary conditions, and constraints and simplify the residual symbolically. A nonzero unexplained residual invalidates a stationary-state stability claim; a nonuniform state must be supplied or established by an independently validated method.
-2. Introduce one bookkeeping parameter,
-   \(\mathbf{u}=\mathbf{u}_0+\epsilon\boldsymbol{\eta}\), perturb every coupled field and required auxiliary variable, substitute, and extract the coefficient of \(\epsilon\). State every discarded order.
+2. Introduce one bookkeeping parameter, \(\mathbf{u}=\mathbf{u}_0+\epsilon\boldsymbol{\eta}\), perturb every coupled field and required auxiliary variable, substitute, and extract the coefficient of \(\epsilon\). State every discarded order.
 3. Use SymPy differentiation, series expansion, Jacobians, coefficient extraction, and simplification to verify the displayed derivation. Show the physically informative intermediate variations; do not replace the derivation with an unexplained software result.
 4. Derive the admissible spatial eigenfunctions from the actual domain and boundary conditions. Apply \(\partial_{x_j}\mapsto i k_j\) only after justifying a Fourier basis. Keep \((k_x,k_y)\) in 2D until rotational symmetry has been established.
 5. Assemble the ordinary, generalized, polynomial, or spatially discretized spectral problem. Check dimensions and sign conventions term by term.

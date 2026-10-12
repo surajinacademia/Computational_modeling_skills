@@ -22,5 +22,4 @@ Original notices:
 % "Information modeling and relational databases" p 902.
 ```
 
-The subsequent visual revision removes redundant emphasis while preserving the
-scientific construction. Entity ovals and binary role boxes retain their formal outlines with white interiors instead of tinted backgrounds. Constraint and date labels use the 8 pt body role so they remain part of the main reading. Mandatory dots, uniqueness spans, reading markers, and all three textual rules are retained; these shapes carry notation and are not ornamental boxes.
+The subsequent visual revision removes redundant emphasis while preserving the scientific construction. Entity ovals and binary role boxes retain their formal outlines with white interiors instead of tinted backgrounds. Constraint and date labels use the 8 pt body role so they remain part of the main reading. Mandatory dots, uniqueness spans, reading markers, and all three textual rules are retained; these shapes carry notation and are not ornamental boxes.

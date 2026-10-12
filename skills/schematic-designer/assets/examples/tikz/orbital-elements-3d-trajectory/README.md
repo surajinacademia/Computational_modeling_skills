@@ -8,20 +8,10 @@ The archived illustrative geometry and inclination constants are retained. The i
 
 ## Design lesson
 
-- **Use when:** A path's relation to two planes, their intersection, and a
-  position vector matters more than a photorealistic scene.
-- **Choice and benefit:** Pale plane fills retain spatial context while the
-  intersection line, body marker, and position vector remain distinct. A solid
-  directional segment draws attention within the dashed full ellipse; nearby
-  labels identify the geometry without a separate legend.
-- **Transfer:** Build related planes, trajectories, and projected points from
-  one coordinate construction. Use opacity to expose overlapping surfaces and
-  place explanatory notes outside them, keeping quantitative geometry unchanged.
-- **Check when adapting:** The dashed ellipse supplies full-path context here,
-  not a universal hidden-line or uncertainty convention. This example is
-  illustrative: neither its curved inclination annotation nor its ellipse
-  should be copied as a measured angle or a validated Keplerian orbit. Calculate
-  those quantities explicitly when the new figure requires them.
+- **Use when:** A path's relation to two planes, their intersection, and a position vector matters more than a photorealistic scene.
+- **Choice and benefit:** Pale plane fills retain spatial context while the intersection line, body marker, and position vector remain distinct. A solid directional segment draws attention within the dashed full ellipse; nearby labels identify the geometry without a separate legend.
+- **Transfer:** Build related planes, trajectories, and projected points from one coordinate construction. Use opacity to expose overlapping surfaces and place explanatory notes outside them, keeping quantitative geometry unchanged.
+- **Check when adapting:** The dashed ellipse supplies full-path context here, not a universal hidden-line or uncertainty convention. This example is illustrative: neither its curved inclination annotation nor its ellipse should be copied as a measured angle or a validated Keplerian orbit. Calculate those quantities explicitly when the new figure requires them.
 
 ## Rebuild
 

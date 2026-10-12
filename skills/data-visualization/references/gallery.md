@@ -1,10 +1,6 @@
 # Quantitative Figure Gallery
 
-Open the [nine-page PDF gallery](../assets/gallery.pdf): an overview and eight
-case pages. Each case below co-locates runnable source, synthetic teaching data,
-and a PDF at its intended physical size. The values are deterministic examples,
-not simulation findings or scientific evidence. The overview preserves native
-placement scale and gives the wider related-metrics case two columns.
+Open the [nine-page PDF gallery](../assets/gallery.pdf): an overview and eight case pages. Each case below co-locates runnable source, synthetic teaching data, and a PDF at its intended physical size. The values are deterministic examples, not simulation findings or scientific evidence. The overview preserves native placement scale and gives the wider related-metrics case two columns.
 
 | Example PDF | Use and principal pitfall | Plotting source | Teaching CSV |
 | --- | --- | --- | --- |
@@ -18,9 +14,7 @@ placement scale and gives the wider related-metrics case two columns.
 | [08 · Related metrics](../assets/examples/metric-comparison/figure.pdf) | Repeat group encodings across two ordinary quantitative axes; retain each metric's units and scale. | [source.py — metric_comparison](../assets/examples/metric-comparison/source.py) | [metric-comparison/data.csv](../assets/examples/metric-comparison/data.csv) |
 
 
-The first, second, and sixth cases invoke the canonical CSV templates; use the
-[tutorials](tutorials.md) to adapt them. The other cases use direct functions in
-their `source.py`. They are teaching examples, not a general plotting API.
+The first, second, and sixth cases invoke the canonical CSV templates; use the [tutorials](tutorials.md) to adapt them. The other cases use direct functions in their `source.py`. They are teaching examples, not a general plotting API.
 
 From `skills/data-visualization/`, run one case or rebuild the gallery:
 
@@ -29,8 +23,4 @@ python assets/examples/distribution/source.py --output /private/tmp/distribution
 python scripts/build_gallery.py --output-dir /private/tmp/data-vis-gallery-review
 ```
 
-Omitting `--output` replaces that case's `figure.pdf`; omitting `--output-dir`
-replaces the bundled gallery and figures. See [api.md](api.md) for runtime
-requirements and deliberate data regeneration. After visual changes, inspect
-the standalone PDF and assembled overview using the
-[completion gate](../SKILL.md#completion-gate).
+Omitting `--output` replaces that case's `figure.pdf`; omitting `--output-dir` replaces the bundled gallery and figures. See [api.md](api.md) for runtime requirements and deliberate data regeneration. After visual changes, inspect the standalone PDF and assembled overview using the [completion gate](../SKILL.md#completion-gate).

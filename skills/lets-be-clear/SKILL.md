@@ -1,48 +1,59 @@
 ---
 name: lets-be-clear
-description: Clarify a problem, help the user work through decisions, confirm the scope, and complete the agreed task. Use when invoked, when the user checks shared understanding, when a request is ambiguous, when they are stuck and ask for help deciding, or when schematic-designer delegates a figure brief. Do not activate for ordinary retrieval or definition requests alone.
+description: Clarify a problem, help the user work through decisions, confirm unresolved choices, and complete the task. Use when invoked, when the user checks shared understanding, when a request is ambiguous, when they are stuck and ask for help deciding, or when schematic-designer delegates a figure brief. Do not activate for ordinary retrieval or definition requests alone.
 ---
 
 # Let's Be Clear
 
-Help the user frame a problem, resolve decisions that block progress, and learn while doing. Make missing information and unstated assumptions visible, provide enough context to support decisions, and explain what the user needs to answer.
+Help the user think through the problem and learn while doing. Keep the writing human, direct, and conversational. Preserve their voice.
 
-Keep the writing human, direct, thoughtful, and conversational. Preserve the user's voice. Be candid and constructive: critique the request and its consequences, not the person.
+## When to use
 
-## Step-by-step process
+- The user invokes the skill, asks whether they are clear, or asks for help deciding.
+- The request is vague, underspecified, or internally conflicting, and different answers would change the work.
+- `schematic-designer` delegates a figure brief.
 
-1. **Understand the desired outcome.** Identify what the user is trying to achieve and what a useful result would look like. Use what they have already decided.
-2. **Identify decisions and assumptions.** Find the choices that affect the solution. Tell the user what is missing, unclear, or internally inconsistent, and why it matters. Distinguish stated assumptions, implicit assumptions, and assumptions you would introduce.
-3. **Provide decision support and ask answerable questions.** Identify whether the gap concerns facts, the user's context, priorities, or difficulty comparing options. Explain facts from the available context; ask the user for context and priorities. Narrow options using the goal and constraints. Explain tradeoffs, give a justified recommendation, and support factual claims with evidence where needed. Before asking, test: “Would different answers change what I do?” Bundle independent questions; ask dependent questions after their prerequisites. If research is needed to resolve a choice, confirm that bounded research task before using tools; this does not confirm the larger task.
-4. **Define the problem and confirm the scope.** Restate the goal, action, constraints, assumptions, and desired result. Preserve exact quotations and identifiers without adding requirements or permissions. Ask the user to confirm before starting the underlying work, including searching, editing, running commands, calling tools, delegating, or external communication. If their answer explicitly authorizes the corrected scope, accept it without asking again. Reuse an already confirmed matching brief.
-5. **Complete and check the task.** After confirmation, choose routine technical methods yourself, do the agreed work, and check the result. Explain the result and any limitations. Finish when the agreed deliverable is complete; if it is not, say what remains.
+Do not use it for ordinary retrieval or definition requests, or for a request that is already clear enough to do. Do not force an interview or a fixed number of questions.
 
-At step 3, **“I don't know yet” means keep helping.** If the information you provided does not help, try a different explanation, a concrete example, or a smaller decision. Find what is still unclear and iterate together until the user can choose, agrees to a provisional approach, or wants to pause. Keep their priorities theirs.
+## Process
 
-For a request only to clarify or check understanding, the clarified brief is the deliverable. For a delegated brief, return control to the calling skill and honor its required confirmation; reuse an already confirmed matching brief. Clarification does not authorize work beyond the agreed scope.
+1. **Understand the outcome.** What is the user trying to achieve?
+2. **Find the blocking decision.** Tell the user what they have not provided, why it matters, and how their framing could improve. Critique the reasoning respectfully; helping them starts with making them aware.
+3. **Surface assumptions.** Identify the assumptions the user stated, the ones hidden in the request, and the ones you would introduce.
+4. **Help the user decide.** Find or explain missing facts. Narrow excessive options, show how each choice changes the outcome, and recommend one with reasons. Use evidence or citations where needed.
+5. **Ask and move forward.** Ask only for context or priorities the user must supply. Before asking, test the question: "Would different answers change what I do?" Offer understandable options rather than making the user invent them. "I don't know yet" means explain differently and work through an example together. Keep helping until the decision is clear enough to proceed, then complete and check the task.
 
 ## Agent response structure
 
-Before asking the user to decide, give a short response in this order:
+Keep it short and scannable. Skip settled points. Give the information before asking for a choice.
 
 - **Goal:** What we are trying to achieve.
-- **Undecided:** What needs deciding and why it matters.
-- **Information:** What we already know, what is missing, and what information would resolve the decision.
-- **Options and recommendation:** The useful choices, their tradeoffs, and what I recommend with reasons.
-- **Your input:** The specific question to answer and the context you need to supply. “I don't know yet” is welcome.
+- **Blocking decision and assumptions:** What is undecided, what is being assumed, and why it matters.
+- **Useful information:** The relevant facts or a concrete example; the remaining unknowns.
+- **Options and recommendation:** The choices, what each changes, and a recommendation with reasons.
+- **Your input:** The question, plus the context only the user can supply.
 
-Repeat the decision-specific parts only for consequential open choices. If enough is known, skip clarification questions and move to scope confirmation. After confirmation, do the work. Do not ask again when the user has already explicitly confirmed the same scope.
+## Boundaries
+
+- Read available context and gather relevant facts freely; step 4 depends on it. Confirm consequential choices that are still unresolved before acting on them, and reuse confirmation already given.
+- For a clarification-only request, the brief is the deliverable. For a delegated brief, return control to the caller.
+- Do not invent parameters, choose the user's priorities for them, or write a learning record.
+
+## Completion
+
+The task is complete and checked, with the assumptions and reasons for the decisions explained.
 
 ## Flowchart
 
 ```mermaid
 flowchart TD
-    A["1. Read the user's prompt and understand the outcome"] --> B["2. Identify decisions and assumptions"]
-    B -- "Need help deciding" --> C["3. Explain options and work through questions"]
-    B -- "Enough information" --> D["4. Define the problem and confirm the scope"]
-    C -- "Still stuck: try another way" --> C
-    C -- "Ready" --> D
-    D -- "An important decision remains unresolved" --> C
-    D -- "Scope confirmed" --> E["5. Complete and check the agreed task"]
+    A["User prompt"]
+    B["1. Understand the outcome<br/>What is the user trying to achieve?"]
+    C["2. Find the blocking decision<br/>What have they not provided, and why does it matter?<br/>Critique the framing respectfully"]
+    D["3. Surface assumptions<br/>Stated, hidden, and the ones the agent would add"]
+    E["4. Help the user decide<br/>Find or explain missing facts<br/>Narrow the options and show what each changes<br/>Recommend one, with reasons and evidence"]
+    F["5. Ask and move forward<br/>Ask only what the user must supply<br/>If they don't know yet: explain differently, work an example<br/>When the decision is clear: complete and check the task"]
+    A --> B --> C --> D --> E --> F
 ```
-See [tutorials](tutorials.md) for worked conversations and good and bad examples.
+
+Step 5 loops in practice, repeating its explaining and asking until the decision is clear. The chart stays linear. See [tutorials](tutorials.md) for worked conversations.

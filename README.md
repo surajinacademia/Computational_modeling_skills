@@ -10,6 +10,7 @@ My goal for making these skills is **not** to replace the scientist but only to 
 
 | Skill | Scope |
 | --- | --- |
+| [Research_project_setup](skills/Research_project_setup/SKILL.md) | Set up or reorganize research projects with reusable README and AGENTS templates, verified Git checkpoints, and recovery |
 | [computational-modeling](skills/computational-modeling/SKILL.md) | Develop, test, and review scientific models for hypothesis testing, numerical verification, and physical validation |
 | [model-documentation](skills/model-documentation/SKILL.md) | Write and audit model documents explaining physical assumptions, equations, and numerical methods |
 | [scientific-notebook](skills/scientific-notebook/SKILL.md) | Create, maintain, execute, and review Jupyter notebooks for scientific research |
@@ -18,7 +19,7 @@ My goal for making these skills is **not** to replace the scientist but only to 
 | [schematic-designer](skills/schematic-designer/SKILL.md) | Design scientifically faithful figures and schematics with editable sources, PDF, and outlined SVG |
 | [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce, assess, or apply a paper’s computational model, method, claims, or results |
 | [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify decisions, confirm the scope, and complete the agreed task |
-| [slurm](skills/slurm/SKILL.md) | Prepare, submit, inspect, and cancel one CPU batch job with native Slurm |
+| [slurm](skills/slurm/SKILL.md) | Run jobs and sweeps across eligible idle capacity with native Slurm |
 
 
 **Schematic designer example**

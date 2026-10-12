@@ -1,9 +1,6 @@
 # Rebuild and adapt a figure
 
-Find a construction in the [library](library.md), inspect its finished pair, then
-read its local **Design lesson**, science notes, attribution, and editable source.
-Borrow the useful arrangement or encoding; retain the current figure's scientific
-meaning and apply the case's adaptation check.
+Find a construction in the [library](library.md), inspect its finished pair, then read its local **Design lesson**, science notes, attribution, and editable source. Borrow the useful arrangement or encoding; retain the current figure's scientific meaning and apply the case's adaptation check.
 
 ## Choose the relevant lesson
 
@@ -17,9 +14,7 @@ meaning and apply the case's adaptation check.
 | Explain equations and formal constraints | [Secant geometry](../assets/examples/tikz/secant-regression-geometry/README.md#design-lesson) derives marks from the equation; [global nodes](../assets/examples/tikz/global-nodes/README.md#design-lesson) names terms without breaking the baseline; [linked equations](../assets/examples/tikz/tkz-linknodes-examples/README.md#design-lesson) exposes transformations; [object-role notation](../assets/examples/tikz/tkz-orm-example/README.md#design-lesson) preserves meaningful dots, bars, and boundaries. |
 | Combine scopes or renderers | [Behavioral timescales](../assets/examples/tikz/behavioral-timescale-buckets/README.md#design-lesson) shows overlapping qualitative scopes without blended category colors. [Chemoattraction](../assets/examples/tikz/chemoattraction/README.md#design-lesson) composes computed panels at native physical size with one heading per panel and distinct categorical/scalar color roles. |
 
-Several lessons may combine. Check the transferred construction directly: trace
-every branch, verify annotation targets, keep apertures clear, or compare local
-and global coordinates. A build alone does not establish a clear reading order.
+Several lessons may combine. Check the transferred construction directly: trace every branch, verify annotation targets, keep apertures clear, or compare local and global coordinates. A build alone does not establish a clear reading order.
 
 ## Common build entry point
 
@@ -35,29 +30,12 @@ python3 scripts/build_example.py <case> --output-dir <approved-directory>
 | Native learning; hybrid chemoattraction | `learning-tikz`; `chemoattraction` |
 | Other 17 TikZ constructions | `tikz-<slug>`, using the case's directory name |
 
-Each recipe gives exact filenames. Use a separate approved output directory per
-case, outside the skill tree. Invoke the builder with the existing
-`python3` or an already compatible project Python;
-child builds inherit that interpreter. Do not install dependencies as part of a recipe. Follow
-[typography](typography.md) and the [execution safeguards](../SKILL.md#input-and-execution-safety);
-a recipe does not authorize executing unknown raw TeX.
+Each recipe gives exact filenames. Use a separate approved output directory per case, outside the skill tree. Invoke the builder with the existing `python3` or an already compatible project Python; child builds inherit that interpreter. Do not install dependencies as part of a recipe. Follow [typography](typography.md) and the [execution safeguards](../SKILL.md#input-and-execution-safety); a recipe does not authorize executing unknown raw TeX.
 
-The builder generates shared styles in fresh temporary storage. Native TikZ
-builds declare their source and support files to `render_tikz.py`. Chemoattraction
-also regenerates four Matplotlib panel PDFs; its final pair belongs to the TikZ
-compositor. Archives and existing figure outputs are never panel inputs.
-See [renderer workflows](renderer-workflows.md) for custom authoring and native
-arrow integration.
+The builder generates shared styles in fresh temporary storage. Native TikZ builds declare their source and support files to `render_tikz.py`. Chemoattraction also regenerates four Matplotlib panel PDFs; its final pair belongs to the TikZ compositor. Archives and existing figure outputs are never panel inputs. See [renderer workflows](renderer-workflows.md) for custom authoring and native arrow integration.
 
 ## Adapt and verify
 
-Keep scientific constants separate from visual roles. Regenerate hybrid panels
-at their intended physical size instead of shrinking labels and strokes during
-composition. Check the recipe's limitations and corrections; historical values
-are not current measurements, and illustrative geometry is not validated data.
-Retain declared scientific raster layers only where appropriate.
+Keep scientific constants separate from visual roles. Regenerate hybrid panels at their intended physical size instead of shrinking labels and strokes during composition. Check the recipe's limitations and corrections; historical values are not current measurements, and illustrative geometry is not validated data. Retain declared scientific raster layers only where appropriate.
 
-Inspect the final PDF and SVG at publication size, apply the complete
-[export contract](vector-export.md) and [completion gate](../SKILL.md#completion-gate),
-and deliver one final pair with editable provenance. Report illustrative content,
-substitutions, and unresolved scientific ambiguities.
+Inspect the final PDF and SVG at publication size, apply the complete [export contract](vector-export.md) and [completion gate](../SKILL.md#completion-gate), and deliver one final pair with editable provenance. Report illustrative content, substitutions, and unresolved scientific ambiguities.

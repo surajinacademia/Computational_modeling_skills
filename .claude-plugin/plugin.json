@@ -1,10 +1,10 @@
 {
   "name": "computational-modeling-skills",
-  "description": "Nine skills for scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs.",
-  "version": "2.0.0",
+  "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
+  "version": "2.1.0",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },
-  "repository": "https://github.com/surajinacademia/theoretical-biophysics-modeling-skills",
+  "repository": "https://github.com/surajinacademia/Computational_modeling_skills",
   "license": "SEE LICENSE IN LICENSE"
 }

@@ -8,11 +8,12 @@
 #SBATCH --mem=1G
 #SBATCH --time=00:10:00
 #SBATCH --no-requeue
+#SBATCH --export=NONE
 
 set -euo pipefail
 
 # Add the required explicit module or virtual environment setup here.
-# Submit from an environment without credentials or sensitive variables.
+# Declare only required non-secret variables; use verified executable paths.
 
 # A draft must fail instead of accidentally running an unspecified workload.
 # Replace this guard with the approved command, for example:

@@ -1,54 +1,32 @@
 # Third-party notices
 
-Original material is covered by [LICENSE](LICENSE). The following exceptions
-retain their stated licenses; copyright and attribution are not transferred.
-Keep the applicable notices with redistributed source or figures. Credits do not
-imply endorsement by any original creator.
+Original material is covered by [LICENSE](LICENSE). The following exceptions retain their stated licenses; copyright and attribution are not transferred. Keep the applicable notices with redistributed source or figures. Credits do not imply endorsement by any original creator.
+
+## Research project setup guidance
+
+The `Research_project_setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/Research_project_setup/references/goodresearch-setup.md), [Git workflow](skills/Research_project_setup/references/git-workflow.md), and [README template](skills/Research_project_setup/assets/template/README.md#references) credit and link the source chapters. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
 
 ## Scientific notebook guidance
 
-Selected workflow practices adapt OpenAI's public `role-specific-plugins` Data
-Analytics notebook skill, version `0.2.6`, at commit
-`fe5608d2512a7d6a7b9821ce8a88c48464ecd6e4` (MIT).
-Copyright (c) 2026 OpenAI. The complete upstream MIT notice is retained at
-[openai-role-specific-plugins-MIT.txt](skills/scientific-notebook/licenses/openai-role-specific-plugins-MIT.txt).
-The [source record](skills/scientific-notebook/references/data-guidance.md)
-links the exact upstream files and describes the adaptations. No proprietary
-cached plugin material is included.
+Selected workflow practices adapt OpenAI's public `role-specific-plugins` Data Analytics notebook skill, version `0.2.6`, at commit `fe5608d2512a7d6a7b9821ce8a88c48464ecd6e4` (MIT). Copyright (c) 2026 OpenAI. The complete upstream MIT notice is retained at [openai-role-specific-plugins-MIT.txt](skills/scientific-notebook/licenses/openai-role-specific-plugins-MIT.txt). The [source record](skills/scientific-notebook/references/data-guidance.md) links the exact upstream files and describes the adaptations. No proprietary cached plugin material is included.
 
 ## Model documentation resources
 
-The model-documentation template and oscillator example are original material
-under this repository's MIT license. Their references link to external teaching
-resources and scientific explanations; no paper, website text, or external figure
-is redistributed. Linked resources retain their respective licenses. The example
-parameters are illustrative, not literature measurements or experimental results.
+The model-documentation template and oscillator example are original material under this repository's MIT license. Their references link to external teaching resources and scientific explanations; no paper, website text, or external figure is redistributed. Linked resources retain their respective licenses. The example parameters are illustrative, not literature measurements or experimental results.
 
 ## Learning Dynamics visual profile
 
-The `schematic-designer` skill includes an independently documented visual-
-grammar profile informed by:
+The `schematic-designer` skill includes an independently documented visual- grammar profile informed by:
 
-Rituparno Mandal, Rosalind Huang, Michel Fruchart, Pepijn G. Moerman,
-Suriyanarayanan Vaikuntanathan, Arvind Murugan, and Vincenzo Vitelli,
-*Learning dynamical behaviors in physical systems*, arXiv:2406.07856v1,
-<https://arxiv.org/abs/2406.07856>.
+Rituparno Mandal, Rosalind Huang, Michel Fruchart, Pepijn G. Moerman, Suriyanarayanan Vaikuntanathan, Arvind Murugan, and Vincenzo Vitelli, *Learning dynamical behaviors in physical systems*, arXiv:2406.07856v1, <https://arxiv.org/abs/2406.07856>.
 
-The arXiv record identifies the paper license as Creative Commons Attribution
-4.0 International: <https://creativecommons.org/licenses/by/4.0/>.
+The arXiv record identifies the paper license as Creative Commons Attribution 4.0 International: <https://creativecommons.org/licenses/by/4.0/>.
 
-The profile records independently measured or inferred visual grammar. It does
-not include the paper, its data, photographs, bespoke illustrations, or panel
-compositions. The bundled example science is original and illustrative. This
-notice does not imply endorsement by the paper authors.
+The profile records independently measured or inferred visual grammar. It does not include the paper, its data, photographs, bespoke illustrations, or panel compositions. The bundled example science is original and illustrative. This notice does not imply endorsement by the paper authors.
 
 ## TikZ gallery
 
-The 17 imported gallery records below identify each source or pattern reference.
-Active examples retain an `ATTRIBUTION.md` beside their editable source; the
-[manifest](skills/schematic-designer/assets/examples/tikz/manifest.json) records
-source URLs, licenses, and adaptation details. Preserve the specified attribution,
-change notices, and applicable share-alike terms when adapting these works.
+The 17 imported gallery records below identify each source or pattern reference. Active examples retain an `ATTRIBUTION.md` beside their editable source; the [manifest](skills/schematic-designer/assets/examples/tikz/manifest.json) records source URLs, licenses, and adaptation details. Preserve the specified attribution, change notices, and applicable share-alike terms when adapting these works.
 
 | Example | Creator / credit | Terms |
 | --- | --- | --- |
@@ -70,45 +48,20 @@ change notices, and applicable share-alike terms when adapting these works.
 | [Optimization decision flowchart](skills/schematic-designer/assets/examples/tikz/optimization-decision-flowchart/ATTRIBUTION.md) | Jesse and Stack Exchange community contributors | CC BY-SA 3.0 |
 | [Behavioral timescale buckets](skills/schematic-designer/assets/examples/tikz/behavioral-timescale-buckets/ATTRIBUTION.md) | Izaak Neutelings | CC BY-SA 4.0 |
 
-The three MIT examples are independent implementations informed by patterns in
-[f0nzie/tikz_favorites](https://github.com/f0nzie/tikz_favorites/tree/9506fd5643abb406197bed176ab9183484006dd1).
-Their MIT labels do not license that upstream repository or its collected code.
-The optimization flowchart derives from
-[Jesse's Stack Exchange answer](https://tex.stackexchange.com/a/169693);
-its recorded source license is CC BY-SA 3.0.
+The three MIT examples are independent implementations informed by patterns in [f0nzie/tikz_favorites](https://github.com/f0nzie/tikz_favorites/tree/9506fd5643abb406197bed176ab9183484006dd1). Their MIT labels do not license that upstream repository or its collected code. The optimization flowchart derives from [Jesse's Stack Exchange answer](https://tex.stackexchange.com/a/169693); its recorded source license is CC BY-SA 3.0.
 
-License texts and conditions:
-[CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/),
-[CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/).
-The imported archive's `PACKAGE-LICENSE.txt` preserves the historical
-`tkz-linknodes` LPPL/GPL provenance notice; the package's `.sty` implementation
-is excluded from this release. This notice does not grant MIT rights to it.
+License texts and conditions: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/), [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/). The imported archive's `PACKAGE-LICENSE.txt` preserves the historical `tkz-linknodes` LPPL/GPL provenance notice; the package's `.sty` implementation is excluded from this release. This notice does not grant MIT rights to it.
 
 ## Collection artwork and paper workflow diagram
 
-The collection logo, icon, collective-cell-model-classes illustration, and
-paper-reproduce decision-stages diagram are original maintainer artwork covered
-by the repository's MIT license. The logo uses original outlined lettering and
-has no font dependency. The paper workflow diagram's editable TikZ and Mermaid
-sources are included; its PDF embeds CMU Sans Serif subsets and its SVG contains
-outlined lettering. Preserve the CMU font notice below when redistributing the
-PDF. No paper figure or upstream gallery artwork was copied into that diagram.
+The collection logo, icon, collective-cell-model-classes illustration, and paper-reproduce decision-stages diagram are original maintainer artwork covered by the repository's MIT license. The logo uses original outlined lettering and has no font dependency. The paper workflow diagram's editable TikZ and Mermaid sources are included; its PDF embeds CMU Sans Serif subsets and its SVG contains outlined lettering. Preserve the CMU font notice below when redistributing the PDF. No paper figure or upstream gallery artwork was copied into that diagram.
 
 ## Software and fonts
 
-Python, NumPy, Matplotlib, TeX engines, and PDF-to-SVG converters are not
-redistributed. Their own licenses apply when a user installs them.
+Python, NumPy, Matplotlib, TeX engines, and PDF-to-SVG converters are not redistributed. Their own licenses apply when a user installs them.
 
-The bundled PDF specimens embed font subsets. The SVG specimens convert text
-to paths and do not depend on installed fonts.
+The bundled PDF specimens embed font subsets. The SVG specimens convert text to paths and do not depend on installed fonts.
 
-- CMU Sans Serif is part of Computer Modern Unicode and uses the SIL Open Font
-  License 1.1. See <https://ctan.org/pkg/cm-unicode> and
-  `THIRD_PARTY_LICENSES/CMU-SIL-OFL-1.1.txt`.
-- The embedded Computer Modern Type 1 math fonts are distributed by AMSFonts
-  under the SIL Open Font License 1.1. See
-  <https://ctan.org/pkg/amsfonts> and
-  `THIRD_PARTY_LICENSES/AMSFonts-SIL-OFL-1.1.txt`.
-- Latin Modern uses the GUST Font License. See
-  <https://ctan.org/pkg/lm> and
-  `THIRD_PARTY_LICENSES/Latin-Modern-GUST-FONT-LICENSE.txt`.
+- CMU Sans Serif is part of Computer Modern Unicode and uses the SIL Open Font License 1.1. See <https://ctan.org/pkg/cm-unicode> and `THIRD_PARTY_LICENSES/CMU-SIL-OFL-1.1.txt`.
+- The embedded Computer Modern Type 1 math fonts are distributed by AMSFonts under the SIL Open Font License 1.1. See <https://ctan.org/pkg/amsfonts> and `THIRD_PARTY_LICENSES/AMSFonts-SIL-OFL-1.1.txt`.
+- Latin Modern uses the GUST Font License. See <https://ctan.org/pkg/lm> and `THIRD_PARTY_LICENSES/Latin-Modern-GUST-FONT-LICENSE.txt`.

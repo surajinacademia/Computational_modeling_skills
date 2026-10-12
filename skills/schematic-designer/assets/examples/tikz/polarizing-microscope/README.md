@@ -1,19 +1,8 @@
 # Polarizing microscope
 
-This maintained adaptation uses the owner's Minimalist palette through the
-shared profile, CMU Sans Serif text, real Computer Modern math, and native
-TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and
-spacing use shared roles; colors carry the same meaning in marks and labels.
+This maintained adaptation uses the owner's Minimalist palette through the shared profile, CMU Sans Serif text, real Computer Modern math, and native TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and spacing use shared roles; colors carry the same meaning in marks and labels.
 
-The projection basis, polarizer/crystal positions, sampled wave formulas,
-phase offsets and component coefficients are preserved from Langlois's
-illustrative construction. They are not a newly validated quantitative optics
-model. Propagation and polarization directions use native Latex heads; material
-plane fill opacity is separate from the opacity of labels and field vectors.
-The red and teal component colors persist across the crystal and output planes;
-the input field is deep navy. The source swapped the component colors after
-the analyzer; that color inconsistency is corrected without changing formulas. No independent field amplitude or phase was fitted.
-The caption retains the monochromatic and omitted-magnetic-field qualifications.
+The projection basis, polarizer/crystal positions, sampled wave formulas, phase offsets and component coefficients are preserved from Langlois's illustrative construction. They are not a newly validated quantitative optics model. Propagation and polarization directions use native Latex heads; material plane fill opacity is separate from the opacity of labels and field vectors. The red and teal component colors persist across the crystal and output planes; the input field is deep navy. The source swapped the component colors after the analyzer; that color inconsistency is corrected without changing formulas. No independent field amplitude or phase was fitted. The caption retains the monochromatic and omitted-magnetic-field qualifications.
 
 ## Design lesson
 
@@ -24,20 +13,15 @@ The caption retains the monochromatic and omitted-magnetic-field qualifications.
 
 ## Build and inspect
 
-From the schematic-designer skill directory, using the documented compatible
-Python environment:
+From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
 python3 scripts/build_example.py tikz-polarizing-microscope --output-dir /tmp/polarizing-microscope
 ```
 
-The builder generates current style support and compiles trusted source with
-LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG.
-Inspect labels, mathematical notation, terminal types and clearances at final
-size. No archived render or local legacy package is a build dependency.
+The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.
 
-[Editable source](source.tex) · [PDF](figures/figure.pdf) ·
-[Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
+[Editable source](source.tex) · [PDF](figures/figure.pdf) · [Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
 
 ## Current visual design
 

@@ -25,9 +25,4 @@ This example deliberately retains its original compact typography and shadows; i
 
 ## Verified export
 
-The restored native PDF is **107.48 × 82.59 mm**. Its compact local font scales
-are intentionally retained from the original design. PDF fonts are embedded;
-SVG labels, cards, property tabs and group marks remain vectors. The converter
-represents the 18 original blur shadows with embedded opacity masks, recorded
-individually in the TikZ manifest. These masks contain no diagram labels or
-particle content. Both final formats were visually inspected after rebuilding.
+The restored native PDF is **107.48 × 82.59 mm**. Its compact local font scales are intentionally retained from the original design. PDF fonts are embedded; SVG labels, cards, property tabs and group marks remain vectors. The converter represents the 18 original blur shadows with embedded opacity masks, recorded individually in the TikZ manifest. These masks contain no diagram labels or particle content. Both final formats were visually inspected after rebuilding.

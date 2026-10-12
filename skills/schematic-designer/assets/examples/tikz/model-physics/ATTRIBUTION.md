@@ -1,8 +1,6 @@
 # Attribution
 
-Standard model of physics: design by **David Galbraith and Carsten Burgard**;
-TikZ programming by **Carsten Burgard**; style syntax by **Stefan Kottwitz**.
-Credits verified from https://texample.net/model-physics/ on 2026-09-23.
+Standard model of physics: design by **David Galbraith and Carsten Burgard**; TikZ programming by **Carsten Burgard**; style syntax by **Stefan Kottwitz**. Credits verified from https://texample.net/model-physics/ on 2026-09-23.
 
 Source: https://texample.net/files/model-physics.tex
 

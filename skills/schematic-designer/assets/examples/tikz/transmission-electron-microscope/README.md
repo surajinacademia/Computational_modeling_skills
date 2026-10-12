@@ -1,19 +1,8 @@
 # Transmission Electron Microscope System
 
-This maintained adaptation uses the owner's Minimalist palette through the
-shared profile, CMU Sans Serif text, real Computer Modern math, and native
-TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and
-spacing use shared roles; colors carry the same meaning in marks and labels.
+This maintained adaptation uses the owner's Minimalist palette through the shared profile, CMU Sans Serif text, real Computer Modern math, and native TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and spacing use shared roles; colors carry the same meaning in marks and labels.
 
-The cutaway geometry, paired coils, aperture openings, sample holder and
-beam crossover paths retain the archived coordinates. Flat neutral housing,
-pale coil fills and repeated coil marks replace metallic gradients. The random
-cut edge is replaced by its deterministic polygon; the shading workaround was
-removed. Red denotes lens coils and their labels, teal the beam, and navy the
-specimen. The dotted optical axis remains distinct from the solid beam paths.
-“Sample” and “imaging” labels are expanded to “specimen” and “imaging plane.”
-This is an instrument construction example, not a calibrated electron-optics
-calculation. The native Latex arrow by the beam key indicates propagation.
+The cutaway geometry, paired coils, aperture openings, sample holder and beam crossover paths retain the archived coordinates. Flat neutral housing, pale coil fills and repeated coil marks replace metallic gradients. The random cut edge is replaced by its deterministic polygon; the shading workaround was removed. Red denotes lens coils and their labels, teal the beam, and navy the specimen. The dotted optical axis remains distinct from the solid beam paths. “Sample” and “imaging” labels are expanded to “specimen” and “imaging plane.” This is an instrument construction example, not a calibrated electron-optics calculation. The native Latex arrow by the beam key indicates propagation.
 
 ## Design lesson
 
@@ -24,20 +13,15 @@ calculation. The native Latex arrow by the beam key indicates propagation.
 
 ## Build and inspect
 
-From the schematic-designer skill directory, using the documented compatible
-Python environment:
+From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
 python3 scripts/build_example.py tikz-transmission-electron-microscope --output-dir /tmp/transmission-electron-microscope
 ```
 
-The builder generates current style support and compiles trusted source with
-LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG.
-Inspect labels, mathematical notation, terminal types and clearances at final
-size. No archived render or local legacy package is a build dependency.
+The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.
 
-[Editable source](source.tex) · [PDF](figures/figure.pdf) ·
-[Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
+[Editable source](source.tex) · [PDF](figures/figure.pdf) · [Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
 
 ## Current visual design
 

@@ -13,10 +13,10 @@ These are illustrative conversations, not real interactions.
 **Agent:**
 
 - **Goal:** Explain the motion, frequency, and energy of your oscillator.
-- **Undecided:** Whether this is an ideal explanation or a prediction for a real object. That determines which physical effects we need to include.
-- **Information:** No physical setup or parameter values are supplied. A symbolic derivation can leave values unspecified; a real prediction needs a description of the system and evidence about damping or driving.
-- **Options and recommendation:** An ideal spring–mass model is a useful introduction because it shows how inertia and the restoring force produce oscillations. A damped or driven model can explain losses or external pushes, but needs more context. I recommend the ideal symbolic model if your goal is the basic principle.
-- **Your input:** Is this a textbook explanation or a prediction for a real object? For a real object, describe what moves, what brings it back toward equilibrium, and what you observe. If you don't know which approach you need, tell me what you want to understand.
+- **Blocking decision and assumptions:** You haven't said whether this is an ideal explanation or a prediction for a real object, and the prompt lets me assume while asking me to assume little. We need to distinguish assumptions that are useful for an explanation from those that need evidence about a real system. Otherwise I would be assuming the system, damping, and forcing.
+- **Useful information:** No physical setup or parameter values are supplied. A symbolic derivation can leave values unspecified; a real prediction needs a description of the system and evidence about damping or driving. The governing equation and method are my work, not yours.
+- **Options and recommendation:** An ideal spring–mass model shows how inertia and a restoring force produce oscillations. A damped or driven model explains losses or external pushes, but needs more context. I recommend the ideal symbolic model if your goal is the basic principle.
+- **Your input:** Is this a textbook explanation or a prediction for a real object? For a real object, describe what moves, what brings it back toward equilibrium, and what you observe. If you don't know which you need, tell me what you want to understand.
 
 **User:** “A textbook explanation. I don't know yet whether I need damping or forcing.”
 
@@ -54,7 +54,7 @@ Energy moves between motion and spring deformation while the total stays constan
 
 The symbolic task is complete: the agreed model, solution, frequency, and energy have been explained and checked.
 
-## Enough information: confirm without an interview
+## Enough information: proceed without an interview
 
 **User:** “Use $lets-be-clear. For an ideal spring–mass oscillator, mass is 2 kg, stiffness is 8 N/m, initial displacement is 0.10 m, and initial velocity is zero. Find motion, frequency, and energy.”
 
@@ -62,13 +62,9 @@ The symbolic task is complete: the agreed model, solution, frequency, and energy
 
 **Bad agent response:** “What system is this? Which method should I use?” These questions add no useful information.
 
-**Agent:** “I'll calculate displacement over time, frequency, and energy for the ideal spring–mass model using your mass, stiffness, initial displacement, and zero initial velocity. Please confirm that scope.”
+**Agent:** “Using $m=2\,\mathrm{kg}$, $k=8\,\mathrm{N/m}$, $x_0=0.10\,\mathrm{m}$, and $v_0=0$ in the ideal model, with no damping or drive, $\omega_0=\sqrt{k/m}=2\,\mathrm{rad/s}$, $x(t)=(0.10\,\mathrm{m})\cos[(2\,\mathrm{rad/s})t]$, $f\approx0.318\,\mathrm{Hz}$, and $E=0.040\,\mathrm{J}$. The formula gives the stated initial displacement and zero initial velocity, and satisfies the governing equation. The energy is constant under the ideal assumptions.”
 
-**User:** “Yes, go ahead.”
-
-**Agent:** “Using the quantities defined above, $\omega_0=2\,\mathrm{rad/s}$, $x(t)=(0.10\,\mathrm{m})\cos[(2\,\mathrm{rad/s})t]$, $f\approx0.318\,\mathrm{Hz}$, and $E=0.040\,\mathrm{J}$. The formula gives the stated initial displacement and zero initial velocity, and satisfies the governing equation. The energy is constant under the ideal assumptions.”
-
-The supplied information was enough to skip clarification questions. The agent confirmed the scope before calculating.
+The supplied information left no consequential choice unresolved, so the agent stated its assumptions and calculated without asking for confirmation.
 
 ## An everyday decision: make an evening fit
 

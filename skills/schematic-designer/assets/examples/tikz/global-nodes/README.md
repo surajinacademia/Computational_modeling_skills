@@ -1,16 +1,8 @@
 # Global nodes across equations and lists
 
-This maintained adaptation uses the owner's Minimalist palette through the
-shared profile, CMU Sans Serif text, real Computer Modern math, and native
-TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and
-spacing use shared roles; colors carry the same meaning in marks and labels.
+This maintained adaptation uses the owner's Minimalist palette through the shared profile, CMU Sans Serif text, real Computer Modern math, and native TikZ `arrows.meta` terminals. Body text, structural strokes, pale fills and spacing use shared roles; colors carry the same meaning in marks and labels.
 
-The complete acceleration decomposition is preserved, including the body-frame
-superscript on both time derivatives, all plus signs and vector cross products.
-Named equation nodes replace document-global remembered overlays, so each
-colored term and its matching callout are positioned in one bounded picture.
-The arrows identify terms; they do not assert causal dependence. Labels and
-terms share teal (Coriolis), red (transversal), and navy (centripetal) colors.
+The complete acceleration decomposition is preserved, including the body-frame superscript on both time derivatives, all plus signs and vector cross products. Named equation nodes replace document-global remembered overlays, so each colored term and its matching callout are positioned in one bounded picture. The arrows identify terms; they do not assert causal dependence. Labels and terms share teal (Coriolis), red (transversal), and navy (centripetal) colors.
 
 ## Design lesson
 
@@ -21,20 +13,15 @@ terms share teal (Coriolis), red (transversal), and navy (centripetal) colors.
 
 ## Build and inspect
 
-From the schematic-designer skill directory, using the documented compatible
-Python environment:
+From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
 python3 scripts/build_example.py tikz-global-nodes --output-dir /tmp/global-nodes
 ```
 
-The builder generates current style support and compiles trusted source with
-LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG.
-Inspect labels, mathematical notation, terminal types and clearances at final
-size. No archived render or local legacy package is a build dependency.
+The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.
 
-[Editable source](source.tex) · [PDF](figures/figure.pdf) ·
-[Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
+[Editable source](source.tex) · [PDF](figures/figure.pdf) · [Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
 
 ## Current visual design
 

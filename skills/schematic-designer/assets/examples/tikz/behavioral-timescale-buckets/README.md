@@ -1,18 +1,8 @@
 # Behavioral timescale buckets
 
-This maintained adaptation uses the owner's Minimalist palette through the
-shared profile, CMU Sans Serif text, real Computer Modern math, and native
-TikZ `arrows.meta` terminals. Body text, structural strokes, outline regions and
-spacing use shared roles; colors carry the same meaning in marks and labels.
+This maintained adaptation uses the owner's Minimalist palette through the shared profile, CMU Sans Serif text, real Computer Modern math, and native TikZ `arrows.meta` terminals. Body text, structural strokes, outline regions and spacing use shared roles; colors carry the same meaning in marks and labels.
 
-The five overlapping disciplinary buckets, ten branches and three braces
-preserve the original qualitative cross-timescale story. Axis position is
-conceptual, not a numerical time coordinate. The progression to behavior has
-one native Latex head. The shared emphasis stroke replaces the heavy arrow;
-larger physical spacing makes body labels readable without shrinking text.
-Unfilled region outlines keep overlapping scopes visible while labels remain opaque. Branch labels associated with a discipline reuse its categorical color when
-legible. Orange and amber categories use dark text beside the colored branch,
-brace or explicit key, retaining contrast on the white canvas.
+The five overlapping disciplinary buckets, ten branches and three braces preserve the original qualitative cross-timescale story. Axis position is conceptual, not a numerical time coordinate. The progression to behavior has one native Latex head. The shared emphasis stroke replaces the heavy arrow; larger physical spacing makes body labels readable without shrinking text. Unfilled region outlines keep overlapping scopes visible while labels remain opaque. Branch labels associated with a discipline reuse its categorical color when legible. Orange and amber categories use dark text beside the colored branch, brace or explicit key, retaining contrast on the white canvas.
 
 ## Design lesson
 
@@ -23,20 +13,15 @@ brace or explicit key, retaining contrast on the white canvas.
 
 ## Build and inspect
 
-From the schematic-designer skill directory, using the documented compatible
-Python environment:
+From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
 python3 scripts/build_example.py tikz-behavioral-timescale-buckets --output-dir /tmp/behavioral-timescale-buckets
 ```
 
-The builder generates current style support and compiles trusted source with
-LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG.
-Inspect labels, mathematical notation, terminal types and clearances at final
-size. No archived render or local legacy package is a build dependency.
+The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.
 
-[Editable source](source.tex) · [PDF](figures/figure.pdf) ·
-[Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
+[Editable source](source.tex) · [PDF](figures/figure.pdf) · [Outlined SVG](figures/figure.svg) · [Attribution](ATTRIBUTION.md)
 
 ## Current visual design
 

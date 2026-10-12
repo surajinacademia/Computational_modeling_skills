@@ -1,11 +1,6 @@
 # Figure library
 
-The 22 maintained figures are grouped by authoring source: 19 under
-[TikZ](../assets/examples/tikz/README.md) and three under
-[Matplotlib](../assets/examples/matplotlib/README.md). Use this index for sources
-and final pairs, the [lesson selector](tutorials.md#choose-the-relevant-lesson)
-for a communication problem, and each case's **Design lesson** for the useful
-choice, reader benefit, transfer limits, and adaptation check.
+The 22 maintained figures are grouped by authoring source: 19 under [TikZ](../assets/examples/tikz/README.md) and three under [Matplotlib](../assets/examples/matplotlib/README.md). Use this index for sources and final pairs, the [lesson selector](tutorials.md#choose-the-relevant-lesson) for a communication problem, and each case's **Design lesson** for the useful choice, reader benefit, transfer limits, and adaptation check.
 
 ## Matplotlib examples
 
@@ -15,9 +10,7 @@ choice, reader benefit, transfer limits, and adaptation check.
 | Learning dynamics: numerical learning and retrieval | [Python](../assets/examples/matplotlib/learning-dynamics/matplotlib-figure.py) | [Computed variant](../assets/examples/matplotlib/learning-dynamics/README.md) | [PDF](../assets/examples/matplotlib/learning-dynamics/figures/learning-dynamics-2406.pdf) · [SVG](../assets/examples/matplotlib/learning-dynamics/figures/learning-dynamics-2406.svg) |
 | Collective cell modeling choices: representations and coarse-graining | [Python](../assets/examples/matplotlib/collective-cell-model-classes/matplotlib-figure.py) | [Build and science](../assets/examples/matplotlib/collective-cell-model-classes/README.md) | [PDF](../assets/examples/matplotlib/collective-cell-model-classes/figures/collective-cell-model-classes.pdf) · [SVG](../assets/examples/matplotlib/collective-cell-model-classes/figures/collective-cell-model-classes.svg) |
 
-[Chemoattraction panel helper](../assets/examples/matplotlib/chemoattraction/README.md)
-generates inputs for the TikZ figure below. This coupled workflow does not
-create a third source group or duplicate the final pair.
+[Chemoattraction panel helper](../assets/examples/matplotlib/chemoattraction/README.md) generates inputs for the TikZ figure below. This coupled workflow does not create a third source group or duplicate the final pair.
 
 ## TikZ examples
 
@@ -45,40 +38,14 @@ create a third source group or duplicate the final pair.
 
 ## Design and scientific boundaries
 
-Use the [shared Minimalist profile](styles/minimalist.md). Entity colors,
-typography, strokes, markers, spacing, and patterns have consistent roles;
-scientific radii, vector lengths, quantitative color scales, and time-encoding
-opacity retain their meaning. Case recipes document exceptions and limitations.
-At the owner's request, the particle model and three spherical specimens keep
-their original layouts, compact detail, shadows, and three-dimensional depth
-cues; only their palettes change. Do not flatten them to enforce shared defaults.
+Use the [shared Minimalist profile](styles/minimalist.md). Entity colors, typography, strokes, markers, spacing, and patterns have consistent roles; scientific radii, vector lengths, quantitative color scales, and time-encoding opacity retain their meaning. Case recipes document exceptions and limitations. At the owner's request, the particle model and three spherical specimens keep their original layouts, compact detail, shadows, and three-dimensional depth cues; only their palettes change. Do not flatten them to enforce shared defaults.
 
-Read each recipe's scientific corrections before adaptation. Historical particle
-values are not current reference measurements, and illustrative optics, orbits,
-or trajectories are not validated results. Corrections to the scalar-boson
-heading, ellipse-center label, square-root annotation, and spherical-plane
-transform are documented with their respective sources.
+Read each recipe's scientific corrections before adaptation. Historical particle values are not current reference measurements, and illustrative optics, orbits, or trajectories are not validated results. Corrections to the scalar-boson heading, ellipse-center label, square-root annotation, and spherical-plane transform are documented with their respective sources.
 
 ## Organization and reuse
 
-Each case owns its source, recipe, and one final PDF/SVG pair in `figures/`.
-Shared styles live in `assets/styles/`; build and export helpers live in
-`scripts/`. Build into an approved project directory outside the skill tree;
-logs, generated TeX, and intermediate panels are not additional examples.
-See [tutorials](tutorials.md#common-build-entry-point) for the common command.
+Each case owns its source, recipe, and one final PDF/SVG pair in `figures/`. Shared styles live in `assets/styles/`; build and export helpers live in `scripts/`. Build into an approved project directory outside the skill tree; logs, generated TeX, and intermediate panels are not additional examples. See [tutorials](tutorials.md#common-build-entry-point) for the common command.
 
-The [TikZ manifest](../assets/examples/tikz/manifest.json) records 19 cases.
-The 17 imported or independently reconstructed constructions retain adjacent `ATTRIBUTION.md` files and
-[historical originals](../archives/imported-tikz-gallery), including the
-[original license record](../archives/imported-tikz-gallery/LICENSE.md).
-Read entry-specific source and package terms and retain required notices.
-Archives preserve provenance; they are neither active build inputs nor current
-style templates. See the [archive boundary](../archives/README.md).
+The [TikZ manifest](../assets/examples/tikz/manifest.json) records 19 cases. The 17 imported or independently reconstructed constructions retain adjacent `ATTRIBUTION.md` files and [historical originals](../archives/imported-tikz-gallery), including the [original license record](../archives/imported-tikz-gallery/LICENSE.md). Read entry-specific source and package terms and retain required notices. Archives preserve provenance; they are neither active build inputs nor current style templates. See the [archive boundary](../archives/README.md).
 
-The source-adjacent figure organization was informed by the inspected
-[figures4papers revision](https://github.com/ChenLiu-1996/figures4papers/tree/3c181f85e82c6f24948fcaaf3be6696102b41d8d).
-A public URL or visual similarity does not establish reuse rights. The owner
-authorized this skill's reviewed public export for the eight-skill 1.0.0 release.
-Keep attribution, change notices, and the applicable license with each borrowed
-source and rendered adaptation. That authorization does not include private
-local history or other skills, and does not replace third-party license terms.
+The source-adjacent figure organization was informed by the inspected [figures4papers revision](https://github.com/ChenLiu-1996/figures4papers/tree/3c181f85e82c6f24948fcaaf3be6696102b41d8d). A public URL or visual similarity does not establish reuse rights. The owner authorized this skill's reviewed public export for the eight-skill 1.0.0 release. Keep attribution, change notices, and the applicable license with each borrowed source and rendered adaptation. That authorization does not include private local history or other skills, and does not replace third-party license terms.
