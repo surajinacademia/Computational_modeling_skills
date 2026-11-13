@@ -1,68 +1,66 @@
 # User-Model Comparison
 
-Use this reference when a user's computational model is evaluated against published experimental measurements or another model's reported results.
+Apply this guide when evaluating a user's computational model against published experimental measurements or another model's results.
 
 ## 1. State the comparison target
 
-Identify the selected claim or reported result independently of either method. Record its observable, contrast, controls, domain, sample unit, aggregation, uncertainty, and conditions as applicable. A result-only comparison does not require inventing a broader paper claim. Do not describe a different model as reproducing the paper's data-generating mechanism.
+Define the claim or reported result independently of either method (observable, contrast, controls, domain, sample unit, aggregation, uncertainty, and conditions). Result-only comparisons need no invented broader claim; never describe a distinct model as reproducing the paper's data-generating mechanism.
 
-Preserve the user's original model. Record every authorized change and isolate modified outputs from both the original user-model baseline and any paper-method baseline.
+Keep the user's original model intact, logging every authorized edit and isolating modified outputs from both the original baseline and any paper-method baseline.
 
 ## 2. Build the measurement mapping
 
-Map explicitly:
+Specify how model and reference align across:
 
 - variables and units;
 - geometry, dimensionality, boundary conditions, and parameter domain;
 - intervention, controls, and sampling times;
-- simulated state to measured signal;
+- latent simulated state to measured signal;
 - sampling, aggregation, normalization, and uncertainty.
 
-For experimental data, the measurement operator may include resolution, point-spread function, binning, background, noise, detection threshold, missing values, or segmentation. Compare like with like; a latent simulation field is not automatically an experimental intensity.
-
-Record unmatched conditions and their materiality. Agreement under a changed condition does not validate the original published claim.
+For experiments, explicit measurement operators may include resolution, PSF, binning, background, noise, detection thresholds, missingness, or segmentation; define how latent fields map to measured intensity before comparing. Log unmatched conditions and materiality, since agreement under altered conditions does not validate the published claim.
 
 ## 3. Choose evidence and comparison strength
 
-Prefer reference evidence in this order:
+Prefer reference evidence in order:
 
 1. author-provided raw or processed data;
 2. official or published repository data;
 3. supplementary or manuscript tables;
 4. digitized values from a published figure.
 
-For digitization record source image and hash, panel, axes and scale, calibration points, extraction method, transformations, and extraction uncertainty. Label values `digitized`; never call them author-provided raw data or infer unseen replicate distributions from plotted summaries.
+For digitization record source image and hash, panel, axes/scale, calibration points, extraction method, transforms, and extraction uncertainty. Label values `digitized`; never call them raw data or infer unseen replicate distributions from summary plots.
 
-Choose qualitative comparison, quantitative comparison, or both before generating assessment evidence:
+Select qualitative comparison, quantitative comparison, or both before generating assessment evidence:
 
-- `qualitative`: direction, ordering, trend, regime, transition, morphology, or spatial/temporal structure;
+- `qualitative`: direction, ordering, trend, regime, transition, morphology, or spatiotemporal structure;
 - `quantitative`: harmonized numerical metric, reported and model uncertainty, and a frozen tolerance or decision rule.
 
-When both are needed, define separate criteria and report separate conclusions; agreement in one does not imply agreement in the other. Visual resemblance alone is neither mode. Comparison strength is a setting for this target, not a separate implementation level or mandatory third decision stage.
+When both apply, give separate criteria and verdicts (trends can match while numbers disagree); visual resemblance alone is neither mode. Comparison strength configures the target rather than adding a separate depth or decision stage.
 
 ## 4. Distinguish prediction from fit
 
-Record how the model output was determined, including for existing runs:
+Log how outputs were produced, even for preexisting runs:
 
-- `prediction`: target evaluation data were not used for calibration, tuning, or model selection; this includes parameter-free predictions and models with independently specified parameters. If calibration was required, its data must be separate from evaluation data;
-- `fit`: target data are reused for calibration or model selection.
+- `prediction`: evaluation data were untouched during calibration, tuning, or model selection (including parameter-free or independently parameterized models; calibration conditions must be disjoint from evaluation conditions);
+- `fit`: target data informed calibration or model selection.
 
-A fit may be consistent with its fitted data, but it is not an independent prediction. When evaluation reuses fitting data, retain the fit label in every relevant table, figure, and verdict. Do not introduce fitting solely to satisfy a workflow field. For mixed studies, identify fitted and predictive conditions separately.
+Fits can match fitted data without offering an independent prediction; keep the `fit` label across tables, figures, and verdicts, never adding calibration merely to populate a field, and separate fitted vs predictive conditions in mixed studies.
 
-Record assessment status separately. Criteria specified before inspecting assessment outcomes are prospective; criteria chosen after inspection are exploratory. A fixed independent prediction can receive an exploratory assessment. Viewing the reference after the prediction was fixed does not turn it into a fit. Use a descriptive comparison with an explicit limitation when available provenance cannot establish predictive independence; do not invent that provenance.
+Track assessment timing separately: criteria fixed before inspecting evaluation outputs are `prospective`; criteria chosen after inspection are `exploratory` (an independent fixed prediction can still receive exploratory assessment, and viewing the reference after fixing a prediction does not turn it into a fit). Use a descriptive comparison with explicit caveats when provenance cannot prove predictive independence rather than inventing provenance.
 
-Do not tune undocumented parameters, search seeds, choose preprocessing, or select evaluation subsets using target agreement unless the result is explicitly reported as exploratory fitting.
+Never tune undocumented parameters, cherry-pick seeds, alter preprocessing, or subset evaluation data to improve agreement unless clearly reported as exploratory fitting.
 
 ## 5. Report the result
 
-Report separately:
+Report each element separately:
 
 - user-model implementation validity;
 - mapping fidelity and unmatched assumptions;
 - data provenance and extraction uncertainty;
-- prediction provenance (`prediction`, `fit`, or undetermined independence) and assessment status (prospective, exploratory, or descriptive without an inferential decision rule);
-- qualitative and/or quantitative consistency under mapped conditions, with separate criteria and conclusions when both were requested;
+- prediction provenance (`prediction`, `fit`, or undetermined independence) and assessment status (`prospective`, `exploratory`, or descriptive);
+- qualitative and/or quantitative consistency under mapped conditions (separate criteria and outcomes when both apply);
 - disagreement or inconclusiveness;
 - scientific limitations.
 
-Describe whether each predeclared criterion is met, not met, inconclusive, or not evaluated, and explain the evidence and limitations. If using the optional schema-v1 helper for a supported case, its agreement verdicts are `qualitatively_consistent` or `quantitatively_consistent` for independent evaluation and `fit_consistent` when target data were reused. Those helper labels do not replace a separate account of each requested comparison. Never use paper-method agreement labels for a different model. Consistency does not establish model equivalence, parameter identifiability, causal mechanism, or uniqueness; agreement with another model's outputs alone is not validation against physical evidence.
+State whether each criterion is met, not met, inconclusive, or not evaluated, explaining evidence and gaps. Compatible schema-v1 helper cards use `qualitatively_consistent` or `quantitatively_consistent` for predictions and `fit_consistent` when target data were reused, supplementing rather than replacing a full breakdown of each criterion (never reuse paper-method agreement labels for a distinct model). Consistency establishes neither model equivalence, parameter identifiability, causal mechanism, uniqueness, nor physical validation against another model alone.

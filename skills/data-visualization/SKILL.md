@@ -5,54 +5,46 @@ description: Create, style, review, or simplify quantitative plots from complete
 
 # Data Visualization Skill
 
-Create clear quantitative figures from completed data with a direct, traceable analysis path. Use the bundled style adapter for the visual identity and the bundled examples to connect a question with its finished plot.
+Create quantitative figures from completed data with a direct path from load to plot. Use the bundled style adapter for shared appearance and the examples to select a plot form.
 
 ## Scope
 
-Use this skill to create, style, review, or simplify a small number of exploratory, diagnostic, comparative, or ordinary paper-ready quantitative plots. A small grid of related quantitative axes remains in scope.
+Use this skill for exploratory, diagnostic, comparative, or ordinary paper-ready quantitative plots (including small related-axis grids). Exclude simulation runs or monitoring, generic dataframe cleaning without a defined plot, inferential statistics, model fitting, and complex cohort construction; `graph` owns vasculogenesis media, and `schematic-designer` owns composite layouts, bespoke vector graphics, and its outlined-vector delivery contract. Apply this skill only to a separately defined descriptive plot of completed values.
 
-Do not use it for simulation execution or monitoring, generic dataframe cleanup without a defined plot, inferential statistics, model fitting, or complex cohort construction. `graph` owns vasculogenesis frames and MP4 files; `schematic-designer` owns bespoke schematics, illustrations, composite publication composition, and its exact vector-delivery contract.
+When `code-simplifier` applies, this skill owns scientific selections and data identity while `code-simplifier` owns code shape and wider preservation.
 
-An ancillary plot does not make an excluded analysis eligible. Apply this skill only when the request separately defines an ordinary descriptive plot from completed values.
-
-If `code-simplifier` also applies, this skill owns scientific selections and data meaning; that skill owns the wider preservation boundary and code shape.
-
-When called by `scientific-notebook`, work within its existing notebook and requested cells. Accept its question, data path, observable definitions, units, selections, uncertainty, and output scope; resolve missing scientific information without inventing values. Return plotting changes and inspection findings to that workflow without invoking it again or creating a parallel deliverable. Notebook structure, execution authorization, and output preservation remain its responsibility. Preserve its configured project or user style instead of forcing the adapter below. A saved inline notebook figure satisfies the saved-artifact requirement for an inline-only request; inspect it at intended reading size. Create a separate export only when requested or needed for the agreed handoff.
+When called by `scientific-notebook`, edit inside its existing notebook and target cells using the supplied question, data path, observables, units, selections, uncertainty, and output scope without inventing values, re-invoking that skill, or creating parallel files. Leave notebook layout, execution authorization, output preservation, and configured notebook styles to `scientific-notebook`; inline figures satisfy inline-only requests when inspected at reading size, and separate exports are made only when requested.
 
 ## Route to the Needed Resource
 
-Read the required workflow when the data path changes, then load only the references needed for the task. Do not read every reference for a simple plot.
+Load [analysis-workflow.md](references/analysis-workflow.md) whenever the data path changes, then open only the needed reference:
 
 | Task | Resource and action |
 | --- | --- |
-| Create or change an analysis-to-plot path | **Read [analysis-workflow.md](references/analysis-workflow.md) before editing.** Preserve its scientific selection, identity, weighting, and analysis/display boundaries. |
-| Change Pandas or another tabular data path | Also read [pandas-data-handling.md](references/pandas-data-handling.md) for grain, keys, joins, missingness, and aggregation. |
-| Choose the quantitative encoding | Read [plot-patterns.md](references/plot-patterns.md). |
-| Establish or review appearance | Read [design-style.md](references/design-style.md). |
-| Use the style adapter, template CLI, or build commands | Consult [api.md](references/api.md), which documents implemented interfaces and the resource tree. |
-| Start a time course, replicate comparison, or parameter map | Follow [tutorials.md](references/tutorials.md) and adapt the corresponding complete template. |
-| Learn from a finished figure | Open the relevant PDF in [gallery.md](references/gallery.md), then its linked plotting source and teaching CSV. |
-| Resolve competing analysis structures | Consult [repository-patterns.md](references/repository-patterns.md) only when the current code leaves a choice unresolved. |
-| Understand architectural inspiration and reuse terms | Consult [design-provenance.md](references/design-provenance.md); it is not required for plotting. |
+| Edit an analysis-to-plot path | **Read [analysis-workflow.md](references/analysis-workflow.md) first** (selections, identity, weighting, display separation). |
+| Handle Pandas or tables | Also read [pandas-data-handling.md](references/pandas-data-handling.md) (grain, keys, joins, missingness, aggregation). |
+| Pick quantitative encoding | Read [plot-patterns.md](references/plot-patterns.md). |
+| Set or review appearance | Read [design-style.md](references/design-style.md). |
+| Run adapter, templates, or gallery | Check [api.md](references/api.md) for interfaces and layout. |
+| Adapt a template workflow | Follow [tutorials.md](references/tutorials.md) (time course, replicates, parameter map). |
+| Inspect finished examples | Browse [gallery.md](references/gallery.md) PDFs, sources, and teaching CSVs. |
+| Resolve competing structures | Check [repository-patterns.md](references/repository-patterns.md) when current code leaves a choice open. |
+| Review provenance and license | See [design-provenance.md](references/design-provenance.md) (optional). |
 
-The gallery contains synthetic teaching values, not scientific evidence. Reuse its design decisions and direct code structure with the actual completed data. The templates are examples, not a reason to rewrite established analysis in Python or introduce a general plotting framework.
+Gallery CSVs contain synthetic teaching data, not scientific evidence; adapt their direct code for real data without inventing a plotting framework or rewriting valid analysis code.
 
 ## Shared Visual Defaults
 
-Use `paper_style()` from [publication.py](assets/styles/publication.py). It preserves the owner's separately installed `minimalist` package when available, or warns and uses Matplotlib's native DejaVu Sans, tab10, inferno, and coolwarm styles when absent. No owner theme, fonts, or palette source is distributed. The portable fallback preserves physical sizes and hollow markers but draws through-going error bars; `marker_gap` is ignored with the warning. **Create, render, and save inside the context**. Runtime and context behavior are in [api.md](references/api.md). Do not install a PyPI namesake of the optional theme.
+Create, render, and save inside `paper_style()` from [publication.py](assets/styles/publication.py) ([api.md](references/api.md)). It applies an installed owner `minimalist` package or warns and uses Matplotlib DejaVu Sans, `tab10`, `inferno`, and `coolwarm` with through-going error bars (`marker_gap` ignored). No owner theme or fonts are bundled; never install a PyPI namesake.
 
-- Match final physical font sizes across related plots: 8 pt text and 9 pt bold panel tags by default. Give wider figures more room instead of shrinking them.
-- Use 5 pt hollow markers with 0.8 pt outlines, `markerfacecolor="none"`, and `marker_gap=True` when the optional theme is available. Explicit `marker_gap=False` permits through-going error bars.
-- Match error bars and legend text to their group's plot color. Keep the same named group-to-style mapping across figures; overview headings are bold black.
-- Use labeled uncertainty bars, no filled curve areas or ribbons. Histograms use group-colored **filled bars**, shared bins, clear gaps, and a zero baseline.
-- Keep discrete parameter maps and missing cells distinct from smooth heatmaps of a stated function evaluated densely; never smooth sparse data for appearance.
+- Keep 8 pt text and 9 pt bold panel tags at final physical size (widen crowded plots instead of shrinking text), with 5 pt hollow markers (`0.8` pt outline, `markerfacecolor="none"`, `marker_gap=True` when supported).
+- Match error bars and legend text to each group's color, keep one named group-to-style mapping across figures, use labeled error bars rather than curve ribbons, and draw histograms as group-colored filled bars with shared bins, gaps, and a zero baseline.
+- Keep discrete parameter maps and missing cells distinct from smooth dense-function heatmaps; never smooth sparse sweeps.
 
-[design-style.md](references/design-style.md) defines the remaining visual roles. PDF is the default and the only bundled export. Honor another explicitly requested ordinary plot format without inheriting schematic vector requirements.
+See [design-style.md](references/design-style.md) for full visual roles. Vector PDF is the default and the only bundled export; honor other requested ordinary plot formats without inheriting schematic vector rules.
 
 ## Completion Gate
 
-Apply the proportional numerical checks in [analysis-workflow.md](references/analysis-workflow.md#verify-proportionally) when data handling changes. Do not claim preserved results without checking representative values and the relevant scientific keys, counts, or weighting.
+Run proportional checks per [analysis-workflow.md](references/analysis-workflow.md#verify-proportionally) whenever data handling changes; verify representative values, keys, counts, and weighting before claiming preserved results.
 
-Save and visually inspect every changed figure at its intended physical size. Check labels and units, group encodings, interval definitions, sample counts, missingness, clipping, and overlap against the plot-ready data. For related figures, inspect matching text and mark sizes in the assembled PDF; matching source settings alone do not establish consistency after placement. A temporary raster preview is an inspection aid, not an additional deliverable. State any unavailable inspection capability rather than claiming visual verification.
-
-For an explicitly requested non-PDF artifact, inspect that saved artifact. Code-only simplification needs relevant numerical checks, not a redesign or unrelated gallery rebuild. Confirm that a reader can trace load to plot in one pass, every selection has a scientific reason, and display-only transformations remain outside the analysis path.
+Save and visually inspect every changed figure at physical size for labels, units, group encodings, uncertainty definitions, counts, missingness, clipping, and overlap against plot-ready data (inspect related figures together in the assembled PDF; treat raster previews only as inspection aids, and report unavailable checks). Code-only simplifications require numerical verification rather than gallery rebuilds, confirming a traceable load-to-plot path with display-only steps outside the analysis.

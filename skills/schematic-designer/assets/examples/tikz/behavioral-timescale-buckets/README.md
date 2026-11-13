@@ -8,7 +8,7 @@ The five overlapping disciplinary buckets, ten branches and three braces preserv
 
 - **Use when:** several explanatory perspectives overlap along a conceptual progression. The enclosing buckets communicate shared scope more directly than separate panels would, while the central arrow supplies a common reading direction.
 - **Why this choice helps:** unfilled outlines preserve intersections without composite colors; text and branch marks stay opaque. Labels alternate above and below the progression to distribute crowding; braces name spans without adding another arrow. Dark text beside orange and amber keys preserves the category link where colored text would lose contrast.
-- **Borrow:** use overlapping regions for genuinely overlapping scope, place their names near exposed boundaries, and coordinate label placement with the densest intersections. Keep explanatory spans visually distinct from directional relations.
+- **Borrow:** use overlapping regions when their scopes overlap, place their names near exposed boundaries, and coordinate label placement with the densest intersections. Keep explanatory spans visually distinct from directional relations.
 - **Adaptation check:** positions and widths are qualitative, not measured times or effect sizes. Region overlaps do not add color categories. Do not let a neat sequence imply exclusive stages or a causal claim the model does not support.
 
 ## Build and inspect

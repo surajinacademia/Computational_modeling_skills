@@ -20,6 +20,7 @@
 - Use the smallest decisive checks for the changed behavior or material claim, and complete applicable required checks. Reuse valid evidence; rerun affected checks when code, inputs, or assumptions change, and broaden verification only for unsupported claims or unresolved uncertainty.
 - For input and data validation, use one check per distinct plausible failure mode; do not re-check invariants guaranteed by the preceding operation.
 - Expose unexpected warnings, failed checks, and missing required results. Fix the cause or report it with context; do not suppress or silently skip failures to claim success.
+- In executable workflows, validate plausible input failures, prefer established readers for standard formats, check invoked commands' exit status, and stop dependent steps when a prerequisite fails. Preserve diagnostics and identify the failed stage in summaries.
 - Preserve source files and stored outputs during read-only checks; use temporary copies or isolated checks when needed. Existing outputs alone do not establish that the current code ran.
 - Add regression tests when they protect meaningful behavior or a realistic failure. Avoid tests that merely repeat the implementation and broad reruns for prose-only changes.
 - Report the checks actually performed, their outcomes, and any remaining verification gaps or uncertainty.
@@ -27,13 +28,16 @@
 ## Organization and reproducibility
 
 - Keep source code, original inputs, generated results, and documentation distinguishable. Follow the current README layout; create directories only when needed and update affected links and commands when maintained paths change.
-- Keep original data intact. Write derived data and generated artifacts to the documented output locations; retain the source and transformation needed to reproduce them.
+- Keep original data intact. Record source, dataset version/accession, retrieval date and retriever where applicable, and a checksum or other content identifier when needed; a changing URL alone does not identify an input. Preserve permitted snapshots or immutable retrieval/storage instructions and access restrictions. Write derived data and generated artifacts to the documented output locations; retain the source and transformation needed to reproduce them.
 - Use the documented project environment and dependency specification. Record dependency changes in the appropriate manifest; do not rely on an undocumented personal environment.
 - For retained results, record enough to reproduce them: source identity and revision with recoverable uncommitted changes, or a source snapshot/hash when Git is absent; input provenance, parameters, relevant seeds and numerical settings, environment, command or notebook procedure, and output locations. Use the existing project records.
+- For performed experiments, maintain dated research entries linking the question, reasons for choices, run/procedure, observations, evidence for conclusions, limitations, and next step. Explain unsuccessful attempts; distinguish execution failure from a scientifically informative negative result. Preserve earlier interpretations and date corrections. Use an existing log when available and disclose missing historical rationale.
+- Record the ordered operations needed for repetition. Pass explicit settings and paths to helper code and document script inputs, outputs, options, and working directory. Replace intermediate hand edits with transformations or replayable corrections; disclose remaining manual steps. Grow automation with demonstrated complexity, reuse, or the requested interface.
+- Keep partial and failed artifacts distinguishable from completed outputs. Finalize temporary output files after successful writing and checks; mark a multi-file run complete only after all required artifacts are checked. Reuse completed steps only with matching inputs, relevant source, settings, and environment and complete required outputs. Resume interrupted work from a validated, compatible execution checkpoint with matching provenance, retaining incomplete status until final checks pass; otherwise restart the affected step as a new attempt. Preserve prior results and failed-run evidence; inspecting progress must not silently launch computation. Follow the README's procedures and distinguish completion from scientific validation.
 
 ## Skills
 
-- Apply relevant available skills when their stated triggers match the task. These skills own their workflows; do not duplicate their detailed instructions here.
+- Apply relevant available skills when their stated triggers match the task. Follow those skills for their workflows; do not duplicate their detailed instructions here.
 - For scientific model work, use `$computational-modeling`; for scientific notebooks, use `$scientific-notebook`. Follow the requested file format and let the notebook skill govern notebook maintenance and execution.
 - Refer to installed shared skills instead of copying them into each repository. If a required skill or tool is unavailable, report the limitation and continue independent authorized work without claiming that workflow is complete.
 
@@ -63,4 +67,4 @@
 
 ## Project-specific rules
 
-No project-specific exceptions are configured in this template. Add only the scientific constraints, protected paths, workflow exceptions, and authorization boundaries that this project actually needs. Keep concrete environment and command details in the README.
+No project-specific exceptions are configured in this template. Add only the scientific constraints, protected paths, workflow exceptions, and authorization boundaries that this project needs. Keep concrete environment and command details in the README.

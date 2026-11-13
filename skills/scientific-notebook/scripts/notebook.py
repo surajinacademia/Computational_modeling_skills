@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Edit one notebook with explicit cell IDs and execute it in a fresh kernel.
 
-Requires nbformat and nbclient (plus the selected kernel). Execution runs arbitrary
-notebook code with the caller's privileges; this helper is not a sandbox.
+Requires nbformat; execution also needs nbclient and the selected kernel.
+Execution runs arbitrary notebook code with the caller's privileges; this helper
+is not a sandbox.
 Version 4 notebooks without cell IDs receive deterministic IDs on mutation.
 """
 
@@ -17,7 +18,6 @@ import sys
 import tempfile
 
 import nbformat
-from nbclient import NotebookClient
 
 
 def _path(value):
@@ -151,6 +151,7 @@ def edit(path, patch_path):
         raise ValueError("operations must be an array")
     changed_code = False
     changed_ids = set()
+    removed_output_ids = []
     for op in patch["operations"]:
         if not isinstance(op, dict):
             raise ValueError("Each operation must be an object")
@@ -185,6 +186,8 @@ def edit(path, patch_path):
                 changed_code = True
                 changed_ids.add(cell.id)
             if kind == "delete":
+                if cell.cell_type == "code" and cell.outputs:
+                    removed_output_ids.append(cell.id)
                 del nb.cells[index]
             else:
                 cell.source = op["source"]
@@ -201,13 +204,45 @@ def edit(path, patch_path):
             raise ValueError("invalidate must include every changed or inserted code cell")
         if not changed_code and invalidation:
             raise ValueError("invalidate requires a computational change")
+    code_cells = [cell for cell in nb.cells if cell.cell_type == "code"]
+    invalidated_ids = [cell.id for cell in code_cells if changed_code
+                       and (invalidation is None or cell.id in invalidation)]
+    retained_output_ids = [cell.id for cell in code_cells
+                           if cell.outputs and cell.id not in invalidated_ids]
+    output_changes = {
+        "invalidation": "none" if not changed_code else "all" if invalidation is None else "explicit",
+        "invalidated_cell_ids": invalidated_ids,
+        "cleared_output_cell_ids": [cell.id for cell in code_cells
+                                    if cell.outputs and cell.id in invalidated_ids],
+        "removed_output_cell_ids": removed_output_ids,
+        "retained_output_cell_ids": retained_output_ids,
+        "dependency_review_cell_ids": retained_output_ids if changed_code else [],
+    }
+    if output_changes["dependency_review_cell_ids"]:
+        output_changes["warning"] = (
+            "Review retained outputs for dependencies on changed or deleted code. "
+            "If uncertain after this edit, use nbformat to clear all code outputs "
+            "and execution counts and remove notebook-level widget state. "
+            "When preparing a code edit with uncertain dependencies, omit invalidate. "
+            "Replaying an unchanged edit does not clear retained outputs."
+        )
     if changed_code:
         _clear(nb, ids=invalidation)
     _save(path, nb, digest)
-    return inspect(path)
+    result = inspect(path)
+    result["output_changes"] = output_changes
+    return result
 
 
 def execute(path, kernel=None, timeout=600):
+    try:
+        from nbclient import NotebookClient
+    except ImportError as error:
+        raise RuntimeError(
+            f"Could not import nbclient for notebook execution: {error}. "
+            "Use the project's prepared environment; install this skill's "
+            "requirements.txt there if execution dependencies are missing."
+        ) from error
     path, nb, digest = _read(path)
     _clear(nb)
     cleared = copy.deepcopy(nb)
@@ -255,9 +290,12 @@ def main():
         else:
             result = inspect(args.path)
         if args.command != "inspect":
-            result = {"path": str(args.path), "sha256": result["sha256"],
-                      "cell_count": len(result["cells"]),
-                      "state": result["metadata"].get("scientific_notebook", {})}
+            summary = {"path": str(args.path), "sha256": result["sha256"],
+                       "cell_count": len(result["cells"]),
+                       "state": result["metadata"].get("scientific_notebook", {})}
+            if args.command == "edit":
+                summary["output_changes"] = result["output_changes"]
+            result = summary
         print(json.dumps(result, ensure_ascii=False, indent=2))
     except Exception as error:
         print(f"{type(error).__name__}: {error}", file=sys.stderr)

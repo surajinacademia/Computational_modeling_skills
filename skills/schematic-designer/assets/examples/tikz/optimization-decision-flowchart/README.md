@@ -5,7 +5,7 @@ Active Minimalist adaptation. See [attribution](ATTRIBUTION.md) for provenance a
 ## Design lesson
 
 - **Use when:** several candidate evaluations repeat the same operation-and-test structure. A vertical sequence lets the reader recognize the repeated pattern and locate the changing candidate expression.
-- **Why this choice helps:** equal-width process boxes and repeated decision diamonds distinguish actions from questions. Branches leave the central column through a separate routing corridor, while step labels occupy the opposite margin. This reserves the main column for the sequence itself.
+- **Why this choice helps:** equal-width process boxes and repeated decision diamonds distinguish actions from questions. Branches leave the central column through a separate routing corridor, while step labels occupy the opposite margin.
 - **Borrow:** define one reusable process style, one decision style, and explicit branch waypoints before adding labels. Keep long conditions beside their own edges rather than compressing the main boxes.
 - **Adaptation check:** this preserves a historical diagram with repeated “Yes, pass” labels and some unlabeled exits; it is not a validated optimization algorithm. Supply unambiguous conditions for every outgoing branch in a new application, and verify whether shared branch lines mean collection, continuation, or both.
 

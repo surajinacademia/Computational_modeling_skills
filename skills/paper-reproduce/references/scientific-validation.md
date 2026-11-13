@@ -1,81 +1,77 @@
 # Scientific Validation
 
-Verify the production implementation and data before treating their outputs as scientific evidence. Select checks by model class and the conclusion at stake. Physical validation additionally requires relevant physical evidence under stated conditions.
+Verify production code and data before treating outputs as scientific evidence, choosing checks by model class and claim; physical validation also requires empirical evidence under stated conditions.
 
 ## Common sequence
 
-1. Translate the frozen source specification into independent tests.
-2. Run the smallest diagnostic that can expose sign, unit, indexing, boundary, conservation, sampling, or stopping errors.
-3. Test the production implementation directly; an oracle does not replace it.
-4. Benchmark representative work before changing algorithms, precision, parallelism, storage, or language.
-5. Freeze the accepted implementation/configuration before the evidentiary run.
-6. Verify raw coverage and invariants before analyzing or plotting outcomes.
+1. Derive independent tests from the frozen specification.
+2. Run the smallest diagnostic capable of catching sign, unit, indexing, boundary, conservation, sampling, or stopping bugs.
+3. Test production code directly rather than relying on a toy oracle.
+4. Benchmark representative workloads before changing algorithms, precision, parallelism, storage, or language.
+5. Freeze the accepted code and configuration before running assessment evidence.
+6. Verify raw coverage and invariants before analyzing or plotting.
 
-Do not use a visually plausible result as a test oracle.
-
-The verification reviewer must derive applicable checks from the source specification independently of the implementation. Independently recompute decisive observables and uncertainty from raw outputs, or check the mathematical argument for an analytical target. Repeating the implementation's formula or accepting its summary alone is insufficient. Record any check that could not be performed; planned checks are not passed checks.
+Never use visually plausible outputs as a test oracle. The verification reviewer must derive checks from the specification independently of the code and recompute decisive observables and uncertainty from raw outputs (or verify analytical proofs), rather than copying the code's formula or trusting its summary. Record unperformed checks honestly.
 
 ## Validation profiles
 
 ### Algebraic or analytic
 
-- check dimensions, signs, limiting cases, and exact identities;
-- compare with a hand calculation or independent symbolic/numerical evaluation;
-- test singular, zero, boundary, and symmetry cases when applicable.
+- Check dimensions, signs, limiting cases, and exact identities.
+- Compare against hand derivations or independent symbolic/numerical evaluation.
+- Test singular, zero, boundary, and symmetry cases.
 
 ### ODE, PDE, continuum, or field model
 
-- verify initial and boundary conditions independently;
-- test conservation or balance laws with the correct geometric measure;
-- use manufactured solutions or known limits when available;
-- demonstrate time-step, grid, domain, and solver convergence appropriate to the claimed precision;
-- check stability, positivity, residuals, and stopping criteria without relying on clipping or silent early termination.
+- Verify initial and boundary conditions independently.
+- Test conservation or balance laws with the proper geometric measure.
+- Check manufactured solutions or known limits when available.
+- Establish timestep, grid, domain, and solver convergence for the claimed precision.
+- Verify stability, positivity, residuals, and stopping rules without clipping or silent early exits.
 
 ### Stochastic or agent-based
 
-- bind and record deterministic seeds while preserving independent draws;
-- verify update order, distribution parameterization, and random-number scope;
-- test sampling units, inclusion rules, replicate coverage, and denominators;
-- report ensemble uncertainty rather than a favorable realization;
-- distinguish a fixed displayed instance from a population-level claim.
+- Bind and log deterministic seeds while keeping draws independent.
+- Check update order, distribution parameterization, and RNG scope.
+- Verify sampling units, inclusion rules, replicate coverage, and denominators.
+- Report ensemble uncertainty instead of a single favorable realization, separating displayed instances from population claims.
 
 ### Optimization, learning, or inference
 
-- verify objective, constraints, gradients or update rules, and convergence;
-- separate training/calibration, validation, and held-out evaluation;
-- preserve seeds, initialization, baselines, preprocessing, and checkpoint rules;
-- report failed or nonconverged attempts under the source-defined policy.
+- Verify objective, constraints, gradients or update rules, and convergence.
+- Keep training/calibration, validation, and held-out evaluation sets disjoint.
+- Log seeds, initialization, baselines, preprocessing, and checkpoint policies.
+- Report failed or nonconverged runs under the declared policy.
 
 ### Experimental data analysis
 
-- verify sample identity, independence, exclusions, normalization, units, and preprocessing order;
-- reproduce the reported estimator, uncertainty, statistical test, and multiple comparison rule;
-- audit whether plotted error bars describe replicates, samples, or fitted uncertainty.
+- Verify sample identity, independence, exclusions, normalization, units, and preprocessing order.
+- Reproduce the estimator, uncertainty, statistical test, and multiple-comparison rule.
+- Check whether error bars reflect replicates, samples, or fitted uncertainty.
 
 ### Optimized, parallel, or translated implementation
 
-- define a prospective differential-equivalence contract;
-- compare the authoritative and changed paths on adversarial and representative cases;
-- preserve precision, randomness, update order, convergence, failures, and output semantics;
-- accept the changed path only after all declared equivalence tests pass.
+- Define equivalence criteria before comparing implementations.
+- Test baseline vs modified paths on adversarial and representative inputs.
+- Preserve precision, randomness, update order, convergence, failure handling, and output semantics, accepting the change only after all equivalence checks pass.
 
 ## Evidence checks
 
-For each evidentiary run record target ID, governing revision/hash, source IDs, code version/hash, configuration, command, minimal environment, raw-output path, exit state, and failures. For detached, retried, multi-worker, or expensive work also record manifests, logs, checkpoints, complete key coverage, duplicates, missing groups, and file hashes.
+For each assessment run, log target ID, governing revision/hash, source IDs, code version/hash, configuration, command, minimal environment, raw-output path, exit state, and failures; for detached, retried, multi-worker, or costly runs also keep manifests, logs, checkpoints, key coverage, duplicates, missing groups, and file hashes.
 
-Verify in this order:
+Verify in order:
 
-1. provenance and correct configuration;
-2. expected parameter/replicate keys and complete denominators;
-3. finite values, schema, units, and scientific invariants;
-4. recomputed analysis and uncertainty;
+1. provenance and configuration;
+2. parameter/replicate keys and denominators;
+3. finite values, schema, units, and invariants;
+4. independently recomputed analysis and uncertainty;
 5. declared scientific assessment criteria;
-6. figure as a representation of verified values.
+6. plots as faithful renderings of verified values.
 
-Stop affected execution and preserve evidence when an implementation invariant, execution/data-validity check, or predeclared stopping rule fails. Diagnose the cause before using affected output as evidence. Failing to establish agreement may mean disagreement or inconclusive evidence; apply the declared decision rule and uncertainty treatment. Either outcome can complete the assessment. Finish the authorized protocol unless its declared stopping rule applies. Never alter the target or discard disagreeing data merely to improve agreement.
+Stop affected runs and save evidence if an invariant, validity check, or predeclared stopping rule fails, diagnosing the cause before citing affected outputs. Disagreement or inconclusive evidence under declared rules can still complete an assessment; finish the authorized protocol unless a stopping rule triggers, without changing targets or dropping disagreeing runs.
 
-Account for every material attempt: completed, failed, excluded, missing, and nonconverged cases, with reasons and correct denominators. Identify which outputs entered each calculation. A zero exit code or a plot file alone does not establish successful scientific execution. Preserve raw evidence and the original outcome when changing analysis or criteria; mark the new analysis exploratory until separately assessed.
+Account for all material attempts (completed, failed, excluded, missing, and nonconverged) with reasons and accurate denominators, tracking which outputs entered each calculation (zero exit codes or plot files do not prove valid execution). Retain raw evidence and prior outcomes if criteria change later, marking revised analysis exploratory until separately assessed.
 
 ## Keep fidelity and outcome separate
 
-Methodology fidelity describes how closely the executed method follows the source. The scientific verdict describes the selected observable. A known deviation or incomplete nonblocking method can numerically agree, just as an exactly faithful method can disagree. Report both labels. `exact_agreement` means exact equality only for the frozen deterministic observable; it never means that the implementation or mechanism is identical to the author's.
+Methodology fidelity measures how faithfully the executed method matches the source; scientific verdict measures the selected observable. A known deviation can agree numerically while an exact implementation can disagree, so report both separately. `exact_agreement` denotes exact equality on a frozen deterministic observable, never proof that code or mechanism is identical to the author's.

@@ -1,4 +1,4 @@
 interface:
   display_name: "Model Documentation"
-  short_description: "Write and review science in the standard model template"
-  default_prompt: "Use $model-documentation to inspect the model and propose a plan using our standard template, then wait for my approval before writing one scientifically faithful document with clear physical explanations, defined notation, equations, and numerical methods; finish with independent scientific and template reviews."
+  short_description: "Explain model physics with clear prose and notation"
+  default_prompt: "Use $model-documentation to inspect the model and propose a plan using our standard template. Wait for my approval before writing one document that explains the physics in connected prose, introduces clear notation, and interprets each equation before describing numerical methods. Finish with independent scientific, readability, and template reviews."

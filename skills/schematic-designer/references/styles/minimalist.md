@@ -1,6 +1,6 @@
 # Aesthetic Profile: minimalist
 
-Use this default for scientific schematics and eligible composite figures unless the user, journal, or project specifies another profile. Use the optional `minimalist` package for colors when installed, and the skill's shared helper for typography and visual roles. Without that personal theme, the helper explicitly warns and uses Matplotlib's default color cycle. This changes presentation, not scientific content; it does not reproduce the stored specimens' exact colors.
+Use this default profile for scientific schematics and eligible composite figures unless the user, journal, or project specifies another. When installed, `minimalist` supplies colors through the shared helper; otherwise the helper warns and uses Matplotlib's default cycle (changing appearance, not science, without reproducing stored specimen colors).
 
 ## Contents
 
@@ -13,13 +13,13 @@ Use this default for scientific schematics and eligible composite figures unless
 
 ## One source for all renderers
 
-[minimalist_profile.py](../../assets/styles/minimalist_profile.py) is the shared source for Matplotlib and TikZ. Its `palette()` function reads `minimalist.get_cmap("qualitative")` when available, without copying that package or its palette. Otherwise it reads Matplotlib's installed default cycle. `apply_style()` selects PGF and applies LuaLaTeX/CMU typography; `tikz_style()` returns a support style with the same colors and numerical tokens.
+[minimalist_profile.py](../../assets/styles/minimalist_profile.py) drives both Matplotlib and TikZ. `palette()` reads `minimalist.get_cmap("qualitative")` when installed or Matplotlib's default cycle otherwise; `apply_style()` sets PGF with LuaLaTeX/CMU typography; `tikz_style()` emits a matching support style.
 
-Use a project Python with NumPy and Matplotlib, plus LuaLaTeX, TikZ, CMU fonts, and a supported PDF-to-SVG converter as described in the renderer references. `minimalist` is optional and is not bundled or automatically installed. Do not change global discovery or install dependencies merely to apply this profile. Report missing required tools. There is no font substitution: the portable palette still uses the same CMU/LaTeX typography and geometric role constants.
+Run with project Python (NumPy, Matplotlib), LuaLaTeX, TikZ, CMU fonts, and a PDF-to-SVG converter (`minimalist` is optional and never bundled or auto-installed; never alter global discovery or install packages just to apply this profile, and report missing required tools instead of substituting fonts).
 
 ## Roles at the intended publication size
 
-Choose the final width before drawing. These defaults are starting values for the whole figure at its final size, not universal rules for every publication. The bridge preserves the renderer's font and graphic units as described below.
+Fix final physical width before drawing. These defaults are whole-figure starting points at publication size, preserving exact font and graphic units across renderers:
 
 | Shared constant | Roles and defaults | Use |
 |---|---|---|
@@ -28,34 +28,26 @@ Choose the final width before drawing. These defaults are starting values for th
 | `MARKER_PT` | point 3; emphasis 4.5 | Nominal marker diameters; Matplotlib scatter uses squared values for `s` |
 | `ARROW_PT` | length 4; width 2.8 | Native `Latex` tip dimensions shared by PGF artists and TikZ |
 | `OPACITY` | context 0.25; fill 0.12; foreground 1 | Supporting strokes, pale fills, opaque foreground |
-| `DASH_PT` | dashed (3, 2); dotted (0.7, 1.5) | On/off lengths for consistent line patterns; solid remains the default |
+| `DASH_PT` | dashed (3, 2); dotted (0.7, 1.5) | On/off lengths for consistent line patterns; solid remains default |
 | `SPACE_PT` | unit 4; label 4; group 8; panel 12 | Starting distances for repeated gaps and padding |
 
-Adjust a role once in the figure source before applying the profile and generating its TikZ style. Keep the same settings in every panel; if Matplotlib and TikZ generation run separately, pass them the same figure configuration. Apply role-specific opacity and spacing explicitly to Matplotlib artists; `apply_style()` cannot infer which objects are context or emphasis. Foreground opacity applies to geometry; label text stays opaque even when that role is changed. Both renderers use matching flat line ends and rounded joins. The default canvas is white in both exports. TikZ places an opaque white background behind the picture so pale fills do not depend on the SVG viewer's background; this background is not a visible panel frame.
+Override roles once in the maintained source (TeX macros/styles in `.tex` or project `.sty` for TikZ, role dicts before `apply_style()` in `.py` for Matplotlib, or shared Python config for hybrids). Set artist opacity and spacing explicitly in Matplotlib, keeping label text opaque even when foreground geometry opacity changes. Both renderers share flat caps, rounded joins, and a white canvas (TikZ adds an opaque white background behind the picture, not a visible panel border).
 
-Visual size defaults do not override a physical radius, a vector length mapped to magnitude, or any other scientific geometry. Likewise, preserve color or opacity that already encodes a quantitative value. The qualitative palette is for distinct entities or categories, not a replacement for a field's magnitude mapping. Inspect the final-size composition before changing a shared token.
+Visual defaults never override physical radii, magnitude-scaled vectors, or quantitative color/opacity encodings; keep qualitative palette colors for distinct entities or categories rather than scalar fields, and inspect at final size before tuning tokens.
 
 ## Color, text, and pattern meaning
 
-Assign palette entries to named entities or conditions before drawing. Retain that mapping across marks, arrows, nearby labels, equations where appropriate, and panel legends. A color cycle supplies candidates; it does not decide the scientific mapping. Use the few colors needed to express the actual distinctions.
+Map palette entries to named entities or conditions before drawing, and keep that mapping across marks, arrows, nearby labels, equations, and legends using the fewest colors needed. Match readable entity colors in direct labels (or dark ink with a colored key), keep text opaque, and prefer pale opaque white-preblended tints or unfilled outlines over transparent fills that muddle overlapping category hues.
 
-Match label color to the entity when it remains readable on the background. Otherwise use dark text with a small colored key beside it. Keep text opaque; use pale fills or quieter supporting lines to reduce visual prominence. Direct labels placed near the relevant entity reduce unnecessary legend lookup.
-
-For categorical objects over a field or overlapping backgrounds, prefer an opaque tint preblended with white to a transparent fill that changes their identity color. Keep genuine time, density, and field-opacity encodings explicit. For overlapping qualitative regions, unfilled outlines can preserve their extents without inventing new colors through blending.
-
-Give every critical distinction a non-color cue such as a label, shape, terminal, dash pattern, or hatch. Define pattern meanings for this figure and preserve them throughout; dashed does not inherently mean uncertainty and an arrow does not inherently mean causation. Reuse the same dash lengths across renderers. Hatches should remain distinguishable at the final size without covering key geometry.
-
-For a palette-only edit, preserve the original layout, glyph sizes, shadows, shading, and opacity. Keep lighting gradients and translucent layers that convey 3D depth; change their colors without flattening their appearance.
+Pair every critical distinction with a non-color cue (label, shape, terminal, dash pattern, or legible hatch), defining pattern meanings explicitly per figure across renderers. On palette-only recolors, keep existing layouts, glyph sizes, shadows, 3D shading gradients, and translucent depth cues rather than flattening them.
 
 ## Typography and negative space
 
-Follow [typography.md](../typography.md): CMU text and real Computer Modern LaTeX math remain mandatory. Use panel/title roles for structure and body/equation roles for scientific labels. Use consistent weight within a role. Align panel tags, repeated motifs, and text baselines so comparisons require little scanning.
-
-Reserve whitespace for connector lanes and nearby labels. Keep related elements close and leave a larger gap between independent groups. Increase a panel's room or rearrange labels before shrinking its text. A frame, rail, or ribbon needs an actual grouping function; avoid decorative cards around every panel. Retain boundaries that represent real compartments and label illustrative geometry when it could otherwise imply scale.
+Follow [typography.md](../typography.md) for mandatory CMU text, Computer Modern math, and [default annotated equations](../typography.md#default-equation-style), aligning panel tags, repeated motifs, and baselines for effortless comparison. Reserve whitespace for connector lanes and nearby labels, group related items tightly, enlarge panel room or rearrange labels before shrinking text, and use frames, rails, or ribbons only for real compartments (marking illustrative geometry when it could imply scale).
 
 ## Apply in Matplotlib
 
-Make the helper importable from the resolved skill's `assets/styles/` directory. Call it before importing `pyplot` or `minimalist`, since importing `minimalist` also imports pyplot:
+Import from `assets/styles/` and call `apply_style()` before importing `pyplot` or `minimalist` (since `minimalist` imports `pyplot`):
 
 ```python
 from minimalist_profile import apply_style, palette, FONT_PT, LINE_PT
@@ -66,12 +58,10 @@ import matplotlib.pyplot as plt
 colors = palette()  # Assign entries to named entities in the figure source.
 ```
 
-Do not call `minimalist.use_style()` afterward. Use the role constants for custom artists as well as ordinary plotting defaults. Render through [renderer-workflows.md](../renderer-workflows.md) and [vector-export.md](../vector-export.md); the helper does not export figures.
+Never call `minimalist.use_style()` afterward. Render via [renderer-workflows.md](../renderer-workflows.md) and [vector-export.md](../vector-export.md).
 
 ## Apply in TikZ and hybrid figures
 
-The helper's CLI `--tikz` prints a complete support style to stdout. Write it as `minimalist-profile.sty` only inside the approved project work directory, then declare it to `scripts/render_tikz.py` and load it with `\usepackage{minimalist-profile}`. For customized role values, call `tikz_style()` after setting those values in the figure's Python source. Keep generated support files out of the skill repository.
+Redirect `--tikz` stdout to `minimalist-profile.sty` inside the approved project work directory (or generate it via `tikz_style()` from a hybrid's shared config), declare it to `scripts/render_tikz.py`, and load `\usepackage{minimalist-profile}`. Keep overrides in authored `.tex`/`.sty` afterward without patching generated support files or storing them in this skill.
 
-The bridge exposes `msColor1`, `msColor2`, and subsequent palette entries in their original order, plus `msInk`, `msMuted`, and `msPaper`. Dimensions use macros such as `\msFontBody`, `\msLineStructure`, `\msMarkerPoint`, and `\msSpaceGroup`; opacity macros such as `\msOpacityFill` are unitless. Font macros use TeX `pt` and 1.2-times leading to match Matplotlib's PGF text; strokes, markers, gaps, and dash lengths use `bp` (1/72 inch) to match its graphics. Within the picture, math uses display style to match PGF, including fractions and their subscripts. This does not change the surrounding document's math. Start a picture with `[ms base]`, then select named roles such as `ms body`, `ms equation`, `ms structure`, `ms emphasis`, `ms fill`, `ms point`, `ms dashed`, and `ms dotted`. `ms arrow` draws a structural connector with the actual TikZ `Latex` head; plain `->`, `<-`, and `<->` use the same tip default. For example, `\draw[ms arrow,color=msColor6] (u.east) -- (v.west);` keeps the shaft and head in the entity color. Follow the shared [arrowhead rule](../renderer-workflows.md#arrowheads) for computed panels and special terminals. Assign scientific meanings to connectors and `ms pattern` hatches explicitly.
-
-In hybrid figures, generate the support style and computed panels from the same configuration. Render panels at their final physical size so importing a PDF does not silently rescale labels, strokes, or markers relative to TikZ content. Verify semantic color mapping, readable typography, pattern meaning, and clear spacing in the final PDF and outlined SVG.
+The style defines `msColor1`, `msColor2`, ..., `msInk`, `msMuted`, and `msPaper`; size macros (`\msFontBody`, `\msLineStructure`, `\msMarkerPoint`, `\msSpaceGroup`); unitless opacities (`\msOpacityFill`); display-style picture math; and picture styles starting with `[ms base]` (`ms body`, `ms equation`, `ms structure`, `ms emphasis`, `ms fill`, `ms point`, `ms dashed`, `ms dotted`, `ms arrow`, `ms pattern`). `FONT_PT` uses TeX `pt` with 1.2 leading; strokes, markers, gaps, and dashes use `bp` (1/72 in) to match PGF. Follow the shared [arrowhead rule](../renderer-workflows.md#arrowheads) and verify typography, colors, patterns, and spacing in both final exports.

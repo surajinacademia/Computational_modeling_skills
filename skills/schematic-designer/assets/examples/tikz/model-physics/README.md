@@ -4,7 +4,7 @@
 
 ## Design lesson
 
-- **Use when:** many entities share a compact property schema and also belong to overlapping families. Repeated particle cards make this a structured reference figure.
+- **Use when:** many entities share a compact property schema and also belong to overlapping families. Repeated particle cards place the same properties in the same positions.
 - **Why this choice helps:** a large symbol identifies each particle; mass and name occupy stable positions, while colored corner tabs locate color charge, electric charge, and spin. A single external legend explains these positions. Generation columns, braces, and enclosing interaction boundaries add relationships across cards without repeating their explanations. The outside-Standard-Model graviton remains visually separated.
 - **Borrow:** give the entity symbol priority, keep equivalent properties in fixed slots, and explain compact visual encodings with an external legend. Preserve the card geometry and depth cues when they are part of the requested design.
 - **Adaptation check:** blank slots do not establish zero values. The inherited values are explicitly historical; reuse the construction, not its values as a current reference. Original miniature text scales are retained at the owner's request, including very small corner labels. Inspect at the intended reading size before adapting this compact layout.

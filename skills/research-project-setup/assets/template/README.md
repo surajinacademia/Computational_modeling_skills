@@ -4,6 +4,8 @@
 
 This starter contains `AGENTS.md` and `README.md`. Copy it for a new project, replace the bracketed fields, and create only the directories and configuration files needed. No runtime, data, or tests are configured yet.
 
+An unfamiliar collaborator or your future self should be able to understand what was done and why, follow the evidence behind the conclusions, and repeat the procedure with new inputs or settings. Use this README for navigation and executable procedures, and link the research records that explain the decisions and interpretation.
+
 ## Start here
 
 1. Define the intended result and its acceptance criteria. Identify the active code or notebook and the authoritative inputs.
@@ -14,7 +16,7 @@ This starter contains `AGENTS.md` and `README.md`. Copy it for a new project, re
 
 ## Repository layout
 
-Use this research-project layout when creating or explicitly reorganizing a repository. It applies the separation of responsibilities described in [Good Research Code: project setup](https://goodresearch.dev/setup), with the owner's analysis, testing, and model-development directories. The directories shown are a template, not files already included; create each when needed.
+Use this research-project layout when creating or explicitly reorganizing a repository. It separates files by purpose as described in [Good Research Code: project setup](https://goodresearch.dev/setup), with the owner's analysis, testing, and model-development directories. The directories shown are a template, not files already included; create each when needed.
 
 ```text
 project/
@@ -37,9 +39,9 @@ Choose locations by purpose. Preserve original data under `data/`; place derived
 
 Place named model implementations and scientific variants under `development/models_versions/`, retaining their existing identities and recording the active entry point. Git records source history; the directory does not require a new copied model for each edit, or a new scientific version for a file move. Native notebooks belong with their role: analysis, verification, or model implementation. Preserve established notebook formats and configured pairs.
 
-Use descriptive run folders when multiple configurations produce results, and record how each retained result was made. Keep required root configuration and language/framework conventions, such as an existing installable `src/project_name/` package or test discovery configuration, and document those exceptions here. Add `literature/`, `paper/`, or `archive/` only when needed. Do not force unrelated software, teaching, or job-search repositories into a scientific-model hierarchy.
+Use descriptive run folders when multiple configurations produce results, and record how each retained result was made. A date plus purpose, such as `analysis/results/2026-10-30-baseline/`, can make experiment history easier to follow; retain established run identifiers and record start/end dates for work spanning several days. Dates identify experiments, not copied source versions. Keep required root configuration and language/framework conventions, such as an existing installable `src/project_name/` package or test discovery configuration, and document those exceptions here. Add `literature/`, `paper/`, or `archive/` only when needed. Do not force unrelated software, teaching, or job-search repositories into a scientific-model hierarchy.
 
-To apply this template, explicitly ask: `Use $Research_project_setup to set up this project` or `Use $Research_project_setup to reorganize this repository and update its README`. The skill is manual-only; merely opening a repository or making ordinary edits does not trigger it. An audit-only request reports deviations without moving files. Reorganization preserves recoverable copies, updates affected imports, paths, links, and commands, and checks the resulting entry points.
+To apply this template, explicitly ask: `Use $research-project-setup to set up this project` or `Use $research-project-setup to reorganize this repository and update its README`. The skill is manual-only; merely opening a repository or making ordinary edits does not trigger it. An audit-only request reports deviations without moving files. Reorganization preserves recoverable copies, updates affected imports, paths, links, and commands, and checks the resulting entry points.
 
 ## Environment and setup
 
@@ -50,7 +52,7 @@ Record the supported language/runtime versions, operating-system or external-too
 - Setup and activation: [exact commands and working directory]
 - Data access: [source, retrieval procedure, access requirements, and expected local paths; or not applicable]
 
-Use a project environment. Choose dependency files appropriate to the stack, such as `pyproject.toml`, `requirements.txt`, `environment.yml`, or Julia's `Project.toml` and `Manifest.toml`; retain only those actually used.
+Use a project environment. Choose dependency files appropriate to the stack, such as `pyproject.toml`, `requirements.txt`, `environment.yml`, or Julia's `Project.toml` and `Manifest.toml`; retain only those used.
 
 For reusable Python code, configure an installable package, for example under `src/project_name/`, using the current [Python packaging guidance](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/). Once packaging is configured, `python -m pip install -e .` installs it for development. Avoid repeated `sys.path` edits.
 
@@ -65,7 +67,22 @@ Replace each field with a real command or notebook procedure. State its working 
 | Full workflow, when requested | [ordered steps and configuration] | [output locations and completion criteria] |
 | Lint, format, or build, if configured | [commands; identify any that modify files] | [expected checks or artifact] |
 
-Expose run settings through explicit parameters, configuration, or command-line arguments. Record the ordered procedure instead of relying on edited source lines, hidden notebook state, or an undocumented manual step. Export intermediate decisions from interactive tools when they affect reproducibility. Use a small script or build tool only when it helps manage a repeated workflow. See [Good Research Code: project documentation](https://goodresearch.dev/pipelines).
+Expose run settings through explicit parameters, configuration, or command-line arguments. Record every operation needed to reproduce the experiment in order, including preparation and postprocessing. Keep path choices in the driver or configuration, pass them to helpers, and resolve project paths from a documented portable base. Document each script's inputs, outputs, options, and working directory through usage/help or a linked interface description. See [Good Research Code: project documentation](https://goodresearch.dev/pipelines).
+
+Replace hand edits to intermediate data with recorded transformations. Capture interactive selections, correction tables, or exact patches when a scripted transformation is impractical, and document how to replay them. Identify any remaining manual step; hidden notebook state or an undocumented edit prevents full reproduction. Preserve the original inputs.
+
+Use recorded commands for a simple experiment. Add a small driver script when repetition, complexity, or a requested single-command interface warrants it; extract reusable project functions when several procedures need them. Keep experiment-specific procedures with their analysis or verification code, retaining existing frameworks. Explain the purpose and order of driver steps so a reader can understand the procedure without reverse engineering every helper; avoid building a general workflow system without demonstrated need.
+
+### Failure, completion, and resumption
+
+Validate plausible input failures using established readers for standard formats. Check invoked commands' exit status, report errors, and stop dependent steps after a failure. Preserve diagnostics and partial outputs with their failed or incomplete status; a later plot or summary must not conceal an earlier failed stage.
+
+When writing output files, use temporary names in the destination directory and finalize them after successful writing and appropriate checks, using atomic replacement where supported. For a run producing several files, mark it complete only after all required artifacts pass their completion checks. Preserve previously retained results when rerunning; file existence alone proves neither completion nor scientific validity.
+
+Reuse a completed step only when its recorded inputs, relevant source, settings, and environment match and its required outputs are complete. Resume interrupted work from a validated execution checkpoint with matching provenance and compatible state; otherwise restart the affected step as a new attempt. Keep resumed work incomplete until final output checks pass. Changed upstream work requires reconsidering dependent outputs. Preserve failed attempts and record the new attempt instead of deleting evidence to force a rerun. For long workflows, provide an inexpensive status or summary procedure that labels partial progress, failures, and completed work without launching more computation. Adapt existing workflow/status facilities rather than creating a second system.
+
+- Failure and completion checks: [commands or conditions, expected artifacts, and status location; or not configured]
+- Resume/reuse and progress inspection: [matching criteria and safe procedure; or not applicable/not configured]
 
 Verification status: **not yet configured or executed**. Replace this with the checks actually performed, their date and scope, and any remaining limitations.
 
@@ -73,15 +90,29 @@ Verification status: **not yet configured or executed**. Replace this with the c
 
 | Item | Location and record |
 | --- | --- |
-| Original inputs | [`data/` paths, source, units/schema where relevant, and usage restrictions] |
+| Original inputs | [`data/` paths; source URL/repository, version/accession, retrieval date and retriever where applicable, content identifier when needed, units/schema, and usage restrictions] |
 | Active implementation | [`development/models_versions/` paths and model identity, or a documented package-layout exception] |
 | Analysis | [`analysis/scripts/` entry points and corresponding `analysis/results/` outputs] |
 | Verification | [`tests/scripts/` checks, `tests/data/` inputs, and `tests/results/` outputs] |
 | Reproduction instructions | [commands/configuration or notebook, source revision, environment, and relevant parameters/seeds] |
 | Retained results | [output paths, producing run, and validation status] |
+| Research log | [existing chronological record or chosen file within `docs/` or the relevant results location; or not yet configured/not applicable] |
 | Known limitations | [missing inputs, unperformed checks, unresolved assumptions, or not applicable] |
 
 Preserve raw inputs and record transformations. Keep large data and disposable outputs out of ordinary Git history; track the code, configuration, small suitable fixtures, provenance, and instructions needed to recover or regenerate them. Document external storage and backup locations. Git ignore rules do not provide a backup.
+
+A URL may later serve different data. Use dataset versions, accessions, checksums, or another suitable content identifier to identify the actual inputs. For changing sources, retain a permitted snapshot or document an immutable retrieval method and its storage location; disclose when the original input cannot be recovered. Preserve access restrictions and do not put credentials or sensitive data into provenance records.
+
+### Experiment records
+
+When experiments begin, maintain dated entries in the existing research log or a lightweight record at the location above. This is a prose research record; use an executable notebook when appropriate to the work, without imposing a notebook format or duplicating an existing record. Each entry connects:
+
+- The question or objective and why the approach, comparison, or parameter choice was made.
+- The run identifier and links to exact inputs, source/settings/environment, ordered commands or driver, and resulting artifacts.
+- Observations and the evidence supporting the interpretation, including uncertainty and limitations.
+- Unsuccessful attempts, why they were judged unsuccessful, and the next decision or experiment.
+
+Distinguish execution failure, an inconclusive analysis, and a scientifically informative negative result. Preserve earlier entries and date later corrections or reinterpretations. Summarize relevant methodological decisions from discussions with enough context for collaborators, respecting confidentiality. Do not invent missing historical rationale or infer it from a plot alone.
 
 ## Working conventions
 
@@ -130,3 +161,5 @@ This template combines the maintainer's shared research repository rules with se
 - [Document your project](https://goodresearch.dev/pipelines): repeatable procedures and traceable results.
 
 The owner's layout groups analysis and verification code with their respective output locations and adds `development/models_versions/`. It is an adaptation, not the handbook's original tree. Current local skills govern notebook work and verification scope; the handbook's older package setup examples are replaced by the linked Python packaging guidance.
+
+Experiment records, transparent procedures, proportional automation, and failure handling also adapt William Stafford Noble's [*A Quick Guide to Organizing Computational Biology Projects* (2009)](https://doi.org/10.1371/journal.pcbi.1000424), published under a Creative Commons Attribution license. This template retains the owner's layout and storage policy. Content identifiers, matching prior work before resumption, and explicit completion checks strengthen the paper's simpler restart example; they are adaptations rather than claims that file existence establishes success.

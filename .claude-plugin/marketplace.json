@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
-    "version": "2.1.0"
+    "version": "2.1.1"
   },
   "plugins": [
     {
       "name": "computational-modeling-skills",
       "source": "./",
       "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
-      "version": "2.1.0"
+      "version": "2.1.1"
     }
   ]
 }

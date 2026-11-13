@@ -1,9 +1,7 @@
 # Scientific-neutral construction vocabulary
 
-This historical profile name now provides compatibility names for the shared [Minimalist design](minimalist.md). It does not select a second palette or font. Use it only when adapting examples that already refer to `COLORS`, `sa/cell`, `sa/process box`, and related components; start new figures from Minimalist.
+This historical profile name provides compatibility aliases (`COLORS`, `sa/cell`, `sa/process box`, and related primitives) for the shared [Minimalist design](minimalist.md); start new figures directly from Minimalist.
 
-The Python asset reads the owner's palette API and maps the old color names to that palette. Pale fills are derived from the shared fill-opacity role; no separate hue table is maintained. Color names are compatibility identifiers, not scientific meanings. Declare the actual entity-to-color mapping in the figure.
+The Python asset maps legacy color names to the owner's live palette and derives pale fills from the shared fill opacity without maintaining a separate hue table. Color names are compatibility keys only; declare the figure's entity-to-color mapping explicitly.
 
-The TikZ asset loads a generated `minimalist-profile.sty`. Declare both style files to the renderer. It supplies the same CMU/LaTeX typography, role sizes, white canvas, and native `Latex` heads while retaining useful cell, receptor, fiber, process, scale-bar, and layout primitives. Geometric dimensions remain construction defaults and must not replace a physical size or quantitative scale.
-
-Small labels use dark ink when a light palette entry is not readable. Keep labels opaque even when their associated fill or contextual geometry is pale. A panel border or equation box should express a real grouping; ordinary panel separation uses whitespace. Follow the [renderer workflow](../renderer-workflows.md) and [vector export contract](../vector-export.md).
+The TikZ asset loads a generated `minimalist-profile.sty` (declare both style files to the renderer), inheriting CMU/LaTeX typography, role sizes, white canvas, and native `Latex` arrowheads alongside reusable cell, receptor, fiber, process, scale-bar, and layout primitives. Construction dimensions are defaults only and never replace physical sizes or scales. Keep text opaque (using dark ink when a palette hue is light), reserve borders for real groupings, and follow [renderer workflows](../renderer-workflows.md) and the [vector export contract](../vector-export.md).

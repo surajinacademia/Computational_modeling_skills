@@ -1,0 +1,6 @@
+interface:
+  display_name: "Research Project Setup"
+  short_description: "Explicit research setup, organization, and Git workflow"
+  default_prompt: "Use $research-project-setup to apply the research template, repair the repository layout, and establish its Git workflow."
+policy:
+  allow_implicit_invocation: false
