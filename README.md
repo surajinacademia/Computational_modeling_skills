@@ -6,7 +6,7 @@
 
 **Computational Modeling Skills** supports recurring workflows in theoretical biophysics and computational modeling. The skills help researchers develop and critically review models, test hypotheses, analyze linear stability, write structured Jupyter notebooks, create publication-quality plots and scientific schematics, document models and code, and run large simulations on HPC systems.
 
-I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, start with [ONBOARDING.md](ONBOARDING.md) and use these workflows to learn the process. Automating repetitive work gives researchers more time to generate hypotheses and find smart ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
+I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, start with [ONBOARDING.md](onboarding/ONBOARDING.md) and use these workflows to learn the process. Automating repetitive work gives researchers more time to generate hypotheses and find smart ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
 
 | Skill | Scope |
 | --- | --- |
