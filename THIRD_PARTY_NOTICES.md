@@ -4,7 +4,11 @@ Original material is covered by [LICENSE](LICENSE). The following exceptions ret
 
 ## Research project setup guidance
 
-The `research-project-setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/research-project-setup/references/goodresearch-setup.md), [Git workflow](skills/research-project-setup/references/git-workflow.md), and [README template](skills/research-project-setup/assets/template/README.md#references) credit and link the source chapters. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
+The `research-project-setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and project-organization principles from William Stafford Noble (2009), *A Quick Guide to Organizing Computational Biology Projects*, *PLOS Computational Biology* 5(7): e1000424 (<https://doi.org/10.1371/journal.pcbi.1000424>), licensed under [CC BY](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/research-project-setup/references/goodresearch-setup.md), [Git workflow](skills/research-project-setup/references/git-workflow.md), and [README template](skills/research-project-setup/assets/template/README.md#references) credit and link the source works. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
+
+## Fresh-context review protocol
+
+The zero-history `Goldfish` reviewer workflow referenced in [computational-modeling](skills/computational-modeling/SKILL.md) and [verification-and-review.md](skills/computational-modeling/references/verification-and-review.md) adapts the fresh-context review concept from [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model), licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). No upstream code or runtime files are bundled.
 
 ## Scientific notebook guidance
 
@@ -16,7 +20,7 @@ The model-documentation template and oscillator example are original material un
 
 ## Learning Dynamics visual profile
 
-The `schematic-designer` skill includes an independently documented visual- grammar profile informed by:
+The `schematic-designer` skill includes an independently documented visual-grammar profile informed by:
 
 Rituparno Mandal, Rosalind Huang, Michel Fruchart, Pepijn G. Moerman, Suriyanarayanan Vaikuntanathan, Arvind Murugan, and Vincenzo Vitelli, *Learning dynamical behaviors in physical systems*, arXiv:2406.07856v1, <https://arxiv.org/abs/2406.07856>.
 
@@ -58,7 +62,7 @@ The collection logo, icon, collective-cell-model-classes illustration, and paper
 
 ## Software and fonts
 
-Python, NumPy, Matplotlib, TeX engines, and PDF-to-SVG converters are not redistributed. Their own licenses apply when a user installs them.
+Python, NumPy, SciPy, SymPy, pandas, Matplotlib, Jupyter, Slurm, TeX engines, PDF-to-SVG converters, and external microscopy analysis software (such as Fiji/ImageJ, Bio-Formats, TrackMate, Cellpose, napari, saenopy, CellProfiler, ilastik, and QuPath) are not redistributed. Their own licenses apply when a user installs them.
 
 The bundled PDF specimens embed font subsets. The SVG specimens convert text to paths and do not depend on installed fonts.
 
