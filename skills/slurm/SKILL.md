@@ -6,7 +6,7 @@ license: MIT
 
 # Slurm
 
-Use this workflow for single jobs, independent sweeps, and requests for more nodes (replacing `hpc-slurm` and `slurm-sweep`). Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
+Use this workflow for single jobs, independent sweeps, and requests for more nodes. Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
 
 ## Execution and authorization
 
