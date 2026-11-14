@@ -4,7 +4,7 @@
 
 ## Design lesson
 
-- **Use when:** a reader must connect a mechanism to a spatial profile and its combined effect. The three panels answer different questions about the same two entities, giving the reader a reason to move through the figure.
+- **Use when:** a reader must connect a mechanism to a spatial profile and its combined effect. The three panels show the mechanism, profiles, and combined field for the same two entities.
 - **Why it helps:** repeated entity colors connect the mechanism to its curves; activation heads and inhibition bars distinguish relations independently of color. The signed field changes to a zero-centered magnitude scale because the reader now needs the sign and strength of the difference.
 - **Borrow:** carry identity across representations, then explicitly change the encoding when the quantity changes. Keep direct curve labels and the zero contour so the correspondence is visible without a long caption.
 - **Check after adapting:** distinguish qualitative interaction ranges from plotted distances. Confirm that the profile crossing agrees with the field's zero contour; a coordinated palette cannot establish that scientific link.

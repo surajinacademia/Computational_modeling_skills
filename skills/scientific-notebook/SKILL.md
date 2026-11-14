@@ -5,66 +5,53 @@ description: Create, maintain, execute, or review Jupyter notebooks for scientif
 
 # Scientific Notebook
 
-Deliver one ordinary, editable `.ipynb` containing the scientific explanation, calculation, and figures. Add interpretation only when explicitly requested. Maintain the notebook directly; do not create a paired Python implementation or Jupytext synchronization unless requested. Reuse established project modules.
+Deliver one editable `.ipynb` with scientific explanation, calculation, and figures, adding prose interpretation only when explicitly requested. Maintain the notebook directly using existing project modules, without paired Python scripts or Jupytext sync unless requested.
 
-## Scientific authority and scope
+## Before Acting: Scope and Scientific Authority
 
-For work on a scientific model's formulation, hypotheses, implementation, verification, validation, or supporting evidence, read and apply [computational-modeling](../computational-modeling/SKILL.md), with or without code changes. It governs the scientific contract, evidence, provenance, and model version identity; this skill owns notebook organization and maintenance. Standalone non-model data analysis, plotting, and isolated scientific explanations do not trigger the modeling skill. For data analysis, check provenance, units, exclusions, missing values, normalization, uncertainty, and the path from data to reported quantities directly.
+- Apply [computational-modeling](../computational-modeling/SKILL.md) (with or without code edits) whenever model formulation, hypotheses, implementation, verification, validation, or model evidence is in play; it owns the scientific formulation, provenance, and model version identity, while this skill owns notebook layout and maintenance.
+- Skip `computational-modeling` for standalone non-model data analysis, plotting, or isolated explanations; instead check data provenance, units, exclusions, missingness, normalization, uncertainty, and the data-to-output transformation directly.
+- Never start a formal model-document workflow solely because a notebook displays equations.
+- Consult [references/data-guidance.md](references/data-guidance.md) for MIT-licensed workflow practices already adapted from OpenAI's Data Analytics plugin; if an external `data-analytics:jupyter-notebooks` skill is installed separately, consulting it is optional, and never copy proprietary cached plugin files or adopt business-report layouts.
+- State the question, assumptions, equations or transformations, units, and initial or boundary conditions clearly, resolve ambiguities that alter results, and scale checks (limiting cases, conservation invariants, convergence, or statistical checks) to the claim rather than relying on kernel completion alone.
 
-Data guidance is optional. [data-guidance.md](references/data-guidance.md) records the narrow adaptations from OpenAI's public MIT source. Consult an installed `data-analytics:jupyter-notebooks` skill when useful, retaining this structure and the user's scientific question. Do not copy proprietary cached files or activate a formal model-document workflow merely because the notebook explains equations.
+## Notebook Structure and Plotting
 
-Establish the question, assumptions, equations or transformations, units, and initial/boundary conditions. Resolve ambiguities that change results. Scale verification to the claim through relevant limiting cases, invariants, numerical convergence, or statistical checks. A successful kernel run alone is insufficient.
+New starter notebooks initialize via `scripts/notebook.py` from [notebook-template.ipynb](assets/notebook-template.ipynb) and organize focused cells across six ordered roles:
 
-## Notebook structure
+1. **Opening Markdown:** descriptive title, brief question, and approach; add bullets only when helpful and preserve user-shortened openings.
+2. **Setup and computational functions:** imports, paths, plotting setup, and calculation or analysis functions; precede substantive methods with Markdown equations or pseudocode, omit formal "Inputs"/"Outputs" headers, group trivial setup, and split complex methods.
+3. **Technical comments in code:** explain numerical methods, approximations, implementation choices, and non-obvious programming decisions without narrating syntax.
+4. **Plotting functions:** editable plotting code without prose explaining Matplotlib calls; explain plotted observables in methods or explicitly requested interpretation.
+5. **Parameters:** one plain `PARAMETERS` dictionary immediately before final execution and plotting calls using physical names (`length`, `gravity`, `mass`) and unit comments; pass parameters explicitly, avoid duplicate definitions or mutable-global defaults, never run simulations inside definitions, and split numerical controls only when warranted.
+6. **Results:** run calculations, checks, and plots with figures primary, tables only when needed, passing checks quiet, and no verbose version dumps, hashes, or raw arrays.
 
-For new notebooks, use these section roles with as many focused cells as the work needs. There is no fixed cell count. The single starting layout is [notebook-template.ipynb](assets/notebook-template.ipynb); the helper loads it.
+- Omit interpretation sections unless explicitly requested; when requested, write them only after inspecting outputs, separating supported findings, uncertainty, and limits without restoring removed sections or treating metadata flags as permission to add prose.
+- Apply [data-visualization](../data-visualization/SKILL.md) for ordinary quantitative plots of completed values (passing question, plot-ready data or load path, observables, units, selections, uncertainty, target cells, and formats) while keeping plotting code editable in place; this handoff excludes model fitting, inference, simulation runs, full reruns, and package installs.
+- Let existing project or notebook styles override `data-visualization`'s adapter (use that adapter only to establish a new shared style), and apply `data-visualization`'s exported-figure checks only when separate file exports are requested.
+- Preserve calls to a pre-installed local `minimalist` plotting theme (`use_style('white')`, `figsize()` with `aspect_ratio` = height / width) when available in the environment, never installing an unrelated public PyPI package of the same name; otherwise fall back to Matplotlib defaults (DejaVu Sans, default cycle).
+- Use `plt.subplots()` for single panels and explicit `(width, height)` inches for multi-panel layouts; see [nonlinear-pendulum.ipynb](examples/nonlinear-pendulum.ipynb) for a problem-specific worked example (black `minimalist` styling with dark-background Matplotlib fallback affecting appearance only).
+- Keep notebooks runnable top-to-bottom in a fresh kernel without hidden state: install `requirements.txt` outside cells, resolve paths from an explicit project or notebook base, create output directories at runtime, keep parameters, seeds, and tolerances traceable, and label axes, units, colorbars, and uncertainty on comparable scales.
 
-1. **Opening Markdown:** a descriptive title and a short explanation of the question and approach. Use bullets only when helpful, with no mandatory count. Preserve the user's shortened opening; do not expand it to fill a template.
-2. **Setup and computational functions:** imports, relevant paths, shared plotting style, and scientific/analysis functions. Use short preceding Markdown for substantive methods; simple imports need no explanatory cell. Explain the physical or analytical reasoning and how the calculation proceeds; include equations or short pseudocode when useful. Avoid formal “Inputs” and “Outputs” sections. Group simple setup sensibly; split substantive methods when clarity needs it.
-3. **Technical comments in code:** explain numerical methods, algorithms, approximations, scientific implementation choices, and non-obvious programming decisions beside the code. Do not narrate obvious syntax.
-4. **Plotting function definitions:** provide editable plotting code, without additional prose explaining how that plotting code works. Use the plotting-style selection described below. Explain plotted quantities in methods or, when requested, interpretation.
-5. **Parameters:** use one plain `PARAMETERS` dictionary by default for adjustable model, calculation, and plotting settings, immediately before the final execution and plotting calls. Use plain physical names such as `length`, `gravity`, and `mass`, with units in comments. Functions accept parameters explicitly; avoid duplicate definitions, captured later settings in default arguments, or simulations during definitions. Split numerical settings only when the task or established notebook warrants it.
-6. **Results:** execute calculations, meaningful scientific checks, and plotting calls. Show plots primarily; add a table only when needed to answer the question. Keep checks quiet on success. Do not print verbose diagnostics, software-version lists, hashes, or raw arrays.
+## Editing and Maintaining Cells
 
-Interpretation is optional and must be explicitly requested. The template has none. When requested, write it after inspecting executed results and distinguish supported findings, uncertainty, and limitations. Do not restore a section the user removed or treat interpretation metadata as permission to add prose.
+- **REQUIRED BEFORE notebook edits:** read [references/helper.md](references/helper.md) for `scripts/notebook.py` CLI rules, JSON patch format, `invalidate` arrays, `output_changes` fields, and `metadata.scientific_notebook` state transitions.
+- Inspect the project and target `.ipynb` before mutating anything (`nbformat` required; `nbclient` required for `execute`):
+  - `scripts/notebook.py create <path> --title <title> --point <text>` (repeatable `--point`): initializes starter notebooks from `notebook-template.ipynb`.
+  - `scripts/notebook.py inspect <path>` and `scripts/notebook.py validate <path>`: check `.ipynb` structure and report `sha256`, metadata, cell IDs, sources, attachments, execution counts, and output types.
+  - `scripts/notebook.py edit <path> --patch <patch.json>`: applies ordered `replace`, `insert`, and `delete` operations by cell ID while preserving unaffected cells and Markdown-only outputs.
+  - `scripts/notebook.py execute <path> [--kernel <name>] [--timeout 600]`: clears outputs and runs all code cells sequentially in a fresh kernel from the notebook's directory.
+- For targeted edits, modify only requested cells without imposing the template wholesale or rerunning the entire notebook for prose or single-cell changes, and reinspect if the file `sha256` changes concurrently.
+- **Mandatory `output_changes` inspection check:** inspect `output_changes` (`invalidation`, `invalidated_cell_ids`, `retained_output_cell_ids`, `dependency_review_cell_ids`) after every `edit`, pass `invalidate` only when code dependencies are certain, and review every cell in `dependency_review_cell_ids` because retained outputs are never certified automatically.
+- Omit `invalidate` whenever dependencies are uncertain so all code outputs and widget state clear; if post-save uncertainty arises or edits fall outside this patch format, update via `nbformat` (never hand-editing raw `.ipynb` JSON) and review any requested interpretation marked `review_required`.
 
-## Plotting style
+## Execution, Verification, and Completion Criteria
 
-For ordinary quantitative plots from completed scientific values, read and apply [data-visualization](../data-visualization/SKILL.md). Pass the scientific question, plot-ready data or their existing load path, observable definitions, units, selections and uncertainty, target cells, and requested formats. That skill owns plot encoding, data-to-plot checks, and visual inspection; this skill retains ownership of the notebook, cell preservation, execution scope, and inline outputs. Keep plotting code editable in the same notebook or an existing project module; do not create a second notebook or plotting application for the handoff. Model fitting, inferential statistics, or other excluded analyses stay with their appropriate workflow; only a separately defined descriptive plot of completed values enters data-visualization. The handoff does not authorize simulation execution, full-notebook reruns, or dependency installation.
-
-Use the project's configured plotting style. When the owner's separately installed `minimalist` package is available, preserve its `use_style('white')` setup and `figsize()` API; do not copy its defaults into cells. The portable scaffold uses Matplotlib's built-in default when that optional package is absent. The fallback uses DejaVu Sans and Matplotlib's default color cycle and does not reproduce the owner's theme. Do not install a PyPI package merely because it has the same name. Preserve an explicit user style choice.
-
-These notebook and project style choices take precedence over data-visualization's default adapter; use its adapter only when establishing a new shared style is needed. For an inline-only request, inspect the saved inline figure output in the notebook; do not add a standalone PDF solely to satisfy a plotting default. Apply its saved-artifact checks to any separately requested exports.
-
-Use `plt.subplots()` for one panel and an explicit `(width, height)` in inches for portable multi-panel layouts. With `minimalist`, `aspect_ratio` in `figsize()` means height divided by width. No installation occurs in notebook cells. Install the helper dependencies from `requirements.txt` in a prepared project environment; `examples/requirements.txt` adds the scientific example dependencies. The saved nonlinear-pendulum example retains figures rendered with the owner's black `minimalist` theme. Rebuilding without the optional package uses native Matplotlib dark-background styling and explicit figure dimensions; scientific calculations are unchanged. Exact reproduction of the saved appearance requires the optional theme.
-
-Keep the notebook runnable top-to-bottom from a fresh kernel without hidden state. Use paths relative to the project or notebook with their base explicit; create output directories during execution when needed. Keep relevant sources, parameter values, seeds, and numerical tolerances traceable. Record additional environment or model identity only when needed, without verbose printed output. Save figures or numerical outputs needed for the requested handoff, retaining inline figure outputs and editable plotting code. Label axes, units, colorbars, and uncertainty; use comparable scales when the comparison requires them.
-
-## Create or maintain
-
-Inspect the target project and existing notebook before choosing either route. Use [the shared helper](references/helper.md) for repeated notebook mechanics; it uses `nbformat` and `nbclient`, not a model-specific assembly script.
-
-- **New notebook:** scaffold with the helper and replace authoring prompts with task-specific explanations, functions, settings, and calls. The scaffold cannot execute successfully until the computation is implemented.
-- **Existing notebook:** inspect cell IDs, sources, metadata, attachments, and saved outputs. Edit, insert, or remove only cells needed for the request. Keep the user's unrelated prose, code, order, IDs, and customizations. Do not rebuild the notebook from a template or impose this structure wholesale during a narrow edit. Inspect again if the file changed while work was in progress.
-- **One cell or a few cells:** answer or edit just the requested cells. Do not scaffold a new notebook, reorganize sections, or automatically execute the full notebook. Check the affected behavior and dependencies proportionately. A prose change does not require rerunning a simulation.
-
-Preserve unaffected cells, IDs, metadata, attachments, and valid outputs. The helper preserves outputs for Markdown-only edits. For code changes, explicitly list affected code cells when their dependencies are understood; otherwise it clears all code outputs conservatively. It does not infer dependencies. A computational change preserves `not_requested` (also the default for absent interpretation metadata); tracked requested interpretation is flagged for review. Metadata flags are not visible warnings. Review affected existing claims without adding an unrequested section. External data, imported code, assumptions, or environment changes can also invalidate results.
-
-For operations outside the helper's bounded patch vocabulary, use `nbformat` directly with the same preservation and stale-output rules. Temporary cell-source or patch files are authoring intermediates, not a second maintained notebook implementation. Avoid hand-editing notebook JSON.
-
-## Execute, inspect, and finish
-
-Review code and dependencies before execution; the helper is not a sandbox. Use the project environment and an appropriate timeout. Do not install packages from cells or create scheduled/remote runs merely to complete the layout. Use the project's run workflow for long calculations; do not substitute a cheaper problem.
-
-For a new notebook or a requested whole-workflow revision, complete these checks:
-
-1. Validate notebook format and execute top-to-bottom in a fresh kernel using `nbclient` (the helper's `execute` command). Select the project kernel and a suitable per-cell timeout; execution uses the notebook's directory. Retain successful outputs in the same notebook. Errors and timeouts mean incomplete execution.
-2. Check the task-specific scientific acceptance evidence. Inspect the saved notebook in a notebook viewer, or render it locally and inspect the saved figures and text at reading size. Look for clipped labels, missing outputs, misleading scales, and claims that disagree with the results.
-3. If interpretation was explicitly requested, write or revise it after reviewing results, preserving execution outputs. Recheck affected calculations or plots after subsequent changes; prose-only edits do not require another run.
-4. Confirm there are no scaffold prompts, unsupported conclusions, or stale results presented as current. Link the notebook and briefly state what was established and any consequential limits.
-
-For targeted edits, validate notebook format and test the changed behavior with its required prerequisites. Inspect changed plots if any. Reuse the project kernel or an isolated check when appropriate; the helper's `execute` command is always a full fresh-kernel run, not a targeted execution command. Broaden execution when dependencies or findings cannot otherwise be verified, rather than treating every edit as a whole-notebook assignment. Preserve unrelated valid results.
-
-Completion means the requested scope is implemented and its relevant scientific checks and affected outputs are inspected. State any remaining execution, dependency, or visual-inspection gap and the exact action needed to resolve it; never call a partial check full-notebook verification. Keep any existing interpretation consistent with that status. Stop when the requested work is complete.
-
-See [nonlinear-pendulum.ipynb](examples/nonlinear-pendulum.ipynb) for the editable, executed example of the complete workflow. Its equations, parameters, and checks illustrate this problem; they are not defaults for other scientific tasks.
+- Review code and dependencies before running (`scripts/notebook.py` is not a sandbox), use the prepared project environment with an adequate timeout, and never install packages in cells, launch remote jobs to finish layout, or substitute a toy problem for the requested calculation.
+- Before an expensive new or modified calculation, verify one small known case within scope without replacing the full run (skip for prose-only or plotting-only edits).
+- For a new notebook or full revision:
+  1. Run `scripts/notebook.py execute` with explicit `--kernel` and `--timeout`, saving outputs in place (errors or timeouts leave execution incomplete).
+  2. Check acceptance criteria and inspect rendered figures and text at reading size for clipped labels, missing outputs, misleading scales, or claim mismatches.
+  3. Write or update explicitly requested interpretation after inspecting outputs (then mark `metadata.scientific_notebook.interpretation` as `'reviewed'` via `nbformat`), rechecking affected runs after code or plot edits.
+  4. Remove remaining starter prompts, unsupported claims, and stale outputs, then link the notebook and state findings and limits.
+- For targeted edits, run `scripts/notebook.py validate`, execute affected cells with their prerequisites in the project kernel or an isolated check while preserving valid unrelated outputs, inspect changed plots, and report any execution, dependency, or visual-inspection gap with the exact resolution command rather than claiming full verification.

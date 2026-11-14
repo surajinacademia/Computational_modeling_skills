@@ -4,7 +4,7 @@ Original material is covered by [LICENSE](LICENSE). The following exceptions ret
 
 ## Research project setup guidance
 
-The `Research_project_setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/Research_project_setup/references/goodresearch-setup.md), [Git workflow](skills/Research_project_setup/references/git-workflow.md), and [README template](skills/Research_project_setup/assets/template/README.md#references) credit and link the source chapters. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
+The `research-project-setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/research-project-setup/references/goodresearch-setup.md), [Git workflow](skills/research-project-setup/references/git-workflow.md), and [README template](skills/research-project-setup/assets/template/README.md#references) credit and link the source chapters. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
 
 ## Scientific notebook guidance
 

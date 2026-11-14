@@ -24,7 +24,7 @@
 \textbf{Analysis code:} \path{linear_stability.py}\\
 \textbf{Parameter data:} \path{parameters.json}\\
 \textbf{Spectrum data:} \path{spectrum.csv}\\
-\textbf{Artifact manifest:} \path{artifact-manifest.sha256}
+\textbf{SHA-256 manifest:} \path{artifact-manifest.sha256}
 
 \section{Model Purpose And Questions}
 
@@ -102,7 +102,7 @@ Replace & Replace & Replace & Replace & Replace & Replace \\
 
 \begin{figure}[htbp]
   \centering
-  % Authoring scaffold only. In a completed report, replace the entire
+  % Template placeholder only. In a completed report, replace the entire
   % \IfFileExists block with one unconditional direct \includegraphics command.
   \IfFileExists{figures/dispersion_relation.pdf}{%
     \includegraphics[width=0.86\linewidth]{figures/dispersion_relation.pdf}%
@@ -122,11 +122,11 @@ Replace & Replace & Replace & Replace & Replace & Replace \\
 
 \subsection{Numerical Formulation}
 
-\authorprompt{Define the lambdified matrix or polynomial, either valid wavevector sampling and finite modes or the full-operator discretization and refinements, SciPy solver, constraint projection or companion form, branch or subspace matching, tolerances, scaling, and stored data schema.}
+\authorprompt{Define the lambdified matrix or polynomial, either valid wavevector sampling and finite modes or the full-operator discretization and refinements, SciPy solver, constraint projection or companion form, branch or subspace matching, tolerances, scaling, and CSV column layout.}
 
 \subsection{Algorithm And Flowchart}
 
-\authorprompt{Give mathematical pseudocode for validation, reference-state checking, first-order extraction, spectral construction, lambdification, eigensolution, branch matching, residual checks, storage, and plotting. Include a compact in-report flowchart only when it clarifies branching.}
+\authorprompt{Give mathematical pseudocode for input bounds checking, reference-state verification, first-order extraction, spectral construction, lambdification, eigensolution, branch matching, residual checks, storage, and plotting. Include a compact in-report flowchart only when it clarifies branching.}
 
 \subsection{Accuracy And Verification}
 
@@ -136,7 +136,7 @@ Replace & Replace & Replace & Replace & Replace & Replace \\
 
 \subsection{Implementation Mapping}
 
-\authorprompt{Map governing equations and report quantities to inspected source, SymPy expressions, SciPy calculation, parameter input, spectrum columns, and figure files. Record runtime and package versions, revision and dirty state, and the SHA-256 artifact manifest covering report, calculation, parameters, spectrum, figures, PDF, and checker version. The manifest must not hash itself; external review records reference its separately computed hash.}
+\authorprompt{Map governing equations and report quantities to inspected source, SymPy expressions, SciPy calculation, parameter input, spectrum columns, and figure files. Record runtime and package versions, source revision and uncommitted working-tree changes, and \path{artifact-manifest.sha256} covering report, calculation, parameters, spectrum, figures, PDF, and checker version. The manifest must not hash itself; external review records reference its separately computed hash.}
 
 \subsection{Method Decisions And Changes}
 

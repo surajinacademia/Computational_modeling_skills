@@ -306,7 +306,7 @@ $$
 - It requires Python 3.9 or newer and only the standard library.
 - Importing it performs no simulation.
 - Direct execution calculates the trajectory and writes comma-separated values to standard output; it creates no output directories or files and makes no network requests.
-- Prepared against repository revision `f1c111c3e43d7f44b006ee7298f2a064fd95cdc6` in a dirty working tree, with this example source newly added and untracked.
+- Prepared against repository revision `f1c111c3e43d7f44b006ee7298f2a064fd95cdc6` with uncommitted working-tree changes, with this example source newly added and untracked.
 - Exact source: `skills/model-documentation/examples/overdamped-harmonic-oscillator/model.py`; SHA-256: `2abba845ac82f0a02f2f682a181028cb436625d33f8226d40295d0b5591ff807`.
 - The hash identifies the implementation described here; update this record when that source changes.
 - The equation-to-code mapping in the companion source is:

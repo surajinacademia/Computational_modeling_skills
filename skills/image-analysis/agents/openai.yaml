@@ -1,0 +1,4 @@
+interface:
+  display_name: "Image Analysis"
+  short_description: "Analyze microscopy images and document reproducible methods"
+  default_prompt: "Use $image-analysis to measure cells in my microscopy images and return the measurements, a before-and-after figure, and supplementary methods."

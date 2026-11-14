@@ -1,12 +1,12 @@
 # Pandas Data Handling for Biophysical Plots
 
-Read this reference when Pandas or another dataframe library is material to the analysis-to-plot path. Apply its structural rules, not a fixed syntax style.
+Read this reference when the analysis-to-plot path uses Pandas or another dataframe library, applying these rules in that library's syntax.
 
 ## Contents
 
-- [Start with Table Grain](#start-with-table-grain)
+- [Start with Row Representation and Experimental Unit](#start-with-row-representation-and-experimental-unit)
 - [Combine Runs Once](#combine-runs-once)
-- [Choose an Operation by Its Effect on Grain](#choose-an-operation-by-its-effect-on-grain)
+- [Choose an Operation by Its Effect on Row Representation](#choose-an-operation-by-its-effect-on-row-representation)
 - [Join without Changing the Population Accidentally](#join-without-changing-the-population-accidentally)
 - [Keep Missingness and Zero Distinct](#keep-missingness-and-zero-distinct)
 - [Treat Duplicate Keys as a Scientific Question](#treat-duplicate-keys-as-a-scientific-question)
@@ -14,99 +14,73 @@ Read this reference when Pandas or another dataframe library is material to the 
 - [Keep the Pandas Path Small](#keep-the-pandas-path-small)
 - [Evidence](#evidence)
 
-## Start with Table Grain
+## Start with Row Representation and Experimental Unit
 
-Table grain means what one row represents. Common grains include:
+Row representation is what one table row records: one cell or particle at one frame, one trajectory at one lag time, one simulation run at one output time, one biological replicate per condition, or one field-sample component. Always distinguish the row key unit (for example, one cell at one frame keyed by `(embryo_id, cell_id, frame)`) from the independent biological experimental unit that defines replicate sample size $n$ (such as independent embryos, donors, spheroids, or stochastic simulation runs), aggregating sub-replicate rows within each experimental unit first so observations within a replicate are never pooled as pseudoreplicates.
 
-- one cell or particle at one frame;
-- one trajectory at one lag time;
-- one run at one output time;
-- one replicate for one condition;
-- one component of one field sample.
-
-Name the complete key for that grain, such as `(run_id, cell_id, frame)`. Keep the key as named columns unless an index directly represents the same stable scientific identity. Sort by entity and scientific time before a lag, difference, rolling, or cumulative calculation. Do not assume file order or the current row order is time order. Apply each ordered calculation within the full entity key. Enforce the frame or time separation required by the observable. Do not bridge an undefined temporal gap merely because two rows become adjacent after sorting.
-
-Define the result grain before an operation that can change row count. A direct analysis can state this through the grouping columns and output names. Do not build a schema class, grain registry, or separate table contract for one plot.
+Name the full key for that row representation (such as `(run_id, cell_id, frame)`) as named columns unless an index already holds that exact identity. Before any lag, difference, rolling, or cumulative step, sort by entity and scientific time rather than relying on file order, group within the full entity key, and enforce required frame spacing so temporal gaps are never bridged silently. State the target row key unit before row-changing operations via grouping columns and output names without inventing an expected column structure class or registry.
 
 ## Combine Runs Once
 
-For multiple completed runs, use this structure:
+For multiple completed runs, follow:
 
 ```text
 read each run -> attach stable run and replicate keys -> concatenate once
 -> scientific selection -> observable -> required aggregation -> plot
 ```
 
-Attach run, replicate, condition, and source identity before concatenation when those keys are not already stored. Do not try to recover identity later from the combined row index. Collect compatible tables before concatenation instead of growing one dataframe inside a loop. Normalize only columns used by the observable, keys, grouping, or plot.
+Attach run, replicate, condition, and source identity before concatenating instead of recovering identity from the combined index later. Collect tables in a list and concatenate once rather than growing a dataframe inside a loop, normalizing only columns used by observables, keys, grouping, or plotting.
 
-## Choose an Operation by Its Effect on Grain
+## Choose an Operation by Its Effect on Row Representation
 
-- A row selection keeps the grain and changes the population.
-- A column calculation keeps the grain and adds or changes an observable.
-- A grouped transform keeps one result aligned with each input row.
-- A grouped aggregation changes the grain to one row per grouping key.
-- A join combines attributes or observations through scientific keys.
-- A reshape changes representation and should not change scientific meaning by itself.
+- Row selection preserves the row key unit and changes the included population.
+- Column calculation preserves the row key unit and adds or updates an observable.
+- Grouped transform aligns one value back to each input row.
+- Grouped aggregation changes row representation to one row per grouping key.
+- Join merges attributes or observations along scientific keys.
+- Reshape alters layout without changing scientific meaning.
 
-Use direct built-in column, aggregation, and transform operations when they express the calculation. Use a row callback, group callback, or manual loop only for a real ordered or cross-row scientific calculation that the direct operations cannot express clearly.
-
-For nested observations, aggregate in the scientific hierarchy. If the target weights runs equally, first create one value per run and comparison coordinate, then summarize those run values. Do not pool unequal numbers of cells, frames, or particles and label the pooled row count as the replicate count.
+Prefer built-in column, aggregation, and transform operations, reserving callbacks or loops for genuine ordered or cross-row calculations. Aggregate nested data in hierarchy order: for equal-replicate or equal-run weighting, compute one value per experimental unit (biological replicate or run) and coordinate first, then summarize across experimental units ($n$) instead of pooling unequal cell, frame, or particle counts as pseudoreplicates.
 
 ## Join without Changing the Population Accidentally
 
-Use the full key shared by both tables. Select the join population from the scientific question. Enforce the expected cardinality at the join when the library supports it; in Pandas, the merge cardinality option is preferable to a new preflight framework.
-
-Stop if a supposed one-to-one or many-to-one join multiplies rows. A many-to- many join is valid only when every resulting pairing is intended. If unmatched keys can remove requested units or introduce missing attributes, inspect one unmatched-key count at the affected scientific unit. Do not retain a permanent join-audit table when the count resolves the question.
-
-Use automatic dataframe index alignment only when the index is the intended scientific key. Equal row counts do not prove alignment. For paired values from one table, prefer one shared validity mask. For values from separate tables, join or align by the full key before calculation.
+Join on the full shared key with a merge-multiplicity check (`validate=` in Pandas) instead of building a preflight framework, stopping if a one-to-one or many-to-one merge multiplies rows (many-to-many is valid only when every pairing is intended). Inspect one unmatched-key count at the affected scientific unit when unmatched keys could drop subjects or inject nulls, without keeping permanent merge-diagnostic tables. Rely on automatic index alignment only when the index is the intended scientific key (equal lengths do not establish alignment); use one shared mask for same-table pairs or keyed joins across tables.
 
 ## Keep Missingness and Zero Distinct
 
-Classify missing data by role:
-
 - A missing required identity or group key is an input-boundary failure.
-- A missing measurement affects only observables that require that measurement.
+- A missing measurement affects only observables using that measurement.
 - A measured zero is data, not missingness.
 - An absent run or group is not a row of zeros.
 
-Do not apply a blanket missing-value removal across unrelated columns. Do not fill missing measurements, time points, or runs with zero, a group mean, or the previous value unless that operation is part of the scientific definition.
-
-For a joint calculation, use the same complete cases for all paired values. For separate summaries, keep each observable's valid values and retain its valid scientific-unit count per group. Make clear whether a reported count is rows, cells, trajectories, runs, or replicates.
+Never apply blanket `dropna` across unrelated columns or fill missing runs, time points, or measurements with zero, group means, or prior values unless defined by the science. Use complete cases for joint calculations and observable-specific validity masks for separate summaries, reporting valid counts clearly by unit (rows, cells, trajectories, runs, or replicates).
 
 ## Treat Duplicate Keys as a Scientific Question
 
-Repeated values in one identifier column can be correct. A cell identifier, for example, repeats across frames. Test uniqueness only for the full key that is expected to identify one row.
-
-If the full key repeats, determine whether the rows are technical duplicates, separate measurements, or an omitted dimension. Stop or add the missing key. Aggregate repeated rows only when the reducer defines the requested observable. Never use blanket duplicate removal to make a join or reshape succeed.
+Single columns like `cell_id` naturally repeat across frames; test uniqueness on the full row-identifying key. If the full key repeats, determine whether rows are technical duplicates, distinct measurements, or an omitted dimension, then fix the key or apply a scientifically defined reducer instead of dropping duplicates blindly to force a join or reshape.
 
 ## Reshape Once and Deliberately
 
-Keep long form when group, condition, observable, or component names naturally vary by row and the plot accepts that form. Use wide form when a paired or matrix-like calculation needs aligned columns. Reshape near that calculation or plot, preserve identity columns, and avoid repeated long-to-wide-to-long cycles.
-
-A plain pivot requires one value for each index-and-column key combination. If repeated combinations exist, do not use an aggregating pivot as an implicit cleanup step. Define the scientific aggregation first or correct the grain.
+Keep long form when condition, observable, or component varies by row and the plot accepts it; use wide form only when paired or matrix calculations need aligned columns, reshaping once near the calculation or plot and retaining identity columns. Plain `pivot` requires unique `(index, columns)` keys; never swap in an aggregating `pivot_table` as silent cleanup without first fixing the row key unit or defining the aggregation.
 
 ## Keep the Pandas Path Small
 
-- At an unverified input boundary, check required keys and observable columns once. Do not repeat the check when an inspected upstream contract guarantees them.
-- Make one explicit working table only when mutation or isolation is needed. Do not copy after every selection.
-- Do not rely on chained assignment or on changes to a filtered view affecting its source.
-- Do not add a generic cleaner, dtype mapper, join manager, aggregation registry, dataframe subclass, or validation report for one analysis.
-- Do not add chunking, distributed dataframes, categorical optimization, or a new storage layer until measured data size or runtime requires it.
-- Keep plot ordering and labels as presentation choices. Do not encode display order as an analytical filter.
+- Check required keys and observable columns once at unverified input boundaries; skip rechecks when an inspected expected input structure from preceding steps guarantees them.
+- Copy the working table once only when isolation is needed rather than after every filter, and avoid chained assignment or mutating filtered views.
+- Never build a generic cleaner, dtype mapper, join manager, aggregation registry, dataframe subclass, data-check summary, or premature chunking/distributed/categorical layer for one plot.
+- Keep plot ordering and labels as display choices rather than analytical filters.
 
-The final plot-ready table should contain the keys needed to trace each plotted value, the named observable, the requested grouping columns, and any requested uncertainty or valid-unit count. Pass those columns directly to the plot. Do not convert a table to nested dictionaries or lists and then rebuild it.
+Keep only traceability keys, the named observable, grouping columns, and any uncertainty or valid-unit counts in the final plot-ready table, passing its columns straight to Matplotlib instead of unpacking into nested dictionaries or lists.
 
 ## Evidence
 
-Biophysics repository evidence is recorded in [repository-patterns.md](repository-patterns.md). In particular, Trackpy shows keyed particle/frame operations, one-time reshape, and joined paired values; saenopy shows per-file and group-level aggregation; PhysiCell shows category attachment before concatenation and direct long-form plotting. Do not open that evidence reference unless the current code leaves two competing structures unresolved.
+Biophysics codebase examples live in [repository-patterns.md](repository-patterns.md) (Trackpy keyed particle/frame joins and one-time unstacking, saenopy per-file then group aggregation, PhysiCell pre-concatenation category attachment); consult it only when current code leaves competing designs unresolved. Official Pandas semantics confirm these rules:
 
-The official Pandas documentation establishes the relevant operation semantics:
+- [grouped aggregation and transform](https://pandas.pydata.org/docs/user_guide/groupby.html) (changing row representation vs aligned transform, built-in ops before custom callbacks);
+- [merge, join, and concatenation](https://pandas.pydata.org/docs/user_guide/merging.html) (population, cardinality checks, one-time `concat`);
+- [missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html) (filtering/imputation changes included data);
+- [reshaping](https://pandas.pydata.org/docs/user_guide/reshaping.html) (`pivot` uniqueness vs `pivot_table` aggregation);
+- [index alignment](https://pandas.pydata.org/docs/user_guide/indexing.html#series-assignment-and-index-alignment) (label-based alignment);
+- [copy-on-write](https://pandas.pydata.org/docs/user_guide/copy_on_write.html) (chained assignment and view-mutation hazards).
 
-- [grouped aggregation and transform](https://pandas.pydata.org/docs/user_guide/groupby.html) distinguish reduced-grain output from same-grain output and recommend direct built-in operations before custom group callbacks;
-- [merge, join, and concatenation](https://pandas.pydata.org/docs/user_guide/merging.html) document join populations, many-to-many row multiplication, cardinality validation, and one-time concatenation;
-- [missing data](https://pandas.pydata.org/docs/user_guide/missing_data.html) documents that removal and filling change which values enter calculations;
-- [reshaping](https://pandas.pydata.org/docs/user_guide/reshaping.html) documents that a plain pivot requires unique key combinations while a pivot table aggregates them;
-- [index alignment](https://pandas.pydata.org/docs/user_guide/indexing.html#series-assignment-and-index-alignment) documents label-based assignment; and
-- [copy-on-write](https://pandas.pydata.org/docs/user_guide/copy_on_write.html) documents why chained assignment and filtered-view side effects are not a reliable data path.
-
-These sources support operation semantics. The observable, scientific unit, keys, valid population, and aggregation order still come from the model and the analysis question.
+Operation semantics belong to the library; observable, unit, keys, population, and aggregation order belong to the scientific question.

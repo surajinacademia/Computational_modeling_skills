@@ -1,14 +1,18 @@
 # Required Typography
 
-Use LaTeX for every equation in Matplotlib, TikZ, and hybrid figures. Use Computer Modern Unicode (CMU) for text: CMU Sans Serif for labels and prose, and CMU Serif for serif text. Keep LaTeX's Computer Modern mathematical fonts for mathematical symbols; CMU text fonts are not a replacement for a complete math font. Do not substitute DejaVu, Arial, or Latin Modern text fonts.
+Use LaTeX for every equation across Matplotlib, TikZ, and hybrid figures, with Computer Modern Unicode (CMU) for text (CMU Sans Serif for labels and prose, CMU Serif for serif text) and Computer Modern math fonts for math symbols. Never substitute DejaVu, Arial, or Latin Modern text fonts, and never fall back to Mathtext; if LaTeX or CMU faces are missing, report the gap and stop final rendering.
 
-This requirement applies to every profile and to adaptations of bundled examples. The default minimalist helper and its compatibility assets apply it directly. Replace font fallbacks and Mathtext settings when adapting an imported construction reference. If LaTeX or the required CMU faces are missing, report the missing dependency and stop final rendering rather than silently substitute typography.
+## Default equation style
+
+Use annotated equations for displayed model equations, explanatory formulas, and derivations unless the user, journal, or project specifies another style (following [LaTeX annotation by TikZ](https://bookdown.org/redwing1304/math/latex-annotation-by-tikz.html) as a design reference; ordinary axis/tick labels and isolated symbols keep standard typography).
+
+Keep the full expression legible with neutral operators, signs, parentheses, fractions, and scripts. Define quantities nearby or in the caption, explain each term's role, color meaningful terms alongside their explanations and leaders (using dark ink with a colored key if a hue is pale), and use pale palette fills sparingly for grouping rather than boxing every term.
+
+Start from [global equation nodes](../assets/examples/tikz/global-nodes/README.md#design-lesson) for term identification and [linked equation nodes](../assets/examples/tikz/tkz-linknodes-examples/README.md#design-lesson) for derivations. Keep term-identification leaders distinct from derivation arrows and physical arrows, and implement them with native named nodes, braces, and TikZ heads rather than executing third-party TeX or adding `annotate-equations`, following [source-editing rules](../SKILL.md#source-editing-and-tool-calls).
 
 ## Matplotlib
 
-For the default profile, import `apply_style` from [minimalist_profile.py](../assets/styles/minimalist_profile.py) and call it before importing `matplotlib.pyplot` or `minimalist`. It selects PGF before loading the palette package, then applies CMU text and LuaLaTeX math settings. Do not call `minimalist.use_style()` afterward; it is not this skill's typography setup.
-
-Use the PGF backend with LuaLaTeX so real LaTeX renders equations and fontspec selects the CMU text faces. When a project explicitly supplies its own profile, select PGF first, apply it, then apply this configuration before creating a figure:
+For Minimalist, call `apply_style()` from [minimalist_profile.py](../assets/styles/minimalist_profile.py) before importing `matplotlib.pyplot` or `minimalist`, and do not call `minimalist.use_style()` afterward. For a custom project profile, configure PGF/LuaLaTeX before creating a figure:
 
 ```python
 import matplotlib as mpl
@@ -32,20 +36,20 @@ mpl.rcParams.update({
 import matplotlib.pyplot as plt
 ```
 
-Write equations as raw LaTeX strings, for example `ax.set_ylabel(r"$\frac{\mathrm{d}x}{\mathrm{d}t}=-k x$")`. Mathtext alone, including `mathtext.fontset="cm"`, does not satisfy the LaTeX requirement. Escape ordinary text before passing it to TeX; preserve the skill's allowlisted-equation and trusted-source boundaries.
+Write equations as raw LaTeX strings such as `ax.set_ylabel(r"$\frac{\mathrm{d}x}{\mathrm{d}t}=-k x$")`, escape ordinary text passed to TeX, and uphold allowlisted-equation and trusted-source rules. Render annotated equations with PGF LaTeX, `palette()`, and [native_tikz.py](../scripts/native_tikz.py) leaders anchored to measured term bounds via real axes transforms (or keep them in the compositor for an existing hybrid like [chemoattraction](../assets/examples/tikz/chemoattraction/README.md); changing to hybrid follows the renderer-change confirmation rule).
 
-Render a staged PDF using PGF, then convert that PDF to an outlined SVG; do not switch back to the native SVG backend for the final figure. PGF does not export SVG directly. Follow references/vector-export.md for validation and publication.
-
-Implementation reference: [Matplotlib PGF documentation](https://matplotlib.org/stable/users/explain/text/pgf.html).
+Stage the PDF with PGF and convert that PDF to outlined SVG per [vector-export.md](vector-export.md); never use the native SVG backend for final delivery. Reference: [Matplotlib PGF docs](https://matplotlib.org/stable/users/explain/text/pgf.html).
 
 ## TikZ and hybrid
 
-Compile with LuaLaTeX and load `fontspec` with the `no-math` option. Select `\setmainfont{CMU Serif}` and `\setsansfont{CMU Sans Serif}` explicitly, with `\renewcommand{\familydefault}{\sfdefault}` for prose and labels. Use LaTeX math mode (`$...$`, `\(...\)`, or a suitable math environment) for all equations. Do not select a pdfLaTeX or fallback-font branch from an older style asset. The default helper's generated TikZ support style supplies this CMU/LaTeX setup; use it through [renderer-workflows.md](renderer-workflows.md). Use the same CMU faces and LaTeX math setup in Matplotlib panels and the TikZ compositor. Existing examples are construction references, not typography exceptions.
+Compile with LuaLaTeX loading `fontspec` with `no-math`, `\setmainfont{CMU Serif}`, `\setsansfont{CMU Sans Serif}`, and `\renewcommand{\familydefault}{\sfdefault}`, using LaTeX math mode everywhere rather than pdfLaTeX or older fallback branches. The generated Minimalist support style supplies this setup per [renderer-workflows.md](renderer-workflows.md).
+
+Author annotated equations directly in the maintained `.tex` using named baseline nodes, `ms arrow` callouts routed through clear lanes, shared palette roles, and intact nested math/braces. Hybrids use the exact same rules and final physical size in both panels and compositor.
 
 ## Hierarchy and label color
 
-Use the selected profile's panel, title, body, equation, and small-text roles consistently at the intended publication size. Use weight and spacing to separate structural labels from scientific labels; equations retain their exact notation. Place labels near the entity or relation they identify. Match an entity's color in its label when it remains readable against the background; otherwise use dark text with a colored key. Keep text opaque and use fill opacity for pale context. When a label does not fit, adjust the layout before reducing its type size.
+Apply the profile's panel, title, body, equation, and small roles consistently at final size, using weight and spacing to separate structural labels from scientific ones. Match entity color in nearby readable labels (or dark ink with a color key), keep text opaque, and adjust layout instead of shrinking unreadable labels.
 
 ## Final check
 
-Inspect a representative equation containing a fraction, Greek symbol, subscript, and superscript. Check the PDF font inventory for the selected CMU text faces and Computer Modern math, and check the outlined SVG visually. A successful render with substituted fonts is not a completed figure. In a hybrid composition, also compare imported panel labels with native TikZ labels at the final size; scaling a panel scales its typography and strokes.
+Check a representative equation with a fraction, Greek symbol, subscript, and superscript for quantity definitions, term explanations, color consistency, valid steps, clear leader attachment, PDF font inventory (CMU text + Computer Modern math), and visual outlined-SVG inspection. In hybrids, compare imported panel type sizes against native TikZ labels at final size.

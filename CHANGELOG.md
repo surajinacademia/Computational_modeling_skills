@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.0] - 2026-11-13
+
+- Expands the public package from ten to twelve skills by adding [image-analysis](skills/image-analysis/SKILL.md) (calibrated experimental microscopy segmentation, fluorescence, tracking, and traction-force measurements with paired Panel A/B figures and [supplementary methods](skills/image-analysis/references/supplementary-methods.md)) and [ruminations](skills/ruminations/SKILL.md) (explicit `/ruminations` session recaps recording problem-solving steps, solutions, corrected errors, two-way lessons in `agent_lessons.md` and `my_lessons.md`, and topics to study).
+- Standardizes scientific modeling, theoretical biophysics, and mathematical biology terminology across all twelve skills and onboarding guides, distinguishing numerical verification from independent physical validation, imaging and numerical artifacts from output files, and independent biological replicates from table row definitions.
+- Formats `SKILL.md` entrypoints as scannable single-idea bullet checklists and single-line Markdown paragraphs while preserving YAML triggers, negative exclusions, confirmation pauses, CLI subcommands and flags, `validate_target_card.py` `schema-v1` checks, `check_lsa_report.py` Title Case LaTeX section headers, governing equations, attribution notices, and licenses.
+- Adds [ONBOARDING.md](onboarding/ONBOARDING.md) and the self-contained offline [computational_modeling_walkthrough.html](onboarding/computational_modeling_walkthrough.html) step-by-step guide, links both from [README.md](README.md), and keeps the minimal README layout, zero installation instructions, and all three SVG embeds.
+- Incorporates canonical updates from the unpublished `2.1.1` draft (there was no separate `2.1.1` release): `computational-modeling` competing-hypothesis test design and fresh-reader assumption review, `scientific-notebook` execution-only `nbclient` loading, `output_changes` reporting, and public [overview](skills/scientific-notebook/README.md), `paper-reproduce` Slurm batch-job and job-array wording, and `research-project-setup` Noble (2009) experiment repeatability organization.
+- Corrects `Research_project_setup` to `research-project-setup` with identical files across local and public skill directories, retaining minor version `2.2.0` as an explicit maintainer exception to the normal major-version rule for renamed invocations; update saved paths and qualified names to `computational-modeling-skills:research-project-setup` (manual-only setup policy unchanged).
+- Preserves all other skill names, workflow triggers, confirmation pauses, scientific checks, examples, attribution notices, privacy projections, exclusions, and license terms.
+
 ## 2.1.0 — 2026-10-11
 
 - Adds `Research_project_setup` as the tenth skill, with explicit invocation, README and AGENTS templates, attributed Good Research Code guidance, and a reusable Git workflow.

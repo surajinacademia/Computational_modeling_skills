@@ -9,7 +9,7 @@ The source's incorrect annotation `sqrt(x) = |x|` is corrected to `sqrt(x²) = |
 ## Design lesson
 
 - **Use when:** Readers need to understand the operation connecting successive equations, rather than merely see an initial expression and final result.
-- **Why this arrangement helps:** Each derivation occupies its own vertical column, and operation labels sit beside the arrows between equations. The completing-square example exposes the added and subtracted term inside the outer factor; underbraces identify the regrouping, and the square retains its red identity through the final step while constants stay neutral. This makes the reason for each transition inspectable.
+- **Why this arrangement helps:** Each derivation occupies its own vertical column, and operation labels sit beside the arrows between equations. The completing-square example exposes the added and subtracted term inside the outer factor; underbraces identify the regrouping, and the square retains its red identity through the final step while constants stay neutral.
 - **Transfer to a new figure:** Reserve vertical space for the operation as well as the equation. Name the transformation at its transition, and highlight the subexpression being reorganized before highlighting the final result.
 - **Check before adapting:** An arrow must connect mathematically valid steps under the stated domain. In particular, the real-valued identity is `sqrt(x²) = |x|`; dropping the absolute value or moving the compensating term outside its factor changes the mathematics.
 

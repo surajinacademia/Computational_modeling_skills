@@ -1,4 +1,4 @@
 interface:
   display_name: "Schematic Designer"
   short_description: "Design accurate PDF and vector-SVG schematics"
-  default_prompt: "Use $schematic-designer to create or redraw an accurate scientific schematic in the owner's Minimalist design: shared palette and visual roles, CMU text, real LaTeX equations, native TikZ arrowheads, and deliberate negative space. Preserve the science, follow a relevant worked example, and inspect the final PDF and outlined-text SVG at their intended size."
+  default_prompt: "Use $schematic-designer to create or redraw an accurate scientific schematic with the owner's Minimalist palette, visual roles, CMU text, annotated LaTeX equations, native TikZ arrowheads, and spacing. Preserve the science and chosen renderer, edit TeX and Matplotlib source directly in their owning files, follow a relevant worked example, and inspect the final PDF and outlined-text SVG at their intended size."

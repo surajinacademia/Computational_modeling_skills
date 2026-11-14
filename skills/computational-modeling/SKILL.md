@@ -1,76 +1,48 @@
 ---
 name: computational-modeling
-description: "Develop, modify, test, or review scientific models and their records, with or without code changes. Use for model formulation, hypothesis testing, numerical verification, and physical validation; coordinate model documents with model-documentation. Exclude generic software engineering, standalone non-model analysis or plotting, and isolated explanations."
+description: "Design, develop, test, or review scientific models and their records, with or without code changes. Use for model formulation, designing tests that distinguish competing hypotheses, numerical verification, and physical validation; coordinate model documents with model-documentation and empirical image observables with image-analysis. Exclude generic software engineering, standalone non-model analysis or plotting, and isolated explanations."
 ---
 
 # Computational Modeling
 
-Use the scientific method to develop, test, and revise models, keeping the equations, implementation, evidence, and records consistent.
+Develop, test, and revise scientific models so governing equations, code, empirical evidence, and provenance records stay consistent.
 
-## 1. Understand the model before changing it
+## 1. Preconditions and Formulation Inspection
 
-Inspect the existing equations, implementation, parameter sources, scientific evidence, and model records. Establish the question, hypothesis, intended result, and whether the model is proposed or implemented.
+- Inspect existing equations, code, parameter sources, evidence, and model records to establish the question, hypothesis, intended result, and proposed versus implemented status.
+- Map state variables, governing equations or discrete/stochastic rules, assumptions, domain, and initial and boundary conditions.
+- Check symbols, units, signs, parameter meanings and provenance, constraints, and observables, separating physical parameters from numerical controls.
+- Preserve established notation and authorized scope, resolving conflicts across equations, code, records, and expected results before altering physics.
+- Label unsupported choices as assumptions and unimplemented ideas as proposals; treat expected results as predictions to test, never targets to force by altering physics.
+- REQUIRED BEFORE designing discriminating hypothesis tests or running fresh-context reviews: read [references/verification-and-review.md](references/verification-and-review.md) (competing-hypothesis design, fresh-context review protocol, V&V checks, and provenance fields).
+- State the proposed mechanism, a plausible competing alternative, motivating observations, and how model states map to a shared observable under identical conditions; for consequential designs, run a fresh-context review (`Goldfish`, an independent reviewer given candidate equations and constraints without conversation history) or label same-session critique as self-review.
 
-- Identify state variables, governing equations or discrete and stochastic rules, assumptions, domain, and initial and boundary conditions.
-- Check symbols, units, signs, parameter meanings and provenance, physical constraints, and observables. Distinguish physical parameters from numerical controls.
-- Preserve established notation and the authorized scientific scope. Resolve disagreements between intended equations, code, records, and expected results before changing scientific meaning.
+## 2. Execution, Verification, and Physical Validation Invariants
 
-Label unsupported choices as assumptions and unimplemented choices as proposals. An expected result is a prediction to assess, not a reason to change the physics until it appears.
+- Reuse existing routines, parameter definitions, and scientific libraries so the path `inputs -> equations -> observables` remains transparent.
+- Implement equations faithfully (update order, state dependencies, boundary treatment, and stochastic scaling) with minimal operations, no duplicate paths, and no speculative abstractions; optimize only demonstrated runtime or memory bottlenecks against a reference within justified tolerances.
+- Isolate a representative case when a check fails and classify the cause before editing physics:
+  - **Implementation error:** code differs from the intended mathematical model; fix via a code correction without altering the model formulation.
+  - **Numerical error:** discretization resolution, convergence, numerical stability, solver tolerances, or finite sampling prevents accurate calculation.
+  - **Model limitation:** an accurately implemented, well-resolved formulation fails to describe target behavior under stated assumptions, or available observations leave the cause unresolved.
+- Handle equation, assumption, parameter-meaning, or boundary-condition edits as scientific model revisions: state physical rationale, preserve earlier findings, and reassess predictions instead of calling changed physics a code correction.
+- Verify and validate the scientific claim with proportionate evidence ([NASA verification and validation overview](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html)):
+  - **Code verification:** compare code against analytical derivations, exact or manufactured solutions, conservation laws, or independent references.
+  - **Solution verification:** quantify numerical error via convergence, resolution, stability, conservation, residual, or sampling checks.
+  - **Physical validation:** compare predictions against independent empirical data for the intended regime, including measurement uncertainty and valid regimes.
+- Pre-declare predictions and tolerances, competing alternatives, observables, error measures, and support, falsification, or inconclusive criteria before inspecting decisive results; disclose post-hoc changes and mark new mechanisms or observables exploratory.
+- Preserve established baseline numerical settings; never silently tighten tolerances, refine resolution, raise sampling, or add convergence checks to production runs.
+- Run the smallest authorized check first when accuracy or runtime is uncertain, expanding only as warranted and authorized (test design and documentation never authorize runs or sweeps) and reporting failed baseline accuracy or unperformed checks explicitly without blocking authorized work.
+- Separate calibration or selection data from independent physical validation evidence (disclosing any reuse), assess sensitivity, identifiability, and uncertainty where relevant, and use fixed seeds only for error diagnosis while using ensemble sampling for statistical claims.
+- Log reproducible provenance including question, criteria, model/input identity, source revision and uncommitted working-tree changes with recoverable diffs, parameters/units, conditions/seeds, numerical controls, software versions, ordered postprocessing, negative/inconclusive outcomes, and output links ([references/verification-and-review.md](references/verification-and-review.md#4-reproducible-provenance-record)).
+- When parameter calibration or physical validation requires observables from experimental microscopy images, stacks, or time series (cell counts, morphology, fluorescence, trajectories, or matrix displacement and traction forces), delegate measurement, matched before-and-after figures, and `Supplementary_Methods.md` to [image-analysis](../image-analysis/SKILL.md), keeping model formulation, calibration-versus-validation separation, and hypothesis tolerances here without treating handoffs as simulation permission.
+- Hand off requested model or methods documents to [model-documentation](../model-documentation/SKILL.md) (supplying question, inspected sources/revision, equations/notation, authorized edits, evidence/gaps, one destination, and any approved plan) without blocking unrelated model work or forcing full docs for minor edits, explanations, or run logs.
+- Let `model-documentation` own plan approval, template structure, writing, and review while keeping formulation, code, and checks here without looping or duplicating; reuse a matching approved plan, and never treat handoffs or doc approvals as simulation permission.
+- Keep model name, release identity, source revision, and run settings distinct, setting `Model version control name:` (the model-document header field recording an explicitly assigned model release identifier, or left literally blank when unversioned) without inventing releases for run settings.
+- REQUIRED BEFORE assigning or checking a model release version or name: read [references/model-versioning.md](references/model-versioning.md) (semantic versioning for model formulations).
 
-## 2. Reuse existing code and keep changes simple
+## 3. Completion and Verification Criteria
 
-Locate and reuse existing routines, parameter definitions, and established scientific libraries when they perform the required operation. Keep the path from inputs through equations to observables readable and traceable.
-
-Implement the intended equations faithfully, including update order, state dependencies, boundary treatment, and stochastic scaling. Prefer a small number of coherent scientific operations; avoid duplicated pathways, speculative abstractions, and infrastructure that the requested work does not need.
-
-Optimize only for a demonstrated runtime or memory limitation, then compare with a verified reference using scientifically meaningful tolerances.
-
-## 3. Distinguish bugs, numerical errors, and model limitations
-
-When a result fails a check, isolate a representative case and determine which explanation the evidence supports:
-
-- **Implementation bug:** code differs from the intended mathematical model.
-- **Numerical error:** resolution, convergence, stability, solver tolerances, or sampling prevents an accurate calculation.
-- **Model limitation:** the correctly implemented and sufficiently resolved formulation does not describe the target behavior under its stated assumptions.
-
-Insufficient or unsuitable observations can also leave the cause unresolved. Use targeted checks to distinguish plausible causes before interpreting a discrepancy as evidence against a hypothesis.
-
-Changes to equations, assumptions, parameter meanings, or boundary conditions are scientific model revisions. State their rationale, retain the earlier findings, and reassess affected predictions; do not present changed physics as a bug fix.
-
-## 4. Validate the scientific claim with appropriate evidence
-
-Before inspecting decisive results, define the prediction, relevant alternative, observable, and criteria for support, failure, or an inconclusive result. For numerical checks, specify the reference, error measure, and justified tolerance. Label exploratory analysis and later changes to criteria honestly.
-
-Use the smallest checks that can support the scientific claim:
-
-- **Code verification:** compare the implementation with derivations, exact or manufactured solutions, or independent reference calculations.
-- **Solution verification:** assess numerical error through appropriate convergence, resolution, stability, conservation, or sampling checks.
-- **Physical validation:** compare predictions with empirical observations for the intended use, accounting for measurement uncertainty and applicable regimes.
-
-Separate calibration and model selection data from independent evaluation evidence where available. Disclose reuse of the same evidence and assess sensitivity, identifiability, and uncertainty when they affect the conclusion. A fixed seed supports debugging; statistical conclusions require appropriate sampling. Agreement supports tested predictions without proving the mechanism or validity outside the tested regime.
-
-Run the checks authorized by the request or session. Designing tests or writing documentation does not authorize simulation runs or sweeps; keep unperformed tests explicit without adding approval gates to already authorized work.
-
-See the [NASA verification and validation overview](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html) for these distinctions.
-
-## 5. Record enough to reproduce and interpret results
-
-Use existing project record locations. For retained results, record the question and criteria, model and input identity, source revision and dirty state with recoverable uncommitted changes, parameter values and units, conditions and seeds, numerical method and controls, relevant software versions, ordered procedure and output processing, and output links.
-
-Preserve actual evidence, negative and inconclusive results, failed checks, uncertainty, and applicability. Distinguish observations, computed results, interpretations, and predictions; retain earlier findings when conclusions change.
-
-When the request includes a model document or model changes affect a maintained formulation or methods document, read and apply [$model-documentation](../model-documentation/SKILL.md). Pass the scientific question, inspected source locations and revision, established equations and notation, authorized changes, existing evidence and gaps, one document destination, and any already approved document plan. It owns that document's plan approval, template, writing, and review; this skill continues to own model formulation, implementation, and scientific checks. Do not send documentation back through this skill as a second task or duplicate the document in another record.
-
-An approved matching document plan remains approved. Identify pending document changes explicitly; the document gate does not block unrelated authorized model work or require a full document for every minor task. An isolated explanation or routine result record does not activate that workflow. Keep run-specific results in existing experiment or analysis records. Neither handoff nor document approval authorizes new simulation runs.
-
-Keep model name, release identity, source revision, and run settings distinct. Include `Model version control name:` in model-document headers with the applicable recorded name or a literally blank value. Do not manufacture versions or releases for individual run configurations. Read [model versioning](references/model-versioning.md) only when assigning or assessing a release version or name.
-
-Use the [MIASE reporting guideline](https://doi.org/10.1371/journal.pcbi.1001122) and [NASEM reproducibility guidance](https://www.nationalacademies.org/read/25303/chapter/7) as references for reproducible records, adapting them to the project's existing format.
-
-## 6. Stop when the requested work is complete and verified
-
-Review the affected scientific pathway, complete the relevant authorized checks, and preserve the evidence and records. Satisfy the applicable model-documentation completion gate for document work.
-
-Report what changed or was established, supporting evidence, record locations, remaining uncertainty, pending documentation, and unperformed work that limits the conclusion. Distinguish proposed versions from established releases when relevant. Do not claim successful tests, execution, or physical validity beyond the evidence.
-
-A supported negative or inconclusive finding can complete the investigation; a hypothesis need not prove true. Stop without unrelated cleanup, extra features, broader sweeps, or unrequested execution.
+- Check affected formulation, code, evidence, and conclusions, complete all authorized checks, satisfy `model-documentation` Completion and Verification Criteria when a model document is in scope, and keep provenance records updated.
+- Report changes or findings, supporting evidence, record locations, uncertainty, pending documentation, and unperformed checks limiting conclusions, distinguishing proposed formulations from established releases and never claiming untested execution or broader physical validation.
+- Stop cleanly once verified (negative or inconclusive results also complete an investigation), without unrelated cleanup, unrequested additions, broader sweeps, or unauthorized runs.

@@ -8,7 +8,7 @@ The five overlapping disciplinary buckets, ten branches and three braces preserv
 
 - **Use when:** several explanatory perspectives overlap along a conceptual progression. The enclosing buckets communicate shared scope more directly than separate panels would, while the central arrow supplies a common reading direction.
 - **Why this choice helps:** unfilled outlines preserve intersections without composite colors; text and branch marks stay opaque. Labels alternate above and below the progression to distribute crowding; braces name spans without adding another arrow. Dark text beside orange and amber keys preserves the category link where colored text would lose contrast.
-- **Borrow:** use overlapping regions for genuinely overlapping scope, place their names near exposed boundaries, and coordinate label placement with the densest intersections. Keep explanatory spans visually distinct from directional relations.
+- **Borrow:** use overlapping regions when their scopes overlap, place their names near exposed boundaries, and coordinate label placement with the densest intersections. Keep explanatory spans visually distinct from directional relations.
 - **Adaptation check:** positions and widths are qualitative, not measured times or effect sizes. Region overlaps do not add color categories. Do not let a neat sequence imply exclusive stages or a causal claim the model does not support.
 
 ## Build and inspect
@@ -25,6 +25,6 @@ The builder generates current style support and compiles trusted source with Lua
 
 ## Current visual design
 
-Visual re-audit: retained all five scientific region extents but removed overlapping translucent fills, which previously produced muddy composite colors. Shared context-width outline boundaries now preserve overlap without inventing colors. The neutral behavior axis no longer borrows the evolution color; releasing-stimuli marks and text use their neurobiology region color.
+Visual inspection: retained all five scientific region extents but removed overlapping translucent fills, which previously produced muddy composite colors. Shared context-width outline boundaries now preserve overlap without inventing colors. The neutral behavior axis no longer borrows the evolution color; releasing-stimuli marks and text use their neurobiology region color.
 
 The checked PDF is **154.6 × 65.18 mm** at native size. Place it unscaled to retain the shared 8 pt body role; headings use 9 pt and panel tags, where present, use 10 pt. Only supporting notes use 7 pt. These are TeX points (PDF reports about 7.97 pt for an 8 pt TeX font); mathematical subscripts retain normal LaTeX sizing. Both PDF and outlined SVG were visually inspected after regeneration.

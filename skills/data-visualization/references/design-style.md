@@ -1,18 +1,14 @@
 # Quantitative Design Style
 
-Use this reference for appearance changes; use [plot-patterns.md](plot-patterns.md) for the scientific encoding. The [gallery](gallery.md) demonstrates the shared style across all eight cases.
+Use this reference for visual appearance, [plot-patterns.md](plot-patterns.md) for quantitative encoding, and the [gallery](gallery.md) for finished examples.
 
 ## Optional Minimalist Identity
 
-When available, the owner's installed `minimalist` package supplies CMU Sans Serif, Computer Modern mathtext, thin boxed axes, inward ticks, frameless legends, and its native warm-to-cool qualitative palette. Do not copy or reorder that palette or silently substitute a font or theme. Colors identify groups without implying that one condition is scientifically preferable.
-
-[publication.py](../assets/styles/publication.py) applies the package through `paper_style()` and the adjacent [overlay](../assets/styles/paper.mplstyle). The [API reference](api.md#runtime-and-scoped-style) owns dependency and context mechanics, including draw-time marker gaps. No LaTeX engine is required.
-
-The portable fallback is documented in [api.md](api.md#runtime-and-scoped-style): DejaVu Sans and native Matplotlib colors, with through-going error bars. Saved gallery examples retain the owner theme; a portable rebuild will look different.
+When installed, the owner's `minimalist` package provides CMU Sans Serif, Computer Modern mathtext, thin boxed axes, inward ticks, frameless legends, and its warm-to-cool qualitative palette; keep its palette intact without copying or substituting fonts. [publication.py](../assets/styles/publication.py) applies it via `paper_style()` and [paper.mplstyle](../assets/styles/paper.mplstyle) without needing TeX ([api.md](api.md#runtime-and-scoped-style) covers runtime mechanics and the native DejaVu Sans fallback with through-going error bars).
 
 ## Shared Roles in the Executable Examples
 
-Choose physical output size first. The 85 × 70 mm default is a starting point, not a journal requirement. Apply each text role at the same final point size across related figures, even when canvas widths differ. Reflow, widen, or split a crowded plot rather than shrinking one legend or scaling a wide figure down.
+Set physical output dimensions first (`85 × 70 mm` is a starting default, not a hard limit), keeping each font role at the same final point size across related panels by widening or splitting figures instead of shrinking crowded text.
 
 | Role | Default at final placement |
 | --- | --- |
@@ -21,29 +17,27 @@ Choose physical output size first. The 85 × 70 mm default is a starting point, 
 | Point / outline | 5 pt diameter / 0.8 pt; scatter area is 25 pt² |
 | Mean mark / error cap | 11 pt / 3 pt |
 | Pairing connector | 0.65 pt black at 0.5 opacity; measured points stay opaque |
-| Dashed / dotted line | 3–2 pt / 0.7–1.5 pt, independent of stroke width |
+| Dashed / dotted pattern | (3, 2) pt / (0.7, 1.5) pt, independent of stroke width |
 | Layout padding / panel gap | 0.8 / 2 base-font units in `tight_layout` |
 
-These roles come from `FONT_PT`, `LINE_PT`, `MARK_PT`, `OPACITY`, `LAYOUT`, `MARKERS`, `LINESTYLES`, and `DASH_PT`. Notes reserve the lower 12% of the canvas. Change a role consistently if the destination requires it. The installed CMU bold face needs `FontProperties(..., weight="bold", stretch="expanded")`; ordinary bold lookup can resolve to the regular face.
+These defaults correspond to `FONT_PT`, `LINE_PT`, `MARK_PT`, `OPACITY`, `LAYOUT`, `MARKERS`, `LINESTYLES`, and `DASH_PT`, with notes occupying the lower 12% of the canvas. The CMU bold face requires `FontProperties(..., weight="bold", stretch="expanded")`, as plain bold weights can fall back to regular.
 
-Use equally sized hollow markers: `markerfacecolor="none"`, `marker_gap=True`. The gap removes the error-bar segment inside its own marker without painting the face; `marker_gap=False` explicitly allows through-going segments. Place summary whiskers beside raw points so they do not cross unrelated hollow markers. Light reference lines or grids are useful only when they aid reading.
+Draw uniform hollow markers (`markerfacecolor="none"`, `marker_gap=True` to clear error-bar segments inside markers, or `marker_gap=False` for through-going whiskers) and place summary intervals beside raw points to avoid overlap; use faint grids or reference lines only when they aid reading.
 
 ## Color and Quantitative Encodings
 
-Reuse a named group-to-style mapping. The categorical templates accept the same full `--group-order` list across figures, including absent groups, to preserve color, marker, and dash indices. Without it, they sort observed group names. Mean marks, error bars, and legend text match the group's exact plot color; neutral explanatory text remains dark and gallery headings remain bold black. Keep marker or dash cues alongside pale legend colors and check readability. Do not silently recolor one panel or depend on color alone for identity.
+Reuse one named group-to-style mapping via the full `--group-order` list across related figures (preserving palette, marker, and dash indices even when a group is absent; omitting `--group-order` sorts observed names). Match mean marks, error bars, and legend text to the group color while keeping explanatory notes dark and gallery headings bold black; verify pale legend entries keep distinct marker or dash cues and never rely on color alone.
 
-Use labeled error bars rather than filled uncertainty ribbons or areas beneath curves. Histogram bars are **filled** with their group color, with visible gaps, shared bin boundaries, and a zero count baseline. Heatmap colors also remain part of their quantitative encoding.
+Use labeled error bars instead of filled ribbons or curve shading, and draw histograms with group-colored filled bars, shared bins, visible gaps, and a zero baseline. Choose colormaps by variable role:
 
 - Sequential values: `minimalist.get_cmap('sequential')` supplies `inferno`.
-- Signed departures from a meaningful reference: explicitly center the normalization there. `minimalist.get_cmap('diverging')` supplies `pride` through `scicomap`; the package can silently construct a fallback if that dependency fails. The adapter does not guard this, so gallery reproduction needs a healthy `scicomap` dependency.
-- Distinct states: use categorical colors, not a gradient implying numeric distance.
+- Signed departures around a meaningful reference: center normalization explicitly (`minimalist.get_cmap('diverging')` calls `pride` via `scicomap`, failing back silently if `scicomap` breaks, so verify `scicomap` when reproducing the gallery).
+- Distinct states: use categorical colors instead of a numeric gradient.
 
-Fix color normalization across directly compared plots, or disclose independent ranges. Label the colorbar with observable and units. Show missing cells distinctly; missingness is not a low value. Preserve discrete parameter coordinates and missing cells. Smooth continuous-function heatmaps require a stated function and dense evaluation; they must not invent observations from a sparse sweep.
+Hold color limits fixed across directly compared maps or disclose separate scales, label colorbars with observable and units, render missing cells distinctly without mapping them to zero, and preserve discrete parameter grids without smoothing sparse data into continuous heatmaps.
 
 ## Axes and Statistical Meaning
 
-Name observable and units on each axis, including dimensionless quantities when unclear. Keep scientific-notation scale factors visible. Bars require a zero baseline; points and lines may use a restricted range when clearly shown, with a disclosed zoom if it could exaggerate change. Log scales must suit the quantity and cannot silently discard nonpositive values.
+Label each axis with observable and units (stating dimensionless status when ambiguous) and keep scientific-notation scale factors visible. Give bar charts a zero baseline; points and lines may crop ranges when disclosed if zoom could overstate differences, and log axes require strictly positive valid data.
 
-Define the scientific unit behind `n` and show changing counts when relevant. Mean ± SD describes spread among included units, not uncertainty in the mean or a confidence interval. [Pandas guidance](pandas-data-handling.md) defines grain, weighting, and valid counts.
-
-Follow the [completion gate](../SKILL.md#completion-gate): inspect the saved PDF and assembled figures at intended size, compare visible values with the table, and check a grayscale view when group identity uses color. Dense artists may be rasterized inside the PDF while labels and axes remain vector. Temporary inspection rasters are not additional deliverables.
+State the experimental unit counted by `n` and show varying sample sizes; mean ± SD shows spread across included units, not uncertainty in the mean or a confidence interval ([pandas-data-handling.md](pandas-data-handling.md)). Per the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria), inspect saved PDFs and assembled pages at intended size against source tables and grayscale views; dense scatter or image artists may be rasterized inside vector PDFs while keeping axes and text vector.

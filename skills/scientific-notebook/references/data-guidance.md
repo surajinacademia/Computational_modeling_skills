@@ -1,16 +1,16 @@
 # Optional Data guidance and provenance
 
-This skill independently implements the owner's scientific notebook workflow. It adapts these narrow practices from OpenAI's public Data Analytics notebook guidance:
+This skill independently implements the owner's scientific notebook workflow and adapts these narrow practices from OpenAI's public Data Analytics notebook guidance:
 
 - Use notebook-aware tools, inspect before editing, and preserve an existing notebook's intent with minimal structural changes.
-- Make the computation reproducible: identify sources, assumptions, parameters, environment requirements, and dependencies instead of relying on hidden state.
+- Keep computations reproducible by recording data sources, assumptions, parameters, environment requirements, and dependencies without hidden state.
 - Keep outputs readable and bounded, with descriptive chart labels and units.
-- Check results before writing explicitly requested conclusions, and tie them to observed values or inspected figures.
-- Execute complete runnable artifacts from top to bottom, or identify the exact execution gap and the local action needed to resolve it.
+- Inspect results before writing explicitly requested conclusions, tying claims to observed values or inspected figures.
+- Execute complete runnable notebooks from top to bottom, or report the exact execution gap and local action needed to resolve it.
 
-The personal skill adds the scientific section order, parameters next to final execution, the owner's `minimalist` plotting style, plots as the primary output, optional interpretation only on explicit request, proportional checks for small edits, and the cell-preserving helper. It does not adopt the public skill's business-report layout, mandatory summaries or takeaways, parameters-near-the-top preference, connector routing, or requirement to invoke another Data validation skill. Preserve the user's shortened openings and notebook structure.
+This skill adds the scientific section order, `PARAMETERS` directly before final execution, the owner's `minimalist` plotting style, plots as the primary output, interpretation only on explicit request, proportional checks for small edits, and the cell-preserving helper. It excludes the upstream business-report layout, mandatory summaries or takeaways, top-of-notebook parameters, connector routing, and separate Data checking skill invocation. Preserve the user's shortened openings and notebook structure.
 
-The Data plugin is optional. Consult its available guidance when useful for data integrity, uncertainty, or presentation; do not require its installation to create or maintain a scientific notebook. Scientific model checks follow `computational-modeling` when that skill applies.
+The Data plugin is optional support for data integrity, uncertainty, or presentation and is never required to create or maintain a scientific notebook. Scientific model checks follow `computational-modeling` when that skill applies.
 
 ## Source record
 

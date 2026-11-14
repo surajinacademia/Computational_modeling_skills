@@ -16,7 +16,7 @@
 
 ## Design lesson
 
-Use this example to compare representations that differ in the variables they retain. Align headings and use a consistent visual grammar, while preserving scientifically meaningful distinctions inside each panel. Separate alternative conventions, define every arrow, and make each field or interaction agree with its stated construction. Use labels and geometry as well as color.
+Use this example to compare representations that differ in the variables they retain. Align headings and repeat visual conventions while preserving scientifically meaningful distinctions inside each panel. Separate alternative conventions, define every arrow, and make each field or interaction agree with its stated construction. Use labels and geometry as well as color.
 
 After adapting it, check that cells, lattice sites, fields, and coupling links have unambiguous meanings. Do not turn panel order into an implied progression from simple to accurate, or treat more geometric detail as evidence of greater biological validity.
 

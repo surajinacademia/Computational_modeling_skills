@@ -4,22 +4,24 @@
 
 # Computational Modeling Skills
 
-**Computational Modeling Skills** supports recurring workflows in theoretical biophysics and computational modeling. The skills help researchers develop and critically review models, test hypotheses, analyze linear stability, write structured Jupyter notebooks, create publication-quality plots and scientific schematics, document models and code, and run large simulations on HPC systems.
+**Computational Modeling Skills** supports recurring workflows in theoretical biophysics, mathematical biology, and computational modeling. The twelve skills help researchers formulate and critically review models, design competing-hypothesis tests, analyze linear stability, maintain reproducible Jupyter notebooks, create publication-quality quantitative plots and scientific schematics, measure experimental microscopy images, document physical assumptions and numerical methods, run simulations on Slurm clusters, and record two-way research lessons.
 
-I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, use these workflows to learn the process. Automating repetitive work gives researchers more time to generate hypotheses and find smart ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
+I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, start with [ONBOARDING.md](onboarding/ONBOARDING.md) and the interactive [modeling walkthrough](onboarding/computational_modeling_walkthrough.html) to learn the process. Automating repetitive steps gives researchers more time to generate physical hypotheses and design decisive ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
 
 | Skill | Scope |
 | --- | --- |
-| [research-project-setup](skills/Research_project_setup/SKILL.md) | Set up and organize research project repository and automate standard Git workflow |
-| [computational-modeling](skills/computational-modeling/SKILL.md) | Develop biophysical models with hypothesis testing, validation and analysis       |
-| [model-documentation](skills/model-documentation/SKILL.md) | Write model documents explaining the physical assumptions, equations, and numerical methods |
-| [scientific-notebook](skills/scientific-notebook/SKILL.md) | Create, maintain, execute, and review Jupyter notebooks for data analysis designed for model developement |
-| [linear-stability-analysis](skills/linear-stability-analysis/SKILL.md) | Linear stability of dynamical models  in 1D or 2D continuum systems through analytical derivations, numerical calculations and plots |
-| [data-visualization](skills/data-visualization/SKILL.md) | Publication-quality quantitative plots from scientific data including notebook and plot figures |
-| [schematic-designer](skills/schematic-designer/SKILL.md) | Design schematic figure in SVG             |
-| [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce resreatch paper claims, methods, results and analysis for biophysical model |
-| [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify decisions, confirm the scope, and complete the agreed task |
-| [slurm](skills/slurm/SKILL.md) | Run jobs in HPC using Slurm |
+| [research-project-setup](skills/research-project-setup/SKILL.md) | Set up and organize a research project repository and standard Git workflow |
+| [computational-modeling](skills/computational-modeling/SKILL.md) | Formulate biophysical models with competing-hypothesis tests, numerical verification, and physical validation |
+| [model-documentation](skills/model-documentation/SKILL.md) | Write physics-focused model documents explaining assumptions, governing equations, notation, and numerical methods |
+| [scientific-notebook](skills/scientific-notebook/SKILL.md) | Create, maintain, execute, and review Jupyter notebooks for theoretical modeling and scientific data analysis |
+| [linear-stability-analysis](skills/linear-stability-analysis/SKILL.md) | Derive analytical dispersion relations, compute numerical eigenspectra, and report linear stability in 1D or 2D continuum models |
+| [data-visualization](skills/data-visualization/SKILL.md) | Create publication-quality quantitative plots from scientific data while preserving units and experimental replicates |
+| [schematic-designer](skills/schematic-designer/SKILL.md) | Design scientific schematic figures as paired vector PDF and outlined SVG outputs |
+| [image-analysis](skills/image-analysis/SKILL.md) | Measure experimental microscopy images, stacks, and time series with a matched before-and-after figure and supplementary methods |
+| [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce, assess, or apply published models, claims, methods, and results |
+| [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify scientific decisions, confirm unresolved choices, and complete the agreed task |
+| [slurm](skills/slurm/SKILL.md) | Schedule, monitor, expand, and recover HPC batch jobs and parameter sweeps with Slurm |
+| [ruminations](skills/ruminations/SKILL.md) | Recap a scientific problem-solving session, record two-way lessons in `agent_lessons.md` and `my_lessons.md`, and list topics to study |
 
 
 **Schematic designer example**

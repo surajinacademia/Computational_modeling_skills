@@ -1,4 +1,4 @@
 interface:
-  display_name: "Data Visualization Skill"
+  display_name: "Data Visualization"
   short_description: "Make clear quantitative figures from completed data"
-  default_prompt: "Use $data-visualization to create, improve, review, or simplify quantitative figures from completed scientific data, preserving units, identity, weighting, observable definitions, and the configured style; keep notebook figures in their existing cells and inspect each agreed saved artifact."
+  default_prompt: "Use $data-visualization to create, improve, review, or simplify quantitative figures from completed scientific data, preserving units, identity, weighting, observable definitions, and the configured style; keep notebook figures in their existing cells and inspect each agreed saved figure."
