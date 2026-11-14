@@ -1,6 +1,6 @@
 ---
 name: data-visualization
-description: Create, style, review, or simplify quantitative plots from completed scientific data, including notebook figures and ordinary paper-ready PDFs. Use the visual gallery, a portable style adapter, and direct plotting templates while preserving scientific identity, weighting, and observable definitions. Do not use for simulation execution, generic data cleaning, inferential modeling, vasculogenesis media, or composite schematic design.
+description: Create, style, review, or simplify quantitative plots from completed scientific data, including notebook figures and ordinary paper-ready PDFs. Use the visual gallery, a portable style adapter, and direct plotting templates while preserving scientific identity, weighting, and observable definitions. Do not use for simulation execution, generic data cleaning, inferential modeling, spatial simulation frame or video rendering, or composite schematic design.
 ---
 
 # Data Visualization
@@ -11,8 +11,8 @@ Create quantitative figures from completed scientific data with a direct path fr
 
 - Use this skill for exploratory, diagnostic, comparative, or ordinary paper-ready quantitative plots of completed values, including small related-axis grids.
 - Exclude simulation execution or monitoring, generic dataframe cleaning without a defined plot, inferential statistics, model fitting, and complex experimental group selection.
-- Route repository-specific spatial simulation media workflows (such as `vasculogenesis` Arrow-to-frame/MP4 media handled by a local `graph` skill) and composite publication schematics (`schematic-designer` and its outlined-vector export invariants) to their dedicated workflows.
-- When `code-simplifier` applies alongside this skill, keep scientific selections, experimental units, and data identity governed here while `code-simplifier` governs code structure.
+- Route repository-specific spatial simulation frame or video rendering workflows and composite publication schematics (`schematic-designer` and its outlined-vector export invariants) to their dedicated workflows.
+- During code-simplification or refactoring passes alongside this skill, keep scientific selections, experimental units, and data identity governed here while the refactoring pass governs surrounding code structure.
 - When invoked by `scientific-notebook`, edit inside the existing notebook and target cells using the supplied question, data path, observables, units, selections, uncertainty, and output scope without inventing values or creating parallel files.
 - Leave notebook layout, execution authorization, output preservation, and configured notebook styles to `scientific-notebook`; inspect inline figures at reading size for inline-only requests and export separate files only when requested.
 
