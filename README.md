@@ -6,7 +6,7 @@
 
 **Computational Modeling Skills** supports recurring workflows in theoretical biophysics, mathematical biology, and computational modeling. The twelve skills help researchers formulate and critically review models, design competing-hypothesis tests, analyze linear stability, maintain reproducible Jupyter notebooks, create publication-quality quantitative plots and scientific schematics, measure experimental microscopy images, document physical assumptions and numerical methods, run simulations on Slurm clusters, and record two-way research lessons.
 
-I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, start with [ONBOARDING.md](onboarding/ONBOARDING.md) and the interactive [modeling walkthrough](onboarding/computational_modeling_walkthrough.html) to learn the process. Automating repetitive steps gives researchers more time to generate physical hypotheses and design decisive ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
+I made these skills to support scientists in their work. Scientific training and independent thought remain essential. If you are new to research, start with [ONBOARDING.md](onboarding/ONBOARDING.md) and the offline [modeling walkthrough](onboarding/computational_modeling_walkthrough.html) (download or clone and open locally in a browser) to learn the process. Automating repetitive steps gives researchers more time to generate physical hypotheses and design decisive ways to test them. My priority is reproducible, reviewable, tractable, and structured computational research, rather than productivity alone.
 
 | Skill | Scope |
 | --- | --- |
@@ -27,8 +27,13 @@ I made these skills to support scientists in their work. Scientific training and
 **Schematic designer example**
 
 ![Complementary modeling choices for collective cells: particle dynamics, cell states and rules, lattice representations, cell-shape or density fields, and coupled cells, chemical fields, and extracellular matrix.](skills/schematic-designer/assets/examples/matplotlib/collective-cell-model-classes/figures/collective-cell-model-classes.svg)
+
 [Modeling Approaches](skills/schematic-designer/assets/examples/matplotlib/collective-cell-model-classes/README.md).
 
 **Paper reproduction decisions**
+
 ![Choose a primary objective—reproduction, assessment, or application—and a target depth—model, claim, or result.](skills/paper-reproduce/assets/decision-stages.svg)
+
+[Workflow](skills/paper-reproduce/README.md).
+
 Original material uses the [MIT license](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md).

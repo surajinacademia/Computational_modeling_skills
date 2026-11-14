@@ -634,7 +634,7 @@
         if (moveFocus) currentTab.focus();
 
         progress.value = clamped + 1;
-        headerReadout.textContent = `Stage ${clamped + 1} · ${currentTab.textContent.trim()}`;
+        headerReadout.textContent = `Step ${clamped + 1} of ${tabs.length} · ${currentTab.textContent.trim()}`;
         indicator.textContent = `Step ${clamped + 1} of ${tabs.length}`;
         backBtn.disabled = clamped === 0;
 

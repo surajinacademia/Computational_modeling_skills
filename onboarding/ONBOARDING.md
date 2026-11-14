@@ -20,7 +20,7 @@ Folder names and notebook layouts are adaptable conventions. Preserve the reason
 
 **Find the skill for the question you have.**
 
-These twelve skills cover the research workflow from clarifying questions and setting up a repository to analyzing microscopy images, running cluster sweeps, and recording session lessons. Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) walks through the core modeling workflow step by step.
+These twelve skills cover the research workflow from clarifying questions and setting up a repository to analyzing microscopy images, running cluster sweeps, and recording session lessons. Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) (open locally in a browser) walks through the core modeling workflow step by step.
 
 | Your question | Skill | What to learn |
 | --- | --- | --- |
