@@ -1,7 +1,7 @@
 {
   "name": "computational-modeling-skills",
-  "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
-  "version": "2.1.1",
+  "description": "Twelve skills for research project setup, scientific modeling, paper reproduction, model documentation, scientific notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, request clarification, Slurm jobs and sweeps, and end-of-session research lessons.",
+  "version": "2.2.0",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },

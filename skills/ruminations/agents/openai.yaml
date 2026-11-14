@@ -1,0 +1,6 @@
+interface:
+  display_name: "Ruminations"
+  short_description: "Recap a chat and record two-way lessons"
+  default_prompt: "Use $ruminations to recap this chat: steps we took, solution, what we fixed, agent lessons and my lessons saved to agent_lessons.md and my_lessons.md, and 1-2 topics to learn."
+policy:
+  allow_implicit_invocation: false

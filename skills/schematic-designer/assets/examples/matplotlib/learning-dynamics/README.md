@@ -25,4 +25,4 @@ Outputs are `learning-dynamics-2406.pdf` and `learning-dynamics-2406.svg`. The P
 
 Headings, short color keys, and whitespace separate phases. A computed scalar field sits beneath entities and trajectories; its raster layer is intentional, while scientific labels and heads remain vector. Time-encoding opacity and trajectory coordinates carry meaning and must not be replaced by a generic context-opacity role. Inspect the distinction between the imposed-motion schematic and the computed retrieval coordinates.
 
-Inspect phase order, response signs and labels, line-pattern redundancy, native arrow endpoints, and final-size legibility. Keep the illustrative distinctions and apply the [export contract](../../../../references/vector-export.md).
+Inspect phase order, response signs and labels, line-pattern redundancy, native arrow endpoints, and final-size legibility. Keep the illustrative distinctions and apply the [export specification](../../../../references/vector-export.md).

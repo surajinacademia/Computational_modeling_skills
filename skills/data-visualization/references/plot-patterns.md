@@ -9,7 +9,7 @@
 - [Continuous Functions](#continuous-functions)
 - [Vector Fields](#vector-fields)
 
-Choose the simplest plot that makes the comparison readable from completed observables (never to introduce new simulations, filters, or inference). Pair this choice with [pandas-data-handling.md](pandas-data-handling.md) for grain and weighting, [design-style.md](design-style.md) for styling, and the [PDF gallery](gallery.md) for worked layouts.
+Choose the simplest plot that makes the comparison readable from completed observables (never to introduce new simulations, filters, or inference). Pair this choice with [pandas-data-handling.md](pandas-data-handling.md) for row representation, experimental unit ($n$), and weighting, [design-style.md](design-style.md) for styling, and the [PDF gallery](gallery.md) for worked layouts.
 
 | Question | Useful starting form | What the reader must see |
 | --- | --- | --- |

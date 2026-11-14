@@ -55,7 +55,7 @@ Never tune undocumented parameters, cherry-pick seeds, alter preprocessing, or s
 
 Report each element separately:
 
-- user-model implementation validity;
+- user-model implementation verification;
 - mapping fidelity and unmatched assumptions;
 - data provenance and extraction uncertainty;
 - prediction provenance (`prediction`, `fit`, or undetermined independence) and assessment status (`prospective`, `exploratory`, or descriptive);

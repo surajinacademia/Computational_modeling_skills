@@ -15,7 +15,7 @@ The helper collects evidence only; resolve any missing query with site-supported
 
 ## Assign independent work
 
-Start from stable run IDs and maintained completion/assignment records to freeze three disjoint sets: validated complete, assigned or ambiguous, and unassigned. A packed job owns every row in its assignment, including unstarted ones; "no output yet" never means free to submit.
+Start from stable run IDs and maintained completion/assignment records to freeze three disjoint sets: verified finished, assigned or ambiguous, and unassigned. A packed job owns every row in its assignment, including unstarted ones; "no output yet" never means free to submit.
 
 Spread unassigned runs across all eligible unique nodes within resource and scheduling headroom, stopping only when runnable work, eligible capacity, or a documented limit runs out. Use the fewest nodes needed when all remaining work fits concurrently, check memory and shared storage before filling every CPU, and avoid arbitrary caps such as four nodes or one worker per sweep.
 
@@ -29,7 +29,7 @@ Record each group's exact run IDs, resource request, partition/account/QOS, and 
 2. Submit unassigned run IDs to additional eligible nodes using new immutable assignments while preserving active jobs and completion records. Writing a second CSV with rows still assigned to an old job creates overlapping work even under locks.
 3. If all remaining runs are assigned, use an existing mechanism that atomically releases unstarted rows or stops an old job from claiming more while active workers finish, verifying the old owner cannot start transferred rows before reassigning them. Never edit a live immutable CSV or its snapshot in place.
 4. If no release mechanism exists, draft a replacement plan detailing affected jobs, retained checkpoints, missing-only assignments, and added capacity; ask for cancellation/replacement authorization unless already given. Asking for more nodes alone does not authorize discarding running work.
-5. After supported release or authorized cancellation, wait for writers to exit, validate completed runs, clear only verified stale locks under project rules, recompute the remaining list, and refresh capacity before submitting. Never resume from a stale recovery list.
+5. After supported release or authorized cancellation, wait for writers to exit, run a job-completion check on finished runs, clear only verified stale locks under project rules, recompute the remaining list, and refresh capacity before submitting. Never resume from a stale recovery list.
 
 ## Check the user's example
 

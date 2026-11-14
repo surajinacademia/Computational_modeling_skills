@@ -36,7 +36,7 @@ Keep physical definitions explicit and call domain functions from concise script
 
 - Specialist library quantile filters do not belong in project scripts.
 - GUI plotting base classes do not belong in one-off analysis code.
-- Positional array indices with physical or temporal meaning need no synthetic ID wrapper; avoid row-position grouping only when table order lacks identity.
+- Positional array indices with physical or temporal meaning need no synthetic ID column or thin helper function; avoid row-position grouping only when table order lacks identity.
 - Result-based display thinning (alongside the full field) never justifies filtering reported analysis values.
 - Never drop missing values independently in paired calculations; keep each unlinked summary's valid entries, keys, and sample count.
 - Never insert dummy zeros for absent runs; keep run identity and explicit missingness.

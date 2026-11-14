@@ -6,9 +6,9 @@ This skill independently implements the owner's scientific notebook workflow and
 - Keep computations reproducible by recording data sources, assumptions, parameters, environment requirements, and dependencies without hidden state.
 - Keep outputs readable and bounded, with descriptive chart labels and units.
 - Inspect results before writing explicitly requested conclusions, tying claims to observed values or inspected figures.
-- Execute complete runnable artifacts from top to bottom, or report the exact execution gap and local action needed to resolve it.
+- Execute complete runnable notebooks from top to bottom, or report the exact execution gap and local action needed to resolve it.
 
-This skill adds the scientific section order, `PARAMETERS` directly before final execution, the owner's `minimalist` plotting style, plots as the primary output, interpretation only on explicit request, proportional checks for small edits, and the cell-preserving helper. It excludes the upstream business-report layout, mandatory summaries or takeaways, top-of-notebook parameters, connector routing, and separate Data validation skill invocation. Preserve the user's shortened openings and notebook structure.
+This skill adds the scientific section order, `PARAMETERS` directly before final execution, the owner's `minimalist` plotting style, plots as the primary output, interpretation only on explicit request, proportional checks for small edits, and the cell-preserving helper. It excludes the upstream business-report layout, mandatory summaries or takeaways, top-of-notebook parameters, connector routing, and separate Data checking skill invocation. Preserve the user's shortened openings and notebook structure.
 
 The Data plugin is optional support for data integrity, uncertainty, or presentation and is never required to create or maintain a scientific notebook. Scientific model checks follow `computational-modeling` when that skill applies.
 

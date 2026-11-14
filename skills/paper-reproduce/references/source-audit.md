@@ -1,16 +1,16 @@
-# Source Audit
+# Source Inspection and Target Specification
 
 Specify each target from primary sources before coding or running evaluations.
 
 ## Contents
 
-- [1. Limit the audit to the target](#1-limit-the-audit-to-the-target)
+- [1. Limit source inspection to the target](#1-limit-source-inspection-to-the-target)
 - [2. Extract the complete target specification](#2-extract-the-complete-target-specification)
 - [3. Classify each item](#3-classify-each-item)
 - [4. Freeze before evidence](#4-freeze-before-evidence)
-- [Source-audit completion check](#source-audit-completion-check)
+- [Source-inspection completion check](#source-inspection-completion-check)
 
-## 1. Limit the audit to the target
+## 1. Limit source inspection to the target
 
 Inspect the final paper, errata, supplements, first-party code/data, and cited methods needed for the chosen objective and target, ignoring unrelated sections. Follow this authority order while keeping conflicts visible:
 
@@ -44,7 +44,7 @@ source_id: S1
 locator: "Methods, p. 7, Eq. 4"
 ```
 
-Cite code by repository version plus file and line/function/config key, figures by panel, axes, and caption/text location, and datasets by release/version, file/table, columns, and filter rule (document-level citations alone fail auditability).
+Cite code by repository version plus file and line/function/config key, figures by panel, axes, and caption/text location, and datasets by release/version, file/table, columns, and filter rule (document-level citations alone lack verifiable traceability).
 
 ## 3. Classify each item
 
@@ -79,15 +79,15 @@ Never fit missing parameters from curve agreement; a reconstruction stays a reco
 
 ## 4. Freeze before evidence
 
-Track objective, target, sources, audit decisions, protocol, exclusions, and completion rules in one maintained target record. When comparison applies, declare qualitative criteria, quantitative criteria, or both with tolerances, uncertainty rules, and separate outcomes; for proofs, code checks, or new applications needing no paper comparison, state required evidence and why comparison is N/A.
+Track objective, target, sources, source-inspection decisions, protocol, exclusions, and completion rules in one maintained target record. When comparison applies, declare qualitative criteria, quantitative criteria, or both with tolerances, uncertainty rules, and separate outcomes; for proofs, code checks, or new applications needing no paper comparison, state required evidence and why comparison is N/A.
 
 Freeze scientific choices before generating assessment evidence, logging dated/versioned records and source/code/data hashes. Material scientific edits start a new revision while retaining prior protocols and evidence; routine run metadata appends cleanly without altering scientific terms.
 
-The optional schema-v1 target card and validator fit only computational workflows matching their constraints (single comparison mode, comparison required at claim/result depth, positive execution evidence, fixed routes); never warp a target to fit them. When used, the validator hashes the scientific fields plus revision ID and lineage as compact, key-sorted UTF-8 JSON with SHA-256 (`sha256:` prefix); scientific changes require a new revision with each predecessor card kept at its contained relative path and canonical hash (no escaping or missing-card links). Link any helper card from the maintained target record.
+The optional `schema-v1` target card (`assets/target-card-template.yaml`, retaining its literal `schema_version` and `source_audit` YAML keys) and specification checker (`scripts/validate_target_card.py`) fit only computational workflows matching their constraints (single comparison mode, comparison required at claim/result depth, positive execution evidence, fixed routes); never warp a target to fit them. When used, `scripts/validate_target_card.py` hashes the scientific fields plus revision ID and lineage as compact, key-sorted UTF-8 JSON with SHA-256 (`sha256:` prefix); scientific changes require a new revision with each predecessor card kept at its contained relative path and canonical hash (no escaping or missing-card links). Link any helper card from the maintained target record.
 
 Cheap diagnostics may run before the freeze only if labeled diagnostic and excluded from scientific verdicts.
 
-## Source-audit completion check
+## Source-inspection completion check
 
 Before implementing, verify a reader can tell:
 

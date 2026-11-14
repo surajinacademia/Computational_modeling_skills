@@ -6,7 +6,7 @@ Read this reference before creating or changing an analysis-to-plot path. For ap
 
 - [Establish the Scientific Target](#establish-the-scientific-target)
 - [Use a Direct Analysis Path](#use-a-direct-analysis-path)
-- [Handle Pandas Tables by Scientific Grain](#handle-pandas-tables-by-scientific-grain)
+- [Handle Pandas Tables by Row Representation](#handle-pandas-tables-by-row-representation)
 - [Keep Only Scientific Selections](#keep-only-scientific-selections)
 - [Preserve Scientific Identity](#preserve-scientific-identity)
 - [Separate Analysis from Display](#separate-analysis-from-display)
@@ -15,7 +15,7 @@ Read this reference before creating or changing an analysis-to-plot path. For ap
 
 ## Establish the Scientific Target
 
-Recover from the request, code, and data before editing: the observable; the scientific unit (cell, particle, trajectory, replicate, or run); the requested comparison or grouping; and the time and spatial domain. Do not build a separate specification, filter ledger, or validation framework for these facts; ask only when ambiguity changes the scientific result and the repository leaves it open.
+Recover from the request, code, and data before editing: the observable; the scientific unit (cell, particle, trajectory, biological replicate, or simulation run); the requested comparison or grouping; and the time and spatial domain. Do not build a separate specification, filter ledger, or set of checking rules for these facts; ask only when ambiguity changes the scientific result and the repository leaves it open.
 
 ## Use a Direct Analysis Path
 
@@ -32,9 +32,9 @@ save or return the figure
 
 Keep this path visible in one script, function, or short notebook sequence, combining trivial stages when clearer. Use tabular operations for tables and arrays or domain objects for trajectories, fields, and images unless a table serves a clear scientific purpose. Reuse domain-library operations for observables or selections instead of reimplementing them.
 
-## Handle Pandas Tables by Scientific Grain
+## Handle Pandas Tables by Row Representation
 
-Identify what one input row represents (the table grain), the named key columns, and the result grain before each aggregation, without inventing a schema object when grouping columns already state the grain. Before editing any dataframe path, read [pandas-data-handling.md](pandas-data-handling.md) for concatenation identity, aggregation weighting, keyed joins, alignment, missingness, duplicate keys, reshaping, and plot-ready tables.
+Identify what one input row represents (the row representation), the named row key unit, the independent experimental unit ($n$), and the target row representation before each aggregation, without inventing an expected column structure object when grouping columns already state the key. Before editing any dataframe path, read [pandas-data-handling.md](pandas-data-handling.md) to separate row key units from biological replicates ($n$) and govern concatenation identity, aggregation weighting, keyed joins, alignment, missingness, duplicate keys, reshaping, and plot-ready tables.
 
 ## Keep Only Scientific Selections
 
@@ -49,7 +49,7 @@ Place each selection next to the calculation it affects with a concise name or c
 - Keep run and replicate identity intact until per-run or per-replicate observables are complete.
 - Match aggregation weighting to the named scientific unit and target estimate, preserving existing weighting only after checking agreement; never swap equal-run weighting and pooled-observation weighting silently.
 - Use one shared validity mask or keyed join for paired calculations, and observable-specific validity masks with retained IDs and counts for independent summaries.
-- Validate only boundary units, denominators, keys, shapes, or coordinates whose mismatch changes results, failing visibly instead of catching broad exceptions or substituting values.
+- Check only boundary units, denominators, keys, shapes, or coordinates whose mismatch changes results, failing visibly instead of catching broad exceptions or substituting values.
 
 ## Separate Analysis from Display
 
@@ -58,7 +58,7 @@ Compute observables and summary statistics from all scientifically selected data
 ## Limit Abstraction
 
 - Prefer direct plotting and library calls for one plot or small related sets, keeping helpers only for reuse, non-trivial calculations, or clear test boundaries.
-- Never introduce classes, registries, configuration schemas, callback systems, strategy/plugin layers, generic filter pipelines, dataframe/plot wrappers without scientific meaning, or redundant upstream contract checks.
+- Never introduce classes, registries, expected column structure objects, callback systems, strategy/plugin layers, generic filtering steps, thin helper functions around dataframes or plots without scientific meaning, or redundant checks of an already verified expected input structure.
 - Stop simplifying before removing observable definitions, scientific units, comparisons, domains, or data identity.
 
 ## Verify Proportionally
@@ -67,8 +67,8 @@ Choose only checks matching the edit, keeping diagnostic comparisons outside the
 
 - Population-changing exclusion: compare affected scientific-unit counts.
 - Refactor or simplification: compare representative values and keyed plot inputs within justified floating-point tolerance.
-- Aggregation edit: compare run or replicate counts and named weighting.
+- Aggregation edit: compare experimental-unit (replicate or run) counts and named weighting.
 - New plot without baseline: inspect representative values and final plot inputs without inventing equivalence tests.
 - Run the smallest relevant existing test or render when execution is in scope.
 
-Follow the [completion gate](../SKILL.md#completion-gate) for changed figures without generating separate review reports or rebuilding unrelated gallery examples; code-only simplifications require numerical checks rather than redesigns. Never claim unrun checks passed. Before finishing, confirm the reader can trace load to plot in one pass, every selection has a scientific basis, and display-only steps sit outside the analysis path. Consult [repository-patterns.md](repository-patterns.md) only when current code leaves competing structures unresolved.
+Follow the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria) for changed figures without generating separate review reports or rebuilding unrelated gallery examples; code-only simplifications require numerical checks rather than redesigns. Never claim unrun checks passed. Before finishing, confirm the reader can trace load to plot in one pass, every selection has a scientific basis, and display-only steps sit outside the analysis path. Consult [repository-patterns.md](repository-patterns.md) only when current code leaves competing structures unresolved.

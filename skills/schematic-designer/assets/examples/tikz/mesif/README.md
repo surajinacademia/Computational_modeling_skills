@@ -21,6 +21,6 @@ This is a construction example, not new scientific evidence. Preserve its direct
 
 ## Current visual design
 
-Visual re-audit: the formal state circles, native transitions, 8 pt edge labels and semantic white space already passed visual inspection. Retained their design; aligned label-mask padding with the shared spacing role. All 18 transitions remain unchanged.
+Visual inspection: the formal state circles, native transitions, 8 pt edge labels and semantic white space already met visual criteria. Retained their design; aligned label-mask padding with the shared spacing role. All 18 transitions remain unchanged.
 
 The checked PDF is **124.37 × 161.62 mm** at native size. Place it unscaled to retain the shared 8 pt body role; headings use 9 pt and panel tags, where present, use 10 pt. Only supporting notes use 7 pt. These are TeX points (PDF reports about 7.97 pt for an 8 pt TeX font); mathematical subscripts retain normal LaTeX sizing. Both PDF and outlined SVG were visually inspected after regeneration.

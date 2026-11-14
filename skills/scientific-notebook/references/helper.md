@@ -6,9 +6,9 @@
 - [Patch only the intended cells](#patch-only-the-intended-cells)
 - [Execution and verification](#execution-and-verification)
 
-Run `scripts/notebook.py` from this skill directory or by absolute path. Creation, inspection, validation, and editing require `nbformat`; only `execute` imports `nbclient` (plus the selected kernel and notebook packages). Use the project's environment (`requirements.txt` lists helper dependencies); missing execution packages fail before modifying the notebook.
+Run `scripts/notebook.py` from this skill directory or by absolute path. Creation, inspection, structural format check, and editing require `nbformat`; only `execute` imports `nbclient` (plus the selected kernel and notebook packages). Use the project's environment (`requirements.txt` lists helper dependencies); missing execution packages fail before modifying the notebook.
 
-The helper maintains one `.ipynb` file, treating JSON patches as temporary inputs. It rejects symlink notebook or patch paths, requires existing parent directories, validates structure, and checks the file `sha256` before writing to detect concurrent edits (without locking the file; reinspect and reconcile on mismatch). Review code before execution, as the helper is not a sandbox.
+The helper maintains one `.ipynb` file, treating JSON patches as temporary inputs. It rejects symlink notebook or patch paths, requires existing parent directories, checks structure, and checks the file `sha256` before writing to detect concurrent edits (without locking the file; reinspect and reconcile on mismatch). Review code before execution, as the helper is not a sandbox.
 
 ## Create and inspect
 

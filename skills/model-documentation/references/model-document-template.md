@@ -60,7 +60,7 @@ Model version control name:
 
 Use only the scientific model name (such as `Active Gel Contact Formation Model` or `Chemotactic Model`), without administrative prefixes like `Canonical Model Documentation` or `Model Documentation`.
 
-Place `Implementation:` as the first nonblank line below the title. Keep the exact filename and relative path even if it contains a repository-forbidden prose term. Link the primary Python file for Python models, else the primary source file; it must resolve to a non-symlink regular file inside the selected repository boundary. Never substitute an unrelated file for missing code.
+Place `Implementation:` as the first nonblank line below the title. Keep the exact filename and relative path even if it contains terms forbidden by the target repository's terminology list. Link the primary Python file for Python models, else the primary source file; it must resolve to a non-symlink regular file inside the selected repository boundary. Never substitute an unrelated file for missing code.
 
 For an unimplemented model with a source plan, use:
 
@@ -76,7 +76,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 Never create a second file just to supply a header link. Report inaccessible code during planning and resolve the header with the user rather than mislabeling inaccessible code as unimplemented.
 
-Every model document (including unimplemented models) must place the literal field `Model version control name:` after `Implementation:` and before Section 1. Populate it only by copying an explicitly recorded model version or release name that applies to the documented model, citing its source in Section 7.1. Never invent a name or substitute a Git branch, commit ID, or plugin version; if none applies, leave the value literally blank rather than writing `unknown` or `N/A`. Keep the separate Section 7.1 revision, dirty-state, and content-hash record in either case.
+Every model document (including unimplemented models) must place the literal field `Model version control name:` after `Implementation:` and before Section 1. Populate it only by copying an explicitly recorded model version or release name that applies to the documented model, citing its source in Section 7.1. Never invent a name or substitute a Git branch, commit ID, or plugin version; if none applies, leave the value literally blank rather than writing `unknown` or `N/A`. Keep the separate Section 7.1 revision, uncommitted working-tree changes, and content-hash record in either case.
 
 ## Section Guidance
 
@@ -174,9 +174,9 @@ Maintain a concise, evidence-backed implementation and methods record (lists for
 
 Map each model element or equation in short bullets to its source file, key function or type, and stored field or output, noting entry point, parameter source, minimum runtime requirements, and saved data layout (never a full function inventory or call graph).
 
-Except for the header link, this is the only place for exact source identifiers containing repository-forbidden prose terms, written in code formatting paired with scientific meaning.
+Except for the header link, this is the only place for exact source identifiers containing terms forbidden by the target repository's terminology list, written in code formatting paired with scientific meaning.
 
-Record the inspected source revision and dirty state under Git, plus repository-relative paths and SHA-256 hashes of dirty, untracked, or unversioned model-relevant files; for unversioned code, record paths and hashes and label the mapping unversioned. For plan-only work, name the originating plan or approved conversation and mark code mappings and outputs not implemented. Never invent files or outputs.
+Record the inspected source revision and uncommitted working-tree changes under Git, plus repository-relative paths and SHA-256 hashes of uncommitted, untracked, or unversioned model-relevant files; for unversioned code, record paths and hashes and label the mapping unversioned. For plan-only work, name the originating plan or approved conversation and mark code mappings and outputs not implemented. Never invent files or outputs.
 
 ### 7.2. Method Decisions and Changes
 
@@ -184,15 +184,15 @@ Record consequential choices, rationale, status, and supporting code, test, run,
 
 ### 7.3. References
 
-List only cited sources with stable links or identifiers, and cite them inline beside the assumptions, equations, and values they support. Prefer primary papers, textbook derivations, and official numerical-method docs; presentation examples such as VisualPDE and HyperPhysics do not by themselves validate a model's assumptions or parameter values.
+List only cited sources with stable links or identifiers, and cite them inline beside the assumptions, equations, and values they support. Prefer primary papers, textbook derivations, and official numerical-method docs; presentation examples such as VisualPDE and HyperPhysics do not by themselves test or justify a model's assumptions or parameter values.
 
 ## Writing And Verification
 
-Follow the skill's Writing And Mathematical Principles: connected prose for physical explanations, lists for parallel or sequential items, equations with nearby physical interpretation, one source line per paragraph or list item's paragraph, `$...$` inline math, and `$$...$$` display math.
+Follow [style-and-review.md](style-and-review.md) and the skill's writing invariants: connected prose for physical explanations, lists for parallel or sequential items, equations with nearby physical interpretation, one source line per paragraph or list item's paragraph, `$...$` inline math, and `$$...$$` display math.
 
 Define every symbol before first mathematical use and recall prior symbols locally near equations; preserve established notation unless renaming is approved, using familiar conventions and avoiding lookalike symbols for unrelated quantities. A mechanism explanation should let the reader state what changes, what drives it, what each term contributes, and a relevant limit without flipping back to Section 3 or reading code. Keep caveats beside affected assumptions, numerical details in Section 6, and history in Section 7, omitting results narratives and administrative repetition.
 
-Verify completed drafts via separate verification and scientific critical-review subagents: the verification reviewer checks literal headings, order, header links, `Model version control name:` provenance, Section 3 tables, fourth-level headings, physics-vs-numerics separation, definitions, units, citations, equation-code fidelity, and standalone readability; the scientific critic checks physical reasoning, evidence strength, and whether intuitive prose matches the equations. Fix in-scope findings, have both reviewers assess the same final version, and report remaining limitations in the conversation without creating separate review files.
+Verify completed drafts via separate verification and scientific critical-review subagents: the verification reviewer checks literal headings, order, header links, `Model version control name:` provenance, Section 3 tables, fourth-level headings, physics-vs-numerics separation, definitions, units, citations, equation-code fidelity, and standalone readability; the scientific critic checks physical reasoning, evidence strength, and whether intuitive prose matches the equations. Fix findings within declared scope, have both reviewers assess the same final version, and report remaining limitations in the conversation without creating separate review files.
 
 ## Writing-Format Resources
 

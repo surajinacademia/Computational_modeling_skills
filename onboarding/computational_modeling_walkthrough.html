@@ -370,8 +370,8 @@
           <button type="button" role="tab" id="tab-s1" aria-selected="true" focusgroupstart>1 · Understand</button>
           <button type="button" role="tab" id="tab-s1b" aria-selected="false">1b · Rival Test</button>
           <button type="button" role="tab" id="tab-s2" aria-selected="false">2 · Reuse Code</button>
-          <button type="button" role="tab" id="tab-s3" aria-selected="false">3 · Triage</button>
-          <button type="button" role="tab" id="tab-s4" aria-selected="false">4 · Validate</button>
+          <button type="button" role="tab" id="tab-s3" aria-selected="false">3 · Classify Failures</button>
+          <button type="button" role="tab" id="tab-s4" aria-selected="false">4 · Verify and Validate</button>
           <button type="button" role="tab" id="tab-s5" aria-selected="false">5 · Record</button>
           <button type="button" role="tab" id="tab-s6" aria-selected="false">6 · Stop</button>
         </div>
@@ -401,7 +401,7 @@
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> Expected results are predictions to test — never targets to force.
+              <span class="gate-label text-warning">Rule:</span> Expected results are predictions to test — never targets to force.
             </div>
           </div>
         </div>
@@ -424,7 +424,7 @@
               </div>
               <div class="arrow" aria-hidden="true">→</div>
               <div class="card">
-                <div class="card-title">Goldfish Check</div>
+                <div class="card-title">Fresh-Reader Check</div>
                 <div class="card-body">Zero-history critique</div>
               </div>
               <div class="arrow" aria-hidden="true">→</div>
@@ -458,11 +458,11 @@
               <div class="arrow" aria-hidden="true">→</div>
               <div class="card">
                 <div class="card-title">Observables</div>
-                <div class="card-body">Established libraries, zero wrappers</div>
+                <div class="card-body">Established libraries, direct calls</div>
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> No duplicate paths or speculative abstractions; optimize only proven bottlenecks against a reference within tolerance.
+              <span class="gate-label text-warning">Rule:</span> No duplicate paths or speculative abstractions; optimize only proven bottlenecks against a reference within tolerance.
             </div>
           </div>
         </div>
@@ -475,7 +475,7 @@
             </div>
             <div class="grid-3">
               <div class="card">
-                <div class="card-title text-error">Implementation Bug</div>
+                <div class="card-title text-error">Implementation Error</div>
                 <div class="card-body">Code differs from intended math <span aria-hidden="true">→</span> <span class="text-fg">Fix code</span></div>
               </div>
               <div class="card">
@@ -488,7 +488,7 @@
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> Treat any equation, assumption, parameter-meaning, or BC edit as a scientific model revision — never call it a bug fix.
+              <span class="gate-label text-warning">Rule:</span> Treat any equation, assumption, parameter-meaning, or BC edit as a scientific model revision — never call it a code correction.
             </div>
           </div>
         </div>
@@ -496,8 +496,8 @@
         <div role="tabpanel" id="panel-s4" aria-labelledby="tab-s4" hidden="until-found">
           <div class="panel-inner">
             <div>
-              <h2>4. Validate With Proportional Evidence</h2>
-              <p class="subtitle">Lock pass/fail criteria first; run smallest authorized check.</p>
+              <h2>4. Verify and Validate With Proportional Evidence</h2>
+              <p class="subtitle">Pre-declare quantitative tolerance, support, falsification, and inconclusive criteria; run smallest authorized check.</p>
             </div>
             <div class="grid-3">
               <div class="card">
@@ -514,7 +514,7 @@
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> Keep calibration separate from validation, keep production solver baselines untouched, use ensembles for stats, and never launch unauthorized runs.
+              <span class="gate-label text-warning">Rule:</span> Keep calibration separate from validation, keep production solver baselines untouched, use ensembles for stats, and never launch unauthorized runs.
             </div>
           </div>
         </div>
@@ -536,11 +536,11 @@
               </div>
               <div class="card">
                 <div class="card-title">Docs Handoff</div>
-                <div class="card-body">Pass equations, sources, gaps &amp; Model version control name: to $model-documentation</div>
+                <div class="card-body">Pass equations, sources, gaps &amp; header field Model version control name: (confirmed model/version identifier) to $model-documentation</div>
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> Preserve failed checks, inconclusive runs, regime limits, and superseded findings; doc handoffs never authorize runs.
+              <span class="gate-label text-warning">Rule:</span> Preserve failed checks, inconclusive runs, regime limits, and superseded findings; doc handoffs never authorize runs.
             </div>
           </div>
         </div>
@@ -566,7 +566,7 @@
               </div>
             </div>
             <div class="gate">
-              <span class="gate-label text-warning">Gate:</span> Never claim untested execution or broader validity, and never start unrequested cleanup, additions, or sweeps.
+              <span class="gate-label text-warning">Rule:</span> Never claim untested execution or broader validity, and never start unrequested cleanup, additions, or sweeps.
             </div>
           </div>
         </div>

@@ -13,10 +13,10 @@ These conversations are invented examples.
 **Agent:**
 
 - **Goal:** Explain the motion, frequency, and energy of your oscillator.
-- **Blocking decision and assumptions:** You have not said whether you want an ideal explanation or a prediction for a real object, and the prompt both permits and limits assumptions. We need to separate assumptions useful for a clean derivation from claims about a real system, otherwise I would be inventing the system, damping, and forcing.
+- **Unresolved consequential choice and assumptions:** You have not said whether you want an ideal explanation or a prediction for a real object, and the prompt both permits and limits assumptions. We need to separate assumptions useful for a clean derivation from claims about a real system, otherwise I would be inventing the system, damping, and forcing.
 - **Useful information:** No physical setup or parameter values are supplied. A symbolic derivation leaves values unspecified; a real prediction needs the system description and evidence on damping or driving. Choosing the equation and method is my job, not yours.
 - **Options and recommendation:** An ideal spring-mass model isolates how inertia and a restoring force create oscillations. Damped or driven models add energy loss or external pushes, which need more setup. Start with the ideal symbolic model if your goal is the basic principle.
-- **Your input:** Is this a textbook explanation or a prediction for a real object? For a real object, tell me what moves, what pulls it back toward equilibrium, and what you observe. If you are unsure, tell me what you want to understand.
+- **Your input:** Is this a textbook explanation or a prediction for a real object, and do you confirm starting with the ideal symbolic scope? For a real object, tell me what moves, what pulls it back toward equilibrium, and what you observe.
 
 **User:** "A textbook explanation. I don't know yet whether I need damping or forcing."
 
@@ -104,8 +104,8 @@ A stronger starting prompt is: "I have one hour. Dinner and packing must happen 
 
 **User:** "Am I clear? I want a symbolic solution of an ideal spring-mass oscillator, with no damping or forcing. Just restate the scope for now."
 
-**Agent:** "You want a general symbolic solution for an ideal spring-mass oscillator, assuming no damping or forcing, and only a scope summary for now. Is that right?"
+**Agent:** "You want a general symbolic solution for an ideal spring-mass oscillator, assuming no damping or forcing, and only a scope summary for now. Do you confirm this scope?"
 
 **User:** "Yes."
 
-The request is already clear, so no interview is needed. The agent stops at the brief because that was the deliverable; likewise, a brief delegated by `schematic-designer` returns to that skill after confirmation, reusing a matching brief already confirmed in the conversation.
+The request is already clear, so no interview is needed. The agent stops at the brief because that was the requested summary; likewise, a brief delegated by `schematic-designer` returns to that skill after confirmation, reusing a matching brief already confirmed in the conversation.

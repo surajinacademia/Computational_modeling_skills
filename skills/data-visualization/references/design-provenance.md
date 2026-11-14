@@ -4,9 +4,9 @@ Reviewed 2026-09-21 against Chen Liu's `figures4papers` commit `3c181f85e82c6f24
 
 ## Architecture Adapted
 
-`figures4papers` links visual goals to design theory, tutorials, and runnable demos via a compact router; this skill pairs that routing with strict rules on scientific grain, identity, weighting, missingness, and analysis/display separation:
+`figures4papers` links visual goals to design theory, tutorials, and runnable demos via a compact reference selection table; this skill pairs that organization with strict rules on row representation versus experimental unit ($n$), scientific identity, weighting, missingness, and analysis/display separation:
 
-- The entrypoint routes design, tutorials, API docs, and gallery assets while requiring [analysis-workflow.md](analysis-workflow.md) whenever data paths change.
+- The entrypoint indexes design, tutorials, API docs, and gallery assets while requiring [analysis-workflow.md](analysis-workflow.md) whenever data paths change.
 - Each of the eight local cases bundles `source.py`, teaching `data.csv`, and PDF alongside three standalone templates and a scoped style adapter (keeping executable interfaces inside the skill).
 - Completion requires visually inspecting the saved PDF at intended physical size.
 

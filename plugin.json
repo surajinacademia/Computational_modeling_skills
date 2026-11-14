@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "computational-modeling-skills",
-  "version": "2.1.1",
-  "description": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
+  "version": "2.2.0",
+  "description": "Twelve skills for research project setup, scientific modeling, paper reproduction, model documentation, scientific notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, request clarification, Slurm jobs and sweeps, and end-of-session research lessons.",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },
@@ -15,6 +15,7 @@
     "scientific-notebooks",
     "linear-stability",
     "scientific-figures",
+    "microscopy",
     "slurm",
     "paper-reproduction"
   ],
@@ -23,7 +24,7 @@
       "interface": {
         "displayName": "Computational Modeling Skills",
         "shortDescription": "Scientific models, paper reproduction, and research workflows",
-        "longDescription": "Ten skills for research project setup, scientific modeling, paper reproduction, documentation, notebooks, stability analysis, plots, schematics, clarification, and Slurm jobs and sweeps.",
+        "longDescription": "Twelve skills for research project setup, scientific modeling, paper reproduction, model documentation, scientific notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, request clarification, Slurm jobs and sweeps, and end-of-session research lessons.",
         "developerName": "Computational Modeling Skills contributors",
         "category": "Productivity",
         "capabilities": [
@@ -35,8 +36,10 @@
           "Linear stability analysis",
           "Data visualization",
           "Scientific schematics",
+          "Microscopy image analysis",
           "Request clarification",
-          "Slurm jobs and sweeps"
+          "Slurm jobs and sweeps",
+          "Research session lessons"
         ],
         "defaultPrompt": [
           "Use $computational-modeling to address my modeling task.",

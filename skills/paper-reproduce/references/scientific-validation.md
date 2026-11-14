@@ -5,7 +5,7 @@ Verify production code and data before treating outputs as scientific evidence, 
 ## Common sequence
 
 1. Derive independent tests from the frozen specification.
-2. Run the smallest diagnostic capable of catching sign, unit, indexing, boundary, conservation, sampling, or stopping bugs.
+2. Run the smallest diagnostic capable of catching sign, unit, indexing, boundary, conservation, sampling, or stopping coding errors.
 3. Test production code directly rather than relying on a toy oracle.
 4. Benchmark representative workloads before changing algorithms, precision, parallelism, storage, or language.
 5. Freeze the accepted code and configuration before running assessment evidence.
@@ -13,7 +13,7 @@ Verify production code and data before treating outputs as scientific evidence, 
 
 Never use visually plausible outputs as a test oracle. The verification reviewer must derive checks from the specification independently of the code and recompute decisive observables and uncertainty from raw outputs (or verify analytical proofs), rather than copying the code's formula or trusting its summary. Record unperformed checks honestly.
 
-## Validation profiles
+## Verification and check profiles
 
 ### Algebraic or analytic
 
@@ -39,7 +39,7 @@ Never use visually plausible outputs as a test oracle. The verification reviewer
 ### Optimization, learning, or inference
 
 - Verify objective, constraints, gradients or update rules, and convergence.
-- Keep training/calibration, validation, and held-out evaluation sets disjoint.
+- Keep training/calibration, tuning / model-selection set, and held-out evaluation set disjoint.
 - Log seeds, initialization, baselines, preprocessing, and checkpoint policies.
 - Report failed or nonconverged runs under the declared policy.
 
@@ -63,7 +63,7 @@ Verify in order:
 
 1. provenance and configuration;
 2. parameter/replicate keys and denominators;
-3. finite values, schema, units, and invariants;
+3. finite values, expected columns and types, units, and physical invariants;
 4. independently recomputed analysis and uncertainty;
 5. declared scientific assessment criteria;
 6. plots as faithful renderings of verified values.

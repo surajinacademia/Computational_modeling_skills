@@ -27,7 +27,7 @@ project/
 │   └── scripts/                   # Analysis scripts and native exploration notebooks
 ├── data/                          # Raw inputs and their provenance
 ├── tests/
-│   ├── data/                      # Test inputs, fixtures, and reference datasets
+│   ├── data/                      # Reference test inputs and benchmark datasets
 │   ├── results/                   # Verification outputs, comparisons, and run records
 │   └── scripts/                   # Test code and verification notebooks
 ├── development/
@@ -35,13 +35,13 @@ project/
 └── docs/                          # Methods, decisions, and detailed documentation
 ```
 
-Choose locations by purpose. Preserve original data under `data/`; place derived analysis artifacts under `analysis/results/`. Keep small test inputs and established reference values under `tests/data/`, executable checks under `tests/scripts/`, and newly generated verification artifacts under `tests/results/`. A generated output must not silently replace a test's reference data. Retained simulation outputs belong with the analysis or verification they support, with a record linking them to their producing model and settings.
+Choose locations by purpose. Preserve original data under `data/`; place derived analysis output files under `analysis/results/`. Keep small reference test inputs and established reference values under `tests/data/`, executable checks under `tests/scripts/`, and newly generated verification outputs under `tests/results/`. A generated output must not silently replace a test's reference data. Retained simulation outputs belong with the analysis or verification they support, with a record linking them to their producing model and settings.
 
 Place named model implementations and scientific variants under `development/models_versions/`, retaining their existing identities and recording the active entry point. Git records source history; the directory does not require a new copied model for each edit, or a new scientific version for a file move. Native notebooks belong with their role: analysis, verification, or model implementation. Preserve established notebook formats and configured pairs.
 
 Use descriptive run folders when multiple configurations produce results, and record how each retained result was made. A date plus purpose, such as `analysis/results/2026-10-30-baseline/`, can make experiment history easier to follow; retain established run identifiers and record start/end dates for work spanning several days. Dates identify experiments, not copied source versions. Keep required root configuration and language/framework conventions, such as an existing installable `src/project_name/` package or test discovery configuration, and document those exceptions here. Add `literature/`, `paper/`, or `archive/` only when needed. Do not force unrelated software, teaching, or job-search repositories into a scientific-model hierarchy.
 
-To apply this template, explicitly ask: `Use $research-project-setup to set up this project` or `Use $research-project-setup to reorganize this repository and update its README`. The skill is manual-only; merely opening a repository or making ordinary edits does not trigger it. An audit-only request reports deviations without moving files. Reorganization preserves recoverable copies, updates affected imports, paths, links, and commands, and checks the resulting entry points.
+To apply this template, explicitly ask: `Use $research-project-setup to set up this project` or `Use $research-project-setup to reorganize this repository and update its README`. The skill is manual-only; merely opening a repository or making ordinary edits does not trigger it. An inspection-only request reports deviations without moving files. Reorganization preserves recoverable copies, updates affected imports, paths, links, and commands, and checks the resulting entry points.
 
 ## Environment and setup
 
@@ -65,7 +65,7 @@ Replace each field with a real command or notebook procedure. State its working 
 | Smallest example | [entry point, arguments, working directory or notebook kernel] | [observable result] |
 | Focused verification | [relevant test or independent calculation] | [acceptance criteria or justified tolerance] |
 | Full workflow, when requested | [ordered steps and configuration] | [output locations and completion criteria] |
-| Lint, format, or build, if configured | [commands; identify any that modify files] | [expected checks or artifact] |
+| Lint, format, or build, if configured | [commands; identify any that modify files] | [expected checks or generated files] |
 
 Expose run settings through explicit parameters, configuration, or command-line arguments. Record every operation needed to reproduce the experiment in order, including preparation and postprocessing. Keep path choices in the driver or configuration, pass them to helpers, and resolve project paths from a documented portable base. Document each script's inputs, outputs, options, and working directory through usage/help or a linked interface description. See [Good Research Code: project documentation](https://goodresearch.dev/pipelines).
 
@@ -75,13 +75,13 @@ Use recorded commands for a simple experiment. Add a small driver script when re
 
 ### Failure, completion, and resumption
 
-Validate plausible input failures using established readers for standard formats. Check invoked commands' exit status, report errors, and stop dependent steps after a failure. Preserve diagnostics and partial outputs with their failed or incomplete status; a later plot or summary must not conceal an earlier failed stage.
+Run input format and bounds checks for plausible input failures using established readers for standard formats. Check invoked commands' exit status, report errors, and stop dependent steps after a failure. Preserve diagnostics and partial outputs with their failed or incomplete status; a later plot or summary must not conceal an earlier failed stage.
 
-When writing output files, use temporary names in the destination directory and finalize them after successful writing and appropriate checks, using atomic replacement where supported. For a run producing several files, mark it complete only after all required artifacts pass their completion checks. Preserve previously retained results when rerunning; file existence alone proves neither completion nor scientific validity.
+When writing output files, use temporary names in the destination directory and finalize them after successful writing and appropriate checks, using atomic replacement where supported. For a run producing several files, mark it complete only after all required output files pass their completion checks. Preserve previously retained results when rerunning; file existence alone proves neither completion nor scientific validation.
 
-Reuse a completed step only when its recorded inputs, relevant source, settings, and environment match and its required outputs are complete. Resume interrupted work from a validated execution checkpoint with matching provenance and compatible state; otherwise restart the affected step as a new attempt. Keep resumed work incomplete until final output checks pass. Changed upstream work requires reconsidering dependent outputs. Preserve failed attempts and record the new attempt instead of deleting evidence to force a rerun. For long workflows, provide an inexpensive status or summary procedure that labels partial progress, failures, and completed work without launching more computation. Adapt existing workflow/status facilities rather than creating a second system.
+Reuse a completed step only when its recorded inputs, relevant source, settings, and environment match and its required outputs are complete. Resume interrupted work from a verified checkpoint with matching provenance and compatible state; otherwise restart the affected step as a new attempt. Keep resumed work incomplete until final output checks pass, and distinguish step completion from scientific validation. Changed prior steps require reconsidering subsequent outputs. Preserve failed attempts and record the new attempt instead of deleting evidence to force a rerun. For long workflows, provide an inexpensive status or summary procedure that labels partial progress, failures, and completed work without launching more computation. Adapt existing workflow/status facilities rather than creating a second system.
 
-- Failure and completion checks: [commands or conditions, expected artifacts, and status location; or not configured]
+- Failure and completion checks: [commands or conditions, expected output files, and status location; or not configured]
 - Resume/reuse and progress inspection: [matching criteria and safe procedure; or not applicable/not configured]
 
 Verification status: **not yet configured or executed**. Replace this with the checks actually performed, their date and scope, and any remaining limitations.
@@ -90,16 +90,16 @@ Verification status: **not yet configured or executed**. Replace this with the c
 
 | Item | Location and record |
 | --- | --- |
-| Original inputs | [`data/` paths; source URL/repository, version/accession, retrieval date and retriever where applicable, content identifier when needed, units/schema, and usage restrictions] |
+| Original inputs | [`data/` paths; source URL/repository, version/accession, retrieval date and retriever where applicable, content identifier when needed, units and column definitions, and usage restrictions] |
 | Active implementation | [`development/models_versions/` paths and model identity, or a documented package-layout exception] |
 | Analysis | [`analysis/scripts/` entry points and corresponding `analysis/results/` outputs] |
 | Verification | [`tests/scripts/` checks, `tests/data/` inputs, and `tests/results/` outputs] |
 | Reproduction instructions | [commands/configuration or notebook, source revision, environment, and relevant parameters/seeds] |
-| Retained results | [output paths, producing run, and validation status] |
+| Retained results | [output paths, producing run, and verification or scientific validation status] |
 | Research log | [existing chronological record or chosen file within `docs/` or the relevant results location; or not yet configured/not applicable] |
 | Known limitations | [missing inputs, unperformed checks, unresolved assumptions, or not applicable] |
 
-Preserve raw inputs and record transformations. Keep large data and disposable outputs out of ordinary Git history; track the code, configuration, small suitable fixtures, provenance, and instructions needed to recover or regenerate them. Document external storage and backup locations. Git ignore rules do not provide a backup.
+Preserve raw inputs and record transformations. Keep large data and disposable outputs out of ordinary Git history; track the code, configuration, small reference test inputs, provenance, and instructions needed to recover or regenerate them. Document external storage and backup locations. Git ignore rules do not provide a backup.
 
 A URL may later serve different data. Use dataset versions, accessions, checksums, or another suitable content identifier to identify the actual inputs. For changing sources, retain a permitted snapshot or document an immutable retrieval method and its storage location; disclose when the original input cannot be recovered. Preserve access restrictions and do not put credentials or sensitive data into provenance records.
 
@@ -108,7 +108,7 @@ A URL may later serve different data. Use dataset versions, accessions, checksum
 When experiments begin, maintain dated entries in the existing research log or a lightweight record at the location above. This is a prose research record; use an executable notebook when appropriate to the work, without imposing a notebook format or duplicating an existing record. Each entry connects:
 
 - The question or objective and why the approach, comparison, or parameter choice was made.
-- The run identifier and links to exact inputs, source/settings/environment, ordered commands or driver, and resulting artifacts.
+- The run identifier and links to exact inputs, source/settings/environment, ordered commands or driver, and resulting output files.
 - Observations and the evidence supporting the interpretation, including uncertainty and limitations.
 - Unsuccessful attempts, why they were judged unsuccessful, and the next decision or experiment.
 
@@ -116,21 +116,21 @@ Distinguish execution failure, an inconclusive analysis, and a scientifically in
 
 ## Working conventions
 
-Use [AGENTS.md](AGENTS.md) for the shared coding, debugging, verification, preservation, and authorization rules. Put project-specific exceptions in its final section; keep command details here.
+Use [AGENTS.md](AGENTS.md) for the shared coding, error diagnosis, verification, preservation, and authorization rules. Put project-specific exceptions in its final section; keep command details here.
 
 The scientific workflows use the owner's installed `computational-modeling` and `scientific-notebook` skills when applicable. Verify their availability on a new machine. Detailed notebook layout, maintenance, and execution rules belong to the notebook skill; this template does not impose paired scripts or whole-notebook reruns for every edit.
 
-When configuring version control, add `.gitignore` entries for local environments, caches, credentials, and the generated or large files identified above. Preserve any small fixtures or reference outputs deliberately needed for verification. Record licensing and citation requirements before sharing code or data.
+When configuring version control, add `.gitignore` entries for local environments, caches, credentials, and the generated or large files identified above. Preserve any small reference test inputs or reference outputs deliberately needed for verification. Record licensing and citation requirements before sharing code or data.
 
 ## Git workflow
 
-Use local Git throughout authorized project work. Each commit should capture one coherent, verified change. Preserve inherited edits and staging; an audit or discussion alone needs no branch or commit. Adapt this workflow to existing project restrictions and record the real branch, checks, and storage policy here.
+Use local Git throughout authorized project work. Each commit should capture one coherent, verified change. Preserve inherited edits and staging; an inspection or discussion alone needs no branch or commit. Adapt this workflow to existing project restrictions and record the real branch, checks, and storage policy here.
 
 1. Inspect the branch, working files, index, and relevant history before editing. The working tree, staged contents, and current commit can differ. Review affected paths in both `git diff` and `git diff --cached`; do not clear another task's staging or stash the whole repository for convenience.
-2. Before substantial edits, moves, or a change of direction, commit completed and verified task-owned work. Preserve unfinished work in a scoped recovery copy containing the source revision, relevant staged and unstaged changes, untracked files, deletions, and restoration instructions. Save important ignored files separately; a patch or Git bundle alone does not preserve a dirty checkout.
+2. Before substantial edits, moves, or a change of direction, commit completed and verified task-owned work. Preserve unfinished work in a scoped recovery copy containing the source revision, relevant staged and unstaged changes, untracked files, deletions, and restoration instructions. Save important ignored files separately; a patch or Git bundle alone does not preserve uncommitted working-tree changes.
 3. Use a focused branch when a change needs separate review. Keep concurrent editing in separate worktrees with separate indexes. Start from a known committed revision and preserve any uncommitted work that must accompany it. Manage application-owned worktrees through that application. Before retirement, inspect unique commits, untracked files, and important ignored data as well as Git status.
 4. Run the smallest decisive checks, stage only explicit paths or reviewed hunks, and inspect the exact proposed commit. Run whitespace and configured staged-content checks after staging; a newer working copy must not conceal different staged bytes. When unrelated staging exists, use an isolated worktree or a commit method that preserves it and verifies exactly the intended contents. Commit at meaningful completed boundaries and before handoff, or explain why work remains uncommitted.
-5. Track maintained source, tests, documentation, dependency records, and suitable compact inputs. Record the executed source revision, effective settings, and result locations; preserve dirty source changes when they produced a retained result. Git records implementation history independently of scientific model-version labels. Choose Git LFS or external storage for necessary large inputs, preserving existing configuration and hooks. Ignore rules do not untrack existing files or erase historical contents.
+5. Track maintained source, tests, documentation, dependency records, and suitable compact inputs. Record the executed source revision, effective settings, and result locations; preserve uncommitted working-tree changes when they produced a retained result. Git records implementation history independently of scientific model-version labels. Choose Git LFS or external storage for necessary large inputs, preserving existing configuration and hooks. Ignore rules do not untrack existing files or erase historical contents.
 6. Before an authorized push, inspect the outgoing commits as well as the final diff against the actual remote and base branch. Follow the project's review/integration process and rerun affected checks after integration changes. A local commit is not an off-machine backup. Create release tags only for a verified revision when requested. History rewriting, immediate pruning, reflog expiration, and destructive cleanup need an explicit scope and a verified recoverable backup.
 
 Useful inspection commands, run from the repository root:

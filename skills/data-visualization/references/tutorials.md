@@ -2,9 +2,9 @@
 
 ## Contents
 
-- [Change over time](#1-compare-change-over-time)
-- [Completed run values](#2-compare-completed-run-values)
-- [Two-parameter map](#3-show-a-scalar-across-two-parameters)
+- [1. Compare Change over Time](#1-compare-change-over-time)
+- [2. Compare Completed Run Values](#2-compare-completed-run-values)
+- [3. Show a Scalar across Two Parameters](#3-show-a-scalar-across-two-parameters)
 
 These templates turn completed per-run or per-coordinate tables into PDFs using synthetic teaching CSVs. Pick a form from the [gallery](gallery.md), check runtime and CLI rules in [api.md](api.md), and run commands from `skills/data-visualization/` with an existing output directory.
 
@@ -56,4 +56,4 @@ Coordinates mark cell centers with halfway interior borders and half-nearest-nei
 
 **Adapt and inspect:** aggregate replicates beforehand, label axes, scalar, and units, share color limits across compared maps, center signed palettes explicitly (dense analytic maps belong to the continuous-function [gallery](gallery.md) case), and verify missingness, unequal cell sizes, and colorbar legibility. Duplicate `(x, y)` pairs and singleton axes fail visibly (use points or lines for 1D sweeps).
 
-All tutorials enforce [pandas-data-handling.md](pandas-data-handling.md), [design-style.md](design-style.md), and the [completion gate](../SKILL.md#completion-gate).
+All tutorials enforce [pandas-data-handling.md](pandas-data-handling.md), [design-style.md](design-style.md), and the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria).

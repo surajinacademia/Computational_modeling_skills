@@ -25,6 +25,6 @@ The builder generates current style support and compiles trusted source with Lua
 
 ## Current visual design
 
-Visual re-audit: retained all five scientific region extents but removed overlapping translucent fills, which previously produced muddy composite colors. Shared context-width outline boundaries now preserve overlap without inventing colors. The neutral behavior axis no longer borrows the evolution color; releasing-stimuli marks and text use their neurobiology region color.
+Visual inspection: retained all five scientific region extents but removed overlapping translucent fills, which previously produced muddy composite colors. Shared context-width outline boundaries now preserve overlap without inventing colors. The neutral behavior axis no longer borrows the evolution color; releasing-stimuli marks and text use their neurobiology region color.
 
 The checked PDF is **154.6 × 65.18 mm** at native size. Place it unscaled to retain the shared 8 pt body role; headings use 9 pt and panel tags, where present, use 10 pt. Only supporting notes use 7 pt. These are TeX points (PDF reports about 7.97 pt for an 8 pt TeX font); mathematical subscripts retain normal LaTeX sizing. Both PDF and outlined SVG were visually inspected after regeneration.

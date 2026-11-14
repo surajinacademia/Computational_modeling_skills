@@ -21,6 +21,6 @@ This is a construction example, not new scientific evidence. Preserve its direct
 
 ## Current visual design
 
-Visual re-audit: moved the Shoreline annotation outside the grid transform so its CMU glyphs are no longer sheared. The annotation target is preserved. Corner labels now use dark ink beside their existing orange markers. Grid transforms, domains, mesh steps and contour coordinates are unchanged.
+Visual inspection: moved the Shoreline annotation outside the grid transform so its CMU glyphs are no longer sheared. The annotation target is preserved. Corner labels now use dark ink beside their existing orange markers. Grid transforms, domains, mesh steps and contour coordinates are unchanged.
 
 The checked PDF is **138.84 × 181.2 mm** at native size. Place it unscaled to retain the shared 8 pt body role; headings use 9 pt and panel tags, where present, use 10 pt. Only supporting notes use 7 pt. These are TeX points (PDF reports about 7.97 pt for an 8 pt TeX font); mathematical subscripts retain normal LaTeX sizing. Both PDF and outlined SVG were visually inspected after regeneration.

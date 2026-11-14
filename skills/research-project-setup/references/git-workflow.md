@@ -50,7 +50,7 @@ git commit -m "Describe the completed change"
 
 If unrelated staging exists, use an isolated worktree or scoped commit method rather than clearing another task's index or blanket-staging. Inspect status and report commit hash and checks.
 
-Any size check must read staged blobs (checking modified/added files and total size while allowing deletions) using project-configured limits and validated hooks. Select large-file storage before committing big inputs rather than splitting files to dodge size rules; match checks to the claim (affected-link and diff checks for docs, not unrelated simulations).
+Any size check must read staged blobs (checking modified/added files and total size while allowing deletions) using project-configured limits and verified hooks. Select large-file storage before committing big inputs rather than splitting files to dodge size rules; match checks to the claim (affected-link and diff checks for docs, not unrelated simulations).
 
 ## Branches, worktrees, and integration
 
@@ -60,7 +60,7 @@ Integrate via the project's review process, resolving conflicts cleanly and reru
 
 ## Track research provenance and review outgoing history
 
-Record source revision (plus dirty edits or executed source when uncommitted), parameters, seeds, environment, procedure, outputs, and validation status for retained results; folder labels do not replace Git history.
+Record source revision (plus dirty edits or executed source when uncommitted), parameters, seeds, environment, procedure, outputs, and verification and scientific validation status for retained results; folder labels do not replace Git history.
 
 Ignore rules apply to untracked files; `git rm --cached -- path/to/file` untracks a file while keeping its working copy and earlier history (see [Git ignore rules](https://git-scm.com/docs/gitignore)). Before an authorized push, inspect outgoing commits and the remote diff:
 

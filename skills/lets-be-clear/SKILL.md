@@ -18,25 +18,26 @@ Do not activate for ordinary retrieval, definitions, or clear requests. Never fo
 ## Process
 
 1. **Understand the outcome.** Identify what the user wants to achieve.
-2. **Find the blocking decision.** Tell the user what is missing, why it matters, and how their framing could improve. Critique reasoning respectfully.
+2. **Identify the unresolved consequential choice.** Tell the user what is missing, why it matters, and how their framing could improve. Critique reasoning respectfully.
 3. **Surface assumptions.** List assumptions the user stated, hid, or left for you to introduce.
 4. **Help the user decide.** Supply missing facts, narrow excessive options, show how each choice changes the outcome, and recommend one with reasons and evidence.
-5. **Ask and move forward.** Ask only for context or priorities the user must supply, where different answers would change your work. Offer concrete options instead of making them invent choices; if they do not know yet, explain another way and work an example together. Keep clarifying until the decision is clear enough to act, then complete and check the task.
+5. **Ask and move forward.** Ask only for context or priorities the user must supply, where different answers would change your work, and offer concrete options instead of making them invent choices; if they remain unsure, explain another way and work an example together.
+6. **End any clarification pause cleanly.** Close any pause with a concise direct `?` question asking the user to confirm the plan, brief, scope, or approach (or approve how to proceed within 60 characters of those terms), then complete and check the task once settled.
 
 ## Agent response structure
 
-Keep responses short and scannable. Skip settled points, and state useful facts before asking for a choice.
+Keep clarification pause responses compact (under 400 words total), short, and scannable. Skip settled points, and state useful facts before asking for a choice.
 
 - **Goal:** What we are trying to achieve.
-- **Blocking decision and assumptions:** What is undecided, what is assumed, and why it matters.
+- **Unresolved consequential choice and assumptions:** What is undecided, what is assumed, and why it matters.
 - **Useful information:** Relevant facts or a concrete example, plus remaining unknowns.
 - **Options and recommendation:** Choices, what each changes, and a recommendation with reasons.
-- **Your input:** The question, plus only the context the user must supply.
+- **Your input:** A direct `?` question asking the user to confirm the plan, brief, scope, or approach, plus only the context the user must supply.
 
 ## Boundaries
 
-- Read available context and gather facts freely for step 4. Confirm unresolved consequential choices before acting, and reuse confirmation already given.
-- For a clarification-only request, stop at the brief. For a delegated brief, return control to the caller.
+- Read available context and gather facts freely for step 4 while keeping files unchanged during a pause. Confirm the plan, brief, scope, or approach before acting on unresolved consequential choices; reuse confirmation that was already given.
+- For a clarification-only request, stop at the brief. For a delegated brief, return control to the invoking workflow.
 - Do not invent parameters, choose the user's priorities, or write a learning record.
 
 ## Completion

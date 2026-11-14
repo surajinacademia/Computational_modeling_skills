@@ -2,11 +2,11 @@
 
 ## Contents
 
-- [Resource layout](#find-the-right-file)
-- [Runtime and style context](#runtime-and-scoped-style)
-- [CSV templates](#three-csv-to-pdf-templates)
-- [Runnable examples](#eight-runnable-examples)
-- [Gallery and data commands](#gallery-and-teaching-data-commands)
+- [Find the Right File](#find-the-right-file)
+- [Runtime and Scoped Style](#runtime-and-scoped-style)
+- [Three CSV-to-PDF Templates](#three-csv-to-pdf-templates)
+- [Eight Runnable Examples](#eight-runnable-examples)
+- [Gallery and Teaching-Data Commands](#gallery-and-teaching-data-commands)
 
 Use these interfaces with the [scientific workflow](analysis-workflow.md) and [design rules](design-style.md).
 
@@ -14,7 +14,7 @@ Use these interfaces with the [scientific workflow](analysis-workflow.md) and [d
 
 ```text
 data-visualization/
-├── SKILL.md                         # scope, resource router, completion gate
+├── SKILL.md                         # scope, reference selection table, completion and verification criteria
 ├── agents/openai.yaml               # discovery prompt
 ├── references/                      # analysis, design, tutorials, API, gallery index
 ├── assets/
@@ -41,7 +41,7 @@ Individual figures require NumPy, Pandas, and Matplotlib (`requirements.txt`); R
 
 `paper_style()` loads an installed owner `minimalist` package when present (using its palette, style sheet, strict CMU Sans Serif lookup, and draw-time marker gaps; broken installs fail visibly) and warns on fallback to Matplotlib DejaVu Sans, `tab10`, `inferno`, and `coolwarm` with through-going error bars (`marker_gap` ignored). `get_cmap(role)` returns the active sequential or diverging colormap.
 
-Both modes apply `paper.mplstyle` and restore caller `rcParams` and `Axes.errorbar`/`Axes.draw` on exit (avoid concurrent plotting threads while patched). Create, render, and save inside `paper_style()`; it never calls `minimalist.use_style()`. Keep `publication.py`, `pdf_output.py`, and `paper.mplstyle` together when relocating templates.
+Both modes apply `paper.mplstyle` and restore prior `rcParams` and `Axes.errorbar`/`Axes.draw` on exit (avoid concurrent plotting threads while patched). Create, render, and save inside `paper_style()`; it never calls `minimalist.use_style()`. Keep `publication.py`, `pdf_output.py`, and `paper.mplstyle` together when relocating templates.
 
 ## Three CSV-to-PDF Templates
 
@@ -53,7 +53,7 @@ python assets/templates/replicate_comparison.py INPUT.csv OUTPUT.pdf --xlabel 'C
 python assets/templates/parameter_map.py INPUT.csv OUTPUT.pdf --xlabel 'Parameter x (units)' --ylabel 'Parameter y (units)' --colorbar-label 'Value (units)'
 ```
 
-| Template | Required columns and grain | Summary or display |
+| Template | Required columns and row representation | Summary or display |
 | --- | --- | --- |
 | `timecourse.py` | `condition, run, time, value`; one completed value per condition/run/time | Equal-run mean and sample SD at each time; missing means break lines. |
 | `replicate_comparison.py` | `condition, run, value`; one completed scalar per condition/run | All measured run points, equal-run mean, and sample SD; deterministic x-offsets carry no value. |

@@ -21,6 +21,6 @@ This is a construction example, not new scientific evidence. Preserve its direct
 
 ## Current visual design
 
-Visual re-audit: retained formal process rectangles and decision diamonds but removed their colored background fills. Reduced excessive vertical gaps without changing any edge or branch. All branch/step labels now use the body role and shared label padding.
+Visual inspection: retained formal process rectangles and decision diamonds but removed their colored background fills. Reduced excessive vertical gaps without changing any edge or branch. All branch/step labels now use the body role and shared label padding.
 
 The checked PDF is **200.88 × 197.51 mm** at native size. Place it unscaled to retain the shared 8 pt body role; headings use 9 pt and panel tags, where present, use 10 pt. Only supporting notes use 7 pt. These are TeX points (PDF reports about 7.97 pt for an 8 pt TeX font); mathematical subscripts retain normal LaTeX sizing. Both PDF and outlined SVG were visually inspected after regeneration.

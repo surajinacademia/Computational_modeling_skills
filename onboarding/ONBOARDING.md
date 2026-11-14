@@ -6,7 +6,7 @@ I built these skills to help me work productively and to write down the learning
 
 The main goal here is to stick to reproducibility and ruthlessly question what you plot. If you publish data, you should know where they come from. Every data point should be traceable. If you don't have the data behind a claim, the research wasn't done, and there's no proof of it.
 
-Traceability and auditability come first in this set of skills, and they also give you a way through when you get stuck. They aim to give you enough context to make sound decisions and solve the problem yourself.
+Traceability and verifiability come first in this set of skills, and they also give you a way through when you get stuck. They aim to give you enough context to make sound decisions and solve the problem yourself.
 
 **Reproducibility** means repeating a computation with its recorded inputs, code, settings, and procedure. A reproducible calculation can still be wrong. **Verification** checks the implementation and numerical accuracy. **Physical validation** compares predictions with relevant observations under stated conditions.
 
@@ -20,7 +20,7 @@ Folder names and notebook layouts are adaptable conventions. Preserve the reason
 
 **Find the skill for the question you have.**
 
-Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) walks through the core modeling workflow step by step.
+These twelve skills cover the research workflow from clarifying questions and setting up a repository to analyzing microscopy images, running cluster sweeps, and recording session lessons. Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) walks through the core modeling workflow step by step.
 
 | Your question | Skill | What to learn |
 | --- | --- | --- |
@@ -32,8 +32,10 @@ Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrou
 | Will a small disturbance grow? | [linear-stability-analysis](../skills/linear-stability-analysis/SKILL.md) | Analyze small perturbations within the approximation's limits. |
 | Is my plot faithful? | [data-visualization](../skills/data-visualization/SKILL.md) | Preserve units, uncertainty, and meaningful comparisons. |
 | Can a diagram explain this? | [schematic-designer](../skills/schematic-designer/SKILL.md) | Show mechanisms; distinguish illustration from measurement. |
+| How do I measure microscopy images? | [image-analysis](../skills/image-analysis/SKILL.md) | Calibrate axes and scales, check failure modes, and record reproducible methods. |
 | Can I assess a paper's result? | [paper-reproduce](../skills/paper-reproduce/SKILL.md) | Trace sources, missing information, and negative findings. |
 | How do I run larger calculations? | [slurm](../skills/slurm/SKILL.md) | Use the Slurm cluster scheduler and verify completed outputs. |
+| What did we learn from this session? | [ruminations](../skills/ruminations/SKILL.md) | Record problem-solving steps, corrections, two-way lessons, and topics to study. |
 
 **Learn with an AI agent.**
 

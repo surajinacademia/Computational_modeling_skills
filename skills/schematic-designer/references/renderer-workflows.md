@@ -33,7 +33,7 @@ Matplotlib's PGF backend typesets text with LaTeX but leaves arrow patches as Ma
 
 ## Matplotlib
 
-- Edit the maintained `.py` source directly with `apply_patch` or a file editor (never patch generated PGF or TeX backend artifacts).
+- Edit the maintained `.py` source directly with `apply_patch` or a file editor (never patch generated PGF or TeX intermediate backend files).
 - For Minimalist, call `apply_style()` from [minimalist_profile.py](../assets/styles/minimalist_profile.py) before importing `pyplot` or `minimalist` (historical `assets/styles/matplotlib/` assets also require PGF before `pyplot`), and read `palette()` for shared colors per [minimalist.md](styles/minimalist.md).
 - Separate data/computation from drawing functions that accept an `ax`.
 - Apply the [default equation style](typography.md#default-equation-style) with LaTeX terms, matched callouts, and braces or native TikZ leaders attached via measured term bounds and actual axes transforms (or a hybrid compositor if already hybrid).

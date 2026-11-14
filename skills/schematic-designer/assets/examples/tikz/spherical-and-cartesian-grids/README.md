@@ -10,7 +10,7 @@ The original ball-lighting gradient, drawing scale, stroke hierarchy and lower c
 
 - **Use when:** A local mesh must be understood within a global coordinate construction, rather than presented as an isolated patch.
 - **Choice and benefit:** The ball-lighting gradient makes the sphere read as a volume, while solid and dashed arcs locate visible and hidden geometry. Colored meshes and the dark rectilinear boundary retain their original contrast. Preserve this lighting and depth hierarchy rather than substituting a flat white disk.
-- **Transfer:** Give the global scaffold and selected region different visual prominence, but derive both from the same coordinates. Keep labels outside dense mesh crossings and preserve each named plane's transform independently.
+- **Transfer:** Give the global coordinate frame and selected region different visual prominence, but derive both from the same coordinates. Keep labels outside dense mesh crossings and preserve each named plane's transform independently.
 - **Check when adapting:** Dashed lines here serve both hidden arcs and construction rays; distinguish those roles further if a new figure could confuse them. The drawing alone does not quantify projection distortion or establish that a particular mesh is appropriate for a simulation.
 
 ## Rebuild

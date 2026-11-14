@@ -25,7 +25,7 @@ Outputs are `learning-dynamics-tikz.pdf` and `learning-dynamics-tikz.svg`. The b
 
 The native source plots the analytic response `g_target (1 − exp[−t/τ_g])` with `τ_g = 1.35` and target values `0.82` and `0.28`. The retrieval path, particle positions, and halo layers are illustrative TikZ geometry, explicitly not to scale; they are not the numerically integrated Python trajectory. This variant teaches native layout and annotation, not numerical equivalence between the two renderers.
 
-Inspect phase order, response signs and labels, line-pattern redundancy, native arrow endpoints, and final-size legibility. Keep the illustrative distinctions and apply the [export contract](../../../../references/vector-export.md).
+Inspect phase order, response signs and labels, line-pattern redundancy, native arrow endpoints, and final-size legibility. Keep the illustrative distinctions and apply the [export specification](../../../../references/vector-export.md).
 
 ## Current visual design
 
