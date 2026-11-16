@@ -38,7 +38,7 @@
 ## Skills
 
 - Apply relevant available skills when their stated triggers match the task. Follow those skills for their workflows; do not duplicate their detailed instructions here.
-- For scientific model work, use `$computational-modeling`; for scientific notebooks, use `$scientific-notebook`. Follow the requested file format and let the notebook skill govern notebook maintenance and execution.
+- For scientific model work, use `$computational-modeling`; for Jupyter notebooks, use `$jupyter-notebook`. Follow the requested file format and let the notebook skill govern notebook maintenance and execution.
 - Refer to installed shared skills instead of copying them into each repository. If a required skill or tool is unavailable, report the limitation and continue independent authorized work without claiming that workflow is complete.
 
 ## Scientific work, when applicable

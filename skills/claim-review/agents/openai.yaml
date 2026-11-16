@@ -1,0 +1,4 @@
+interface:
+  display_name: "Claim Review"
+  short_description: "Critique and scope scientific claims against results"
+  default_prompt: "Use $claim-review to critically review and bound my scientific claims against my figures, calculations, and results so every claim is rigorous and scoped."

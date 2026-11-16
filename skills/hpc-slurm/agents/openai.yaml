@@ -1,0 +1,4 @@
+interface:
+  display_name: "HPC Slurm"
+  short_description: "Run and expand HPC Slurm jobs and sweeps"
+  default_prompt: "Use $hpc-slurm to run or expand this workload across all eligible idle capacity with disjoint assignments and verified resource limits."

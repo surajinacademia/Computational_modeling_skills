@@ -1,0 +1,4 @@
+interface:
+  display_name: "Jupyter Notebook"
+  short_description: "Create, edit, and verify Jupyter notebooks"
+  default_prompt: "Use $jupyter-notebook to create or update this research notebook, preserve my customizations, and verify the requested calculations and plots."

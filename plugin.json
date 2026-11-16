@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "computational-modeling-skills",
   "version": "2.2.0",
-  "description": "Twelve skills for research project setup, scientific modeling, paper reproduction, model documentation, scientific notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, request clarification, Slurm jobs and sweeps, and end-of-session research lessons.",
+  "description": "Fourteen skills for research project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, request clarification, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },
@@ -12,11 +12,12 @@
     "computational-modeling",
     "biophysics",
     "scientific-modeling",
-    "scientific-notebooks",
+    "jupyter-notebooks",
     "linear-stability",
     "scientific-figures",
     "microscopy",
-    "slurm",
+    "scientific-writing",
+    "hpc-slurm",
     "paper-reproduction"
   ],
   "extensions": {
@@ -24,7 +25,7 @@
       "interface": {
         "displayName": "Computational Modeling Skills",
         "shortDescription": "Scientific models, paper reproduction, and research workflows",
-        "longDescription": "Twelve skills for research project setup, scientific modeling, paper reproduction, model documentation, scientific notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, request clarification, Slurm jobs and sweeps, and end-of-session research lessons.",
+        "longDescription": "Fourteen skills for research project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, request clarification, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
         "developerName": "Computational Modeling Skills contributors",
         "category": "Productivity",
         "capabilities": [
@@ -32,19 +33,21 @@
           "Scientific modeling",
           "Paper reproduction",
           "Model documentation",
-          "Scientific notebooks",
+          "Jupyter notebooks",
           "Linear stability analysis",
           "Data visualization",
           "Scientific schematics",
           "Microscopy image analysis",
+          "Scientific claim review",
+          "Staged scientific writing",
           "Request clarification",
-          "Slurm jobs and sweeps",
+          "HPC Slurm jobs and sweeps",
           "Research session lessons"
         ],
         "defaultPrompt": [
           "Use $computational-modeling to address my modeling task.",
           "Use $paper-reproduce to reproduce the specified paper result.",
-          "Use $scientific-notebook to create an editable research notebook."
+          "Use $jupyter-notebook to create an editable research notebook."
         ],
         "websiteURL": "https://github.com/surajinacademia/Computational_modeling_skills",
         "composerIcon": "./assets/icon.svg",

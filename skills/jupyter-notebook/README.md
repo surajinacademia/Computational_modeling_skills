@@ -1,4 +1,4 @@
-# Scientific Notebook
+# Jupyter Notebook
 
 Start with [SKILL.md](SKILL.md) for the workflow governing editable research `.ipynb` notebooks, plotting style, cell-preserving edits, and execution verification.
 

@@ -118,7 +118,7 @@ Distinguish execution failure, an inconclusive analysis, and a scientifically in
 
 Use [AGENTS.md](AGENTS.md) for the shared coding, error diagnosis, verification, preservation, and authorization rules. Put project-specific exceptions in its final section; keep command details here.
 
-The scientific workflows use the owner's installed `computational-modeling` and `scientific-notebook` skills when applicable. Verify their availability on a new machine. Detailed notebook layout, maintenance, and execution rules belong to the notebook skill; this template does not impose paired scripts or whole-notebook reruns for every edit.
+The scientific workflows use the owner's installed `computational-modeling` and `jupyter-notebook` skills when applicable. Verify their availability on a new machine. Detailed notebook layout, maintenance, and execution rules belong to the notebook skill; this template does not impose paired scripts or whole-notebook reruns for every edit.
 
 When configuring version control, add `.gitignore` entries for local environments, caches, credentials, and the generated or large files identified above. Preserve any small reference test inputs or reference outputs deliberately needed for verification. Record licensing and citation requirements before sharing code or data.
 
