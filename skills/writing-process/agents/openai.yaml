@@ -1,0 +1,4 @@
+interface:
+  display_name: "Writing Process"
+  short_description: "Turn notes and figures into a scientific paper in stages"
+  default_prompt: "Use $writing-process to help me choose what to write next and draft it from my notes, outline, or figures."

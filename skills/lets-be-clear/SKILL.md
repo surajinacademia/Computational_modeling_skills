@@ -1,45 +1,41 @@
 ---
 name: lets-be-clear
-description: Clarify a problem, help the user work through decisions, confirm unresolved choices, and complete the task. Use when invoked, when the user checks shared understanding, when a request is ambiguous, when they are stuck and ask for help deciding, or when schematic-designer delegates a figure brief. Do not activate for ordinary retrieval or definition requests alone.
+description: Clarify vague or incomplete requests by spotting holes in user intent, supplying the facts and tradeoffs needed for informed decisions, confirming unresolved choices, and completing the task. Use when invoked, when checking shared understanding, when a request has ambiguity or missing specifications that change the work, when the user asks for help deciding, or when another workflow delegates an unresolved brief, plan, or scope choice. Do not activate for ordinary retrieval, definitions, or already-precise requests.
 ---
 
 # Let's Be Clear
 
-Help the user think through the problem and learn along the way. Keep the writing direct and conversational, and preserve their voice.
+- Help the user make vague or incomplete intent precise instead of guessing on their behalf: supply missing workspace facts, constraints, and concrete tradeoffs, keep the writing direct and conversational, and preserve their voice.
+- Activate when invoked directly, when checking shared understanding (`"am I clear?"`), when the user asks for help deciding, when ambiguity or unstated assumptions would change the method, scope, cost, or result, or when another workflow (such as `schematic-designer`, `jupyter-notebook`, `model-documentation`, `paper-reproduce`, or `claim-review`) delegates an unresolved brief, plan, or scope choice.
+- Do not activate for ordinary retrieval, definitions, or requests whose intent and inputs are already specific enough to execute, and never force an interview or a fixed number of questions.
+- Never invent scientific parameters, silent model assumptions, or user priorities, and never write an unrequested learning log.
 
-## When to use
+## 1. Audit intent against context and route the request
 
-- The user invokes the skill, checks shared understanding, or asks for help deciding.
-- The request is vague, underspecified, or conflicting, and different answers would change the work.
-- `schematic-designer` delegates a figure brief.
+- **Required — Read context without modifying files:** Inspect relevant workspace files and conversation history freely while keeping all files untouched during auditing and any confirmation or clarification pause.
+- **Required — Check for consequential gaps:** Identify holes, vague terms, unstated assumptions, or conflicting goals that alter the method, scope, cost, or conclusion, and never ask questions that available context already answers.
+- **Conditional — Execute directly when precise and confirmed (`No holes → Execute directly`):** When intent and inputs are already unambiguous—and this is either a direct task or a delegated brief matching an agreement already confirmed in this session—skip pausing and go straight to Section 4.
+- **Conditional — Confirm a precise but unconfirmed specification (`Confirm → Stop or return`):** For an explicit `"am I clear?"` check or a new unconfirmed delegated brief with no unresolved holes, restate the exact specification concisely, pause with a direct `?` question to confirm the plan, brief, scope, or approach, and handle the reply in Section 3.
+- **Conditional — Clarify underspecified intent (`Clarify`):** Confirm unresolved consequential choices before acting by running the compact clarification pause in Section 2 whenever holes, vagueness, or conflicts remain.
 
-Do not activate for ordinary retrieval, definitions, or clear requests. Never force an interview or a fixed number of questions.
+## 2. Clarify unresolved choices in one compact pause
 
-## Process
+- Keep any clarification pause compact (under 400 words total) and scannable, skip settled points, and present workspace facts and concrete tradeoffs before asking the user to choose:
+  - **Intent as understood:** restate plainly what the user wants to achieve.
+  - **Holes, vagueness, and assumptions:** name what is vague, missing, or contradictory, critique flawed framing respectfully, separate stated, hidden, and agent-invented assumptions, and explain why different choices change the outcome.
+  - **Facts for an informed decision:** supply concrete findings, constraints, and comparisons from the inspected workspace, distinguishing workspace facts from inputs only the user knows.
+  - **Concrete options and recommendation:** narrow open-ended possibilities into a few concrete options showing the tradeoffs and what each changes, and recommend one grounded option with reasons and evidence.
+  - **Specify and confirm:** ask only for priorities, domain facts, or scope choices that only the user can decide, offering concrete options rather than open-ended prompts, and close any pause with a concise direct `?` question to confirm the plan, brief, scope, or approach (within 60 characters of those terms).
 
-1. **Understand the outcome.** Identify what the user wants to achieve.
-2. **Identify the unresolved consequential choice.** Tell the user what is missing, why it matters, and how their framing could improve. Critique reasoning respectfully.
-3. **Surface assumptions.** List assumptions the user stated, hid, or left for you to introduce.
-4. **Help the user decide.** Supply missing facts, narrow excessive options, show how each choice changes the outcome, and recommend one with reasons and evidence.
-5. **Ask and move forward.** Ask only for context or priorities the user must supply, where different answers would change your work, and offer concrete options instead of making them invent choices; if they remain unsure, explain another way and work an example together.
-6. **End any clarification pause cleanly.** Close any pause with a concise direct `?` question asking the user to confirm the plan, brief, scope, or approach (or approve how to proceed within 60 characters of those terms), then complete and check the task once settled.
+## 3. Resolve follow-up replies
 
-## Agent response structure
+- **If the user says `"I don't know yet"` or remains unsure (`Reframe with example`):** switch from abstract definitions to a concrete example or a smaller consequence-linked choice, then ask to confirm that narrower choice.
+- **If the reply revises the framing and leaves a new consequential gap:** re-audit the updated intent from Section 1 before acting.
+- **If the reply specifies and authorizes the scope in the same turn:** proceed directly to Section 4 without asking for a second confirmation.
+- Consult [tutorials.md](tutorials.md) for short worked examples of each decision branch (`Clarify → Reframe with example → Execute`, `No holes → Execute directly`, and `Clarify → Confirm → Stop or return`).
 
-Keep clarification pause responses compact (under 400 words total), short, and scannable. Skip settled points, and state useful facts before asking for a choice.
+## 4. Deliver by mode and stop
 
-- **Goal:** What we are trying to achieve.
-- **Unresolved consequential choice and assumptions:** What is undecided, what is assumed, and why it matters.
-- **Useful information:** Relevant facts or a concrete example, plus remaining unknowns.
-- **Options and recommendation:** Choices, what each changes, and a recommendation with reasons.
-- **Your input:** A direct `?` question asking the user to confirm the plan, brief, scope, or approach, plus only the context the user must supply.
-
-## Boundaries
-
-- Read available context and gather facts freely for step 4 while keeping files unchanged during a pause. Confirm the plan, brief, scope, or approach before acting on unresolved consequential choices; reuse confirmation that was already given.
-- For a clarification-only request, stop at the brief. For a delegated brief, return control to the invoking workflow.
-- Do not invent parameters, choose the user's priorities, or write a learning record.
-
-## Completion
-
-The task is complete and checked, with assumptions and reasons for decisions explained. See [tutorials](tutorials.md) for worked conversations.
+- **Clarification-only request:** output the confirmed precise specification and stop without modifying files or executing downstream work.
+- **Delegated workflow brief:** return the confirmed brief to the calling workflow and stop this skill so the caller continues.
+- **Direct task:** execute the confirmed work, verify the result, state the confirmed assumptions and reasons, and stop once the agreed scope is complete.

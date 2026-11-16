@@ -5,61 +5,55 @@ description: Set up or reorganize a research repository using the owner's templa
 
 # Research Project Setup
 
-Apply the owner's layout to the requested repository and fix material deviations when reorganization is requested. Inspections and plans stay read-only, and opening a workspace never triggers this workflow. Organize so an unfamiliar collaborator or future self can see what ran, why, what the evidence supports, and how to repeat it with new inputs or settings.
+- Apply the owner's research layout to the requested repository and repair meaningful deviations when reorganization is requested.
+- Audit-only or planning requests stay strictly read-only, and opening a workspace never runs this workflow automatically.
+- Organize the project for an unfamiliar collaborator or your future self so anyone can see what investigation ran, why it was set up that way, what the evidence supports, and how to repeat it with updated inputs or parameters.
 
 ## Template and setup guidance
 
-- **REQUIRED BEFORE creating or reorganizing layout and project rules:** read [the README template](assets/template/README.md) for layout, folder roles, setup fields, and result records, and [the AGENTS template](assets/template/AGENTS.md) when creating or updating project rules; replace placeholders with inspected project facts and merge existing rules instead of overwriting them.
-- **REQUIRED BEFORE configuring experiment records:** read [the research setup lessons](references/goodresearch-setup.md) for Good Research Code rationale, Noble's (2009) experiment rules, and adaptations, keeping the template's separation of data, analysis, verification, and models without modifying skill assets during project setup.
-- **REQUIRED BEFORE Git initialization, checkpointing, or moves:** read [the reusable Git workflow](references/git-workflow.md) for setup, checkpoints, branching, concurrent worktrees, staging, and recovery (reading its history-maintenance section only when requested), adapting branch names, checks, and storage policies without copying another repository's limits or missing checkers.
+- Read [the README template](assets/template/README.md) for the target directory layout, folder responsibilities, setup fields, and experiment records, and read [the AGENTS template](assets/template/AGENTS.md) when creating or updating repository instructions, replacing template placeholders with inspected project facts and merging existing project rules rather than overwriting them.
+- Read [the research setup lessons](references/goodresearch-setup.md) for the Good Research Code rationale, Noble's (2009) principles for organizing computational biology projects, and their adaptations here, keeping raw data, analysis, verification checks, and model implementations separated without modifying this skill's shared template assets during project setup.
+- Read [the reusable Git workflow](references/git-workflow.md) before initializing Git, creating checkpoints, branching, using concurrent worktrees, staging, or recovering work (consulting its history-maintenance section only when history edits are requested), adapting branch names, checks, and storage choices to the actual repository rather than copying another project's fixed limits or absent scripts.
 
 ## Inspect and map
 
-- Inspect target paths, existing instructions, Git boundaries and uncommitted working-tree changes, dependencies, entry points, raw inputs, saved results, tests, and nested repos via bounded file discovery.
-- Compare against the README template by purpose and provenance rather than file extension: put implementation, analysis, and verification notebooks with their respective roles while preserving model names and versions.
-- For existing repositories, sketch a compact old-path -> new-path map before moving files; an explicit reorganize request authorizes routine reversible moves and path updates without another approval round.
-- Keep framework/package paths and nested repos intact (log exceptions in README), omit unused directories, and never force scientific model folders onto unrelated projects or invent missing versions.
+- Inspect the target paths, existing instructions, Git boundaries and uncommitted working-tree changes, dependency files, entry points, raw inputs, saved results, verification checks, and nested repositories using bounded file discovery.
+- Compare contents against the README template by scientific purpose and provenance rather than file extension alone: keep model implementation notebooks with their model, data-analysis notebooks with analysis, and verification notebooks with verification checks while preserving scientific model names and version identities.
+- For an existing repository, sketch a compact old-path → new-path map before moving files; an explicit request to reorganize authorizes routine reversible moves and path updates without adding a second approval pause.
+- Keep required package or framework paths and nested Git repositories intact (recording concrete exceptions in the README), omit unused template folders, and never impose model folders on an unrelated project or invent missing model versions.
 
 ## Create a project
 
-- Copy or adapt the two template assets, filling purpose, status, layout, environment, entry points, commands, and data/output paths from evidence (mark unresolved settings unconfigured rather than inventing commands).
-- Create only needed folders (no project-local `skills/` folder) and preserve configured workflows.
-- Use the project's dependency manager and reproducible dependency file, preferring an installable Python package when code is reusable.
-- Ignore environments, caches, large data, and disposable outputs while keeping deliberate reference test inputs, and run local `git init` early for a new standalone project without nesting existing repos or creating remotes or publishing.
+- Copy or adapt the two template assets into the target repository, filling purpose, status, actual layout, environment, entry points, commands, and data/output locations from inspected evidence (marking unsettled choices unconfigured rather than inventing commands).
+- Create only the directories the project needs—without adding a project-local `skills/` folder—and preserve existing workflows.
+- Use the project's dependency manager and reproducible lock or environment specification, preferring an installable Python package when reusable code warrants it, ignore environments, caches, large raw datasets, and disposable outputs while keeping deliberate reference test inputs, and initialize local `git init` early for a new standalone project without nesting existing repositories or creating remotes unless requested.
 
 ## Make experiments understandable and repeatable
 
-Configure the README template's experiment records and workflows within existing locations, leaving missing history explicit rather than inventing rationale or claiming unperformed runs:
+- Configure the experiment records and repeatable procedures described in the README template within existing locations, leaving missing historical rationale explicit rather than inventing commands or claiming unperformed runs:
 
-- Link dated research entries to the question, methodological/parameter rationale, producing run, observations, interpretation, limitations, and next step; explain failures with evidence, separating execution crashes from informative negative results (logs need not be notebooks).
-- Identify inputs by source, version or accession, retrieval date/retriever, and checksum or immutable snapshot/recovery location.
-- Pair prose with ordered commands, a driver script, or notebook steps: pass explicit settings and paths to helpers, document inputs/outputs/options, capture interactive decisions reproducibly, and report remaining manual steps.
-- Document input format and bounds checks, exit-status checks, failure stops, and partial versus completed output checks.
-- Reuse completed steps only with matching provenance and verified outputs, resume only from verified checkpoints, preserve failed-run logs, and inspect progress without launching computation.
-- Start with recorded commands and introduce a driver or helper only when complexity or reuse warrants it, keeping dated run folders under results distinct from model identities and Git history.
-- Setup and reorganization never authorize building a new execution framework or rerunning experiments; verify script input and output interfaces and report unconfigured execution checks explicitly.
+- Connect dated research entries to the scientific question, methodological and parameter rationale, producing run, observations, physical interpretation, limitations, and next question, separating execution crashes from informative negative scientific results (records need not be notebooks).
+- Identify external or experimental inputs by source, version or accession, retrieval date, and checksum or immutable snapshot location.
+- Pair prose descriptions with ordered commands, driver scripts, or notebook steps that pass parameters and repository-relative paths explicitly, capture interactive choices reproducibly, and state any remaining manual steps.
+- Document input admissibility and bounds checks, exit-status checks, failure stops, and partial-versus-complete output checks; reuse completed steps only when provenance and outputs match, resume only from verified checkpoints, retain failed-run logs, and inspect progress without launching new simulations.
+- Start with clear recorded commands and introduce a driver script only when complexity or reuse justifies it, keeping dated run folders under results distinct from model version identities and Git history; setup and reorganization never authorize building a new execution framework or rerunning simulations.
 
 ## Apply the Git workflow
 
-- Inspect branch, working tree, index, and history before editing, preserving inherited changes and staging.
-- Explicit setup or reorganization includes local checkpoints of verified task-owned work unless restricted (inspections create no commits); before major edits, moves, or direction changes, commit verified task-owned work or save unfinished work in a scoped recovery copy without committing unrelated edits.
-- Use topic branches when helpful and separate worktrees for concurrent editing; stage explicit paths or reviewed hunks, verify staged contents with configured checks, and commit coherent verified units.
-- Use an isolated worktree or scoped commit if unrelated staging exists, or preserve work uncommitted and explain why.
-- Record the adapted workflow in README/dev docs and link it briefly from `AGENTS.md`; keep checkpoints local (pushes, releases, and destructive cleanup need separate authorization), and identify executed source including recoverable uncommitted working-tree changes for retained results.
+- Inspect the branch, working tree, staging index, and recent history before editing, preserving inherited changes and staging.
+- An explicit setup or reorganization request includes local checkpoints of verified task-owned work within project rules (audit-only requests create no commits); before substantial edits, moves, or direction changes, checkpoint verified task-owned work or save unfinished work in a scoped recovery copy without sweeping in unrelated changes.
+- Use focused branches when helpful and separate worktrees for concurrent work; stage explicit paths or reviewed hunks, run applicable checks on staged contents, and commit coherent verified units (using an isolated worktree or scoped commit if unrelated staging exists, or leaving work uncommitted with an explanation when ownership cannot be isolated).
+- Record the adapted Git routine concisely in the project README and link it from `AGENTS.md`, keeping commits local unless pushing or releases are explicitly authorized and recording recoverable uncommitted working-tree diffs whenever retained scientific results depend on dirty code.
 
 ## Reorganize an existing repository
 
-1. **Back up first.** Checkpoint verified work and preserve affected unfinished, untracked, and ignored files in a scoped recovery copy (commits miss ignored data, patches miss untracked files); defer moves affecting active writers.
-2. **Move files within declared scope per the map.** Resolve destination collisions without overwriting or deleting data; skip external symlinks, nested `.git`, and archive rewrites; ask only for material ownership, identity, or scope ambiguity.
-3. **Update dependent analyses and scripts.**
-   - Update affected imports, packaging, script and notebook paths, test discovery, reference test inputs, links, commands, and CI configs using portable explicit-base paths.
-   - Leave raw data, saved outputs, notebook formats, model equations and parameters, and expensive generated files unchanged.
-4. **Update docs.** Refresh the README tree, setup, navigation, entry points, and result paths; merge path edits into `AGENTS.md` without dropping project rules; keep any move map compact in existing records.
-5. **Verify statically and safely.** Confirm files moved intact (only planned path/config edits) and check links, discovery, imports, and authorized tests; inspect entry points before importing modules that trigger computation, as moves never authorize simulations, sweeps, or full notebook reruns.
+- **Protect existing work first:** checkpoint verified task-owned work and back up affected unfinished, untracked, and Git-ignored files in a scoped recovery copy (commits omit ignored data and diffs omit untracked files), deferring moves that touch files used by active writers.
+- **Move files according to the map:** resolve any destination collisions without overwriting or deleting data, skip external symlinks, nested `.git` directories, and archive rewrites, and ask only when a material ownership, identity, or scope ambiguity arises.
+- **Repair dependent scripts and analyses:** update affected imports, package metadata, script and notebook input/output paths, test discovery, reference test inputs, relative links, documented commands, and CI configs using portable repository-relative paths while leaving raw data, saved outputs, notebook formats, model equations, parameters, and expensive generated outputs untouched.
+- **Update project documentation:** refresh the README directory tree, setup steps, navigation links, entry points, and result locations, merging path updates into `AGENTS.md` without dropping project-specific rules.
+- **Verify statically and safely:** confirm moved files arrived intact apart from planned path updates and check links, discovery, imports, and authorized lightweight checks; inspect module entry points before importing anything that triggers computation, since reorganizing directories never authorizes running simulations, sweeps, or full notebook reruns.
 
-Stop once deviations within declared scope and dependent analyses and scripts are updated and checked; disclose uninspectable dependent analyses and scripts or unrun checks rather than claiming full template compliance.
+## Summary and verification
 
-## Completion Summary
-
-- Report layout and README edits, experiment-record locations and reproduction gaps, preserved exceptions, checkpoint commits, checks and outcomes, and any unresolved dependent analyses and scripts or uncommitted working-tree changes.
-- Keep structural checks, execution, and scientific validation distinct; push, publish, install packages, or run heavy compute only within existing authorization.
+- Stop once in-scope layout deviations and dependent paths are updated and checked, reporting any uninspectable external consumers or unrun checks honestly rather than claiming full template compliance.
+- Summarize the layout and README updates, experiment-record locations and remaining reproduction gaps, preserved exceptions, local checkpoint commits, checks run, and any unresolved path consumers or uncommitted changes, keeping structural checks, code execution, and scientific validation distinct.

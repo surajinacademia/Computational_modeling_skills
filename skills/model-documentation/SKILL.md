@@ -1,42 +1,60 @@
 ---
 name: model-documentation
-description: Plan, write, revise, or audit one physics-focused scientific model document from code, an approved plan, or a maintained methods record. Require approval of the plan and fixed structure before drafting; explain physical rationale, defined notation, equations, and numerical methods, then independently review scientific fidelity, readability, and adherence to the standard template. Do not use it for an isolated scientific explanation or question that does not create, edit, restructure, or audit a model document.
+description: "Plan, write, revise, or audit one scientific model document from code or an approved plan. Explain physics, equations, and methods; record MIASE simulation information, model sources, and change history. Use when a model document is the deliverable, not for isolated explanations."
 ---
 
 # Model Documentation
 
-Make one scientific model understandable without reverse-engineering its code by building a connected physical explanation before introducing mathematical equations and numerical methods.
+- Make one scientific model understandable without reverse-engineering its code: explain physical entities, interactions, and mechanisms before notation, equations, and numerical procedures.
+- Describe only what inspected sources support, separate assumptions from findings, omit run-result sweep narratives, and state unresolved gaps. Apply [lets-be-clear](../lets-be-clear/SKILL.md) when consequential scope or notation choices remain unsettled.
+- When invoked by computational-modeling or paper-reproduce, reuse the supplied outcomes, model type and rationale, scope decisions, source paths, evidence, destination, MIASE responses, and document plan.
+- A matching plan already presented and explicitly approved in this session satisfies the approval step below. Return documentation findings to the caller without re-invoking it, editing model code, or launching simulations.
 
-## 1. Preconditions, Scope, and Template
+## Document Template
 
-- State only what inspected evidence supports, distinguish physical assumptions from established findings, omit run-result narratives or sweep figures, and keep missing evidence explicit (no outgoing skill dependencies).
-- When invoked by `computational-modeling` or `paper-reproduce`, verify and reuse supplied scope, sources, evidence, destination, and plan; an already approved matching plan in this session satisfies Mandatory Approval Before Writing without re-asking, and findings return to the invoking workflow without re-invoking it, editing code, or running simulations.
-- REQUIRED BEFORE proposing structure or planning a model document: read [references/model-document-template.md](references/model-document-template.md) (fixed seven-section, ten-subsection document skeleton, `Implementation:` and `Model version control name:` header fields, Section 3 five-column table, and section boundaries).
-- Retain inapplicable template sections with a brief reason, add fourth-level subheadings inside required subsections when distinct mechanisms need separate explanations, and alter required headings or order only when mandated by a higher-priority repository rule or explicit user override recorded verbatim in the approved plan (reviewing approved alternates against their literal headings).
-- Use [examples/overdamped-harmonic-oscillator/model.md](examples/overdamped-harmonic-oscillator/model.md) only as a structural reference for equations, pseudocode, and Mermaid flowcharts: write connected prose rather than its older bullet-heavy style, and never copy, create, or execute its companion code.
-- Produce exactly one self-contained model document in the repository's model-documentation area (embedding pseudocode, flowcharts, references, and the Section 7 methods record while linking existing analyses without moving files); never create separate plan, review, or companion documents unless resolved with the user beforehand.
+- Read [the standard template](references/model-document-template.md) before proposing structure or planning edits. Preserve its seven sections, ten subsections, title/source header, and five-column Section 3 quantity tables.
+- Keep `Implementation:` followed by `Model version control name:` below the title. The quantity columns are notation, units, values/range, meaning/rationale, and citation source; leave unavailable citations blank.
+- Retain inapplicable sections with a brief reason. Add descriptive fourth-level subheadings within required subsections when needed, including the MIASE record in Section 7.2.
+- Change required headings or order only when a higher-priority repository rule or explicit user instruction overrides the template and the approved plan records the exact alternate headings.
+- Use the [Overdamped Harmonic Oscillator](examples/overdamped-harmonic-oscillator/model.md) only as an illustration of equations, pseudocode, and Mermaid flowcharts. Its historical record predates the MIASE layout; follow the current template for that record, and never copy, create, or execute companion code during documentation work.
+- Write the resulting model document in connected scientific prose, using lists for parallel or ordered items. The bulleted skill instructions do not require bullet-only model documents.
+- Produce one self-contained document in the repository's documentation area, embedding pseudocode, flowcharts, references, and the methods/MIASE record while linking existing analyses in place. Do not create extra plan, review, or companion files.
 
-## 2. Mandatory Approval Before Writing
+## Approval Before Writing
 
-- Follow this sequence whenever creating, revising, or restructuring a document (read-only reviews stay strictly non-editing; any file write requires prior plan confirmation):
-  1. **Inspect without writing:** read repository rules, any existing model document, and primary code or originating plan (running the code-understanding subagent when code exists; see [references/style-and-review.md](references/style-and-review.md#3-bounded-subagent-review-roles)).
-  2. **Present the plan in conversation:** state model name, question, status (implemented, proposed, or maintained record), exact destination path, literal headings in order with intended content, sources, notation choices, unresolved assumptions, verification/review plan (planning tests never authorizes execution), affected versus unchanged sections, and any missing subagent capability.
-  3. **Stop and wait for explicit confirmation of the plan:** ask a direct question such as "Do you approve this documentation plan so I may proceed with writing?" and end the turn.
-  4. **Enforce the pre-approval write ban:** never create, edit, move, rename, initialize from a document skeleton, or save a model document (or draft in a side file or subagent) before explicit user approval of the plan; a general request to document or silence is never confirmation.
-  5. **Draft only the approved document:** write or revise the agreed file in place; seek a revised plan and renewed confirmation before changing equations, assumptions, hypotheses, interpretation, structure, destination, or sections/documents in ways that alter scientific meaning.
+- Follow this sequence for document creation, revision, or restructuring; read-only audits may inspect and report freely.
+- **Inspect without writing:** read repository instructions, the existing document, and primary implementation or originating plan. Use the code-understanding role in [style-and-review.md](references/style-and-review.md#3-bounded-subagent-review-roles) when code exists.
+- **Agree on the outcome:** establish desired use, deliverables, acceptance checks, review requirements, and stopping criteria before drafting. Ask for missing outcomes; reuse an explicit matching agreement from the coordinating workflow.
+- **Present the documentation plan in the conversation:** state the model name/question/type, implemented/proposed/maintained status, exact destination, literal headings and intended content, sources, notation, unresolved assumptions, affected sections, MIASE coverage, verification/review plan, and unavailable review roles.
+- **Ask for explicit approval:** for example, "Do you approve this documentation plan and completion criteria so I may write the document?" Wait for a reply; silence or a general documentation request is not plan approval.
+- **Write nothing before approval:** do not create, edit, move, rename, or draft the model document before the user confirms the plan. This includes preparing its initial structure or creating a separate draft, including through another agent. Planning checks never authorize simulations.
+- **Draft only the approved document:** update the agreed file in place. Present a revised plan for confirmation before changing equations, assumptions, hypotheses, interpretation, required structure, or destination in ways that alter scientific meaning.
 
-## 3. Evidence, Terminology, and Writing Invariants
+## Evidence, Terminology, and Scientific Prose
 
-- REQUIRED BEFORE drafting prose, notation, or equations: read [references/style-and-review.md](references/style-and-review.md) (terminology fallback order, connected physical prose, symbol-definition rules, and subagent review checklists).
-- **Evidence by source:** from code, document inspected behavior (including optional/inactive branches; code overrides stale comments, with conflicts recorded explicitly); from a plan, mark equations and numerics proposed without claiming implementation, accuracy, or physical validation; for maintained records, cite concrete evidence for rejected alternatives.
-- **Strict terminology fallback order:** check (1) an explicitly designated glossary and forbidden-term list, else (2) repository-declared terminology paths, else (3) the target repository's `docs/scientific_terminology.md`, else (4) one unambiguous existing repository glossary (verifying containment and rejecting symlinks); resolve missing/unsafe/conflicting files before writing, or define consistent terms locally for plan approval without creating a glossary file.
-- **Connected physical prose:** open with entities, actions, and interactions, teaching each mechanism as `physical idea -> quantities and equation -> term meanings -> behavior and limits` while avoiding label-per-sentence prose (paragraphs where every sentence starts with a bold or categorical tag instead of causal transitions).
-- **Notation and forbidden terms:** define every symbol, unit or dimensionless status, index, domain, and abbreviation before first mathematical use with `$...$` inline and standalone `$$...$$` display math (one source line per paragraph or bullet); place exact source identifiers containing terms forbidden by the target repository's terminology list only in Section 7.1 (aside from `Implementation:`), paired with scientific meaning.
+- Read [style-and-review.md](references/style-and-review.md) before drafting prose, notation, or equations.
+- Ground statements in inspected code, an approved plan, or maintained evidence. Describe optional/inactive branches accurately; let code override stale comments while recording discrepancies. Label unimplemented equations and methods as proposed and do not imply convergence or physical validation.
+- Follow terminology priority: an explicitly designated glossary/forbidden-term list; otherwise repository-declared terminology paths; otherwise the target repository's `docs/scientific_terminology.md`; otherwise one unambiguous existing glossary. Verify containment and reject symlinks; resolve missing/conflicting files or propose consistent local terms in the plan without creating a glossary file.
+- Explain each mechanism in causal order: physical idea, defined quantities and equation, meaning of each term, then behavior and limiting cases. Use short connected paragraphs rather than mechanical label-per-sentence prose.
+- Define every symbol, unit or dimensionless status, index, domain, and abbreviation before first use. Use $...$ inline math and standalone $$...$$ display blocks, with one source line per paragraph or list item.
+- Place exact code/file identifiers containing forbidden terminology only in Section 7.1, apart from `Implementation:`, paired with their scientific meaning.
+- Preserve the agreed model type and claim limits: effective parameters need no invented microscopic derivation; analytical work needs no invented numerical solve; toy-model intuition is not quantitative physical validation.
 
-## 4. Post-Draft Completion and Verification Criteria
+## MIASE Simulation Record and Separate Model Identity
 
-- Review the stable final draft directly against [references/model-document-template.md](references/model-document-template.md) and inspected sources via two independent post-draft subagents ([references/style-and-review.md](references/style-and-review.md#3-bounded-subagent-review-roles)): a verification/template reviewer and a scientific reviewer assessing the identical final document version without sharing conclusions.
-- Fix meaning-preserving defects within declared scope and re-run both reviewers on substantive edits; if a reviewer role is unavailable, ask before using a labeled main-agent fallback and report delivery as `independent review incomplete` naming the missing role (without marking the document itself provisional solely for reviewer unavailability).
-- Verify Section 7.1 records inspected Git revision and uncommitted working-tree changes, repository-relative paths and SHA-256 hashes for uncommitted, untracked, or unversioned model files (or plan-only status), and non-symlink regular-file links within repository bounds.
-- Confirm `Implementation:` sits first below the title followed by `Model version control name:` before Section 1, copied strictly from a confirmed applicable recorded release name (cited in Section 7.1) or left literally blank, and disclose missing convergence or empirical physical validation evidence without implying described tests ran.
-- Report in the conversation: document path, honored approval scope, template adherence, completed reviews, corrections made, and remaining scientific or review limitations, without creating separate review files.
+- Use [the template's MIASE record](references/model-document-template.md#miase-simulation-experiment-record) in Section 7.2: three groups with rule identifiers **1A–1D, 2A–2D, and 3A–3B**, following [Waltemath et al. (2011), Box 2](https://doi.org/10.1371/journal.pcbi.1001122).
+- For every rule, record the actual information or an exact pointer to its location in the document or an accessible existing record. Preserve the order; distinguish a missing requirement from a conditional rule that does not apply and explain each inapplicability.
+- Cover all participating models, preprocessing, ordered simulation procedures, algorithm details, platform dependencies, postprocessing, and relationships among final results. Listing only equations, software versions, and output paths is insufficient.
+- Label a planned simulation as planned. When no simulation experiment exists, retain the record heading with a reason MIASE is inapplicable; do not manufacture run settings, results, or compliance.
+- Record model identity and source history separately in Section 7.1. Copy an applicable confirmed release name into `Model version control name:`, citing the source of that name, or leave the value literally blank; do not substitute a Git hash or invent a version for a parameter set.
+- Keep physical rationale and verification/validation in their template sections. MIASE is a reporting guideline, not evidence of scientific validity or a guarantee of identical output on every platform.
+
+## Post-Draft Review and Completion
+
+- Review the finished draft against the approved outcomes, [standard template](references/model-document-template.md), and inspected sources using the two independent post-draft roles in [style-and-review.md](references/style-and-review.md#3-bounded-subagent-review-roles).
+- Have one reviewer check template compliance, notation, units, equation/code/pseudocode fidelity, MIASE coverage, source and change records, and standalone readability; have the other assess physical rationale, assumptions, constitutive laws, evidence, regimes, and claim bounds. They must assess the identical final version without sharing conclusions.
+- Fix meaning-preserving defects within scope and rerun both reviews after substantive revisions. If a role is unavailable, ask before a labeled main-agent fallback and report `independent review incomplete` with the missing role; reviewer absence alone does not make the scientific document provisional.
+- Verify Section 7.1 records the inspected Git revision, current file state and any changes not yet recorded in Git, repository-relative paths, and SHA-256 hashes for modified, untracked, or unversioned model files, or explicit plan-only status. Check local links resolve to regular non-symlink files within the repository.
+- Confirm the header order, applicable model version identifier or blank value, all MIASE responses, and honest disclosure of unperformed convergence or empirical validation checks.
+- Once the agreed document deliverable and required final checks are satisfied, report its path, scope, reviews, corrections, and scientific limitations, then stop. Reuse valid evidence; do not expand into model code, new simulations, or further documents.
+- Carry the same completion criteria through long-horizon work and resumed sessions. Missing required checks remain incomplete work, and scope changes require a revised agreement rather than silently moving the stopping point.

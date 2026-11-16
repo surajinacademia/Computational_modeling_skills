@@ -95,6 +95,18 @@ def _save(path, nb, expected=None):
             os.unlink(name)
 
 
+def _notebook_state(metadata, mutate=False):
+    if "jupyter_notebook" in metadata:
+        return metadata["jupyter_notebook"]
+    legacy = metadata.get("scientific_notebook")
+    if not mutate:
+        return legacy if isinstance(legacy, dict) else {}
+    state = dict(legacy) if isinstance(legacy, dict) else {}
+    metadata.pop("scientific_notebook", None)
+    metadata["jupyter_notebook"] = state
+    return state
+
+
 def _clear(nb, execution="stale", ids=None):
     for cell in nb.cells:
         if cell.cell_type == "code" and (ids is None or cell.id in ids):
@@ -102,7 +114,7 @@ def _clear(nb, execution="stale", ids=None):
             cell.execution_count = None
     if ids is None:
         nb.metadata.pop("widgets", None)
-    state = nb.metadata.setdefault("scientific_notebook", {})
+    state = _notebook_state(nb.metadata, mutate=True)
     interpretation = state.get("interpretation", "not_requested")
     state.update(execution=execution, interpretation=(
         "not_requested" if interpretation == "not_requested" else "review_required"))
@@ -119,7 +131,7 @@ def create(path, title, points):
     template = Path(__file__).resolve().parent.parent / "assets" / "notebook-template.ipynb"
     _, nb, _ = _read(template)
     openings = [cell for cell in nb.cells
-                if cell.metadata.get("scientific_notebook", {}).get("role") == "opening"]
+                if _notebook_state(cell.metadata).get("role") == "opening"]
     if len(openings) != 1 or openings[0].cell_type != "markdown":
         raise ValueError("Template requires exactly one opening markdown cell")
     openings[0].source = "# " + title + "\n\n" + "\n".join("- " + p for p in points)
@@ -246,7 +258,7 @@ def execute(path, kernel=None, timeout=600):
     path, nb, digest = _read(path)
     _clear(nb)
     cleared = copy.deepcopy(nb)
-    skip_tag = "scientific-notebook-never-skip"
+    skip_tag = "jupyter-notebook-never-skip"
     tags = {tag for cell in nb.cells for tag in cell.metadata.get("tags", [])}
     while skip_tag in tags:
         skip_tag += "-"
@@ -260,7 +272,7 @@ def execute(path, kernel=None, timeout=600):
         _clear(cleared, "failed")
         _save(path, cleared, digest)
         raise
-    nb.metadata.scientific_notebook["execution"] = "succeeded"
+    _notebook_state(nb.metadata, mutate=True)["execution"] = "succeeded"
     _save(path, nb, digest)
     return inspect(path)
 
@@ -292,7 +304,7 @@ def main():
         if args.command != "inspect":
             summary = {"path": str(args.path), "sha256": result["sha256"],
                        "cell_count": len(result["cells"]),
-                       "state": result["metadata"].get("scientific_notebook", {})}
+                       "state": _notebook_state(result["metadata"])}
             if args.command == "edit":
                 summary["output_changes"] = result["output_changes"]
             result = summary

@@ -10,13 +10,25 @@ The `research-project-setup` templates and setup/Git guidance adapt selected pra
 
 The zero-history `Goldfish` reviewer workflow referenced in [computational-modeling](skills/computational-modeling/SKILL.md) and [verification-and-review.md](skills/computational-modeling/references/verification-and-review.md) adapts the fresh-context review concept from [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model), licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). No upstream code or runtime files are bundled.
 
-## Scientific notebook guidance
+## Jupyter notebook guidance
 
-Selected workflow practices adapt OpenAI's public `role-specific-plugins` Data Analytics notebook skill, version `0.2.6`, at commit `fe5608d2512a7d6a7b9821ce8a88c48464ecd6e4` (MIT). Copyright (c) 2026 OpenAI. The complete upstream MIT notice is retained at [openai-role-specific-plugins-MIT.txt](skills/scientific-notebook/licenses/openai-role-specific-plugins-MIT.txt). The [source record](skills/scientific-notebook/references/data-guidance.md) links the exact upstream files and describes the adaptations. No proprietary cached plugin material is included.
+Selected workflow practices adapt OpenAI's public `role-specific-plugins` Data Analytics notebook skill, version `0.2.6`, at commit `fe5608d2512a7d6a7b9821ce8a88c48464ecd6e4` (MIT). Copyright (c) 2026 OpenAI. The complete upstream MIT notice is retained at [openai-role-specific-plugins-MIT.txt](skills/jupyter-notebook/licenses/openai-role-specific-plugins-MIT.txt). The [source record](skills/jupyter-notebook/references/data-guidance.md) links the exact upstream files and describes the adaptations. No proprietary cached plugin material is included.
+
+## Staged scientific writing lessons
+
+The [writing-process](skills/writing-process/SKILL.md) skill and its [19 writing lessons](skills/writing-process/references/lessons.md) are original prose adaptations of Michael Levin's personal writing method described in [*How I write papers*](https://thoughtforms.life/how-i-write-papers/) and its [companion slides](https://thoughtforms.life/wp-content/uploads/2026/10/add-to-Substack-post.pdf). The public package links directly to the externally hosted essay and slides; no external text or slide figure is redistributed, and linked resources retain their author's copyright and terms.
+
+## Claim review and structural references
+
+The [claim-review](skills/claim-review/SKILL.md) skill's [structural rules reference](skills/claim-review/references/ten-rules-whitesides.md) provides operational paraphrases of Brett Mensh and Konrad Kording (2017), *Ten simple rules for structuring papers*, *PLOS Computational Biology* 13(9): e1005619 (<https://doi.org/10.1371/journal.pcbi.1005619>), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and George M. Whitesides (2004), *Whitesides' Group: Writing a Paper*, *Advanced Materials* 16(15) (<https://doi.org/10.1002/adma.200400767>). Its [biophysics exemplars](skills/claim-review/references/biophysics-exemplars.md) summarize argument and control architectures with links to primary DOI records; no publisher PDF, verbatim article prose, or external figure is redistributed.
+
+## MIASE Reporting Rules
+
+Section 5 of `skills/computational-modeling/SKILL.md` reproduces the three group statements and ten rules from Box 2 of Dagmar Waltemath et al., *Minimum Information About a Simulation Experiment (MIASE)*, PLoS Computational Biology 7(4): e1001122 (2011), [doi:10.1371/journal.pcbi.1001122](https://doi.org/10.1371/journal.pcbi.1001122). Copyright © 2011 Waltemath et al. The article grants use, distribution, and reproduction under the Creative Commons Attribution License with author and source credit; no different license version is inferred here. Rule wording is unchanged; Markdown bullets and explicit rule identifiers replace the original numbered/lettered layout. `skills/model-documentation/references/model-document-template.md` repeats the three group statements and supplies locally authored field prompts adapting the ten rules. These excerpts retain their source license rather than adopting the repository's MIT license. No paper PDF or other article content is bundled.
 
 ## Model documentation resources
 
-The model-documentation template and oscillator example are original material under this repository's MIT license. Their references link to external teaching resources and scientific explanations; no paper, website text, or external figure is redistributed. Linked resources retain their respective licenses. The example parameters are illustrative, not literature measurements or experimental results.
+The model-documentation template and oscillator example are original material under this repository's MIT license, except for the attributed MIASE excerpts described above. Their other references link to external teaching resources and scientific explanations; no other paper text, website text, or external figure is redistributed. Linked resources retain their respective licenses. The example parameters are illustrative, not literature measurements or experimental results.
 
 ## Learning Dynamics visual profile
 
@@ -60,11 +72,13 @@ License texts and conditions: [CC BY-SA 4.0](https://creativecommons.org/license
 
 The collection logo, icon, collective-cell-model-classes illustration, and paper-reproduce decision-stages diagram are original maintainer artwork covered by the repository's MIT license. The logo uses original outlined lettering and has no font dependency. The paper workflow diagram's editable TikZ and Mermaid sources are included; its PDF embeds CMU Sans Serif subsets and its SVG contains outlined lettering. Preserve the CMU font notice below when redistributing the PDF. No paper figure or upstream gallery artwork was copied into that diagram.
 
+The research-process diagram is the maintainer's research workflow and layout, rendered with the MIT-licensed drawing kit by Ryan from [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy/tree/689dcf966e63d92be10a5d593c6e19e10acd4422). Copyright (c) 2026 Ryan; the complete [MIT notice](THIRD_PARTY_LICENSES/Anatomy-MIT.txt) is retained. The public diagram uses the released skill names. It is a static SVG; its interactive HTML source, drawing-kit code, and font files are not included. Its editable SVG text uses system fonts.
+
 ## Software and fonts
 
 Python, NumPy, SciPy, SymPy, pandas, Matplotlib, Jupyter, Slurm, TeX engines, PDF-to-SVG converters, and external microscopy analysis software (such as Fiji/ImageJ, Bio-Formats, TrackMate, Cellpose, napari, saenopy, CellProfiler, ilastik, and QuPath) are not redistributed. Their own licenses apply when a user installs them.
 
-The bundled PDF specimens embed font subsets. The SVG specimens convert text to paths and do not depend on installed fonts.
+The bundled PDF specimens embed font subsets. The scientific example SVGs convert text to paths and do not depend on installed fonts; the research-process SVG retains editable system-font text.
 
 - CMU Sans Serif is part of Computer Modern Unicode and uses the SIL Open Font License 1.1. See <https://ctan.org/pkg/cm-unicode> and `THIRD_PARTY_LICENSES/CMU-SIL-OFL-1.1.txt`.
 - The embedded Computer Modern Type 1 math fonts are distributed by AMSFonts under the SIL Open Font License 1.1. See <https://ctan.org/pkg/amsfonts> and `THIRD_PARTY_LICENSES/AMSFonts-SIL-OFL-1.1.txt`.

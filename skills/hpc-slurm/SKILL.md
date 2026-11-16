@@ -1,12 +1,12 @@
 ---
-name: slurm
-description: Prepare, submit, expand, monitor, cancel, and recover Slurm jobs and independent parameter sweeps using native scheduler commands. Use live account and QOS evidence to fill eligible idle capacity without duplicate work; preserve established project launchers and scientific settings.
+name: hpc-slurm
+description: Prepare, submit, expand, monitor, cancel, and recover HPC Slurm jobs and independent parameter sweeps using native scheduler commands. Use live account and QOS evidence to fill eligible idle capacity without duplicate work; preserve established project launchers and scientific settings.
 license: MIT
 ---
 
-# Slurm
+# HPC Slurm
 
-Use this workflow for single jobs, independent sweeps, and requests for more nodes. Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
+Use this workflow for single HPC jobs, independent sweeps, and requests for more nodes. Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
 
 ## Execution and authorization
 
@@ -29,7 +29,7 @@ Use this workflow for single jobs, independent sweeps, and requests for more nod
 ## Use all eligible idle capacity
 
 - Fill all eligible idle capacity that can perform useful remaining sweep work within user and site limits; a preferred partition is not a stop condition, and fixed node caps or small default concurrencies do not override eligible idle capacity.
-- **REQUIRED BEFORE every initial or expanded submission:** read [capacity and sweep planning](references/capacity-and-sweeps.md) and run the read-only [capacity helper](scripts/gather-capacity.sh) (streamed over SSH if local), interpreting its sections with [output guide](references/capacity-output.md); treat failed or missing queries as unknown capacity, never zero capacity or unrestricted access.
+- Before every initial or expanded submission, read [capacity and sweep planning](references/capacity-and-sweeps.md) and gather live cluster evidence with the read-only [capacity helper](scripts/gather-capacity.sh) (streamed over SSH when working locally), interpreting its snapshot sections with the [output guide](references/capacity-output.md); treat failed or missing queries as unknown capacity, never zero capacity or unrestricted access.
 - Check every fitting production partition per [capacity and sweep planning](references/capacity-and-sweeps.md): deduplicate overlapping physical nodes, bound workers by CPUs and memory, subtract active commitments from `MaxJobs*` and `MaxSubmitJobs*` at actual scope, use high-memory or GPU nodes for CPU work only when policy permits without requesting unused GPUs, and exclude test partitions unless specified.
 - Output a compact allocation table (partition, unique eligible idle nodes, planned jobs/nodes, workers, exclusion reason), allocating until runnable work, eligible capacity, a documented limit, or an explicit dependency stops expansion and explaining every eligible idle remainder specifically.
 
@@ -44,7 +44,7 @@ Use this workflow for single jobs, independent sweeps, and requests for more nod
 
 ## Expand and recover
 
-- **REQUIRED BEFORE adding nodes to an active sweep:** read [live expansion](references/capacity-and-sweeps.md#expand-a-running-sweep); missing output files do not mean unassigned, and locks alone do not allow overlapping assignments.
+- Read [live expansion](references/capacity-and-sweeps.md#expand-a-running-sweep) before adding nodes to an active sweep: missing output files do not mean a run is unassigned, and file locks alone do not make overlapping assignments safe.
 - Preserve running jobs and verified finished runs, transfer unstarted rows only via a verified release hook, and never cancel healthy jobs solely to add capacity.
 - For failed-only recovery, wait for writers to exit, run a job-completion check on finished runs, and build an immutable missing/failed-only list excluding live, pending, complete, and ambiguous runs.
 - Keep run IDs and completion criteria stable, diagnosing failures before an authorized retry without changing scientific settings.

@@ -1,13 +1,13 @@
-# Hypothesis Testing, Fresh-Context Review, and Reproducibility Provenance
+# Hypothesis Testing, Fresh-Context Review, and Calculation Records
 
-Apply these checks when designing discriminating hypothesis tests, running independent design reviews, performing numerical verification and physical validation, or logging computational provenance under [SKILL.md](../SKILL.md).
+- Apply these checks when designing discriminating hypothesis tests, running independent design reviews, performing numerical verification and physical validation, or recording sources and calculation history under [SKILL.md](../SKILL.md).
 
 ## Contents
 
 - [1. Designing discriminating hypothesis tests](#1-designing-discriminating-hypothesis-tests)
 - [2. Fresh-context review protocol](#2-fresh-context-review-protocol)
 - [3. Verification, physical validation, and sensitivity checks](#3-verification-physical-validation-and-sensitivity-checks)
-- [4. Reproducible provenance record](#4-reproducible-provenance-record)
+- [4. Sources and calculation history](#4-sources-and-calculation-history)
 
 ## 1. Designing Discriminating Hypothesis Tests
 
@@ -23,7 +23,7 @@ Apply these checks when designing discriminating hypothesis tests, running indep
 - For consequential model formulations or experimental-test designs, run an independent reviewer loop following the [fresh-context review protocol](https://github.com/google/elephant-goldfish-model/blob/e9e1f06aa4e26e95cd4ed37210a0632202c429e9/skills/egm-review-loop/SKILL.md) (where the zero-history reviewer role is termed `Goldfish`).
 - Provide the fresh-context reviewer (spawned without inherited conversation turns, drafting history, or preferred conclusions) only the scientific question, candidate model equations, explicit assumptions, admissible parameter bounds, proposed observable or perturbation, and inspected empirical evidence.
 - Ask the fresh-context reviewer whether either candidate model reproduces the other's observable signature under admissible parameter or boundary choices, requesting an explicit derivation or counterexample plus the smallest discriminating check.
-- Verify every mathematical or physical objection directly against the equations and state what changes in the model or test design; when an independent zero-context subagent is unavailable in the current runtime, label same-session critique explicitly as `self-review` rather than claiming independent review.
+- Verify every mathematical or physical objection directly against the equations and state what changes in the model or test design; when an independent zero-context subagent is unavailable in the current agent environment, label same-session critique explicitly as `self-review` rather than claiming independent review.
 
 ## 3. Verification, Physical Validation, and Sensitivity Checks
 
@@ -32,14 +32,15 @@ Apply these checks when designing discriminating hypothesis tests, running indep
   - **Code verification:** test implemented equations against symbolic derivations, conserved quantities, symmetries, asymptotic limiting cases, exact solutions, or manufactured solutions.
   - **Solution verification:** quantify discretization, iterative-residual, truncation, and sampling error on the target calculation via step/mesh refinement, conservation monitoring, stability bounds, and ensemble-size scaling.
   - **Physical validation:** test calibrated or parameter-free model predictions against independent empirical measurements not used during calibration or model selection, accounting for both numerical error and experimental uncertainty within the stated regime of validity, delegating raw microscopy image, trajectory, or 2D/3D displacement and force extraction (with matched before-and-after figures and `Supplementary_Methods.md`) to [image-analysis](../../image-analysis/SKILL.md), and reconciling intensive model fields (such as traction stress in `Pa`) against extensive mesh-dependent 3D nodal forces (`N`) via mesh-invariant observables (displacement fields, strain energy, or integrated contractility) unless segmented 3D surface geometry is supplied.
-- Run a small authorized diagnostic calculation first when numerical accuracy or runtime cost is uncertain, report any failed baseline accuracy check explicitly, and expand to larger runs only with user authorization.
+- Run a small authorized diagnostic calculation first when numerical accuracy or computation time is uncertain, report any failed baseline accuracy check explicitly, and expand to larger runs only with user authorization.
 - Evaluate parameter sensitivity and structural or practical identifiability when distinct parameter combinations could produce indistinguishable observables, and note that agreement within a tested regime supports those tested predictions without proving mechanism uniqueness or validity outside that regime.
 
-## 4. Reproducible Provenance Record
+## 4. Sources and Calculation History
 
-- Adapt [MIASE guidelines](https://doi.org/10.1371/journal.pcbi.1001122) and [NASEM computational reproducibility guidance](https://www.nationalacademies.org/read/25303/chapter/7) to the project's native record format, logging:
+- Use the exact three-group, ten-rule MIASE structure in [Section 5](../SKILL.md#5-record-the-simulation-experiment-using-miase-box-2), retaining rule identifiers 1A–3B and recording an answer, a precise evidence link, or a justified inapplicability for each. Missing required information remains a gap; planned records do not establish completed execution, and reporting completeness does not establish scientific validity.
+- Keep additional source and calculation details alongside that record, using [NASEM computational reproducibility guidance](https://www.nationalacademies.org/read/25303/chapter/7), without attributing these additional fields to MIASE Box 2:
   - scientific question, pre-declared evaluation criteria, and model/input identifiers;
-  - inspected source revision and uncommitted working-tree changes with recoverable diffs (plus content hashes for untracked or unversioned source files);
+  - inspected source revision and file changes not yet recorded in Git with recoverable diffs (plus content hashes for untracked or unversioned source files);
   - physical parameter values, units, nondimensional groups, initial and boundary conditions, and random-number generator type and seeds;
   - numerical discretization method, step/grid controls, solver tolerances, software and library versions, and ordered postprocessing steps;
   - output file locations, negative or inconclusive outcomes, failed checks, uncertainty bounds, regime limitations, and superseded iterations.

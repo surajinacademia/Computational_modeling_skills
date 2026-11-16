@@ -1,6 +1,6 @@
 # Paper Reproduce
 
-[SKILL.md](SKILL.md) is the main entrypoint: pick one objective (reproduction, assessment, or application) and one depth (model, claim, or result), then set qualitative criteria, quantitative criteria, or both when comparison applies. Existing code and analytical arguments can satisfy matching targets.
+[SKILL.md](SKILL.md) is the maintained entrypoint: frame each target with two independent decisions—primary objective (reproduction, assessment, or application) and target depth (model, claim, or result)—and follow the scientist-guided nine-step workflow from identifying what the paper provides through Milestone 1 plan agreement, verification and small diagnostic pilots, study execution, comparison, and the Milestone 2 reproducible record. Set qualitative criteria, quantitative criteria, or both when comparison applies; existing implementations and analytical derivations can satisfy matching targets without new simulation runs.
 
 ## Package contents
 
@@ -11,9 +11,9 @@ The public skill contains these 14 files:
 - Current decision diagram: [SVG](assets/decision-stages.svg), [PDF](assets/decision-stages.pdf), [editable TikZ source](assets/decision-stages.tex), and [Mermaid decision specification](assets/decision-stages.mmd).
 - Optional legacy target-card resources: [schema-v1 template](assets/target-card-template.yaml), [specification checker](scripts/validate_target_card.py), and [Python dependency declaration](requirements.txt).
 
-The skill coordinates evidence research, verification, and scientific critique. [Computational Modeling](../computational-modeling/SKILL.md) supplies scientific checks, [Model Documentation](../model-documentation/SKILL.md) governs requested model documents, and [Scientific Notebook](../scientific-notebook/SKILL.md) and [Data Visualization](../data-visualization/SKILL.md) handle notebook and plotting tasks. Keep one target record and reuse authorization across handoffs.
+The skill coordinates primary-source research, independent verification, and scientific critique across the suite: [Lets Be Clear](../lets-be-clear/SKILL.md) helps resolve consequential ambiguities, [Computational Modeling](../computational-modeling/SKILL.md) governs model formulation and verification checks, [Model Documentation](../model-documentation/SKILL.md) governs requested model documents, and [Jupyter Notebook](../jupyter-notebook/SKILL.md), [Data Visualization](../data-visualization/SKILL.md), and [Schematic Designer](../schematic-designer/SKILL.md) handle notebook, quantitative plotting, and schematic tasks. Keep one project-native target record and reuse existing authorization across handoffs.
 
-Execution uses the user's configured project workflow. [Slurm](../slurm/SKILL.md) supports Slurm batch jobs and independent parameter sweeps (including job arrays) with the site configuration; non-Slurm clusters and tightly coupled multi-node distributed workloads require a user-provided workflow. The package supplies no site accounts, hosts, partitions, or execution permission.
+Execution uses the user's configured project workflow. [HPC Slurm](../hpc-slurm/SKILL.md) supports Slurm batch jobs and independent parameter sweeps (including job arrays) with the site configuration; non-Slurm clusters and tightly coupled multi-node distributed workloads require a user-provided workflow. The package supplies no site accounts, hosts, partitions, or execution permission.
 
 ## Diagram preview
 
