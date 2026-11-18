@@ -11,7 +11,7 @@ Keep this report concise by default. Explain each scientific or structural probl
 - **Review role:** [Role 1: pre-draft evidence-and-argument review / Role 2: written-paper critical review]
 - **Top-level verdict:** [pre-draft review not started / ready to draft / ready only with bounded claims / not ready to draft / written claims defensible / written claims need revision]
 - **Document stage:** [story arc / outline / figure plan / abstract / draft / preprint / published paper]
-- **Argument ownership:** [user-authored / user-confirmed / paper-presented / missing]
+- **Argument authorship:** [user-authored / user-confirmed / paper-presented / missing]
 - **Result maturity:** [one strong central result plus critical controls and uncertainty / several substantive completed results / partial / preliminary or planned only / not assessable]
 - **Evidence boundary:** [source results available / partial / document-bounded review]
 - **Literature boundary:** [supplied primary papers / supplied `literature_review.md` / paper references only / insufficient — USER INPUT REQUIRED]

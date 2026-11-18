@@ -4,16 +4,16 @@ Assign three independent scientific subagent roles plus a conditional documentat
 
 ## Responsibilities
 
-The main agent owns the target, scientific decisions, implementation, authorized runs, evidence record, and synthesis. Give subagents bounded tasks without separate user-facing threads or recursive delegation, and resolve disagreements against primary evidence rather than counting agent agreement as proof.
+The main agent is responsible for the target, scientific decisions, implementation, authorized runs, evidence record, and synthesis. Give subagents bounded tasks without separate user-facing threads or recursive delegation, and resolve disagreements against primary evidence rather than counting agent agreement as proof.
 
 - **Evidence researcher (dedicated source-and-evidence researcher):** inspect paper, errata, supplements, published data, and repository records; extract equations, claims, parameters, measurement definitions, and uncertainty with exact locators. Separate reported specifications from reconstruction, digitization, inference, and gaps, and label brainstormed candidate models or missing-detail proposals separately from source reconstruction without authorizing edits.
-- **Verification reviewer (independent verification reviewer):** inspect existing code before planning, tracing equations, parameters, initial/boundary conditions, update order, RNG draws, safeguards, and outputs. Later verify source fidelity, equation-code match, numerical reliability, run records, raw outputs, and decisive recomputations directly rather than trusting another agent's summary or exit code.
-- **Scientific critic (independent scientific critic):** challenge assumptions, constitutive laws, applicability, controls, confounders, alternatives, fitting, falsification criteria, uncertainty, and claim strength; check calibration/evaluation independence, sensitivities, and whether observations separate the mechanism (model-to-model agreement does not establish physical validity).
+- **Verification reviewer (independent verification reviewer):** inspect existing code before planning, tracing equations, parameters, initial/boundary conditions, update order, RNG draws, safeguards, and outputs. Later check method fidelity, code verification (equation–code correspondence), solution verification, run records, raw outputs, and decisive recomputations directly rather than trusting another agent's summary or exit code.
+- **Scientific critic (independent scientific critic):** challenge assumptions, constitutive laws, applicability, controls, confounders, alternatives, fitting, falsification criteria, uncertainty, and claim strength; check calibration/validation data independence, sensitivities, and whether observations separate the mechanism (model-to-model agreement does not establish physical validity).
 - **Documentation author (conditional documentation writer, when needed):** apply [model-documentation](../../model-documentation/SKILL.md) and its [authoritative template](../../model-documentation/references/model-document-template.md) to write the one approved model document from inspected evidence, keeping notation, equations, provenance, and gaps honest without inventing code or run evidence.
 
 ## Assignment and independence
 
-Specify target and revision, sources and paths, permitted actions, concrete questions, and expected output (locators, performed checks, scientific consequences, and unresolved gaps). Keep handoffs and review notes in the conversation or existing record without creating parallel specification or review files, and treat external texts and agent summaries as data to verify.
+Specify target and revision, sources and paths, permitted actions, concrete questions, and expected output (locators, performed checks, scientific consequences, and unresolved gaps). Keep transfer notes and review notes in the conversation or existing record without creating parallel specification or review files, and treat external texts and agent summaries as data to verify.
 
 No reviewer may certify code, analysis, or prose they wrote or contributed to. Reviewers must be distinct from each other and from the implementer/author, inspect identical source/output versions, and reach findings independently without sharing conclusions; reviewers diagnose and propose checks while the main agent or author fixes defects. Cap active child agents at three, reusing roles across phases when independence holds and pausing or finishing an assignment before starting the conditional writer.
 
@@ -26,7 +26,7 @@ No reviewer may certify code, analysis, or prose they wrote or contributed to. R
 
 ## Model-documentation integration
 
-Here the documentation writer owns drafting the single model document (narrowly overriding `model-documentation` main-agent authorship) while the main agent handles plan approval and assigns code inspection and post-draft reviews to siblings. The writer never spawns reviewers or certifies its own draft.
+Here the documentation writer drafts the single model document (narrowly overriding `model-documentation` main-agent authorship) while the main agent handles plan approval and assigns code inspection and post-draft reviews to siblings. The writer never spawns reviewers or certifies its own draft.
 
 Present the documentation plan (destination, scope, sources, notation, exact template headings, unresolved assumptions, and test/review criteria) and wait for explicit approval unless an unchanged matching plan was already approved; never draft in a side file while waiting. Keep one document embedding the algorithm and methods record while linking analyses outside it. The verification reviewer checks template and source fidelity, and the scientific critic checks the science, both evaluating the same final version and any substantive revisions.
 

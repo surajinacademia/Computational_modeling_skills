@@ -20,7 +20,7 @@ python scripts/notebook.py inspect /path/to/study.ipynb
 python scripts/notebook.py validate /path/to/study.ipynb
 ```
 
-Provide at least one nonempty `--point` argument (no fixed bullet count). `create` loads [`assets/notebook-template.ipynb`](../assets/notebook-template.ipynb), updates the opening, and refuses to overwrite existing files; replace its authoring prompts before executing. The template omits interpretation and uses an installed owner `minimalist` theme when present, otherwise Matplotlib's default (see `SKILL.md` for details; no theme source is bundled).
+Provide at least one nonempty `--point` argument (no fixed bullet count). `create` loads [`assets/notebook-template.ipynb`](../assets/notebook-template.ipynb), updates the opening, and refuses to overwrite existing files; replace its authoring prompts before executing. The template omits interpretation and uses the maintainer's installed `minimalist` theme when present, otherwise Matplotlib's default (see `SKILL.md` for details; no theme source is bundled).
 
 `inspect` prints the `sha256`, notebook metadata, cell IDs and sources, cell metadata, attachment names, execution counts, and output/MIME types without rendering figures or dumping full outputs (use a viewer or `nbformat` for those). Legacy version-4 notebooks lacking IDs get deterministic IDs in memory and persist them on mutation; duplicate IDs fail. `validate`, `create`, `edit`, and `execute` return concise summaries; call `inspect` whenever cell IDs or sources are needed.
 

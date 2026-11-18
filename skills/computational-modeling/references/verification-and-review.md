@@ -1,6 +1,6 @@
 # Hypothesis Testing, Fresh-Context Review, and Calculation Records
 
-- Apply these checks when designing discriminating hypothesis tests, running independent design reviews, performing numerical verification and physical validation, or recording sources and calculation history under [SKILL.md](../SKILL.md).
+- Apply these checks when designing discriminating hypothesis tests, running independent design reviews, performing code and solution verification and physical validation, or recording sources and calculation history under [SKILL.md](../SKILL.md).
 
 ## Contents
 
@@ -9,7 +9,7 @@
 - [3. Verification, physical validation, and sensitivity checks](#3-verification-physical-validation-and-sensitivity-checks)
 - [4. Sources and calculation history](#4-sources-and-calculation-history)
 
-## 1. Designing Discriminating Hypothesis Tests
+## 1. Designing discriminating hypothesis tests
 
 - State the proposed physical mechanism, at least one physically coherent competing alternative, the motivating empirical observations, and the most parsimonious mathematical equations that capture their mechanistic difference.
 - Specify which quantities vary, which conditions remain fixed, and the exact observable mapping from internal model states to a shared measurable output under identical geometry, boundary conditions, and units.
@@ -18,14 +18,14 @@
 - For hypothesis-design requests, report the competing quantitative or qualitative predictions, the strongest substantiated objection to each candidate, and the smallest informative discriminating test, stating explicitly which outcomes favor each mechanism, falsify both, or remain inconclusive at available experimental or numerical resolution.
 - Separate what numerical simulation establishes about mathematical consequences of the model from what empirical measurement tests about the physical or biological system.
 
-## 2. Fresh-Context Review Protocol
+## 2. Fresh-context review protocol
 
 - For consequential model formulations or experimental-test designs, run an independent reviewer loop following the [fresh-context review protocol](https://github.com/google/elephant-goldfish-model/blob/e9e1f06aa4e26e95cd4ed37210a0632202c429e9/skills/egm-review-loop/SKILL.md) (where the zero-history reviewer role is termed `Goldfish`).
 - Provide the fresh-context reviewer (spawned without inherited conversation turns, drafting history, or preferred conclusions) only the scientific question, candidate model equations, explicit assumptions, admissible parameter bounds, proposed observable or perturbation, and inspected empirical evidence.
 - Ask the fresh-context reviewer whether either candidate model reproduces the other's observable signature under admissible parameter or boundary choices, requesting an explicit derivation or counterexample plus the smallest discriminating check.
 - Verify every mathematical or physical objection directly against the equations and state what changes in the model or test design; when an independent zero-context subagent is unavailable in the current agent environment, label same-session critique explicitly as `self-review` rather than claiming independent review.
 
-## 3. Verification, Physical Validation, and Sensitivity Checks
+## 3. Verification, physical validation, and sensitivity checks
 
 - Pre-declare predictions and tolerances, competing alternatives, observables, reference benchmarks, error norms, and support, falsification, or inconclusive criteria before inspecting decisive simulation or experimental results; disclose any post-hoc criterion change and label newly added mechanisms or observables exploratory.
 - Select the smallest decisive checks required by the claim ([NASA verification and validation overview](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html)):
@@ -35,7 +35,7 @@
 - Run a small authorized diagnostic calculation first when numerical accuracy or computation time is uncertain, report any failed baseline accuracy check explicitly, and expand to larger runs only with user authorization.
 - Evaluate parameter sensitivity and structural or practical identifiability when distinct parameter combinations could produce indistinguishable observables, and note that agreement within a tested regime supports those tested predictions without proving mechanism uniqueness or validity outside that regime.
 
-## 4. Sources and Calculation History
+## 4. Sources and calculation history
 
 - Use the exact three-group, ten-rule MIASE structure in [Section 5](../SKILL.md#5-record-the-simulation-experiment-using-miase-box-2), retaining rule identifiers 1A–3B and recording an answer, a precise evidence link, or a justified inapplicability for each. Missing required information remains a gap; planned records do not establish completed execution, and reporting completeness does not establish scientific validity.
 - Keep additional source and calculation details alongside that record, using [NASEM computational reproducibility guidance](https://www.nationalacademies.org/read/25303/chapter/7), without attributing these additional fields to MIASE Box 2:

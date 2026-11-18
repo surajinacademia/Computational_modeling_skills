@@ -8,7 +8,7 @@
 
 These templates turn completed per-run or per-coordinate tables into PDFs using synthetic teaching CSVs. Pick a form from the [gallery](gallery.md), check runtime and CLI rules in [api.md](api.md), and run commands from `skills/data-visualization/` with an existing output directory.
 
-## 1. Compare Change over Time
+## 1. Compare change over time
 
 **Question:** how does the observable evolve per condition, and how much do runs vary at each time?
 
@@ -24,7 +24,7 @@ Summary curves show equal-run mean and sample SD (`ddof=1`) per time, with measu
 
 **Adapt and inspect:** supply real completed runs and units, keep one full `--group-order` across related plots, and overlay individual runs when trajectory shapes matter. Check endpoints, missing-mean breaks, zero counts if relevant, and fail visibly on duplicate `(condition, run, time)` keys instead of dropping rows.
 
-## 2. Compare Completed Run Values
+## 2. Compare completed run values
 
 **Question:** how do conditions compare while keeping every measured run visible?
 
@@ -40,7 +40,7 @@ Each run appears beside its group-colored mean and sample SD (deterministic hori
 
 **Adapt and inspect:** compute the per-run scalar before plotting (never treat pooled cells as independent runs), verify every point, count, and interval (`n=1` plots no SD), and fail on repeated `(condition, run)` keys. Use the keyed [gallery](gallery.md) paired-change pattern when conditions share genuine paired IDs.
 
-## 3. Show a Scalar across Two Parameters
+## 3. Show a scalar across two parameters
 
 **Question:** how does a completed scalar vary across two numeric parameters, including missing pairs?
 
@@ -56,4 +56,4 @@ Coordinates mark cell centers with halfway interior borders and half-nearest-nei
 
 **Adapt and inspect:** aggregate replicates beforehand, label axes, scalar, and units, share color limits across compared maps, center signed palettes explicitly (dense analytic maps belong to the continuous-function [gallery](gallery.md) case), and verify missingness, unequal cell sizes, and colorbar legibility. Duplicate `(x, y)` pairs and singleton axes fail visibly (use points or lines for 1D sweeps).
 
-All tutorials enforce [pandas-data-handling.md](pandas-data-handling.md), [design-style.md](design-style.md), and the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria).
+All tutorials enforce [pandas-data-handling.md](pandas-data-handling.md), [design-style.md](design-style.md), and the [completion and verification criteria](../SKILL.md#completion-checks-and-stopping-condition).

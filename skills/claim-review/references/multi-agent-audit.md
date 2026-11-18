@@ -8,7 +8,7 @@ Use this protocol to conduct a critical review of scientific claims against resu
 - [Non-negotiable review behavior](#non-negotiable-review-behavior)
 - [Prepare one neutral review briefing](#prepare-one-neutral-review-briefing)
 - [Use one scoring vocabulary](#use-one-scoring-vocabulary)
-- [Run specialist passes with exclusive rule ownership](#run-specialist-passes-with-exclusive-rule-ownership)
+- [Run specialist passes with exclusive rule assignment](#run-specialist-passes-with-exclusive-rule-assignment)
 - [Run an independent scientific-integrity pass](#run-an-independent-scientific-integrity-pass)
 - [Run an independent domain-grounding pass](#run-an-independent-domain-grounding-pass)
 - [Common internal finding format](#common-internal-finding-format)
@@ -65,7 +65,7 @@ The coordinator first builds an immutable briefing shared with every independent
 3. Record each supplied file's path and type: outline, story arc, figure, caption, result summary, draft, methods note, or feedback record.
 4. Identify the document type and stage. A story arc develops the central theme, subthemes, and logical progression; an outline translates that progression into a paragraph-level manuscript outline. A missing abstract in an early story arc is not equivalent to a failed abstract. Section titles, paragraph bullets, and figure captions are required for a detailed outline, not for a story arc.
 5. Define clear source references: `path:line`, section or heading, page, figure and panel, table row, or notebook cell.
-6. Record argument ownership as `user-authored`, `user-confirmed`, `paper-presented`, or `missing`; include the supplied argument as a labeled input, not as the expected verdict.
+6. Record argument authorship as `user-authored`, `user-confirmed`, `paper-presented`, or `missing`; include the supplied argument as a labeled input, not as the expected verdict.
 7. Record the evidence boundary and literature boundary separately.
 8. Assign input IDs to primary papers, `literature_review.md`, and reference lists used for domain grounding.
 9. For Role 1 pre-draft reviews, record whether the completed evidence set contains either one strong central result with critical controls and uncertainty or several mature, linked results. Withhold readiness when it contains only plans or unbounded preliminary observations.
@@ -84,7 +84,7 @@ Score each rule independently:
 
 Add `high`, `medium`, or `low` confidence. Do not average `NA` values or compute a total impact score. Rule 9 and Rule 10 often require process evidence; never infer process quality from polished prose alone.
 
-## Run specialist passes with exclusive rule ownership
+## Run specialist passes with exclusive rule assignment
 
 Run the passes in parallel where capacity allows. If capacity is limited, run them in waves while preserving context isolation. Each specialist returns only rule cards for its owned rules and atomic findings in the common finding format below.
 
@@ -194,7 +194,7 @@ The synthesizer receives the neutral review briefing and all completed internal 
 2. Check that every score has evidence and that every finding follows the common finding format.
 3. Deduplicate findings and cross-link structural and integrity concerns.
 4. Reconcile inconsistent scores by returning to the cited source file, not by averaging reviewers.
-5. Restate only the user-authored, user-confirmed, or paper-presented argument. If argument ownership is missing, do not synthesize one from the results.
+5. Restate only the user-authored, user-confirmed, or paper-presented argument. If argument authorship is missing, do not synthesize one from the results.
 6. Prioritize scientific-validity and central-logic gaps before section polish or process suggestions.
 7. Separate evidence-required actions from optional strengthening and presentation polish.
 8. Reconcile project evidence with the domain-grounding findings without treating citations as project results.
@@ -210,7 +210,7 @@ The synthesizer may tighten wording and ordering but must not silently strengthe
 Run the same six reviews sequentially in the main agent:
 
 1. Freeze the neutral review briefing before reviewing.
-2. Complete Passes A-D in separate note blocks with exclusive rule ownership.
+2. Complete Passes A-D in separate note blocks with exclusive rule assignment.
 3. Start the scientific-integrity and domain-grounding passes independently from the neutral review briefing, without reading the structural conclusions from the earlier note blocks.
 4. Only after all six passes are complete, open the outputs together and synthesize them.
 5. Discard internal duplicate notes after producing the single final report.

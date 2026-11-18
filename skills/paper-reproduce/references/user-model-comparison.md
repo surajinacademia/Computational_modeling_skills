@@ -42,21 +42,21 @@ When both apply, give separate criteria and verdicts (trends can match while num
 
 Log how outputs were produced, even for preexisting runs:
 
-- `prediction`: evaluation data were untouched during calibration, tuning, or model selection (including parameter-free or independently parameterized models; calibration conditions must be disjoint from evaluation conditions);
+- `prediction`: validation data were untouched during calibration, tuning, or model selection (including parameter-free or independently parameterized models; calibration conditions must be disjoint from evaluation conditions);
 - `fit`: target data informed calibration or model selection.
 
 Fits can match fitted data without offering an independent prediction; keep the `fit` label across tables, figures, and verdicts, never adding calibration merely to populate a field, and separate fitted vs predictive conditions in mixed studies.
 
 Track assessment timing separately: criteria fixed before inspecting evaluation outputs are `prospective`; criteria chosen after inspection are `exploratory` (an independent fixed prediction can still receive exploratory assessment, and viewing the reference after fixing a prediction does not turn it into a fit). Use a descriptive comparison with explicit caveats when provenance cannot prove predictive independence rather than inventing provenance.
 
-Never tune undocumented parameters, cherry-pick seeds, alter preprocessing, or subset evaluation data to improve agreement unless clearly reported as exploratory fitting.
+Never tune undocumented parameters, cherry-pick seeds, alter preprocessing, or subset validation data to improve agreement unless clearly reported as exploratory fitting.
 
 ## 5. Report the result
 
 Report each element separately:
 
 - user-model implementation verification;
-- mapping fidelity and unmatched assumptions;
+- accuracy of the state-to-measurement mapping and unmatched assumptions;
 - data provenance and extraction uncertainty;
 - prediction provenance (`prediction`, `fit`, or undetermined independence) and assessment status (`prospective`, `exploratory`, or descriptive);
 - qualitative and/or quantitative consistency under mapped conditions (separate criteria and outcomes when both apply);

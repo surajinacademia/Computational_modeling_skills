@@ -12,12 +12,12 @@ description: Derive, compute, plot, and report physical linear stability analyse
 - Analyze homogeneous stationary states directly; analyze nonuniform states or curved geometries only with a justified eigenbasis or verified discretized linear operator (never invent a general geometry solver).
 - Stop at linearized dispersion relations, instability thresholds, and early-time mode selection; exclude nonlinear time integration and CFL, timestep, or numerical-scheme stability.
 
-## 1. Establish the Continuum System and Stationary State
+## 1. Establish the continuum system and stationary state
 
 - Inspect supplied equations or code before perturbing anything; preserve supplied equations, signs, parameters, units, and physical terminology, and report source conflicts or missing values explicitly.
 - Record state fields, domains, dimensions, units, proposed stationary state $\mathbf{u}_0$, spatial coordinates and geometry, boundary conditions, physical constraints, parameter values or symbolic bounds with provenance, and sign conventions (curvature, normal direction, stress, strain, and Fourier convention).
 - Clarify any ambiguity that alters $\mathbf{u}_0$, the linearized operator, admissible modes, or the stability conclusion.
-- **If numerical parameters are missing:** perform a symbolic derivation only, leaving numerical spectra and plots incomplete rather than fabricated.
+- **If numerical parameter values are missing:** perform a symbolic derivation only, leaving numerical spectra and plots incomplete rather than fabricated.
 - Keep all paths inside the authorized workspace without symlinks, inspect supplied code or TeX before running it, and reuse existing session authorization.
 
 When a Fourier modal basis applies, expand small perturbations around $\mathbf{u}_0$ as
@@ -28,7 +28,7 @@ $$
 
 where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}s > 0$ indicates exponential growth and $\operatorname{Im}s$ gives the angular oscillation frequency; state and transform all signs consistently if a different convention is requested).
 
-## 2. Perturb the Stationary State and Linearize with SymPy
+## 2. Perturb the stationary state and linearize with SymPy
 
 - Substitute $\mathbf{u}_0$ into the governing equations, boundary conditions, and constraints first, confirming in SymPy that the simplified residual vanishes identically.
 - **When $\mathbf{u}_0$ is implicit:** solve tractable homogeneous stationary equations across all physically admissible branches without silently dropping branches.
@@ -37,7 +37,7 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - **When a Fourier basis is justified:** apply $\partial_{x_j} \mapsto i k_j$, and in 2D retain $(k_x, k_y)$ unless rotational isotropy is established.
 - Assemble the ordinary, generalized, polynomial, or spatially discretized spectral operator and verify dimensional and sign consistency term by term.
 
-## 3. Obtain Analytical Dispersion or Stability Conditions
+## 3. Obtain analytical dispersion or stability conditions
 
 - Derive the exact characteristic polynomial or regular matrix pencil $A(\mathbf{k})\mathbf{q} = sB(\mathbf{k})\mathbf{q}$.
 - **When closed-form roots are tractable:** write interpretable branches $s_j(\mathbf{k})$; otherwise retain the exact symbolic matrix and determinant to extract stability thresholds.
@@ -46,9 +46,9 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - Classify physical eigenvalues, conservation or translational zero modes, marginal or defective $\operatorname{Re}s = 0$ algebraic-growth modes, and infinite generalized descriptor eigenvalues accurately, never counting an algebraic constraint as a growing instability.
 - **For open advective flows:** treat real-$\mathbf{k}$ dispersion growth as temporal modal instability only; do not infer fixed-location absolute instability without separate spatiotemporal pinch-point analysis (outside default deliverables).
 
-## 4. Compute the Numerical Spectrum with SciPy
+## 4. Compute the numerical spectrum with SciPy
 
-- **With numerical parameters:** build evaluators directly from verified SymPy expressions via `sympy.lambdify` instead of retyping a second formula.
+- **With numerical parameter values:** build evaluators directly from verified SymPy expressions via `sympy.lambdify` instead of retyping a second formula.
 - Solve standard eigenproblems with `scipy.linalg.eig` or `eigvals`.
 - **For regular pencils $A\mathbf{q} = sB\mathbf{q}$:** check singularity of $B$ or reduce constraints first, then use a generalized solver.
 - **For quadratic inertial pencils $(s^2 M + s C + K)\mathbf{q} = \mathbf{0}$:** preserve the quadratic pencil in derivations, and document and verify any companion linearization used in SciPy.
@@ -57,7 +57,7 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - Track modal branches across neighboring $\mathbf{k}$ via eigenvalue proximity and eigenvector overlap (or invariant subspaces near crossings and across refinements), never relying on raw eigensolver order.
 - Save `parameters.json` and tidy `spectrum.csv` tables with tolerances and library versions.
 
-## 5. Verify Before Interpreting
+## 5. Verify before interpreting
 
 - Check scaled backward eigenpair residuals across ordinary, generalized, or polynomial forms.
 - Compare numerical curves against analytical branches or characteristic residuals at representative points, thresholds, and extrema.
@@ -66,9 +66,9 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - **If $\operatorname{Re}s$ rises at the upper sampled wavenumber:** leave short-wave behavior unresolved without asymptotic proof.
 - **If unbounded growth holds as $|\mathbf{k}| \to \infty$:** flag possible continuum ill-posedness without mistaking a numerical grid cutoff for physical regularization.
 - **For non-normal or nearly defective operators:** assess left/right eigenvector conditioning or invariant subspaces, leaving threshold signs unresolved if numerical uncertainty crosses $\operatorname{Re}s = 0$.
-- Treat symbolic–numerical agreement as verification of the linear stability calculation, not empirical validation of the physical model.
+- Treat symbolic–numerical agreement as verification of the linear stability calculation, not physical validation of the model.
 
-## 6. Plot the Dispersion Relation or Eigenspectrum
+## 6. Plot the dispersion relation or eigenspectrum
 
 - **With plottable spectra:** produce publication-ready vector Matplotlib figures matched to the geometry and basis:
 
@@ -82,7 +82,7 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - Show thresholds and unstable bands without hiding stable branches or crossings, and state units, parameters, wavenumber bounds, and admissible modes.
 - **For characteristic wavelengths:** report $\lambda_* = 2\pi / k_*$ only for a finite, nonzero fastest-growing admissible mode, bounded to early-time linear selection rather than final nonlinear pattern amplitude.
 
-## 7. Write and Verify the LaTeX Report
+## 7. Write and verify the LaTeX report
 
 - **When writing the LaTeX report** (default unless symbolic or numerical output alone is requested): adapt `report-template.tex` with all nine unstarred `\section` and seven `\subsection` Title Case headings in exact order.
 - Retain any inapplicable section with a concise physical reason rather than altering headings.
@@ -90,13 +90,13 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 - **With a local LaTeX engine:** compile from a clean directory with shell escape disabled and visually inspect every rendered page, equation, table, caption, and figure (missing TeX or skipped inspection leaves compilation incomplete).
 - **With independent reviewers:** run one review of algebra, numerics, reproducibility, and template structure and a second of physical assumptions, admissible modes, spectral classification, and linear-regime bounds; fix supported issues and disclose any unrun review as incomplete.
 
-## References and Runtime
+## References and runtime
 
 - Read [spectral-formulations.md](references/spectral-formulations.md) when handling generalized pencils $A(\mathbf{k})\mathbf{q} = sB(\mathbf{k})\mathbf{q}$, algebraic constraints, second-order inertia, curvature, or bounded/nonuniform operators.
 - Read [report-and-verification.md](references/report-and-verification.md) and copy [report-template.tex](assets/report-template.tex) before producing plots, tables, the report, and reviews.
 - Use Python 3.10+ with [requirements.txt](requirements.txt) packages and a local LaTeX engine for PDF compilation ([scripts/check_lsa_report.py](scripts/check_lsa_report.py) uses only the Python standard library; package installation and TeX compilation are explicit steps).
 
-## Deliverables and Stopping Condition
+## Deliverables and stopping condition
 
 - Package full-analysis outputs in one directory without extra narrative files: self-contained `.tex` report, reproducible Python script, vector figures, `parameters.json`, `spectrum.csv`, compiled PDF (when TeX is installed), and `artifact-manifest.sha256`.
 - **For narrower requests or missing inputs/tools:** deliver verified available outputs only and mark omitted items or unrun checks incomplete.

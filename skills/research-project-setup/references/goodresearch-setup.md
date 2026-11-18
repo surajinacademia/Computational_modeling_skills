@@ -2,7 +2,7 @@
 
 ## Good Research Code
 
-Adapted from Patrick Mineault's [Project setup](https://goodresearch.dev/setup), in *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (reviewed 2026-10-11). This paraphrase applies the owner's layout and current packaging guidance rather than copying the chapter verbatim.
+Adapted from Patrick Mineault's [Project setup](https://goodresearch.dev/setup), in *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) (reviewed 2026-10-11). This paraphrase applies the maintainer's layout and current packaging guidance rather than copying the chapter verbatim.
 
 - Give each coherent research project a descriptive folder and Git repository, keeping reusable tools separate and respecting existing repo boundaries.
 - Start version control early and commit logical units regularly rather than waiting until completion; preserve recoverable work before reorganizing and follow the [Git workflow](git-workflow.md) for scoped checkpoints, staged reviews, worktrees, and recovery.
@@ -26,6 +26,6 @@ Adapted from William Stafford Noble, [*A Quick Guide to Organizing Computational
 
 The [README template](../assets/template/README.md) defines concrete fields and layouts: keep dated experiment folders inside results directories separate from model identities and Git history, reuse existing logs without inventing missing rationale, and treat a research log as a role rather than forcing Jupyter or web services.
 
-File existence alone cannot verify restart safety: check matching inputs, source, settings, environment, and complete outputs before reusing steps, resume interrupted runs only from verified checkpoints, reassess subsequent results after prior edits, never treat run completion as scientific validation, and keep failed-run diagnostics rather than deleting them to force restarts.
+File existence alone cannot verify restart safety: check matching inputs, source, settings, environment, and complete outputs before reusing steps, resume interrupted runs only from verified checkpoints, reassess subsequent results after prior edits, never treat run completion as verification or physical validation of the result, and keep failed-run diagnostics rather than deleting them to force restarts.
 
 Keep the project's Git policy instead of importing daily commits, blanket generated-file exclusions, or central-repo backup assumptions (reference test inputs can be deliberate, and local commits are not off-machine backups). Neither dated logs nor online-notebook examples authorize publication, duplicate versions, data moves, or unrequested runs.

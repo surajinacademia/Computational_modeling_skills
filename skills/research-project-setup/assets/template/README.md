@@ -16,7 +16,7 @@ An unfamiliar collaborator or your future self should be able to understand what
 
 ## Repository layout
 
-Use this research-project layout when creating or explicitly reorganizing a repository. It separates files by purpose as described in [Good Research Code: project setup](https://goodresearch.dev/setup), with the owner's analysis, testing, and model-development directories. The directories shown are a template, not files already included; create each when needed.
+Use this research-project layout when creating or explicitly reorganizing a repository. It separates files by purpose as described in [Good Research Code: project setup](https://goodresearch.dev/setup), with the maintainer's analysis, testing, and model-development directories. The directories shown are a template, not files already included; create each when needed.
 
 ```text
 project/
@@ -79,7 +79,7 @@ Run input format and bounds checks for plausible input failures using establishe
 
 When writing output files, use temporary names in the destination directory and finalize them after successful writing and appropriate checks, using atomic replacement where supported. For a run producing several files, mark it complete only after all required output files pass their completion checks. Preserve previously retained results when rerunning; file existence alone proves neither completion nor scientific validation.
 
-Reuse a completed step only when its recorded inputs, relevant source, settings, and environment match and its required outputs are complete. Resume interrupted work from a verified checkpoint with matching provenance and compatible state; otherwise restart the affected step as a new attempt. Keep resumed work incomplete until final output checks pass, and distinguish step completion from scientific validation. Changed prior steps require reconsidering subsequent outputs. Preserve failed attempts and record the new attempt instead of deleting evidence to force a rerun. For long workflows, provide an inexpensive status or summary procedure that labels partial progress, failures, and completed work without launching more computation. Adapt existing workflow/status facilities rather than creating a second system.
+Reuse a completed step only when its recorded inputs, relevant source, settings, and environment match and its required outputs are complete. Resume interrupted work from a verified checkpoint with matching provenance and compatible state; otherwise restart the affected step as a new attempt. Keep resumed work incomplete until final output checks pass, and distinguish step completion from verification or physical validation of the result. Changed prior steps require reconsidering subsequent outputs. Preserve failed attempts and record the new attempt instead of deleting evidence to force a rerun. For long workflows, provide an inexpensive status or summary procedure that labels partial progress, failures, and completed work without launching more computation. Adapt existing workflow/status facilities rather than creating a second system.
 
 - Failure and completion checks: [commands or conditions, expected output files, and status location; or not configured]
 - Resume/reuse and progress inspection: [matching criteria and safe procedure; or not applicable/not configured]
@@ -95,7 +95,7 @@ Verification status: **not yet configured or executed**. Replace this with the c
 | Analysis | [`analysis/scripts/` entry points and corresponding `analysis/results/` outputs] |
 | Verification | [`tests/scripts/` checks, `tests/data/` inputs, and `tests/results/` outputs] |
 | Reproduction instructions | [commands/configuration or notebook, source revision, environment, and relevant parameters/seeds] |
-| Retained results | [output paths, producing run, and verification or scientific validation status] |
+| Retained results | [output paths, producing run, and verification or physical validation status] |
 | Research log | [existing chronological record or chosen file within `docs/` or the relevant results location; or not yet configured/not applicable] |
 | Known limitations | [missing inputs, unperformed checks, unresolved assumptions, or not applicable] |
 
@@ -118,7 +118,7 @@ Distinguish execution failure, an inconclusive analysis, and a scientifically in
 
 Use [AGENTS.md](AGENTS.md) for the shared coding, error diagnosis, verification, preservation, and authorization rules. Put project-specific exceptions in its final section; keep command details here.
 
-The scientific workflows use the owner's installed `computational-modeling` and `jupyter-notebook` skills when applicable. Verify their availability on a new machine. Detailed notebook layout, maintenance, and execution rules belong to the notebook skill; this template does not impose paired scripts or whole-notebook reruns for every edit.
+The scientific workflows use the maintainer's installed `computational-modeling` and `jupyter-notebook` skills when applicable. Verify their availability on a new machine. Detailed notebook layout, maintenance, and execution rules belong to the notebook skill; this template does not impose paired scripts or whole-notebook reruns for every edit.
 
 When configuring version control, add `.gitignore` entries for local environments, caches, credentials, and the generated or large files identified above. Preserve any small reference test inputs or reference outputs deliberately needed for verification. Record licensing and citation requirements before sharing code or data.
 
@@ -160,6 +160,6 @@ This template combines the maintainer's shared research repository rules with se
 - [Test your code](https://goodresearch.dev/testing) and [document your code](https://goodresearch.dev/docs): meaningful checks, informative failures, and useful comments and docstrings.
 - [Document your project](https://goodresearch.dev/pipelines): repeatable procedures and traceable results.
 
-The owner's layout groups analysis and verification code with their respective output locations and adds `development/models_versions/`. It is an adaptation, not the handbook's original tree. Current local skills govern notebook work and verification scope; the handbook's older package setup examples are replaced by the linked Python packaging guidance.
+The maintainer's layout groups analysis and verification code with their respective output locations and adds `development/models_versions/`. It is an adaptation, not the handbook's original tree. Current local skills govern notebook work and verification scope; the handbook's older package setup examples are replaced by the linked Python packaging guidance.
 
-Experiment records, transparent procedures, proportional automation, and failure handling also adapt William Stafford Noble's [*A Quick Guide to Organizing Computational Biology Projects* (2009)](https://doi.org/10.1371/journal.pcbi.1000424), published under a Creative Commons Attribution license. This template retains the owner's layout and storage policy. Content identifiers, matching prior work before resumption, and explicit completion checks strengthen the paper's simpler restart example; they are adaptations rather than claims that file existence establishes success.
+Experiment records, transparent procedures, proportional automation, and failure handling also adapt William Stafford Noble's [*A Quick Guide to Organizing Computational Biology Projects* (2009)](https://doi.org/10.1371/journal.pcbi.1000424), published under a Creative Commons Attribution license. This template retains the maintainer's layout and storage policy. Content identifiers, matching prior work before resumption, and explicit completion checks strengthen the paper's simpler restart example; they are adaptations rather than claims that file existence establishes success.

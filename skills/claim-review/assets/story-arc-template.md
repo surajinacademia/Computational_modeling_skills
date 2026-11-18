@@ -1,6 +1,6 @@
 # Story Arc
 
-<!-- Copy this file to story_arc.md. This is the evolving narrative being brainstormed to discover the logical progression and flow around a central theme and its subthemes. Manuscript sectioning and the paragraph-level outline belong in outline.md; use outline-template.md for that. The researcher owns the question, proposed answer, and central line of reasoning. The agent may clarify and organize them but must not invent them. Keep USER INPUT REQUIRED for unconfirmed researcher decisions and UNKNOWN for missing evidence. Mark preliminary results and planned work explicitly. -->
+<!-- Copy this file to story_arc.md. This is the evolving narrative being brainstormed to discover the logical progression and flow around a central theme and its subthemes. Manuscript sectioning and the paragraph-level outline belong in outline.md, which writing-process builds from this story arc with its outline template. The researcher owns the question, proposed answer, and central line of reasoning. The agent may clarify and organize them but must not invent them. Keep USER INPUT REQUIRED for unconfirmed researcher decisions and UNKNOWN for missing evidence. Mark preliminary results and planned work explicitly. -->
 
 ## Status and provenance
 
@@ -8,7 +8,7 @@
 - Last updated:
 - Source files and calculations inspected:
 - Related detailed outline: `outline.md` / not yet created
-- Argument ownership: user-authored / user-confirmed / missing
+- Argument authorship: user-authored / user-confirmed / missing
 - User confirmation date:
 
 ## Researcher-provided story seed
@@ -83,7 +83,7 @@ Allowed status: `demonstrated within scope`, `supported`, `consistent with`, `su
 
 ### Figure and result logic
 
-<!-- Sketch each figure's evidentiary role here. Detailed placement and draft captions belong in outline.md. -->
+<!-- Sketch each figure's evidentiary role here. Detailed placement and draft captions belong in outline.md (writing-process). -->
 
 | Order | Conclusion-style title | Evidentiary role | Claims supported | Essential evidence | Known limitation |
 |---|---|---|---|---|---|
