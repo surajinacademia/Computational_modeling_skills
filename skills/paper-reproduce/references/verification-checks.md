@@ -6,11 +6,12 @@
 ## Common sequence
 
 1. Derive independent tests from the frozen specification.
-2. Run the smallest diagnostic capable of catching sign, unit, indexing, boundary, conservation, sampling, or stopping coding errors.
+2. Run the smallest run that shows the code executes at all, then the smallest diagnostic capable of catching sign, unit, indexing, boundary, conservation, sampling, or stopping coding errors.
 3. Test the implementation used for results directly rather than relying on a simplified reference model.
 4. Benchmark representative workloads before changing algorithms, precision, parallelism, storage, or language.
 5. Fix the accepted code revision and configuration before generating assessment evidence.
 6. Check raw-output coverage and invariants before analyzing or plotting.
+7. Once an item is reproduced, keep a test that fixes its value within the stated tolerance, so later changes to the code cannot silently alter it.
 
 Never use visually plausible outputs as a test oracle. The verification reviewer must derive checks from the specification independently of the code and recompute decisive observables and uncertainty from raw outputs (or verify analytical proofs), rather than copying the code's formula or trusting its summary. Record unperformed checks honestly.
 

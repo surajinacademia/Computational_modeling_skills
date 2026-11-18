@@ -1,6 +1,6 @@
 ---
 name: image-analysis
-description: Analyze experimental microscopy images, volumes, and time series for measurements such as cell counts, fluorescence, morphology, tracking, and matrix deformation. Use one suitable image-analysis MCP server by default and produce a matched before-and-after figure and reproducible supplementary methods for each completed analysis.
+description: "Analyze experimental microscopy images, volumes, and time series to measure cell counts, fluorescence, morphology, tracking, and matrix deformation, producing a matched before-and-after figure and reproducible supplementary methods for each completed analysis. Use when a user brings microscopy files (TIFF, CZI, ND2, LIF, or similar) or asks to segment, count, track, quantify, or measure anything in experimental images. Works through one suitable image-analysis MCP server by default."
 ---
 
 # Image Analysis

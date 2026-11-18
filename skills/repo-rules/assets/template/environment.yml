@@ -1,0 +1,8 @@
+# Change the name to the name of the project. Install conda packages first and pip packages second.
+name: project-name
+channels:
+  - conda-forge
+dependencies:
+  - python
+  - pip
+  - pytest

@@ -1,10 +1,10 @@
 % Original flowchart for the owner's paper-reproduce workflow.
-% Content: assets/decision-stages.mmd and the approved two-stage decisions.
+% Content: assets/decision-stages.mmd and the approved three choices (matrix cell, target, working mode).
 % Renderer: LuaLaTeX/TikZ. Profile: schematic-designer Minimalist.
 % Design lesson: aligned groups and reserved connector space, from the local
 % lab-curriculum-flow tutorial. No example or upstream artwork/code copied.
-% Palette: teal for objective; warm gold for depth. All alternatives within
-% a stage share one color; stage labels retain the distinction without color.
+% Palette: teal for the matrix cell; warm gold for the target; warm red for the mode. All alternatives
+% within a choice share one color; labels retain the distinction without color.
 % Geometry indicates choices and ordering only; there are no measured quantities.
 % Generate minimalist-profile.sty from schematic-designer's shared profile.
 \documentclass[tikz,border=2mm]{standalone}
@@ -20,44 +20,78 @@
 \colorlet{depthCard}{msColor3!14!msPaper}
 \colorlet{depthGroup}{msColor3!4!msPaper}
 \colorlet{depthBorder}{msColor3!50!msPaper}
+\colorlet{modeStroke}{msColor1!75!msInk}
+\colorlet{modeText}{msColor1!70!msInk}
+\colorlet{modeCard}{msColor1!7!msPaper}
+\colorlet{modeGroup}{msColor1!3!msPaper}
+\colorlet{modeBorder}{msColor1!30!msPaper}
 \begin{document}
 \pagecolor{msPaper}
 \hyphenpenalty=10000
 \exhyphenpenalty=10000
 \begin{tikzpicture}[ms base,x=1mm,y=1mm,
     stage/.style={draw=msMuted!60,fill=msPaper,line width=\msLineContext,rounded corners=1.5mm},
-    card/.style={draw=msInk,fill=msPaper,line width=\msLineStructure,rounded corners=1.4mm,minimum width=52mm,minimum height=24mm,inner sep=0mm,outer sep=0mm},
+    card/.style={draw=msInk,fill=msPaper,line width=\msLineStructure,rounded corners=1.4mm,minimum height=24mm,inner sep=0mm,outer sep=0mm},
+    cell/.style={card,minimum width=62mm,minimum height=14mm},
+    target/.style={card,minimum width=40mm},
+    mode/.style={card,minimum width=52mm},
     heading/.style={ms title,anchor=west,inner sep=0mm},
-    card title/.style={ms title,anchor=north,inner sep=0mm,text width=46mm,align=center},
-    description/.style={ms body,anchor=north,inner sep=0mm,text width=46mm,align=center}]
+    axis label/.style={font=\sffamily\fontsize{11pt}{13pt}\selectfont\bfseries,inner sep=0mm,text=objectiveText},
+    card title/.style={ms title,anchor=north,inner sep=0mm,align=center},
+    description/.style={ms body,anchor=north,inner sep=0mm,align=center}]
 
-% Each stage is one group. No connector joins individual alternatives.
-\draw[stage,draw=objectiveBorder,fill=objectiveGroup] (0,0) rectangle (176,-42);
-\node[heading,text=objectiveText] at (5,-6) {Stage 1: What is my primary objective?};
-\node[card,draw=objectiveStroke,fill=objectiveCard] (reproduction) at (30,-25) {};
-\node[card,draw=objectiveStroke,fill=objectiveCard] (assessment) at (88,-25) {};
-\node[card,draw=objectiveStroke,fill=objectiveCard] (application) at (146,-25) {};
-\node[card title,text=objectiveText] at (30,-16) {Reproduction};
-\node[card title,text=objectiveText] at (88,-16) {Assessment};
-\node[card title,text=objectiveText] at (146,-16) {Application};
-\node[description] at (30,-22) {Reproduce the paper's model, selected features, or reported results.};
-\node[description] at (88,-22) {Verify or validate a model, test a mechanism or hypothesis, or assess agreement with evidence.};
-\node[description] at (146,-22) {Use, adapt, or extend the paper's model, mechanism, or method for my own scientific question.};
+% Choice 1 is a two-by-two matrix: rows are the data, columns the analysis.
+% The cells carry names only; the row and column labels define them.
+\draw[stage,draw=objectiveBorder,fill=objectiveGroup] (0,0) rectangle (176,-58);
+\node[heading,text=objectiveText] at (5,-6) {Choice 1: Which cell of the matrix?};
+\node[axis label,anchor=south] at (68,-15.5) {Same analysis};
+\node[axis label,anchor=south] at (134,-15.5) {Different analysis};
+\node[axis label,anchor=east,align=right,text width=28mm] at (33,-27) {Same data};
+\node[axis label,anchor=east,align=right,text width=28mm] at (33,-45) {Different data};
+\node[cell,draw=objectiveStroke,fill=objectiveCard] (reproducible) at (68,-27) {};
+\node[cell,draw=objectiveStroke,fill=objectiveCard] (robust) at (134,-27) {};
+\node[cell,draw=objectiveStroke,fill=objectiveCard] (replicable) at (68,-45) {};
+\node[cell,draw=objectiveStroke,fill=objectiveCard] (generalisable) at (134,-45) {};
+\node[card title,anchor=center,text=objectiveText,text width=56mm] at (68,-27) {Reproducible};
+\node[card title,anchor=center,text=objectiveText,text width=56mm] at (134,-27) {Robust};
+\node[card title,anchor=center,text=objectiveText,text width=56mm] at (68,-45) {Replicable};
+\node[card title,anchor=center,text=objectiveText,text width=56mm] at (134,-45) {Generalisable};
 
-\draw[ms arrow] (88,-42) -- (88,-56);
+\begin{scope}[yshift=20mm]
+\draw[ms arrow] (88,-78) -- (88,-92);
 
-\draw[stage,draw=depthBorder,fill=depthGroup] (0,-56) rectangle (176,-98);
-\node[heading,text=depthText] at (5,-62) {Stage 2: What depth of work do I need?};
-\node[card,draw=depthStroke,fill=depthCard] (model) at (30,-81) {};
-\node[card,draw=depthStroke,fill=depthCard] (claim) at (88,-81) {};
-\node[card,draw=depthStroke,fill=depthCard] (result) at (146,-81) {};
-\node[card title,text=depthText] at (30,-72) {Model Level};
-\node[card title,text=depthText] at (88,-72) {Claim Level};
-\node[card title,text=depthText] at (146,-72) {Result Level};
-\node[description] at (30,-78) {Implement, adapt, or check the required computational model or method.};
-\node[description] at (88,-78) {Test a selected scientific claim, proposed mechanism, or hypothesis.};
-\node[description] at (146,-78) {Reproduce, compare, or generate specific curves, tables, or numerical results.};
+% Choice 2 is one group. No connector joins individual alternatives.
+\draw[stage,draw=depthBorder,fill=depthGroup] (0,-92) rectangle (176,-134);
+\node[heading,text=depthText] at (5,-98) {Choice 2: What is the target?};
+\node[target,draw=depthStroke,fill=depthCard] (model) at (23,-117) {};
+\node[target,draw=depthStroke,fill=depthCard] (claim) at (66.33,-117) {};
+\node[target,draw=depthStroke,fill=depthCard] (result) at (109.67,-117) {};
+\node[target,draw=depthStroke,fill=depthCard] (measurements) at (153,-117) {};
+\node[card title,text=depthText,text width=36mm] at (23,-108) {Model or method};
+\node[card title,text=depthText,text width=36mm] at (66.33,-108) {Claim or hypothesis};
+\node[card title,text=depthText,text width=36mm] at (109.67,-108) {Result};
+\node[card title,text=depthText,text width=36mm] at (153,-108) {Measurements};
+\node[description,text width=36mm] at (23,-114) {Equations, parameters, conditions, and numerics, whole or in part.};
+\node[description,text width=36mm] at (66.33,-114) {A claim, mechanism, or hypothesis posed as a neutral question.};
+\node[description,text width=36mm] at (109.67,-114) {A figure, table, curve, or single value.};
+\node[description,text width=36mm] at (153,-114) {Published experimental data, extracted or re-analysed.};
 
-\node[ms small,anchor=north,inner sep=0mm,text=msMuted] at (88,-103) {Choose one objective and one depth; any combination is allowed.};
+\draw[ms arrow] (88,-134) -- (88,-148);
+
+% Choice 3 is the working mode: how much the researcher sees and decides.
+\draw[stage,draw=modeBorder,fill=modeGroup] (0,-148) rectangle (176,-190);
+\node[heading,text=modeText] at (5,-154) {Choice 3: How do you want to work?};
+\node[mode,draw=modeStroke,fill=modeCard] (humanloop) at (30,-173) {};
+\node[mode,draw=modeStroke,fill=modeCard] (autonomous) at (88,-173) {};
+\node[mode,draw=modeStroke,fill=modeCard] (guided) at (146,-173) {};
+\node[card title,text=modeText,text width=46mm] at (30,-164) {Human-in-the-loop (default)};
+\node[card title,text=modeText,text width=46mm] at (88,-164) {Autonomous};
+\node[card title,text=modeText,text width=46mm] at (146,-164) {Guided learning};
+\node[description,text width=46mm] at (30,-170) {You make every scientific choice; the agent stops at each one.};
+\node[description,text width=46mm] at (88,-170) {The agent works through the agreed plan and logs every choice it makes.};
+\node[description,text width=46mm] at (146,-170) {The agent explains each step so you could redo it by hand.};
+
+\node[ms small,anchor=north,inner sep=0mm,text=msMuted] at (88,-195) {Choose one cell, one target, and one mode; any combination is allowed. Definitions follow The Turing Way.};
+\end{scope}
 \end{tikzpicture}
 \end{document}

@@ -1,6 +1,6 @@
 # Paper Reproduce
 
-[SKILL.md](SKILL.md) is the maintained entrypoint: frame each target with two independent decisions—primary objective (reproduction, assessment, or application) and target depth (model, claim, or result)—and follow the scientist-guided nine-step workflow from identifying what the paper provides through Milestone 1 plan agreement, verification and small diagnostic pilots, study execution, comparison, and the Milestone 2 reproducible record. Set qualitative criteria, quantitative criteria, or both when comparison applies; existing implementations and analytical derivations can satisfy matching targets without new simulation runs.
+[SKILL.md](SKILL.md) is the maintained entrypoint: frame each investigation with three independent choices—the matrix cell of The Turing Way (reproducible, robust, replicable, or generalisable), the target (model or method, claim or hypothesis, result, or experimental measurements), and the working mode (`human-in-the-loop`, `autonomous`, or `guided-learning`)—and follow the nine-step workflow from identifying what the paper provides through Milestone 1 plan agreement, verification and small diagnostic pilots, study execution, comparison, and the Milestone 2 reproducible record. The target record stays readable throughout: an item list, a results table, a logbook, and a progress note. Set qualitative criteria, quantitative criteria, or both when comparison applies; existing implementations and analytical derivations can satisfy matching targets without new simulation runs.
 
 ## Package contents
 
@@ -17,9 +17,9 @@ Execution uses the user's configured project workflow. [HPC Slurm](../hpc-slurm/
 
 ## Diagram preview
 
-The diagram groups three objectives and three depths into two stages connected by one arrow; alternatives within each group are equal, geometry encodes choices rather than quantities, and stage labels preserve the grouping without color. The outlined SVG displays without Mermaid or installed fonts.
+The diagram shows the three choices in order: the four matrix cells arranged by data (rows) and analysis (columns), then the four targets, then the three working modes; alternatives within each choice are equal, geometry encodes choices rather than quantities, and labels preserve the grouping without color. The outlined SVG displays without Mermaid or installed fonts.
 
-Keep `assets/decision-stages.tex` aligned with `assets/decision-stages.mmd` when editing choices. The supplied PDF/SVG pair is approximately 180.18 × 109.50 mm using CMU Sans Serif and the [Schematic Designer](../schematic-designer/SKILL.md) shared profile (original drawing; no external artwork copied).
+Keep `assets/decision-stages.tex` aligned with `assets/decision-stages.mmd` when editing choices. The supplied PDF/SVG pair is approximately 180.18 × 181.53 mm using CMU Sans Serif and the [Schematic Designer](../schematic-designer/SKILL.md) shared profile (original drawing; no external artwork copied).
 
 Rendering requires the sibling `schematic-designer` resources, Python with Matplotlib, LuaLaTeX/TikZ, CMU fonts, and `dvisvgm` (or the renderer's `pdf2svg` fallback). Without the optional personal `minimalist` theme, the profile uses Matplotlib's default color cycle and warns about color differences while preserving labels and layout (never install a namesake package).
 
@@ -30,7 +30,7 @@ paper_diagram_dir="$(python3 -c 'from pathlib import Path; import tempfile; prin
 python3 ../schematic-designer/assets/styles/minimalist_profile.py --tikz > "$paper_diagram_dir/minimalist-profile.sty"
 python3 ../schematic-designer/scripts/render_tikz.py assets/decision-stages.tex \
   --include "$paper_diagram_dir/minimalist-profile.sty" \
-  --output-dir "$paper_diagram_dir" --basename decision-stages
+  --output-dir "$paper_diagram_dir" --basename decision-stages --svg
 ```
 
 See the [renderer workflow](../schematic-designer/references/renderer-workflows.md#tikz) for inputs and constraints, inspect both temporary exports at physical size before replacing the supplied pair, and keep intermediate build files out of the package.

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Render one declared TikZ document to PDF and a path-only SVG artifact.
+"""Render one declared TikZ document to PDF, with a path-only SVG on request.
 
 TeX is executable input. This script is for newly generated or explicitly
 trusted source only; its lexical checks are defense in depth, not a TeX parser
@@ -1150,8 +1150,13 @@ def _render(
     basename: Optional[str],
     engine: str,
     includes: Sequence[Path],
-) -> Tuple[Path, Path]:
-    """Execute the complete isolated render pipeline and return final artifacts."""
+    svg: bool = False,
+) -> Tuple[Path, Optional[Path]]:
+    """Execute the complete isolated render pipeline and return final artifacts.
+
+    The PDF is the default and only output. The outlined SVG is converted from
+    that PDF only when ``svg`` is requested, so a PDF-only build needs no converter.
+    """
 
     declared = _load_declared_inputs(source, includes)
     _scan_declared_inputs(declared)
@@ -1161,9 +1166,9 @@ def _render(
     # Resolve the compiler, primary converter, and optional fallback before a
     # temporary directory is created or used as the working directory for TeX.
     compiler = _resolve_executable(engine)
-    dvisvgm = _resolve_optional_executable("dvisvgm")
-    pdf2svg = _resolve_optional_executable("pdf2svg")
-    if dvisvgm is None and pdf2svg is None:
+    dvisvgm = _resolve_optional_executable("dvisvgm") if svg else None
+    pdf2svg = _resolve_optional_executable("pdf2svg") if svg else None
+    if svg and dvisvgm is None and pdf2svg is None:
         raise RenderError("Required converter is unavailable: install dvisvgm or pdf2svg")
     ghostscript = _resolve_optional_executable("gs")
     approved_output = _prepare_output_directory(output_directory)
@@ -1203,20 +1208,23 @@ def _render(
         build_pdf = build_directory / (output_base + ".pdf")
         _read_build_artifact(build_pdf, "Compiled PDF")
         build_svg = build_directory / (output_base + ".svg")
-        _convert_pdf_to_svg(
-            dvisvgm=dvisvgm,
-            pdf2svg=pdf2svg,
-            build_pdf=build_pdf,
-            build_svg=build_svg,
-            build_directory=build_directory,
-            environment=environment,
-        )
+        if svg:
+            _convert_pdf_to_svg(
+                dvisvgm=dvisvgm,
+                pdf2svg=pdf2svg,
+                build_pdf=build_pdf,
+                build_svg=build_svg,
+                build_directory=build_directory,
+                environment=environment,
+            )
 
         final_pdf = _copy_artifact_atomic(
             build_pdf, approved_output, output_base + ".pdf"
         )
-        final_svg = _copy_artifact_atomic(
-            build_svg, approved_output, output_base + ".svg"
+        final_svg = (
+            _copy_artifact_atomic(build_svg, approved_output, output_base + ".svg")
+            if svg
+            else None
         )
     return final_pdf, final_svg
 
@@ -1224,8 +1232,8 @@ def _render(
 def _build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
-            "Compile one trusted/generated TikZ source twice and export "
-            "PDF plus a path-only SVG artifact."
+            "Compile one trusted/generated TikZ source twice and export a PDF; "
+            "add --svg for a path-only SVG artifact as well."
         )
     )
     parser.add_argument(
@@ -1235,7 +1243,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--output-dir",
         type=Path,
         required=True,
-        help="directory in which basename.pdf and basename.svg are atomically published",
+        help="directory in which basename.pdf (and basename.svg with --svg) is atomically published",
     )
     parser.add_argument(
         "--basename",
@@ -1254,6 +1262,11 @@ def _build_parser() -> argparse.ArgumentParser:
         default=[],
         help="declared regular non-symlink support file; may be repeated",
     )
+    parser.add_argument(
+        "--svg",
+        action="store_true",
+        help="also convert the PDF to an outlined, path-only SVG (off by default)",
+    )
     return parser
 
 
@@ -1267,11 +1280,13 @@ def main(argv: Optional[Sequence[str]] = None) -> int:
             arguments.basename,
             arguments.engine,
             arguments.include,
+            arguments.svg,
         )
     except RenderError as error:
         parser.exit(1, f"{parser.prog}: error: {error}\n")
     print(pdf_path)
-    print(svg_path)
+    if svg_path is not None:
+        print(svg_path)
     return 0
 
 

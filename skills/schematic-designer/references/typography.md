@@ -38,7 +38,7 @@ import matplotlib.pyplot as plt
 
 Write equations as raw LaTeX strings such as `ax.set_ylabel(r"$\frac{\mathrm{d}x}{\mathrm{d}t}=-k x$")`, escape ordinary text passed to TeX, and uphold allowlisted-equation and trusted-source rules. Render annotated equations with PGF LaTeX, `palette()`, and [native_tikz.py](../scripts/native_tikz.py) leaders anchored to measured term bounds via real axes transforms (or keep them in the compositor for an existing hybrid like [chemoattraction](../assets/examples/tikz/chemoattraction/README.md); changing to hybrid follows the renderer-change confirmation rule).
 
-Stage the PDF with PGF and convert that PDF to outlined SVG per [vector-export.md](vector-export.md); never use the native SVG backend for final delivery. Reference: [Matplotlib PGF docs](https://matplotlib.org/stable/users/explain/text/pgf.html).
+Stage the PDF with PGF; when an SVG is requested, convert that PDF to outlined SVG per [vector-export.md](vector-export.md), and never use the native SVG backend for final delivery. Reference: [Matplotlib PGF docs](https://matplotlib.org/stable/users/explain/text/pgf.html).
 
 ## TikZ and hybrid
 

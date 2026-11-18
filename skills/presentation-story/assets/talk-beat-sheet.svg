@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 720" width="1280" height="720" role="img" aria-labelledby="t d">
+<title id="t">Beat sheet of a scientific talk</title>
+<desc id="d">A 16:9 diagram of the storyline of a scientific talk. On the left, a small scenery stands for the big picture and an enlarged single tree for detail, joined by dashed zoom lines; a bar beside them fades from light (big picture) to dark (detailed). A curve across three sections shows how detailed the talk is at each moment. Introduction: why it matters, what is known, the question, and the answer in brief. Results: each result goes down into detail and comes back up; between results the talk recaps and asks the next question. Conclusions: the answers, what changed, and what it means, followed by short acknowledgements and backup slides.</desc>
+<defs><linearGradient id="depth" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#003547" stop-opacity="0.04"/><stop offset="1" stop-color="#003547" stop-opacity="1"/></linearGradient><linearGradient id="a1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ab3019" stop-opacity="0.04"/><stop offset="1" stop-color="#ab3019" stop-opacity="0.26"/></linearGradient><linearGradient id="a2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#00768c" stop-opacity="0.04"/><stop offset="1" stop-color="#00768c" stop-opacity="0.26"/></linearGradient><linearGradient id="a3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#003547" stop-opacity="0.04"/><stop offset="1" stop-color="#003547" stop-opacity="0.26"/></linearGradient></defs>
+<rect width="1280" height="720" fill="#ffffff"/>
+<text x="640" y="62" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="32" font-weight="700" fill="#000000" text-anchor="middle">Beat sheet of a scientific talk</text>
+<text x="30" y="132" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="400" fill="#000000" text-anchor="start">Big picture</text>
+<text x="30" y="634" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="400" fill="#000000" text-anchor="start">Detailed</text>
+<rect x="176" y="150" width="20" height="450" rx="10" fill="url(#depth)" stroke="#003547" stroke-width="1"/>
+<g fill="none" stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M30 222H160"/>
+<path d="M36 222L62 180L80 206L92 192L108 222"/>
+<circle cx="142" cy="174" r="7"/>
+<path d="M120 222v-8" stroke="#ab3019"/><circle cx="120" cy="210" r="4" stroke="#ab3019"/>
+<path d="M140 222v-8" stroke="#000000"/><circle cx="140" cy="210" r="4" stroke="#000000"/>
+<path d="M152 222v-8" stroke="#000000"/><circle cx="152" cy="210" r="4" stroke="#000000"/>
+<rect x="108" y="198" width="24" height="30" rx="1.5"/>
+<path d="M108 228L36 472M132 228L156 472" stroke="#595959" stroke-width="1" stroke-dasharray="3 5"/>
+<rect x="36" y="472" width="120" height="124" rx="3"/><rect x="45" y="481" width="102" height="106" rx="1.5"/>
+<path d="M56 572H136"/>
+<g stroke="#ab3019"><path d="M96 572V528M96 556l-13-11M96 546l13-11M96 536l-9-8"/><circle cx="96" cy="524" r="27" fill="#ab3019" fill-opacity=".1"/></g>
+</g>
+<rect x="219" y="150" width="297" height="450" rx="12" fill="url(#a1)"/>
+<text x="233" y="132" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#ab3019" text-anchor="start">1 · Introduction</text>
+<rect x="524" y="150" width="432" height="450" rx="12" fill="url(#a2)"/>
+<text x="538" y="132" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#00768c" text-anchor="start">2 · Results</text>
+<rect x="964" y="150" width="282" height="450" rx="12" fill="url(#a3)"/>
+<text x="978" y="132" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="20" font-weight="700" fill="#003547" text-anchor="start">3 · Conclusions</text>
+<path d="M245 215 C315.0 215 315.0 320 385 320 C432.5 320 432.5 255 480 255 C527.5 255 527.5 545 575 545 C612.5 545 612.5 255 650 255 C687.5 255 687.5 545 725 545 C762.5 545 762.5 255 800 255 C837.5 255 837.5 545 875 545 C912.5 545 912.5 255 950 255 C1010.0 255 1010.0 200 1070 200 C1145.0 200 1145.0 200 1220 200" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round"/>
+<circle cx="245" cy="215" r="6" fill="#ab3019"/>
+<text x="232" y="190" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="start">Why it matters</text>
+<circle cx="315.0" cy="267.5" r="6" fill="#ab3019"/>
+<text x="332" y="262" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="start">What is known</text>
+<circle cx="385" cy="320" r="6" fill="#ab3019"/>
+<text x="385" y="354" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="middle">The question</text>
+<circle cx="480" cy="255" r="6" fill="#ab3019"/>
+<text x="508" y="230" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="end">The answer, in brief</text>
+<circle cx="575" cy="545" r="6" fill="#00768c"/>
+<text x="575" y="579" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="middle">Result 1</text>
+<circle cx="725" cy="545" r="6" fill="#00768c"/>
+<text x="725" y="579" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="middle">Result 2</text>
+<circle cx="875" cy="545" r="6" fill="#00768c"/>
+<text x="875" y="579" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="middle">Result n</text>
+<rect x="643" y="248" width="14" height="14" rx="2" fill="#ffffff" stroke="#003547" stroke-width="1.8"/>
+<rect x="793" y="248" width="14" height="14" rx="2" fill="#ffffff" stroke="#003547" stroke-width="1.8"/>
+<rect x="943" y="248" width="14" height="14" rx="2" fill="#ffffff" stroke="#003547" stroke-width="1.8"/>
+<text x="800" y="224" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#003547" text-anchor="middle">Recap, then the next question</text>
+<circle cx="1010.0" cy="227.5" r="6" fill="#003547"/>
+<text x="996" y="276" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="start">The answers</text>
+<circle cx="1070" cy="200" r="6" fill="#003547"/>
+<text x="1070" y="178" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="middle">What changed</text>
+<circle cx="1220" cy="200" r="6" fill="#003547"/>
+<text x="1236" y="234" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="end">What it means</text>
+<text x="1105" y="556" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle">Then: short acknowledgements</text>
+<text x="1105" y="578" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="16" font-weight="400" fill="#000000" text-anchor="middle">and backup slides</text>
+<text x="215" y="640" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="start">Each result goes into detail and returns to a general answer.</text>
+<text x="215" y="666" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="17" font-weight="400" fill="#000000" text-anchor="start">Each result: a title, as many points as the story needs, and an answer that leads to the next title.</text>
+<text x="215" y="700" font-family="'CMU Sans Serif','Helvetica Neue',Helvetica,Arial,sans-serif" font-size="14" font-weight="400" fill="#595959" text-anchor="start">Curve after the beat-sheet idea in B. Snyder, Save the Cat! (2005); stages after Ratcliff, Raj, McConnell, and Stern.</text>
+</svg>

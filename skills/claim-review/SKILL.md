@@ -31,6 +31,7 @@ description: Critically review and critique scientific claims against their actu
 - Inspect supplied claims alongside existing project files (`story_arc.md`, `outline.md`, `literature_review.md`, primary references, figures, captions, notebooks, derivations, simulation summaries, and manuscript files) before asking the researcher to repeat available context.
 - Account for all relevant outcomes—positive, null, negative, contradictory, preliminary, and planned—and label each piece of evidence `author-reported`, `directly observed in supplied files`, or `independently verified`.
 - Separate evidence used to formulate, calibrate, or fit a model or hypothesis from independent or held-out validation evidence (`new condition`, `new observable`, `new regime`, or `independent replicate`).
+- **When the project keeps a hypothesis record (`computational-modeling`):** trace each claim about a model or mechanism to its entry—hypothesis, prediction, falsifying outcome, experiment, and outcome—and flag a claim with no entry or a prediction fixed after the result was known.
 - **In mode 2, or without raw data or code:** evaluate what the paper itself reports, state that raw provenance was `not independently verified`, and distinguish `not reported in the paper`, `reported but insufficient`, and `cannot assess without source files`.
 
 ## 2. Check methods, internal consistency, and terminology
