@@ -5,15 +5,15 @@ description: End-of-chat review of a scientific problem-solving chat that recaps
 
 # Ruminations
 
-When invoked at the end of a scientific problem-solving chat, recap the problem and solution, record rules for the agent, and record learning topics and lessons for the user. Cover the scientific question and the technical methods it needed rather than code changes alone.
+- When invoked at the end of a scientific problem-solving chat, recap the problem and solution, record rules for the agent, and record learning topics and lessons for the user.
+- Cover the scientific question and the technical methods it needed rather than code changes alone.
 
 ## 1. Recap and record lessons
 
-Write these parts in order as one-line bullets:
-
-- **Recap the problem and solution**: state the scientific problem, the problem-solving steps we took in order, the solution we ended up using, and any coding errors, numerical mistakes, or wrong assumptions we fixed (written collectively as "we" without assigning credit or blame).
-- **Rules for the agent**: record the user's corrections, pushback, and feedback on the scientific process, each stated as a rule for future chats and how it changed the approach here.
-- **Learning topics and lessons for the user**: list takeaways and assumptions worth checking next time for the user, plus 1–2 scientific concepts or technical skills to study independently with a one-line reason each matters here (add more only when asked).
+- Write these parts in order as one-line bullets:
+  - **Recap the problem and solution**: state the scientific problem, the problem-solving steps we took in order, the solution we ended up using, and any coding errors, numerical mistakes, or wrong assumptions we fixed (written collectively as "we" without assigning credit or blame).
+  - **Rules for the agent**: record the user's corrections, pushback, and feedback on the scientific process, each stated as a rule for future chats and how it changed the approach here.
+  - **Learning topics and lessons for the user**: list takeaways and assumptions worth checking next time for the user, plus 1–2 scientific concepts or technical skills to study independently with a one-line reason each matters here (add more only when asked).
 
 ## 2. Keep every point grounded and concise
 
@@ -25,4 +25,4 @@ Write these parts in order as one-line bullets:
 
 - Save in the current project's root (the Git top level, else the working directory) unless the user names another location, creating missing files and never overwriting earlier entries.
 - Append a dated entry headed `## YYYY-MM-DD: <topic>` to `my_lessons.md` with all sections, and append an entry with the same heading to `agent_lessons.md` with only the rules for the agent (skip `agent_lessons.md` when there are none).
-- Show the same recap in the chat followed by the paths of the files written, without staging or committing them.
+- Show the same recap in the chat followed by the paths of the files written, without staging or committing them, then stop.

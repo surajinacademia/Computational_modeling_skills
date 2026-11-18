@@ -14,7 +14,7 @@ Use these evidential standards before refining an outline, figure sequence, or t
 - [Reproducibility](#7-reproducibility)
 - [Hard red flags](#8-hard-red-flags)
 - [Gap classification](#9-gap-classification)
-- [Evidence-to-story handoff](#10-evidence-to-story-handoff)
+- [Evidence-to-story transfer](#10-evidence-to-story-transfer)
 
 ## Core rule: evidence before story
 
@@ -161,7 +161,7 @@ Classify each unresolved need by its effect on the evidence, not by how impressi
 
 For every gap, choose a resolution type: experiment, analysis, provenance recovery, robustness check, independent test, reframe, narrow, remove, or disclose. A costly experiment is not automatically essential, and an easy analysis is not automatically optional.
 
-## 10. Evidence-to-story handoff
+## 10. Evidence-to-story transfer
 
 Present a claim as an evidence-supported finding in the central story only when it has:
 

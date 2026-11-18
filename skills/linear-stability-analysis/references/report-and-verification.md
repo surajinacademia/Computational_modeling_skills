@@ -10,7 +10,7 @@ Read this reference before writing or revising a linear-stability report. Follow
 - [Writing discipline](#writing-discipline)
 - [Verification and review](#verification-and-review)
 
-## Fixed LaTeX Structure
+## Fixed LaTeX structure
 
 Use unstarred LaTeX section commands in this exact order and spelling:
 
@@ -35,7 +35,7 @@ Use unstarred LaTeX section commands in this exact order and spelling:
 
 Never rename, reorder, merge, omit, or add sections or subsections. Use concise paragraphs, equations, tables, and bold run-in labels; keep inapplicable sections with an explicit reason. Put the scientific model name and "Linear Stability Analysis" in the title, and list the governing-equation source, calculation code, parameter file, and spectrum file right below it using contained relative paths (never invent paths or cite uninspected files).
 
-## Section Content
+## Section content
 
 **1. Model Purpose And Questions.** State the phenomenon, stationary reference state, stability question, model status, observable criterion, what instability predicts, and what linear analysis cannot establish.
 
@@ -43,7 +43,7 @@ Never rename, reorder, merge, omit, or add sections or subsections. Use concise 
 
 **3. Entities, Domain, And Notation.** Define every field, index, coordinate, domain, vector orientation, geometric convention, and dimensional status before use; distinguish two spatial dimensions from two dependent fields, and define $s$, $\mathbf{k}$, and branch labels before first use.
 
-**4. Parameters And Scales.** Tabulate symbol, code name, meaning, units, value, admissible range, and provenance, separating physical parameters from sampling and solver controls (which belong in Section 8.2). Define nondimensional groups and validity limits before interpreting them; missing values allow a symbolic partial result only, never fabricated numbers or plots.
+**4. Parameters And Scales.** Tabulate symbol, code name, meaning, units, value, admissible range, and provenance, separating physical parameters from numerical controls such as sampling and solver tolerances (which belong in Section 8.2). Define nondimensional groups and validity limits before interpreting them; missing values allow a symbolic partial result only, never fabricated numbers or plots.
 
 **5. Governing Equations.** Present the governing equations, verify the reference-state residual, substitute perturbations, collect first-order terms, and show the full linearized system before modal reduction. Then derive the spectral matrix or polynomial, dispersion relation (when a valid wavevector basis exists), or full-operator eigenproblem, marking exact, asymptotic, and numerical results separately.
 
@@ -64,7 +64,7 @@ Never rename, reorder, merge, omit, or add sections or subsections. Use concise 
 - **Method Decisions And Changes:** record consequential analytical or numerical choices, rationale, and status (not a routine edit log).
 - **References:** list only cited sources supporting assumptions, equations, values, or numerical methods, with stable identifiers.
 
-## Output Files And Figure Requirements
+## Output files and figure requirements
 
 Keep the report, calculation, parameters, spectrum, and figures inside one analysis-output root as regular files without symlinks:
 
@@ -87,13 +87,13 @@ Serialize enough data in tidy CSV (`spectrum.csv`) and text/JSON (`parameters.js
 
 After the `.tex` and PDF are final, generate a SHA-256 manifest (`artifact-manifest.sha256`) covering the report, script, parameters, spectrum, figures, PDF, and checker source or version, excluding the manifest itself; compute the manifest's own SHA-256 separately for external completion and review records.
 
-## Writing Discipline
+## Writing discipline
 
 Build the argument in logical order: question, assumptions, notation, original model, linearization, modal basis, analytical result, numerical calculation, verification, interpretation, and limits. Keep symbols, signs, units, and branch labels consistent across equations, code, tables, figures, and prose, and distinguish: inspected equations/values from author assumptions; exact linearized results from asymptotic or numerical approximations; linear-approximation error from solver error; calculation verification from physical model validation; continuous dispersion curves from finite-domain admissible modes; wavevector dispersion from unparameterized operator spectra; and early-time mode selection from nonlinear final morphology.
 
 Real-wavevector growth gives temporal spectral instability, not absolute or fixed-location instability in open advective flows without separate spatiotemporal evidence. Support claims strictly within documented parameter and wavenumber ranges.
 
-## Verification And Review
+## Verification and review
 
 Run `check_lsa_report.py` on the final `.tex` and root (verifying headings and figure paths only, not math or claims). Inspect TeX before compiling locally in a clean directory with shell escape disabled (never run uninspected supplied code or TeX), and inspect every rendered page for missing references, clipped or overlapping layout, missing figures, and legible mathematical glyphs.
 

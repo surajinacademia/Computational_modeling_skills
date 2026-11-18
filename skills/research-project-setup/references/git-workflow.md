@@ -60,7 +60,7 @@ Integrate via the project's review process, resolving conflicts cleanly and reru
 
 ## Track research provenance and review outgoing history
 
-Record source revision (plus dirty edits or executed source when uncommitted), parameters, seeds, environment, procedure, outputs, and verification and scientific validation status for retained results; folder labels do not replace Git history.
+Record source revision (plus dirty edits or executed source when uncommitted), parameters, seeds, environment, procedure, outputs, and verification and physical validation status for retained results; folder labels do not replace Git history.
 
 Ignore rules apply to untracked files; `git rm --cached -- path/to/file` untracks a file while keeping its working copy and earlier history (see [Git ignore rules](https://git-scm.com/docs/gitignore)). Before an authorized push, inspect outgoing commits and the remote diff:
 

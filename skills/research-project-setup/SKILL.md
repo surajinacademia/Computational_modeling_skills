@@ -1,11 +1,11 @@
 ---
 name: research-project-setup
-description: Set up or reorganize a research repository using the owner's template, Good Research Code practices, and a Git workflow for verified checkpoints, concurrent work, and recovery. Use only when the user explicitly requests research-project-setup or explicitly asks to apply this template. Routine repository opening, coding, error diagnosis, and general maintenance do not activate it.
+description: Set up or reorganize a research repository using the maintainer's template, Good Research Code practices, and a Git workflow for verified checkpoints, concurrent work, and recovery. Use only when the user explicitly requests research-project-setup or explicitly asks to apply this template. Routine repository opening, coding, error diagnosis, and general maintenance do not activate it.
 ---
 
 # Research Project Setup
 
-- Apply the owner's research layout to the requested repository and repair meaningful deviations when reorganization is requested.
+- Apply the maintainer's research layout to the requested repository and repair meaningful deviations when reorganization is requested.
 - Audit-only or planning requests stay strictly read-only, and opening a workspace never runs this workflow automatically.
 - Organize the project for an unfamiliar collaborator or your future self so anyone can see what investigation ran, why it was set up that way, what the evidence supports, and how to repeat it with updated inputs or parameters.
 
@@ -31,12 +31,11 @@ description: Set up or reorganize a research repository using the owner's templa
 ## Make experiments understandable and repeatable
 
 - Configure the experiment records and repeatable procedures described in the README template within existing locations, leaving missing historical rationale explicit rather than inventing commands or claiming unperformed runs:
-
-- Connect dated research entries to the scientific question, methodological and parameter rationale, producing run, observations, physical interpretation, limitations, and next question, separating execution crashes from informative negative scientific results (records need not be notebooks).
-- Identify external or experimental inputs by source, version or accession, retrieval date, and checksum or immutable snapshot location.
-- Pair prose descriptions with ordered commands, driver scripts, or notebook steps that pass parameters and repository-relative paths explicitly, capture interactive choices reproducibly, and state any remaining manual steps.
-- Document input admissibility and bounds checks, exit-status checks, failure stops, and partial-versus-complete output checks; reuse completed steps only when provenance and outputs match, resume only from verified checkpoints, retain failed-run logs, and inspect progress without launching new simulations.
-- Start with clear recorded commands and introduce a driver script only when complexity or reuse justifies it, keeping dated run folders under results distinct from model version identities and Git history; setup and reorganization never authorize building a new execution framework or rerunning simulations.
+  - Connect dated research entries to the scientific question, methodological and parameter rationale, producing run, observations, physical interpretation, limitations, and next question, separating execution crashes from informative negative scientific results (records need not be notebooks).
+  - Identify external or experimental inputs by source, version or accession, retrieval date, and checksum or immutable snapshot location.
+  - Pair prose descriptions with ordered commands, driver scripts, or notebook steps that pass parameters and repository-relative paths explicitly, capture interactive choices reproducibly, and state any remaining manual steps.
+  - Document input admissibility and bounds checks, exit-status checks, failure stops, and partial-versus-complete output checks; reuse completed steps only when provenance and outputs match, resume only from verified checkpoints, retain failed-run logs, and inspect progress without launching new simulations.
+  - Start with clear recorded commands and introduce a driver script only when complexity or reuse justifies it, keeping dated run folders under results distinct from model version identities and Git history; setup and reorganization never authorize building a new execution framework or rerunning simulations.
 
 ## Apply the Git workflow
 
@@ -51,9 +50,9 @@ description: Set up or reorganize a research repository using the owner's templa
 - **Move files according to the map:** resolve any destination collisions without overwriting or deleting data, skip external symlinks, nested `.git` directories, and archive rewrites, and ask only when a material ownership, identity, or scope ambiguity arises.
 - **Repair dependent scripts and analyses:** update affected imports, package metadata, script and notebook input/output paths, test discovery, reference test inputs, relative links, documented commands, and CI configs using portable repository-relative paths while leaving raw data, saved outputs, notebook formats, model equations, parameters, and expensive generated outputs untouched.
 - **Update project documentation:** refresh the README directory tree, setup steps, navigation links, entry points, and result locations, merging path updates into `AGENTS.md` without dropping project-specific rules.
-- **Verify statically and safely:** confirm moved files arrived intact apart from planned path updates and check links, discovery, imports, and authorized lightweight checks; inspect module entry points before importing anything that triggers computation, since reorganizing directories never authorizes running simulations, sweeps, or full notebook reruns.
+- **Check without running computations:** confirm moved files arrived intact apart from planned path updates and check links, discovery, imports, and authorized lightweight checks; inspect module entry points before importing anything that triggers computation, since reorganizing directories never authorizes running simulations, sweeps, or full notebook reruns.
 
-## Summary and verification
+## Summary and stopping condition
 
 - Stop once in-scope layout deviations and dependent paths are updated and checked, reporting any uninspectable external consumers or unrun checks honestly rather than claiming full template compliance.
-- Summarize the layout and README updates, experiment-record locations and remaining reproduction gaps, preserved exceptions, local checkpoint commits, checks run, and any unresolved path consumers or uncommitted changes, keeping structural checks, code execution, and scientific validation distinct.
+- Summarize the layout and README updates, experiment-record locations and remaining reproduction gaps, preserved exceptions, local checkpoint commits, checks run, and any unresolved path consumers or uncommitted changes, keeping structural checks, code execution, and verification or physical validation of results distinct.

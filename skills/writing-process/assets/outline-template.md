@@ -8,7 +8,7 @@
 - Last updated:
 - Related working narrative: `story_arc.md` / not supplied
 - Source files and results inspected:
-- Argument ownership: user-authored / user-confirmed / missing
+- Argument authorship: user-authored / user-confirmed / missing
 - User confirmation date:
 - Working title: USER INPUT REQUIRED
 - Confirmed question and central contribution: USER INPUT REQUIRED

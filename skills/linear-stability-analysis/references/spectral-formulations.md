@@ -13,7 +13,7 @@ Use this reference when $A(k)\mathbf{q}=s\mathbf{q}$ is insufficient, or when bo
 - [Numerical branches and residuals](#numerical-branches-and-residuals)
 - [Sources for specialized methods](#sources-for-specialized-methods)
 
-## Common Linear Form
+## Common linear form
 
 Around a verified stationary state $\mathbf{u}_0$, expand $\mathbf{u}(\mathbf{x},t)=\mathbf{u}_0(\mathbf{x})+\epsilon\boldsymbol{\eta}(\mathbf{x},t)$ with $0<\epsilon\ll1$. For a valid spatial mode with amplitude $\mathbf{q}$, first-order systems typically reduce to
 
@@ -45,7 +45,7 @@ $$
 
 Derive the actual supplied operator rather than copying this template; cross diffusion, coefficient gradients, field-dependent mobility, nonlocal kernels, and mixed derivatives change its form.
 
-## Boundary Conditions And Admissible Modes
+## Boundary conditions and admissible modes
 
 Derive spatial eigenfunctions directly with the problem's boundary conditions. For scalar second-order Laplacians:
 
@@ -58,7 +58,7 @@ Derive spatial eigenfunctions directly with the problem's boundary conditions. F
 
 In 2D rectangles, pair the admissible modes per coordinate. Fourth-order operators require four boundary conditions and may not match these second-order modes; irregular domains or coupled/mixed boundaries that break a shared scalar basis require discretizing the full coupled operator instead of assigning an arbitrary $k$ per field. Keep the continuous dispersion relation separate from finite-domain discrete spectra, tracking multiplicity and symmetry-related wavevectors.
 
-## Constraints And Generalized Pencils
+## Constraints and generalized pencils
 
 A singular $B$ usually indicates algebraic constraints, Lagrange multipliers, incompressibility, or static variables; never invert $B$, regularize arbitrarily, or count all solver outputs as physical growth rates:
 
@@ -70,7 +70,7 @@ A singular $B$ usually indicates algebraic constraints, Lagrange multipliers, in
 
 Verify rank and pencil regularity across the parameter regime; a pencil singular for all $s$ requires reformulation before claiming stability.
 
-## Inertial Mechanics
+## Inertial mechanics
 
 For second-order perturbation dynamics $M\ddot{\mathbf{q}}+C\dot{\mathbf{q}}+K(\mathbf{k})\mathbf{q}=0$, keep the quadratic pencil
 
@@ -80,13 +80,13 @@ $$
 
 in derivations and analytical results. Any first-order companion linearization is purely numerical: state its construction, verify signs and dimensions, and check computed pairs with $\|P(s)\mathbf{q}\|$ alongside the companion residual. Singular mass matrices $M$ require constraint reduction before companion linearization. Identify rigid-body or gauge zero modes and analyze stability modulo those symmetries or qualify the verdict explicitly.
 
-## Curvature And Higher Spatial Derivatives
+## Curvature and higher spatial derivatives
 
 Declare normal orientation, signed-curvature sign, mean-curvature normalization, and displacement direction before varying geometric laws on the stated reference surface (never copy flat Monge-gauge formulas onto curved base surfaces). Flat constant-coefficient bending typically produces $k^4$ terms whose sign follows the supplied energy, force, mobility, and curvature conventions. Curved surfaces require covariant operators, their eigenfunctions, and curvature-induced lower-order or tangential couplings.
 
 When the base state is nonuniform, Fourier modes couple: linearize in physical space, apply a verified spectral, finite-element, or finite-difference discretization, show refinement convergence, separate matrix eigenvalues from the continuum spectrum, and plot converged eigenvalues by mode index or in the complex plane without inventing a wavevector axis.
 
-## Classification And Thresholds
+## Classification and thresholds
 
 For each finite-dimensional modal problem under $\exp(st)$, classify finite physical eigenvalues as: unstable if any physical eigenvalue has $\operatorname{Re}s>0$; asymptotically decaying if all satisfy $\operatorname{Re}s<0$; marginal or neutral only after accounting for every $\operatorname{Re}s=0$ mode with none positive; and algebraically growing if a $\operatorname{Re}s=0$ eigenvalue is defective (Jordan chain gives polynomial growth).
 
@@ -94,7 +94,7 @@ Note whether conservation or symmetry forces a $k=0$ zero mode while nonzero mod
 
 Locate stationary onset via $s=0$ only on real critical branches, and oscillatory onset via $s=i\omega$ ($\omega\ne0$) on real and imaginary parts; check transversality or flag degenerate onset. Where dominant branches swap, bracket thresholds using $\max_j\operatorname{Re}s_j$ while retaining branch identities instead of taking coarse sign-change steps.
 
-## Numerical Branches And Residuals
+## Numerical branches and residuals
 
 Compile numerical matrices from verified SymPy expressions via `sympy.lambdify` without retyping a separate model, solving ordinary eigenproblems with `scipy.linalg.eig` or `eigvals` and generalized problems $A\mathbf{q}=sB\mathbf{q}$ with a generalized solver after verifying pencil regularity, homogeneous pairs $(\alpha,\beta)$ for singular $B$, or constraint reduction. Evaluate all branches over the continuous wavenumber range and separately at discrete finite-domain modes (including or explaining $k=0$), or compute an indexed eigenspectrum and refinement series from a verified discretized operator without inventing $k$, storing complex eigenvalues, right eigenvectors, branch IDs, admissibility, tolerances, and package versions per mode or $\mathbf{k}$. If conditioning requires scaling, record the transform and map eigenvectors back to physical variables. Track branches across neighboring points via normalized eigenvalue distance combined with eigenvector overlap (never solver return order), and follow invariant subspaces across exact degeneracies while checking symmetry-related 2D directions independently.
 
@@ -108,7 +108,7 @@ with declared small $\delta$ (adapting numerator and denominator consistently fo
 
 Compare analytical and numerical results at interior points, both sides of thresholds, extrema, crossings, $k=0$, and justified large-$k$ limits within the model's physical validity range. Unresolved growth at the sampled edge remains unresolved without asymptotic analysis; proven unbounded growth as $|\mathbf{k}|\to\infty$ flags possible continuum ill-posedness (numerical grid cutoffs never supply physical wavelength selection).
 
-## Sources For Specialized Methods
+## Sources for specialized methods
 
 Cite only sources whose methods are used in the report:
 

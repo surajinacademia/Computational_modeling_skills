@@ -6,7 +6,8 @@ license: MIT
 
 # HPC Slurm
 
-Use this workflow for single HPC jobs, independent sweeps, and requests for more nodes. Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
+- Use this workflow for single HPC jobs, independent sweeps, and requests for more nodes.
+- Resolve site details from the project and cluster; never invent an account, partition, host, or storage path.
 
 ## Execution and authorization
 
@@ -58,4 +59,4 @@ Use this workflow for single HPC jobs, independent sweeps, and requests for more
 
 ## Sources and licensing
 
-Packaged under the [MIT license](LICENSE) using native Slurm with no bundled scheduler or third-party runtime. Consult installed manuals and official [resource limits](https://slurm.schedmd.com/resource_limits.html), [job arrays](https://slurm.schedmd.com/job_array.html), [sbatch](https://slurm.schedmd.com/sbatch.html), and [sacct](https://slurm.schedmd.com/sacct.html) docs (not affiliated with or endorsed by SchedMD).
+- Packaged under the [MIT license](LICENSE) using native Slurm with no bundled scheduler or third-party runtime. Consult installed manuals and official [resource limits](https://slurm.schedmd.com/resource_limits.html), [job arrays](https://slurm.schedmd.com/job_array.html), [sbatch](https://slurm.schedmd.com/sbatch.html), and [sacct](https://slurm.schedmd.com/sacct.html) docs (not affiliated with or endorsed by SchedMD).

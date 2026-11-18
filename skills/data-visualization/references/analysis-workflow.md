@@ -13,11 +13,11 @@ Read this reference before creating or changing an analysis-to-plot path. For ap
 - [Limit Abstraction](#limit-abstraction)
 - [Verify Proportionally](#verify-proportionally)
 
-## Establish the Scientific Target
+## Establish the scientific target
 
 Recover from the request, code, and data before editing: the observable; the scientific unit (cell, particle, trajectory, biological replicate, or simulation run); the requested comparison or grouping; and the time and spatial domain. Do not build a separate specification, filter ledger, or set of checking rules for these facts; ask only when ambiguity changes the scientific result and the repository leaves it open.
 
-## Use a Direct Analysis Path
+## Use a direct analysis path
 
 Follow this structure in the project's existing language (bundled Python templates are examples only):
 
@@ -32,17 +32,17 @@ save or return the figure
 
 Keep this path visible in one script, function, or short notebook sequence, combining trivial stages when clearer. Use tabular operations for tables and arrays or domain objects for trajectories, fields, and images unless a table serves a clear scientific purpose. Reuse domain-library operations for observables or selections instead of reimplementing them.
 
-## Handle Pandas Tables by Row Representation
+## Handle Pandas tables by row representation
 
 Identify what one input row represents (the row representation), the named row key unit, the independent experimental unit ($n$), and the target row representation before each aggregation, without inventing an expected column structure object when grouping columns already state the key. Before editing any dataframe path, read [pandas-data-handling.md](pandas-data-handling.md) to separate row key units from biological replicates ($n$) and govern concatenation identity, aggregation weighting, keyed joins, alignment, missingness, duplicate keys, reshaping, and plot-ready tables.
 
-## Keep Only Scientific Selections
+## Keep only scientific selections
 
 Default to no ad hoc exclusions; keep a filter only when it defines the observable, sets the requested comparison or protocol domain, enforces a documented run-quality or validity criterion, removes a documented invalid sentinel, or satisfies a mathematical precondition. Preserve the requested scientific definition instead of undocumented legacy filters, and show any changed values rather than claiming equivalence if removing one.
 
 Place each selection next to the calculation it affects with a concise name or comment if non-obvious. Never drop points because a plot looks noisy or apply automatic quantile, IQR, z-score, smoothing, or missing-value filters as precautions. When an exclusion drops records from the requested population, print one before/after count at the affected scientific unit (stratifying only when differential removal could bias the comparison) without counting normal groups or domains as exclusions or building a filter-report object.
 
-## Preserve Scientific Identity
+## Preserve scientific identity
 
 - Select and group tabular rows by named identifiers rather than row positions; use direct array or trajectory indices when position carries physical or temporal meaning without adding redundant ID layers.
 - Evaluate fixed observable membership once and recompute state-dependent membership at each frame or time step.
@@ -51,24 +51,24 @@ Place each selection next to the calculation it affects with a concise name or c
 - Use one shared validity mask or keyed join for paired calculations, and observable-specific validity masks with retained IDs and counts for independent summaries.
 - Check only boundary units, denominators, keys, shapes, or coordinates whose mismatch changes results, failing visibly instead of catching broad exceptions or substituting values.
 
-## Separate Analysis from Display
+## Separate analysis from display
 
 Compute observables and summary statistics from all scientifically selected data. Keep sampling, smoothing, interpolation, or clipping inside the analysis only when it defines the observable or aligns measurements with a stated scientific reason. Apply display-only arrow thinning, decimation, rasterization, or clipping (preferring regular group-preserving spatial thinning) after reported values are complete, never selecting points by result value by default or feeding display subsets back into reported statistics. When legibility requires magnitude thresholds or local maxima, show the full field, disclose the rule near the plot, and keep display sampling minimally reproducible without a general sampling subsystem.
 
-## Limit Abstraction
+## Limit abstraction
 
 - Prefer direct plotting and library calls for one plot or small related sets, keeping helpers only for reuse, non-trivial calculations, or clear test boundaries.
 - Never introduce classes, registries, expected column structure objects, callback systems, strategy/plugin layers, generic filtering steps, thin helper functions around dataframes or plots without scientific meaning, or redundant checks of an already verified expected input structure.
 - Stop simplifying before removing observable definitions, scientific units, comparisons, domains, or data identity.
 
-## Verify Proportionally
+## Verify proportionally
 
 Choose only checks matching the edit, keeping diagnostic comparisons outside the final path unless guarding a required input boundary:
 
 - Population-changing exclusion: compare affected scientific-unit counts.
-- Refactor or simplification: compare representative values and keyed plot inputs within justified floating-point tolerance.
+- Code simplification: compare representative values and keyed plot inputs within justified floating-point tolerance.
 - Aggregation edit: compare experimental-unit (replicate or run) counts and named weighting.
 - New plot without baseline: inspect representative values and final plot inputs without inventing equivalence tests.
 - Run the smallest relevant existing test or render when execution is in scope.
 
-Follow the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria) for changed figures without generating separate review reports or rebuilding unrelated gallery examples; code-only simplifications require numerical checks rather than redesigns. Never claim unrun checks passed. Before finishing, confirm the reader can trace load to plot in one pass, every selection has a scientific basis, and display-only steps sit outside the analysis path. Consult [repository-patterns.md](repository-patterns.md) only when current code leaves competing structures unresolved.
+Follow the [completion and verification criteria](../SKILL.md#completion-checks-and-stopping-condition) for changed figures without generating separate review reports or rebuilding unrelated gallery examples; code-only simplifications require numerical checks rather than redesigns. Never claim unrun checks passed. Before finishing, confirm the reader can trace load to plot in one pass, every selection has a scientific basis, and display-only steps sit outside the analysis path. Consult [repository-patterns.md](repository-patterns.md) only when current code leaves competing structures unresolved.

@@ -10,7 +10,7 @@
 - [Writing and verification](#writing-and-verification)
 - [Writing-format resources](#writing-format-resources)
 
-## Fixed Skeleton
+## Fixed skeleton
 
 - Keep these required headings literally, including numbering, capitalization, and order. Add descriptive fourth-level headings inside required subsections when distinct mechanisms (such as cell motion, chemical steering, or bond turnover) need separate explanations. Use connected paragraphs for reasoning, lists for parallel or sequential items, keep inapplicable sections with a reason, and mark proposed or unknown details explicitly.
 
@@ -58,7 +58,7 @@ Model version control name:
 ### 7.3. References
 ```
 
-## Title And Source
+## Title and source
 
 - Use only the scientific model name (such as `Active Gel Contact Formation Model` or `Chemotactic Model`), without administrative prefixes like `Canonical Model Documentation` or `Model Documentation`.
 
@@ -80,7 +80,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 - Every model document (including unimplemented models) must place the literal field `Model version control name:` after `Implementation:` and before Section 1. Populate it only by copying an explicitly recorded model version or release name that applies to the documented model, citing its source in Section 7.1. Never invent a name or substitute a Git branch, commit ID, or plugin version; if none applies, leave the value literally blank rather than writing `unknown` or `N/A`. Keep the separate Section 7.1 revision, file changes not yet recorded in Git, and content-hash record in either case.
 
-## Section Guidance
+## Section guidance
 
 ### 1. Purpose, Questions, and Hypothesis
 
@@ -88,7 +88,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 - Record the agreed model type, reason for choosing it, needed and deliberately excluded work from brainstorming, intended user outcome, document deliverable, and completion criteria. Reuse the coordinating workflow's agreement; do not invent a mechanism for an effective model or a quantitative claim for an illustrative toy model.
 
-- Scientific validation requires independent physical observations or experimental targets appropriate to the claim; mathematical benchmarks verify calculations without validating biological assumptions. When physical evidence is absent, state so and specify the needed tests in Section 6.4.
+- Physical validation requires independent physical observations or experimental targets appropriate to the claim; mathematical benchmarks verify calculations without validating biological assumptions. When physical evidence is absent, state so and specify the needed tests in Section 6.4.
 
 ### 2. Mechanism and Assumptions
 
@@ -162,7 +162,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 - Agree on relevant scientific tests and acceptance criteria during planning, connecting each to the model question or calculation validity (software unit tests alone do not establish scientific adequacy). Separate these categories (lists for independent checks, prose for rationale):
 
-- **Numerical verification:** check that equations are solved accurately via error norms, analytic or manufactured references, dimensions, limiting cases, conservation or dissipation, stability, discretization convergence, and stochastic statistics (stability alone does not guarantee accuracy).
+- **Code and solution verification:** check that the implementation solves the intended equations and that equations are solved accurately via error norms, analytic or manufactured references, dimensions, limiting cases, conservation or dissipation, stability, discretization convergence, and stochastic statistics (stability alone does not guarantee accuracy).
 - **Sensitivity:** evaluate how uncertain physical parameters, assumptions, or numerical choices affect observables, separating stable conclusions from numerical artifacts.
 - **Physical validation and hypothesis tests:** identify independent empirical evidence and comparisons or interventions that support, weaken, or discriminate the hypothesis from alternatives and confounders (source agreement, recurrence checks, and convergence cannot establish physical validity).
 
@@ -212,7 +212,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 - List only cited sources with stable links or identifiers, and cite them inline beside the assumptions, equations, and values they support. Prefer primary papers, textbook derivations, and official numerical-method docs; presentation examples such as VisualPDE and HyperPhysics do not by themselves test or justify a model's assumptions or parameter values.
 
-## Writing And Verification
+## Writing and verification
 
 - Follow [style-and-review.md](style-and-review.md) and the skill's writing invariants: connected prose for physical explanations, lists for parallel or sequential items, equations with nearby physical interpretation, one source line per paragraph or list item's paragraph, `$...$` inline math, and `$$...$$` display math.
 
@@ -220,7 +220,7 @@ Implementation: Not implemented; source: user-approved plan in this conversation
 
 - Verify completed drafts via separate verification and scientific critical-review subagents: the verification reviewer checks literal headings, order, header links, the recorded source for `Model version control name:`, Section 3 tables, fourth-level headings, Section 7.2 MIASE responses (1A–3B), physics-vs-numerics separation, definitions, units, citations, equation-code fidelity, and standalone readability; the scientific critic checks physical reasoning, evidence strength, and whether intuitive prose matches the equations. Fix findings within declared scope, have both reviewers assess the same final version, and report remaining limitations in the conversation without creating separate review files. Stop when the agreed document outcome and required reviews are satisfied; missing mandatory evidence remains an explicit gap.
 
-## Writing-Format Resources
+## Writing-format resources
 
 - Consult these references for explanatory pacing and equation presentation (not as automatic evidence for model assumptions or parameters), keeping the fixed headings above:
 

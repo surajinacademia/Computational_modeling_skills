@@ -1,57 +1,71 @@
 ---
 name: claim-review
-description: Critically review and critique a researcher's scientific claims against their actual results, calculations, simulations, figures, and controls so claims are rigorous and bounded in scope. Optionally revise overstated claims or organize reviewed claims into a working story arc or paragraph-level outline when requested. Do not ghostwrite full manuscripts, invent evidence, or infer novelty or significance without domain literature.
+description: Critically review and critique scientific claims against their actual results, calculations, simulations, figures, controls, and literature so claims are rigorous and bounded in scope. Use to review a researcher's own claims, review a published paper or preprint, or organize reviewed claims into a working story arc. Do not ghostwrite manuscripts, build paragraph-level outlines, invent evidence, or infer novelty or significance without domain literature.
 ---
 
 # Claim Review
 
-Critique and scope a researcher's scientific claims against their actual results, derivations, simulations, figures, and controls so every claim matches the strength of its evidence, without predicting journal acceptance or citation impact.
+- Test whether each scientific claim is supported by the results, methods, and literature behind it, so every claim matches the strength of its evidence.
+- Treat every claim as `untested` until the result that supports it has been located and inspected.
+- Do not predict journal acceptance or citation impact, and do not draft manuscript prose.
 
-## Choose the Mode
+## Choose the mode
 
-State upfront whether you are conducting a read-only claim review (default), revising claims of a published paper or organizing reviewed claims into an outline:
+- State the mode upfront. Modes 1 and 2 are read-only unless the user authorizes an edit.
+  - **1. Review my claims (default):** test the researcher's claims, figure titles, `story_arc.md`, `outline.md`, or draft against the project's own figures, calculations, simulations, notebooks, measurements, and the literature already in the project. **If the user authorizes it:** narrow overstated claims in the named file, adding explicit scope and nonclaims and recording discarded alternatives.
+  - **2. Review a paper:** test whether a published paper's or preprint's claims are supported by the results it presents, and list what the authors did not check or control.
+  - **3. Build the story arc:** after a mode 1 review, or when explicitly requested, arrange reviewed claims into `story_arc.md` ([story-arc-template.md](assets/story-arc-template.md)), keeping planned work distinct from completed results.
+- **Hand on, do not absorb:** the paragraph-level `outline.md` and manuscript prose belong to `writing-process`; essential gaps that need a new calculation, control, or run go to the modeling or analysis work (`computational-modeling` for models); a gap that changes the research question goes back to the researcher as a scope decision.
 
-- **Critique claims against results (primary, read-only default):** Evaluate a draft, preprint, published paper, its data, `story_arc.md`, or `outline.md` against the underlying figures, calculations, simulations, notebooks, tables, and measurements using [claim-review-audit-template.md](assets/claim-review-audit-template.md), modifying zero project files unless the user explicitly asks to save `claim-review-audit.md`.
-- **Revise and scope claims (optional, after review):** Narrow overstated figure titles, abstract or discussion claims, or outline points in a user-authorized file to match verified evidence, adding explicit regime bounds and nonclaims while recording discarded alternatives.
-- **Organize reviewed claims into `story_arc.md` or `outline.md` (optional secondary mode):** After reviewing claims against results—or when explicitly requested—build or update a working narrative (`story_arc.md`, [story-arc-template.md](assets/story-arc-template.md)) or paragraph-level outline (`outline.md`, [outline-template.md](assets/outline-template.md)), keeping planned runs or experiments distinct from completed results and handing staged prose drafting off to `writing-process`.
+## Read only what the mode needs
 
-## Reference Guides
+- **Always:** [scientific-rigor.md](references/scientific-rigor.md) for the `L0–L7` claim-support ladder, claim-status labels, alternative explanations, calibration versus independent validation evidence, robustness, reproducibility, and hard red flags.
+- **When subagents will run:** [multi-agent-audit.md](references/multi-agent-audit.md) for review roles, neutral briefings, specialist passes, and synthesis. In a single-agent review, run the checks below in order and label the result `self-review`.
+- **When paper or `story_arc.md` structure is under review:** [ten-rules-whitesides.md](references/ten-rules-whitesides.md) for Mensh and Kording's rules `R1–R10` and Whitesides's outline discipline.
+- **When comparing discriminating control designs:** [biophysics-exemplars.md](references/biophysics-exemplars.md).
+- **In mode 3:** [workflow-and-templates.md](references/workflow-and-templates.md) for building and revising `story_arc.md`.
+- **When the user asks to save the review:** fill [claim-review-audit-template.md](assets/claim-review-audit-template.md) as `claim-review-audit.md`; otherwise report findings in the conversation in the format under "Report and stop".
 
-- **Before any review or scoping task:** read [scientific-rigor.md](references/scientific-rigor.md) for the `L0–L7` claim-support ladder (`L0` observation, `L1` association or difference, `L2` predictive relation, `L3` mechanistic consistency, `L4` sufficiency, `L5` necessity, `L6` causal mechanism, and `L7` generality), claim-status labels, competing explanations, held-out versus fitted evidence, and hard red flags.
-- **Before running a full critical review:** read [multi-agent-audit.md](references/multi-agent-audit.md) for pre-draft versus written-paper review roles, neutral reviewer briefings, independent scientific-integrity, domain-grounding, and structural passes, and sequential fallback.
-- **Before assessing paper or outline structure:** read [ten-rules-whitesides.md](references/ten-rules-whitesides.md) for Mensh and Kording's ten structural rules (`R1–R10`) and George M. Whitesides's data-and-equation outline discipline, and consult [biophysics-exemplars.md](references/biophysics-exemplars.md) when comparing discriminating control designs across theory, simulation, and experiment.
-- **Before building or revising `story_arc.md` or `outline.md`:** read [workflow-and-templates.md](references/workflow-and-templates.md) for working-narrative versus paragraph-outline scope, brief discussion rounds, and revision checks.
+## 1. Map every claim to inspected results and provenance
 
-## How to Critique and Scope Claims Against Results
-
-### 1. Map Every Claim to Inspected Results and Provenance
-
-- Inspect supplied claims alongside existing project files (`outline.md`, `story_arc.md`, `literature_review.md`, primary references, figures, captions, notebooks, derivations, simulation summaries, and manuscript files) before asking the researcher to repeat available context.
+- Inspect supplied claims alongside existing project files (`story_arc.md`, `outline.md`, `literature_review.md`, primary references, figures, captions, notebooks, derivations, simulation summaries, and manuscript files) before asking the researcher to repeat available context.
 - Account for all relevant outcomes—positive, null, negative, contradictory, preliminary, and planned—and label each piece of evidence `author-reported`, `directly observed in supplied files`, or `independently verified`.
-- Separate evidence used to formulate, calibrate, or fit a model or hypothesis from held-out or independent predictions (`new condition`, `new observable`, `new regime`, or `independent replicate`).
-- When reviewing a standalone manuscript without raw data or code, evaluate what the paper itself reports, state that raw provenance was `not independently verified`, and distinguish `not reported in the paper`, `reported but insufficient`, and `cannot assess without source files`.
+- Separate evidence used to formulate, calibrate, or fit a model or hypothesis from independent or held-out validation evidence (`new condition`, `new observable`, `new regime`, or `independent replicate`).
+- **In mode 2, or without raw data or code:** evaluate what the paper itself reports, state that raw provenance was `not independently verified`, and distinguish `not reported in the paper`, `reported but insufficient`, and `cannot assess without source files`.
 
-### 2. Calibrate Claim Strength, Scope, and Explicit Nonclaims
+## 2. Check methods, internal consistency, and terminology
+
+- **Computed results:** a claim that rests on a simulation or numerical calculation must cite its code verification and solution verification; without them, cap its status at `suggestive`. A claim about the physical or biological system also needs physical validation against independent observations.
+- **Internal consistency:** cross-check central numbers, units, sample counts ($n$), and conditions between text, figures, captions, tables, and methods; check that one quantity keeps one symbol and one name. **When data or code are available:** recompute at least one central number from them.
+- **Methodology:** check that the method can answer the question as posed: controls, experimental unit and replication, statistics appropriate to the dependence structure, and parameter identifiability for fitted models.
+- **Terminology:** check that terms, quantities, and mechanism names match established usage in the supplied literature and the project glossary, and flag a term used in two senses.
+
+## 3. Calibrate claim strength, scope, and explicit nonclaims
 
 - Place each headline, figure-title, and paragraph-level claim at the highest rung actually justified on `L0–L7` and assign one status: `demonstrated within scope`, `supported`, `consistent with`, `suggestive`, `untested`, or `contradicted`.
 - Enforce strict scoping boundaries: mechanistic sufficiency in a mathematical or computational model (`L4`) never establishes biological necessity (`L5`) or uniqueness (`a mechanism`, not `the mechanism`), and a strong result in one cell type, parameter regime, or geometry never establishes generality (`L7`) without cross-regime evidence.
 - Pair every narrowed or bounded claim with its explicit scope (`for this parameter range, geometry, or experimental system`) and explicit nonclaims (`therefore we do not claim...`).
 
-### 3. Stress-Test Against Competing Explanations and Controls
+## 4. Stress-test against alternatives, controls, and literature
 
 - Formulate the strongest competing physical, biological, numerical, or experimental explanations for each central result—including discretization or convergence error, parameter non-identifiability, model flexibility, selection or batch effects, pseudoreplication, and imaging or measurement artifacts.
-- Classify each unresolved evidence or control gap by its impact on claim validity as `essential` (blocks or invalidates the claim as written), `strengthening` (improves discrimination, robustness, or precision), or `optional` (useful extension not required for the bounded claim), and pair each gap with its concrete resolution (`new control or check`, `narrow claim`, `reframe`, `remove`, or `disclose`).
-- Stop narrative polishing or figure reordering whenever a hard red flag or unresolved contradiction undermines a central claim; state the conflict directly and specify the calculation, control, or narrower claim required to resolve it.
+- For each central claim, name the strongest supplied prior result that disagrees with it, or state that none was found in the supplied literature.
+- Classify each unresolved gap as `essential` (blocks or invalidates the claim as written), `strengthening` (improves discrimination, robustness, or precision), or `optional` (not required for the bounded claim), and pair each gap with the cheapest decisive resolution (`new control or check`, `narrow claim`, `reframe`, `remove`, or `disclose`).
+- Stop narrative work whenever a hard red flag or unresolved contradiction undermines a central claim; state the conflict directly and specify the calculation, control, or narrower claim required to resolve it.
 
-### 4. Ground Domain Context, Ownership, and Argument Structure
+## 5. Ground domain context and authorship
 
 - Keep published domain literature distinct from the study's own results: supplied primary papers or `literature_review.md` establish baseline knowledge, standard terminology, and competing hypotheses, whereas only the study's own calculations, simulations, or experiments support its empirical or theoretical claims.
-- Never guess novelty, field consensus, or citations from memory; mark uninspected citations `author-cited, not source-verified` and leave missing literature or unconfirmed author choices marked `USER INPUT REQUIRED` or `UNKNOWN` (use `lets-be-clear` when an unresolved scope choice blocks the review or revision).
-- Treat the scientific question, physical or biological hypothesis, and central argument as the researcher's own—test and bound them rather than inventing a replacement storyline from results alone—and withhold a pre-draft readiness verdict (`ready to draft`, `ready only with bounded claims`, or `not ready to draft`) unless a confirmed argument, substantive completed results, and domain literature are all present (otherwise state `pre-draft review not started`).
-- Score Mensh and Kording's rules `R1–R10` individually (`3` strong, `2` partial, `1` weak, `0` absent/contradicted, `NA` not assessable) at the document's stage without collapsing them into a single total score.
+- Never guess novelty, field consensus, or citations from memory; mark uninspected citations `author-cited, not source-verified` and leave missing literature or unconfirmed author choices marked `USER INPUT REQUIRED` or `UNKNOWN` (use `lets-be-clear` when an unresolved scope choice blocks the review).
+- Treat the scientific question, hypothesis, and central argument as the researcher's own: test and bound them rather than inventing a replacement storyline from results alone.
+- **Before drafting starts:** withhold a readiness verdict (`ready to draft`, `ready only with bounded claims`, or `not ready to draft`) unless a confirmed argument, substantive completed results, and domain literature are all present; otherwise state `pre-draft review not started`.
+- **When structure is reviewed:** score Mensh and Kording's rules `R1–R10` individually (`3` strong, `2` partial, `1` weak, `0` absent/contradicted, `NA` not assessable) without collapsing them into a single total.
 
-## Final Checks and Attribution
+## Report and stop
 
-- **Read-only review check:** Confirm that zero project files were modified (saving `claim-review-audit.md` only when explicitly requested), state the review role, evidence boundary, literature boundary, argument ownership, and any sequential-review limitation upfront, and tie every substantive critique to its exact passage, figure, or file reference, `L0–L7` mismatch, priority, scientific consequence, and concrete scoping or evidence fix.
-- **Secondary revision or outline check:** Confirm that only the user-authorized file (`story_arc.md`, `outline.md`, or editable draft) was created or updated, existing author text was preserved, every claim matches its verified `L0–L7` level and scope bounds, negative or contradictory results and discarded storylines remain visible, and `USER INPUT REQUIRED` / `UNKNOWN` markers stay intact where unresolved.
-- Credit Brett Mensh and Konrad Kording (2017) and George M. Whitesides (2004) when explaining structural or outlining principles, paraphrasing rather than quoting at length.
+- **Report order:** claim-invalidating findings and hard red flags first, then essential gaps, then strengthening items; list at most three optional items, and do not pad the report with praise.
+- **Each finding states:** the exact passage, figure, or file; the claim; the evidence problem and `L0–L7` mismatch; its priority; the scientific consequence; and the concrete scoping or evidence fix.
+- **Modes 1 and 2:** confirm that no project file was modified (except an authorized claim edit or a requested `claim-review-audit.md`), and state the review role, evidence boundary, literature boundary, argument authorship, and any self-review limitation upfront.
+- **Mode 3:** confirm that only `story_arc.md` was created or updated, existing author text was preserved, every claim matches its reviewed `L0–L7` level and scope, negative or contradictory results and discarded storylines remain visible, and `USER INPUT REQUIRED` / `UNKNOWN` markers stay where unresolved.
+- Once the review or the one authorized edit is delivered with these checks, stop without drafting manuscript prose or starting further analyses.
+- Credit Brett Mensh and Konrad Kording (2017) and George M. Whitesides (2004) when explaining structural principles, paraphrasing rather than quoting at length.

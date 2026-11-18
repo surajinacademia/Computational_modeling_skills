@@ -26,5 +26,5 @@ Compile trusted or generated TeX with `scripts/render_tikz.py`, which produces t
 - The PDF has a valid header, opens cleanly, and matches the intended physical page size.
 - The SVG is valid XML/SVG with visible vector geometry and no live text or font declarations.
 - The SVG contains no scripts, DTDs, entity declarations, stylesheet imports, or external file references.
-- Any `<image>` is an intentional scientific raster layer, never rasterized labels or a full-page raster. One documented exception applies to the owner-requested Standard Model specimen: 18 embedded blur-shadow opacity masks tracked by manifest hashes, where tests verify every image reference sits inside a mask and all diagram content stays vector.
+- Any `<image>` is an intentional scientific raster layer, never rasterized labels or a full-page raster. One documented exception applies to the maintainer-requested Standard Model specimen: 18 embedded blur-shadow opacity masks tracked by manifest hashes, where tests verify every image reference sits inside a mask and all diagram content stays vector.
 - Reopen both final files at intended size to verify clipping, legibility, and non-color distinctions.

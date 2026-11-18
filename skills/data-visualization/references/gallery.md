@@ -20,4 +20,4 @@ python assets/examples/distribution/source.py --output /private/tmp/distribution
 python scripts/build_gallery.py --output-dir /private/tmp/data-vis-gallery-review
 ```
 
-Inspect standalone PDFs and the overview per the [completion and verification criteria](../SKILL.md#completion-and-verification-criteria).
+Inspect standalone PDFs and the overview per the [completion and verification criteria](../SKILL.md#completion-checks-and-stopping-condition).
