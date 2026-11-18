@@ -3,19 +3,19 @@ name: schematic-designer
 description: >
   Generate or reconstruct scientifically faithful figures from specifications,
   equations, data, or image references. Use for composite publication design,
-  scientific schematics, image reconstruction, or exact PDF and outlined-SVG
-  export requirements. Do not use for an ordinary exploratory, diagnostic,
+  scientific schematics, image reconstruction, or exact vector PDF export
+  (with an outlined SVG only on request). Do not use for an ordinary exploratory, diagnostic,
   comparative, or single scientific data plot; data-visualization handles those plots.
 ---
 
 # Schematic Designer
 
 - Create a scientifically faithful figure with editable source, a named renderer, and a named aesthetic profile.
-- Export two figure files: one final PDF plus one outlined-text SVG.
+- Export one final PDF. Add an outlined-text SVG only when the user asks for one or names a destination that needs it (for example a web page or a Markdown preview).
 
 ## Scope and scientific fidelity
 
-- Use Matplotlib, TikZ, or their hybrid; use [data-visualization](../data-visualization/SKILL.md) for ordinary exploratory, diagnostic, comparative, or single scientific data plots unless the request involves composite multi-panel layout, bespoke vector schematic illustration, image reconstruction, or this skill's outlined-SVG export pair.
+- Use Matplotlib, TikZ, or their hybrid; use [data-visualization](../data-visualization/SKILL.md) for ordinary exploratory, diagnostic, comparative, or single scientific data plots unless the request involves composite multi-panel layout, bespoke vector schematic illustration, image reconstruction, or this skill's exact vector export.
 - Preserve equations, parameters, data, symbols, signs, subscripts, operator precedence, units, labels, topology, scales, and physical meaning across every panel.
 - Treat geometry, fields, angles, arrows, and scale bars as scientific statements: compute quantitative panels from data rather than tracing raster curves by eye, retain editable `.py` or `.tex` provenance, mark illustrative or non-scale geometry explicitly, and disclose unreadable source text or unresolved ambiguities.
 - Read each borrowed example's adjacent `ATTRIBUTION.md` and license before adapting it, carrying creator and source credit, change notices, and ShareAlike or NonCommercial terms (which override the package's MIT license) in both editable source and shared captions; a public URL alone never grants redistribution permission.
@@ -33,8 +33,8 @@ description: >
 
 | Renderer | Maintained source | Build |
 |---|---|---|
-| TikZ | Edit `.tex` and project `.sty` directly with TeX commands. | Compile with LuaLaTeX via `scripts/render_tikz.py`, then convert the PDF to outlined SVG. |
-| Matplotlib | Edit `.py` directly, keeping computed geometry, artists, and LaTeX labels in source. | Run the figure's `.py` script with PGF/LuaLaTeX and the vector-pair helper. |
+| TikZ | Edit `.tex` and project `.sty` directly with TeX commands. | Compile with LuaLaTeX via `scripts/render_tikz.py`, which writes the PDF; pass `--svg` only for a requested outlined SVG. |
+| Matplotlib | Edit `.py` directly, keeping computed geometry, artists, and LaTeX labels in source. | Run the figure's `.py` script with PGF/LuaLaTeX and the vector-export helper (`save_vector_pdf`; `save_vector_pair` only for a requested SVG). |
 | Hybrid | Edit `.py` for computed panels and `.tex` for composition, labels, and TikZ overlays. | Rebuild computed panels and compile the compositor via `scripts/render_tikz.py`. |
 
 - Existing Python build scripts, vector-export helpers, `minimalist_profile.py`, and example builders remain valid build commands, never permission to rewrite authored `.tex` files from Python.
@@ -42,7 +42,7 @@ description: >
 ## Confirm the brief, choose the renderer, and build
 
 - Before authoring or rendering, apply [lets-be-clear](../lets-be-clear/SKILL.md) to confirm the figure brief; read the request and the existing sources first so the brief states discoverable facts instead of asking for them, and modify nothing until the brief is confirmed.
-- Restate the scientific message, sources, panel scope, constraints, and editable source plus exported PDF/SVG figure files; surface consequential ambiguities without inventing requirements, and wait for confirmation.
+- Restate the scientific message, sources, panel scope, constraints, and editable source plus the exported PDF (and SVG if requested); surface consequential ambiguities without inventing requirements, and wait for confirmation.
 - End any brief-confirmation pause with one direct `?` question that asks to confirm or approve the figure brief, such as "Do you approve the figure brief to proceed?"
 - Reuse a matching brief already confirmed in this session (or a same-reply authorized correction) and continue here once confirmed; `lets-be-clear` handles only the brief.
 - Seek renewed confirmation only for a material scope or renderer change, never for routine layout adjustments.
@@ -55,8 +55,8 @@ description: >
 2. Read [renderer-workflows.md](references/renderer-workflows.md), check required TeX/font dependencies, and keep the requested or existing renderer—or choose Matplotlib for computed quantitative panels, TikZ for discrete geometry, nodes, and equations, or hybrid for computed panels composed in TeX.
 3. Apply the user or journal style first, then project style, then Minimalist; choose final physical dimensions and visual roles first, arrange entities and relationships before fine coordinate tuning, and keep physical constants and coordinates explicit in editable source.
 4. Select a transferable construction from [design lessons](references/tutorials.md#choose-the-relevant-lesson), read its local **Design lesson** (what helps, what transfers, and where it fails), adapt it while preserving your figure's science, render through the chosen workflow, and apply [vector-export.md](references/vector-export.md).
-5. Keep maintained TeX examples in `assets/examples/tikz/` and Python examples in `assets/examples/matplotlib/`, each with its own recipe, source, and final PDF/SVG pair (splitting hybrid sources by renderer and leaving imported historical originals under `archives/`).
-6. Visually inspect both exported figure files at their intended physical size for visual hierarchy, color meaning, legibility, spacing, and geometry before delivery.
+5. Keep maintained TeX examples in `assets/examples/tikz/` and Python examples in `assets/examples/matplotlib/`, each with its own recipe, source, and final PDF/SVG pair (the library keeps both formats for every example; splitting hybrid sources by renderer and leaving imported historical originals under `archives/`).
+6. Visually inspect every exported figure file at its intended physical size for visual hierarchy, color meaning, legibility, spacing, and geometry before delivery.
 
 | Need | Read |
 |---|---|
@@ -81,6 +81,6 @@ description: >
 
 - For explanatory equations, check quantity definitions, term explanations, and leader targets against the complete expression, keeping term-identification leaders distinct from algebraic derivation arrows and physical force or flux vectors.
 - Check every label, equation, unit, arrow direction, endpoint, terminal, scale bar, and claimed data relationship, checking reading order, alignment, consistent font sizes, uppercase A/B/C panel tags (unless the user or journal specifies another convention), and zero text collisions, clipping, or ambiguous line crossings.
-- Complete the checks in [vector-export.md](references/vector-export.md) on freshly rebuilt PDF and outlined-SVG files: confirm matching entity colors, legible non-color cues, real Computer Modern LaTeX math, CMU text, native TikZ arrowheads, the correct renderer source for each panel, and zero live SVG `<text>` or font declarations.
-- Report the renderer, aesthetic profile, editable source path, exported `.pdf` and `.svg` paths, any declared illustrative geometry, and any substitution or unresolved ambiguity; never present an unchecked or ambiguous figure as complete.
-- Once the confirmed brief is met and these checks pass, deliver the source and both exported files, then stop without further restyling.
+- Complete the checks in [vector-export.md](references/vector-export.md) on the freshly rebuilt PDF, and on the outlined SVG when one was requested: confirm matching entity colors, legible non-color cues, real Computer Modern LaTeX math, CMU text, native TikZ arrowheads, the correct renderer source for each panel, and, for an SVG, zero live `<text>` or font declarations.
+- Report the renderer, aesthetic profile, editable source path, exported `.pdf` path (and `.svg` path when one was requested), any declared illustrative geometry, and any substitution or unresolved ambiguity; never present an unchecked or ambiguous figure as complete.
+- Once the confirmed brief is met and these checks pass, deliver the source and the exported file or files, then stop without further restyling.

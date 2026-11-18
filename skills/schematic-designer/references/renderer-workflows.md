@@ -51,7 +51,7 @@ Matplotlib's PGF backend typesets text with LaTeX but leaves arrow patches as Ma
 1. Pick one profile and role mapping, then regenerate each Matplotlib panel from current data at its intended final physical size.
 2. Save declared intermediate panels as vector PDFs, never PNGs.
 3. Edit the maintained `.tex` compositor directly to place panels in named TikZ nodes and attach equations, arrows, and labels in the same [annotated-equation style](typography.md#default-equation-style), term colors, and physical type sizes (keep `.py` edits limited to panel data/drawing).
-4. Declare every imported PDF and local style package to `render_tikz.py`, and build the final pair via TikZ.
+4. Declare every imported PDF and local style package to `render_tikz.py`, and build the final figure via TikZ.
 
 Generate the support `.sty` and computed panels from the same configuration per [minimalist.md](styles/minimalist.md). Never rescale imported panels in TeX (regenerate at the target size instead so type and strokes match), keep scientific aspect ratios intact, and record panel hashes or freshness checks as in `assets/examples/tikz/chemoattraction/`.
 

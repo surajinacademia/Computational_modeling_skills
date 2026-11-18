@@ -270,6 +270,27 @@ def validate_pdf(path: Path) -> None:
         _validate_pdf_stream(handle, path)
 
 
+def save_vector_pdf(
+    figure: Any,
+    approved_directory: Path,
+    basename: str,
+    **pdf_options: Any,
+) -> Path:
+    """Save the default export: one checked PDF, replaced atomically.
+
+    Use ``save_vector_pair`` instead only when an outlined SVG was requested.
+    """
+    if not basename or Path(basename).name != basename or Path(basename).suffix:
+        raise RuntimeError("Output basename must be one extension-free filename")
+
+    output_directory = prepare_output_directory(approved_directory)
+    configure_matplotlib_vector_output()
+    save_figure_atomic(figure, output_directory, f"{basename}.pdf", **pdf_options)
+    pdf_path = output_directory / f"{basename}.pdf"
+    validate_pdf(pdf_path)
+    return pdf_path
+
+
 def save_vector_pair(
     figure: Any,
     approved_directory: Path,
@@ -280,6 +301,8 @@ def save_vector_pair(
     svg_options: Mapping[str, Any] | None = None,
 ) -> tuple[Path, Path]:
     """Stage and check both formats before replacing either final file.
+
+    Use this only when an outlined SVG was requested; ``save_vector_pdf`` is the default.
 
     Each replacement is atomic; the two replacements are not one transaction.
     """

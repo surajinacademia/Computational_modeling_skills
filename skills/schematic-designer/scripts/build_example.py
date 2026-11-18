@@ -65,8 +65,9 @@ def main():
             includes.extend(panels / f"{name}.pdf" for name in
                             ("field-profile", "concentration-map", "simulation-summary", "phase-diagram"))
             basename = "chemoattraction-hybrid"
+        # The library keeps a PDF/SVG pair for every example, so request the SVG here.
         options = [source, "--engine", "lualatex", "--basename", basename,
-                   "--output-dir", output]
+                   "--output-dir", output, "--svg"]
         for path in includes:
             options.extend(["--include", path])
         run(SKILL / "scripts/render_tikz.py", *options)

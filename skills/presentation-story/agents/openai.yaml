@@ -1,0 +1,4 @@
+interface:
+  display_name: "Presentation Story"
+  short_description: "Beat sheet (talk.md) for a scientific talk"
+  default_prompt: "Use $presentation-story to write talk.md, the beat sheet of my scientific talk: question-led sequences, the talking points for each, their citations, and take-home answers."

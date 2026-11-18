@@ -12,7 +12,7 @@ Traceability and verifiability come first in this set of skills, and they also g
 
 **Build habits that make your reasoning visible.**
 
-- **“Which files produced this figure?”** Preserve original inputs and record the code revision, parameters, units, random seeds, environment, and command. Give results descriptive names like `pendulum_period_vs_amplitude.pdf` linked to their inputs. See the [project layout](../skills/research-project-setup/assets/template/README.md) and [Git workflow](../skills/research-project-setup/references/git-workflow.md), and keep your data stored and backed up.
+- **“Which files produced this figure?”** Preserve original inputs and record the code revision, parameters, units, random seeds, environment, and command. Give results descriptive names like `pendulum_period_vs_amplitude.pdf` linked to their inputs. See the [project folders](../skills/repo-rules/assets/template/README.md) and the [rules for commits](../skills/repo-rules/SKILL.md), and keep your data stored and backed up.
 - **“My notebook depends on the order I ran cells.”** Old variables can survive unnoticed. Keep parameters explicit and make the notebook runnable from a fresh kernel, top to bottom. Explain assumptions in Markdown, and use code comments to justify numerical choices. Explore the [template](../skills/jupyter-notebook/assets/notebook-template.ipynb) and [pendulum example](../skills/jupyter-notebook/examples/nonlinear-pendulum.ipynb), and review affected outputs after changing code or inputs.
 - **“The curve looks right.”** For a pendulum calculation, compare the predicted period at smaller timesteps before interpreting its amplitude dependence, and check a known case. Decide what evidence would support or challenge your claim before inspecting decisive results. Preserve disagreement and failed checks, and label later exploration honestly.
 
@@ -20,12 +20,13 @@ Folder names and notebook layouts are adaptable conventions. Preserve the reason
 
 **Find the skill for the question you have.**
 
-These fourteen skills cover the research workflow from clarifying questions and setting up a repository to analyzing microscopy images, critiquing claims against results, drafting papers in stages, running cluster sweeps, and recording session lessons. Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) (open locally in a browser) walks through the core modeling workflow step by step.
+These sixteen skills cover the research workflow from clarifying questions and setting up a repository to analyzing microscopy images, critiquing claims against results, drafting papers in stages, running cluster sweeps, and recording session lessons. Each `SKILL.md` links to supporting files, and [computational_modeling_walkthrough.html](computational_modeling_walkthrough.html) (open locally in a browser) walks through the core modeling workflow step by step.
 
 | Your question | Skill | What to learn |
 | --- | --- | --- |
 | What is my question? | [lets-be-clear](../skills/lets-be-clear/SKILL.md) | Spot holes in intent, supply facts, and make decisions precise. |
-| Where do files belong? | [research-project-setup](../skills/research-project-setup/SKILL.md) | Separate inputs, methods, results, and checks. |
+| How do we solve this hard problem? | [brainstorming](../skills/brainstorming/SKILL.md) | Ask why, separate facts from open uncertainties, and agree on a solution and its reasoning. |
+| Where do files belong? | [repo-rules](../skills/repo-rules/SKILL.md) | Separate inputs, methods, results, and checks. |
 | How do I build a model? | [computational-modeling](../skills/computational-modeling/SKILL.md) | Connect hypotheses, equations, code, and evidence. |
 | How do I explain it? | [model-documentation](../skills/model-documentation/SKILL.md) | Document physical assumptions, quantities, and methods. |
 | Can someone rerun my notebook? | [jupyter-notebook](../skills/jupyter-notebook/SKILL.md) | Keep explanations, calculations, and outputs understandable. |
@@ -36,8 +37,9 @@ These fourteen skills cover the research workflow from clarifying questions and 
 | Can I assess a paper's result? | [paper-reproduce](../skills/paper-reproduce/SKILL.md) | Trace sources, missing information, and negative findings. |
 | Do my results justify my claims? | [claim-review](../skills/claim-review/SKILL.md) | Critique and scope claims against figures, controls, and competing explanations. |
 | How do I draft or revise my paper in stages? | [writing-process](../skills/writing-process/SKILL.md) | Order ideas into paragraph outlines, draft from figure titles, and cut for purpose. |
+| How do I plan the story of my talk? | [presentation-story](../skills/presentation-story/SKILL.md) | Lay out the talk as question-led sequences with talking points, citations, and take-home answers. |
 | How do I run larger calculations? | [hpc-slurm](../skills/hpc-slurm/SKILL.md) | Use the Slurm cluster scheduler and verify completed outputs. |
-| What did we learn from this session? | [ruminations](../skills/ruminations/SKILL.md) | Recap the problem and solution, rules for the agent, and learning topics and lessons for the user. |
+| What did we learn from this session? | [ruminations](../skills/ruminations/SKILL.md) | Recap the problem and solution, lessons for the user, and approved rules for the agent. |
 
 **Learn with an AI agent.**
 

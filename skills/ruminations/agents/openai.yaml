@@ -1,6 +1,6 @@
 interface:
   display_name: "Ruminations"
-  short_description: "Recap problem and solution, agent rules, and user lessons"
-  default_prompt: "Use $ruminations to recap the problem and solution, record rules for the agent in agent_lessons.md, and save learning topics and lessons for the user in my_lessons.md."
+  short_description: "Recap the work, lessons for you, and approved agent rules"
+  default_prompt: "Use $ruminations to recap the problem and solution, show my lessons in the chat, and record the agent rules I approve in the applicable AGENTS.md."
 policy:
   allow_implicit_invocation: false

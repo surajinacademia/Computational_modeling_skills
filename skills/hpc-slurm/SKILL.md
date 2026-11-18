@@ -1,6 +1,6 @@
 ---
 name: hpc-slurm
-description: Prepare, submit, expand, monitor, cancel, and recover HPC Slurm jobs and independent parameter sweeps using native scheduler commands. Use live account and QOS evidence to fill eligible idle capacity without duplicate work; preserve established project launchers and scientific settings.
+description: "Prepare, submit, expand, monitor, cancel, and recover HPC Slurm jobs and independent parameter sweeps with native scheduler commands, filling eligible idle capacity from live account and QOS evidence without duplicate work. Use whenever a request involves running simulations on a cluster, sbatch or srun, job arrays, parameter sweeps, adding nodes, queue status, failed or missing runs, or cancelling jobs, even if Slurm is not named. Preserves established project launchers and scientific settings."
 license: MIT
 ---
 

@@ -41,3 +41,33 @@ Short invented examples showing each branch of the `lets-be-clear` decision tree
 **User:** "Zero-flux mass conservation only. Lock that brief."
 
 **Outcome:** The agent writes out the confirmed zero-flux mass-conservation brief (off-center Gaussian near one wall, zero reaction, stable $\Delta t$, relative mass drift $< 10^{-12}$ over $100$ steps) and stops because the brief itself was the requested deliverable; likewise, when `schematic-designer` or `model-documentation` delegates an unresolved brief, `lets-be-clear` returns the confirmed specification to that skill (reusing any matching brief already confirmed in the session).
+
+## 4. One message carrying several things (Declutter → Clarify → Execute)
+
+**User:** "Let's be clear. The stripes look wrong at high Péclet number, so maybe rerun with a finer grid, and also I think the colormap in Figure 2 is misleading, we decided last week to keep the advection scheme, and can you tell me whether the time step is limited by diffusion or advection? Oh, and the paper deadline moved to Friday."
+
+**Why the message needs decluttering:** It mixes two tasks, one question, one earlier decision, and one piece of background, in the order they came to mind. Answering it as a single request would hide which parts are settled.
+
+**Agent:**
+
+- **Intent as understood (separated):**
+  1. **Task — needs an answer:** rerun the high-Péclet case on a finer grid, to check whether the wrong-looking stripes are a resolution artifact.
+  2. **Task — clear:** replace the colormap in Figure 2 with a perceptually uniform one.
+  3. **Question — clear:** is the time step limited by diffusion or by advection?
+  4. **Decision you already made:** the advection scheme stays as it is.
+  5. **Background:** the paper deadline is now Friday, so cheaper checks come first.
+- **Holes, vagueness, and assumptions:** Item 1 does not say how fine the grid should be or what "wrong" means. Items 1 and 4 depend on each other: if the stripes are an artifact of the advection scheme, a finer grid alone may not remove them.
+- **Facts for an informed decision:** `config/high_pe.yaml` uses $\Delta x = 0.5$ and $\Delta t = 10^{-3}$; with $D = 0.1$ and $|u| = 20$, the diffusive limit is $\Delta x^2 / (2D) = 1.25$ and the advective limit is $\Delta x / |u| = 0.025$, so advection limits the time step (this answers item 3).
+- **Concrete options and recommendation:** Halve $\Delta x$ once and compare the stripe wavelength; if it changes by more than a few percent, the stripes are under-resolved. This costs one run and fits the Friday deadline better than a full convergence study.
+- **Specify and confirm:** Is one halving of $\Delta x$, judged by the change in stripe wavelength, the check you want for item 1?
+
+**User:** "Yes, one halving, and call it resolved if the wavelength changes by less than 5%."
+
+**Outcome:** The agent runs the refined case, changes the Figure 2 colormap, reports that advection limits the time step, leaves the advection scheme untouched, and states the wavelength change against the 5% criterion.
+
+## 5. A simple request is not echoed (Skip the declutter)
+
+**User:** "Change the Figure 2 colormap to viridis."
+
+**Outcome:** The agent makes the change and says what it did. It does not restate the request or list it as an item, because a single clear action has nothing to separate.
+

@@ -1,34 +1,53 @@
 %%{init: {"htmlLabels": false, "flowchart": {"htmlLabels": false}, "theme": "base", "themeVariables": {"fontFamily": "Arial, sans-serif", "fontSize": "16px"}, "deterministicIds": true, "deterministicIDSeed": "paper-reproduce-stages"}}%%
 flowchart TB
-    subgraph S1["Stage 1 — What is my primary objective?"]
+    subgraph S1["Choice 1 — Which cell of the matrix? (definitions of The Turing Way)"]
         direction LR
 
-        R("`**Reproduction**
-Reproduce the paper's model, selected features, or reported results.`")
-        A("`**Assessment**
-Verify or validate a model, test a mechanism or hypothesis, or assess agreement with evidence.`")
-        P("`**Application**
-Use, adapt, or extend the paper's model, mechanism, or method for my own scientific question.`")
+        R("`**Reproducible**
+Same data, same analysis`")
+        B("`**Robust**
+Same data, different analysis`")
+        P("`**Replicable**
+Different data, same analysis`")
+        G("`**Generalisable**
+Different data, different analysis`")
 
-        R ~~~ A ~~~ P
+        R ~~~ B ~~~ P ~~~ G
     end
 
-    subgraph S2["Stage 2 — What depth of work do I need?"]
+    subgraph S2["Choice 2 — What is the target?"]
         direction LR
 
-        M("`**Model Level**
-Implement, adapt, or check the required computational model or method.`")
-        C("`**Claim Level**
-Test a selected scientific claim, proposed mechanism, or hypothesis.`")
-        D("`**Result Level**
-Reproduce, compare, or generate specific curves, tables, or numerical results.`")
+        M("`**Model or method**
+Equations, parameters, conditions, and numerics, whole or in part.`")
+        C("`**Claim or hypothesis**
+A claim, mechanism, or hypothesis posed as a neutral question.`")
+        D("`**Result**
+A figure, table, curve, or single value.`")
+        E("`**Measurements**
+Published experimental data, extracted or re-analysed.`")
 
-        M ~~~ C ~~~ D
+        M ~~~ C ~~~ D ~~~ E
+    end
+
+    subgraph S3["Choice 3 — How do you want to work?"]
+        direction LR
+
+        X("`**Human-in-the-loop (default)**
+You make every scientific choice; the agent stops at each one.`")
+        Y("`**Autonomous**
+The agent works through the agreed plan and logs every choice it makes.`")
+        Z("`**Guided learning**
+The agent explains each step so you could redo it by hand.`")
+
+        X ~~~ Y ~~~ Z
     end
 
     S1 --> S2
+    S2 --> S3
 
     classDef box fill:#fff,stroke:#222,stroke-width:2px,color:#111;
-    class R,A,P,M,C,D box;
+    class R,B,P,G,M,C,D,E,X,Y,Z box;
     style S1 fill:#fff,stroke:#999,color:#111
     style S2 fill:#fff,stroke:#999,color:#111
+    style S3 fill:#fff,stroke:#999,color:#111

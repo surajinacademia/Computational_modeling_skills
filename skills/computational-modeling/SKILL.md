@@ -6,6 +6,7 @@ description: "Formulate, implement, verify, or review physics-based scientific m
 # Computational Modeling
 
 - Develop scientific models with consistent hypotheses, equations, implementation, evidence, and reproducible records, with or without code changes.
+- Follow the four elements of inquiry of the scientific method—characterizations, hypotheses, predictions, and experiments—as an iterative process: any outcome can return the work to an earlier element.
 - Support phenomenological, theoretical/analytical, mechanistic (including ab initio), toy/minimal, and statistical/stochastic approaches. These categories overlap: a minimal model can also be mechanistic and stochastic.
 - Keep mechanism-free empirical curve fitting and all surrogate or machine-learned models out of scope. Calibrating physical or effective parameters within a supported model remains in scope; fitting parameters does not itself make a model empirical or machine-learned.
 - Exclude generic software engineering, standalone non-model analysis or plotting, and isolated scientific explanations.
@@ -13,6 +14,7 @@ description: "Formulate, implement, verify, or review physics-based scientific m
 ## 1. Brainstorm the model and agree on outcomes before starting
 
 - Inspect existing equations, code, parameter sources, evidence, and model records before asking about discoverable facts. Establish the question, proposed versus implemented status, and intended observable or prediction.
+- Begin with the characterization: the observations, definitions, and measurements of the system that the model must account for, each with its source.
 - Before formulation, implementation, or simulation, agree with the user on the desired outcomes, concrete deliverables, acceptance evidence, execution limits, and stopping condition in Section 7. If outcomes or deliverables are absent from the prompt, ask for them; do not silently supply them. Reuse an explicit matching agreement already given in the session.
 - Read [model types and scoping tables](references/model-types.md) during brainstorming. Present the relevant choices in plain language and ask which interests the user and why; use the empirical and surrogate entries to explain exclusions, not as implementation options.
 - Challenge the rationale constructively, following up only where the answer changes the approach:
@@ -23,6 +25,7 @@ description: "Formulate, implement, verify, or review physics-based scientific m
 - Apply [lets-be-clear](../lets-be-clear/SKILL.md) to explain consequential gaps, compare feasible choices, and recommend an approach with evidence and tradeoffs. Ask one unresolved decision at a time, respect an informed user choice, and confirm the resulting brief without repeating settled questions or requiring a fixed interview length.
 - Fill the selected type's scope table for this task: what is needed, what is unnecessary, what remains unknown, and why. For a hybrid, identify each component's role. Keep the agreement in the conversation or the project's existing record; do not create a companion planning file by default.
 - Map state variables, governing equations or discrete/stochastic rules, assumptions, domain, initial and boundary conditions, and observables. Check symbols, units, signs, parameter meanings, sources, and physical constraints; distinguish physical parameters from numerical controls.
+- State the hypothesis as a falsifiable explanation of that characterization. The model is the hypothesis in mathematical form, and its correspondence rules map model quantities to measurable observables; a hypothesis whose predictions cannot be checked is not yet testable.
 - Preserve established notation and authorized scientific scope. Resolve disagreements among equations, code, and records before changing scientific meaning; label unsupported choices as assumptions and unimplemented ideas as proposals.
 - Treat expected behavior as a prediction to test, never a target to force by changing physics or numerical controls.
 - For a discriminating hypothesis test, read [verification-and-review.md](references/verification-and-review.md): state a plausible alternative, shared observable, matched conditions, and outcomes that favor either mechanism, challenge both, or remain inconclusive. For consequential designs, use its independent fresh-context review protocol; label same-session critique as self-review when independent review is unavailable.
@@ -45,12 +48,15 @@ description: "Formulate, implement, verify, or review physics-based scientific m
   - **Model limitation:** the accurately implemented and numerically resolved formulation fails to describe the target behavior within its stated assumptions.
 - Report when insufficient or mismatched observations leave the cause unresolved.
 - Treat changes to equations, assumptions, parameter meanings, or boundary conditions as scientific revisions: explain the rationale, preserve earlier findings, and reassess affected predictions instead of calling changed physics a bug fix.
+- A falsified or limited hypothesis starts a new iteration: enter the revised hypothesis in the hypothesis record as a new entry and keep the earlier entry with its outcome.
 
 ## 4. Establish evidence, verify calculations, and validate claims
 
 - Use available scholarly search and literature synthesis tools for paper discovery, relevant prior models, assumptions, parameter evidence, competing explanations, and synthesis; use an available **Search** skill or connected search tool for source discovery and retrieval. If a required search or reading capability is unavailable, disclose the limitation and use an available scholarly/web alternative without installing anything.
 - Inspect primary papers, methods, supplements, and authoritative numerical documentation before relying on them. Cite the exact source supporting each consequential law, parameter, regime, or benchmark; distinguish evidence, inference, and modeling choice, and report inaccessible or conflicting sources.
 - Before inspecting decisive results, fix the prediction, competing alternative when relevant, observable, benchmark, error measure, justified tolerance, and support/falsification/inconclusive criteria. Reuse the agreed deliverable criteria; disclose post-hoc changes and label new hypotheses or observables exploratory.
+- Keep one [hypothesis record](references/verification-and-review.md#hypothesis-record) entry per hypothesis in the project's existing record, from characterization through outcome and next iteration.
+- An outcome supports or falsifies a hypothesis within the tested regime; it never proves the hypothesis. Confirmation comes when others independently reproduce the result; one group's test is support, not confirmation.
 - Match evidence to the claim ([NASA verification and validation overview](https://www.grc.nasa.gov/www/wind/valid/tutorial/overview.html)):
   - **Code verification:** compare the implementation with derivations, exact or manufactured solutions, invariants, symmetries, and limiting cases.
   - **Solution verification:** quantify numerical error using appropriate refinement, stability, conservation, residual, or ensemble-sampling checks.
@@ -95,6 +101,7 @@ description: "Formulate, implement, verify, or review physics-based scientific m
 - Establish this agreement in Section 1, before substantive work: desired scientific outcome, concrete deliverables and destinations, acceptance checks and tolerances, permitted resources, and what counts as complete, inconclusive, failed, or blocked. Ask the user for missing outcomes and deliverables, and confirm unresolved criteria before proceeding.
 - **Example agreement:** “Deliver a minimal oscillator derivation and one plot against its analytical solution, with an error tolerance we agree before the run. Verify that comparison, record the assumptions and source version, then stop. A parameter sweep and experimental validation are outside this task.”
 - When the agreed deliverables are ready, perform the agreed final verification and review, including the model-documentation review when applicable. Reuse valid evidence and repeat checks only for changed inputs, changed code, failures, or unresolved uncertainty; prerequisite scientific checks may occur earlier.
+- Bring the hypothesis record up to date before stopping: each tested hypothesis has its outcome and its next iteration, or none.
 - If the deliverables satisfy the agreed criteria, report the outcome, evidence, record locations, and limitations, then stop. Do not add new features, research questions, cleanup, or further checks merely to continue working.
 - A negative or inconclusive finding completes the task only when it satisfies the agreed investigative outcome. Failed or unavailable required checks prevent a claim of verified completion; report the gap and resolve it within scope or ask to revise the agreement.
 - For long-horizon work, carry the same agreement through progress reviews, transfers of work between agents, and resumed sessions. Milestones preserve progress without replacing the final stopping condition; time or resource exhaustion is a reported limit, not success. Agree on any change to outcomes, scope, or acceptance criteria before expanding the work.

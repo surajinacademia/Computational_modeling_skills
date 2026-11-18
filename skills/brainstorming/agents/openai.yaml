@@ -1,0 +1,4 @@
+interface:
+  display_name: "Brainstorming"
+  short_description: "Reason through a hard problem to an agreed solution"
+  default_prompt: "Use $brainstorming to work through this hard problem with me until we agree on a solution and its reasoning."

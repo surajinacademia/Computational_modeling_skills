@@ -2,13 +2,17 @@
 
 Original material is covered by [LICENSE](LICENSE). The following exceptions retain their stated licenses; copyright and attribution are not transferred. Keep the applicable notices with redistributed source or figures. Credits do not imply endorsement by any original creator.
 
-## Research project setup guidance
+## Repository rules
 
-The `research-project-setup` templates and setup/Git guidance adapt selected practices from Patrick Mineault's *The Good Research Code Handbook*, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), and project-organization principles from William Stafford Noble (2009), *A Quick Guide to Organizing Computational Biology Projects*, *PLOS Computational Biology* 5(7): e1000424 (<https://doi.org/10.1371/journal.pcbi.1000424>), licensed under [CC BY](https://creativecommons.org/licenses/by/4.0/). The [setup reference](skills/research-project-setup/references/goodresearch-setup.md), [Git workflow](skills/research-project-setup/references/git-workflow.md), and [README template](skills/research-project-setup/assets/template/README.md#references) credit and link the source works. The adaptations use the maintainer's research layout, scoped Git checkpoints, and current packaging guidance; they do not reproduce the handbook's original directory tree or obsolete environment examples. Keep this attribution and the in-file source and change notices with redistributed adaptations.
+The `repo-rules` skill and its templates quote and adapt selected rules from Patrick Mineault's *The Good Research Code Handbook* (<https://goodresearch.dev>), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). Three of its rules follow William Stafford Noble (2009), *A Quick Guide to Organizing Computational Biology Projects*, *PLOS Computational Biology* 5(7): e1000424 (<https://doi.org/10.1371/journal.pcbi.1000424>), licensed under [CC BY](https://creativecommons.org/licenses/by/4.0/). The [handbook reference](skills/repo-rules/references/handbook.md), the [skill](skills/repo-rules/SKILL.md), and the [AGENTS template](skills/repo-rules/assets/template/AGENTS.md) credit and link the source works. Sentences in quotation marks are the handbook's own; the selection, the folder rules, and the rules marked *Project* are the maintainer's.
 
 ## Fresh-context review protocol
 
 The zero-history `Goldfish` reviewer workflow referenced in [computational-modeling](skills/computational-modeling/SKILL.md) and [verification-and-review.md](skills/computational-modeling/references/verification-and-review.md) adapts the fresh-context review concept from [google/elephant-goldfish-model](https://github.com/google/elephant-goldfish-model), licensed under the [Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0). No upstream code or runtime files are bundled.
+
+## Brainstorming conversation design
+
+The `brainstorming` skill adapts the conversation design of the `brainstorming` skill in Jesse Vincent's [obra/superpowers](https://github.com/obra/superpowers) (`skills/brainstorming/SKILL.md` at commit `22f0b463e7a5e579904dd6211a520321035526f7`, read on 2026-11-18), licensed under MIT. Copyright (c) 2025 Jesse Vincent. The complete upstream MIT notice is retained at [superpowers-MIT.txt](skills/brainstorming/licenses/superpowers-MIT.txt). Adapted ideas: ask why first, propose instead of asking where possible, play the understanding back, name anti-goals, gate on an explicit agreement, and a red-flags list. The text is rewritten for scientific work; the upstream visual companion, scripts, reviewer subagent, written design document, and hand-off chain are not included.
 
 ## Jupyter notebook guidance
 

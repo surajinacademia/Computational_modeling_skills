@@ -1,6 +1,6 @@
 # User-Model Comparison
 
-Apply this guide when evaluating a user's computational model against published experimental measurements or another model's results.
+Apply this guide when evaluating a user's computational model against published experimental measurements or another model's results. With the paper's data kept and the analysis changed, this work is in the robust cell.
 
 ## 1. State the comparison target
 
@@ -36,7 +36,7 @@ Select qualitative comparison, quantitative comparison, or both before generatin
 - `qualitative`: direction, ordering, trend, regime, transition, morphology, or spatiotemporal structure;
 - `quantitative`: harmonized numerical metric, reported and model uncertainty, and a frozen tolerance or decision rule.
 
-When both apply, give separate criteria and verdicts (trends can match while numbers disagree); visual resemblance alone is neither mode. Comparison strength configures the target rather than adding a separate depth or decision stage.
+When both apply, give separate criteria and verdicts (trends can match while numbers disagree); visual resemblance alone is neither mode. Comparison strength configures the target rather than adding a separate target or decision stage.
 
 ## 4. Distinguish prediction from fit
 

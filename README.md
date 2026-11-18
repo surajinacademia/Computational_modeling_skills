@@ -8,7 +8,7 @@ I made these skills to support scientists in their work. Scientific training and
 
 | Skill | Scope |
 | --- | --- |
-| [research-project-setup](skills/research-project-setup/SKILL.md) | Set up and organize a research project repository and standard Git workflow |
+| [repo-rules](skills/repo-rules/SKILL.md) | Put research files in the right folders and commit the work by the rules of the Good Research Code Handbook |
 | [computational-modeling](skills/computational-modeling/SKILL.md) | Choose and formulate physics-based models, agree on outcomes, test competing hypotheses, and verify predictions |
 | [model-documentation](skills/model-documentation/SKILL.md) | Explain hypotheses, equations, and methods; record MIASE simulation information and separate model versions |
 | [jupyter-notebook](skills/jupyter-notebook/SKILL.md) | Create, maintain, execute, and review Jupyter notebooks for theoretical modeling and scientific data analysis |
@@ -19,9 +19,11 @@ I made these skills to support scientists in their work. Scientific training and
 | [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce, assess, or apply published models, claims, methods, and results |
 | [claim-review](skills/claim-review/SKILL.md) | Critique and scope scientific claims against results, figures, and controls, with optional outline templates |
 | [writing-process](skills/writing-process/SKILL.md) | Turn notes, figures, an outline, or a partial draft into a scientific paper through staged writing |
+| [presentation-story](skills/presentation-story/SKILL.md) | Plan the storyline of a scientific talk as a beat sheet, `talk.md`, with talking points and citations |
 | [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify scientific decisions, confirm unresolved choices, and complete the agreed task |
+| [brainstorming](skills/brainstorming/SKILL.md) | Work through a hard scientific problem in conversation until a solution and its reasoning are agreed |
 | [hpc-slurm](skills/hpc-slurm/SKILL.md) | Schedule, monitor, expand, and recover HPC batch jobs and parameter sweeps with Slurm |
-| [ruminations](skills/ruminations/SKILL.md) | Recap the problem and solution, record rules for the agent in `agent_lessons.md`, and record learning topics and lessons for the user in `my_lessons.md` |
+| [ruminations](skills/ruminations/SKILL.md) | Recap the problem and solution, show lessons for the user in the chat, and record approved rules for the agent in `AGENTS.md` |
 
 
 Original material uses the [MIT license](LICENSE). See [third-party notices](THIRD_PARTY_NOTICES.md).

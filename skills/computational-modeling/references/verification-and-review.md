@@ -5,6 +5,7 @@
 ## Contents
 
 - [1. Designing discriminating hypothesis tests](#1-designing-discriminating-hypothesis-tests)
+  - [Hypothesis record](#hypothesis-record)
 - [2. Fresh-context review protocol](#2-fresh-context-review-protocol)
 - [3. Verification, physical validation, and sensitivity checks](#3-verification-physical-validation-and-sensitivity-checks)
 - [4. Sources and calculation history](#4-sources-and-calculation-history)
@@ -17,6 +18,20 @@
 - Biophysical example: two contractile cells in a linear elastic extracellular matrix produce excess total strain energy even when displacement fields superpose linearly because elastic energy is quadratic in strain; test linear superposition directly by comparing joint bead displacement against the vector sum of single-cell displacements measured from an inactive baseline (using [image-analysis](../../image-analysis/SKILL.md) when extracting calibrated 3D displacement or traction fields from experimental microscopy stacks) before interpreting energy observables.
 - For hypothesis-design requests, report the competing quantitative or qualitative predictions, the strongest substantiated objection to each candidate, and the smallest informative discriminating test, stating explicitly which outcomes favor each mechanism, falsify both, or remain inconclusive at available experimental or numerical resolution.
 - Separate what numerical simulation establishes about mathematical consequences of the model from what empirical measurement tests about the physical or biological system.
+
+### Hypothesis record
+
+- Keep one entry per hypothesis in the project's existing record (notebook, methods log, or model document) without creating a companion file. The terms follow the elements of inquiry in [Scientific method](https://en.wikipedia.org/wiki/Scientific_method).
+- Each entry records, in order:
+  - **Characterization:** the observations, definitions, and measurements that motivate the hypothesis, with sources.
+  - **Hypothesis and alternative:** the proposed explanation in mathematical form and at least one competing alternative.
+  - **Prediction:** the logical consequence to be tested, its observable, and the correspondence rule that maps model quantities to that observable.
+  - **Falsifying outcome:** the result that would count against the hypothesis, fixed before the result is known.
+  - **Experiment:** the test of the prediction—a simulation experiment or a laboratory experiment; for a purely mathematical proposition, the derivation—and where its record is kept.
+  - **Outcome:** support, falsification, or inconclusive, with the tested regime.
+  - **Next iteration:** the revised hypothesis this outcome leads to, or none.
+- Keep an entry unchanged once its outcome is known; a revised hypothesis gets a new entry that cites the earlier one.
+- Write that an outcome supports or falsifies a hypothesis, not that a test proves, confirms, or validates it. Confirmation is reserved for independent reproduction by others.
 
 ## 2. Fresh-context review protocol
 
