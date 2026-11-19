@@ -67,7 +67,7 @@ Each `assets/examples/<case>/` holds `source.py`, `data.csv`, and `figure.pdf`. 
 
 ```sh
 python assets/examples/distribution/source.py
-python assets/examples/distribution/source.py --output /private/tmp/distribution-review.pdf
+python assets/examples/distribution/source.py --output <output.pdf>
 ```
 
 Without `--output`, `source.py` overwrites that case's `figure.pdf`. `timecourse`, `replicate-comparison`, and `parameter-map` call their canonical templates; the other five define `paired_change()`, `distribution()`, `scatter()`, `signed_map()` (in `continuous-field`), and `metric_comparison()`, returning a Matplotlib figure from their teaching CSV. Adapt cases directly rather than building a general plotting library.
@@ -78,7 +78,7 @@ From the skill directory with gallery dependencies installed:
 
 ```sh
 python scripts/build_gallery.py
-python scripts/build_gallery.py --output-dir /private/tmp/data-vis-gallery-review
+python scripts/build_gallery.py --output-dir <approved-directory>
 ```
 
 Default paths overwrite `assets/gallery.pdf` and every example `figure.pdf`; `--output-dir` isolates copies for comparison. Only run `python scripts/create_demo_data.py` when intentionally regenerating deterministic `data.csv` tables (it runs no simulations). Inspect changed figures and the assembled gallery before finishing.

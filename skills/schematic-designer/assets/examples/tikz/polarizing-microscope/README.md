@@ -16,7 +16,7 @@ The projection basis, polarizer/crystal positions, sampled wave formulas, phase 
 From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
-python3 scripts/build_example.py tikz-polarizing-microscope --output-dir /tmp/polarizing-microscope
+python3 scripts/build_example.py tikz-polarizing-microscope --output-dir <approved-directory>
 ```
 
 The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.

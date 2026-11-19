@@ -7,18 +7,18 @@ __pycache__/
 .DS_Store
 
 # Files to throw away
-tmp/
+/tmp/
 
 # Raw data stays out of source control, except very small, text-based datasets (< 10 MBs).
-# To keep one small dataset in source control, add a line such as: !data/small-table.csv
-data/*
-model/*/data/*
+# To keep one small dataset in source control, add a line such as: !/data/small-table.csv
+/data/*
+/model/*/data/*
 
 # Results and figures stay on this computer. The figures of a paper live in paper/<paper-name>/.
-results/
-plots/
-model/*/results/
-model/*/plots/
+/results/
+/plots/
+/model/*/results/
+/model/*/plots/
 
 # Videos and large files
 *.mp4

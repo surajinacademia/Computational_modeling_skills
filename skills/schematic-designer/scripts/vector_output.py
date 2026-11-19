@@ -1,7 +1,8 @@
 """Safe PDF/SVG output helpers for schematic-designer Matplotlib specimens.
 
-The public contract is deliberately narrow: final figures are a PDF plus an
-SVG whose glyphs are paths.  No raster preview is written by this module.
+The public contract is deliberately narrow: final figures export a PDF by
+default, plus an outlined-path SVG only when requested (or for maintained
+library specimens).  No raster preview is written by this module.
 """
 
 from __future__ import annotations
@@ -364,7 +365,7 @@ def _stage_svg_from_pdf(parent_descriptor: int, pdf_name: str) -> str:
     if dvisvgm is None and pdf2svg is None:
         raise RuntimeError("Outlined SVG requires dvisvgm or pdf2svg")
     with tempfile.TemporaryDirectory(prefix="schematic-pgf-") as directory:
-        build = Path(directory)
+        build = Path(directory).resolve()
         descriptor = os.open(pdf_name, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=parent_descriptor)
         with os.fdopen(descriptor, "rb") as stream:
             payload = stream.read(runner.MAX_ARTIFACT_BYTES + 1)

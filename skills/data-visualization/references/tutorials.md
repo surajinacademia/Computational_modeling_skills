@@ -15,7 +15,7 @@ These templates turn completed per-run or per-coordinate tables into PDFs using 
 [timecourse.py](../assets/templates/timecourse.py) expects one completed scalar per `(condition, run, time)` (no raw cell or particle pooling):
 
 ```sh
-python assets/templates/timecourse.py assets/examples/timecourse/data.csv /private/tmp/data-vis-timecourse.pdf --group-order Control Perturbed --xlabel 'Time (h)' --ylabel 'Front position (µm)'
+python assets/templates/timecourse.py assets/examples/timecourse/data.csv <output.pdf> --group-order Control Perturbed --xlabel 'Time (h)' --ylabel 'Front position (µm)'
 ```
 
 Summary curves show equal-run mean and sample SD (`ddof=1`) per time, with measured run counts (or range) in the legend. Blank values contribute to neither mean nor count, singleton times have a mean without SD, and missing means break the line. It uses the union of supplied times per condition (insert a blank `value` row for an expected time absent from all runs, or align unequal grids explicitly beforehand).
@@ -31,7 +31,7 @@ Summary curves show equal-run mean and sample SD (`ddof=1`) per time, with measu
 [replicate_comparison.py](../assets/templates/replicate_comparison.py) expects one completed scalar per `(condition, run)`:
 
 ```sh
-python assets/templates/replicate_comparison.py assets/examples/replicate-comparison/data.csv /private/tmp/data-vis-replicates.pdf --group-order Control Perturbed --xlabel 'Condition' --ylabel 'Speed (µm/min)'
+python assets/templates/replicate_comparison.py assets/examples/replicate-comparison/data.csv <output.pdf> --group-order Control Perturbed --xlabel 'Condition' --ylabel 'Speed (µm/min)'
 ```
 
 Each run appears beside its group-colored mean and sample SD (deterministic horizontal jitter has no measurement meaning); labels show measured `n` (or `n=measured/supplied` when values are blank; measured zero stays data).
@@ -47,7 +47,7 @@ Each run appears beside its group-colored mean and sample SD (deterministic hori
 [parameter_map.py](../assets/templates/parameter_map.py) expects one completed `value` per `(x, y)` without pooling repeated pairs:
 
 ```sh
-python assets/templates/parameter_map.py assets/examples/parameter-map/data.csv /private/tmp/data-vis-parameter-map.pdf --xlabel 'Adhesion (dimensionless)' --ylabel 'Noise (dimensionless)' --colorbar-label 'Order (dimensionless)'
+python assets/templates/parameter_map.py assets/examples/parameter-map/data.csv <output.pdf> --xlabel 'Adhesion (dimensionless)' --ylabel 'Noise (dimensionless)' --colorbar-label 'Order (dimensionless)'
 ```
 
 Coordinates mark cell centers with halfway interior borders and half-nearest-neighbor outer borders, keeping nonuniform grids uninterpolated and shading missing pairs or blank values gray with a missing-data key (requires at least two distinct coordinates per axis and one measured value).

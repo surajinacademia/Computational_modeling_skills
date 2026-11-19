@@ -1,7 +1,7 @@
 {
   "name": "computational-modeling-skills",
-  "description": "Sixteen skills for research project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
-  "version": "3.0.0",
+  "description": "Sixteen skills for repository rules and project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
+  "version": "3.0.1",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },

@@ -23,26 +23,26 @@
    - Mutation during growth: a culture where one happened early carries a large resistant family, and most carry few or none, like a slot machine with rare jackpots.
    - The test: many small cultures grown side by side, each plated on virus and counted; the control is many samples from one large culture. [Luria & Delbrück 1943]
    - Samples from one culture give similar counts; the side-by-side cultures range from zero to very large. [Luria & Delbrück 1943, table]
-   - So the variation between cultures is far larger than sampling alone allows.
+   - So the variation between cultures is far larger than sampling alone allows: the first test supports mutation before exposure.
 
    > **Notes:** "Sampling variation" means a variance about equal to the mean; the side-by-side cultures have a variance far greater than the mean. Add the paper's tables.
 
 4. **How rare is the mutation?**
    - Back to the home slide: each branch point is a division at which a mutation can happen.
    - The cultures with no resistant bacteria tell us how many mutations happened, and from that the rate per division. [Luria & Delbrück 1943]
-   - So the rate is very low, and the same experiment measured it.
+   - So the hypothesis also predicts a rate, and the same experiment measured it as very low.
 
    > **Notes:** state the paper's rate estimates per bacterium per division, and their spread.
 
 5. **Is there direct evidence that the mutants exist before exposure?**
    - Colonies are copied to several plates with a velvet pad, and only the copies meet the virus. [Lederberg & Lederberg 1952]
    - Resistant bacteria are recovered from the original plate, from a line that never met the virus. [Lederberg & Lederberg 1952, figure]
-   - So a second method, with no statistics, gives the same answer.
+   - So a second test, with no statistics, supports the same hypothesis.
 
 ## Conclusions
 
 6. **So does the virus cause resistance, or reveal it?**
-   - The spread between cultures matches mutation during growth, and replica plating confirms it.
+   - Three tests from different angles (the spread between cultures, the mutation rate, and replica plating) all support mutation before exposure.
    - Home slide, with the "at exposure" tree removed.
    - Limits: shown for one bacterium and one virus; other ways of becoming resistant are not ruled out in other systems.
    - Selection acts on variation that is already there; the same reasoning applies to drug resistance.

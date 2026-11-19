@@ -18,7 +18,7 @@ Run the command from the skill root with an approved output path. This example u
 [PDF](figures/learning-dynamics-2406.pdf) · [SVG](figures/learning-dynamics-2406.svg)
 
 ```bash
-python3 scripts/build_example.py learning-dynamics --output-dir /tmp/schematic-learning-computed
+python3 scripts/build_example.py learning-dynamics --output-dir <approved-directory>
 ```
 
 Outputs are `learning-dynamics-2406.pdf` and `learning-dynamics-2406.svg`. The Python source integrates `τ_g dg/dt = g_target − g` by forward Euler, with `τ_g = 1.35`, targets `0.82` and `0.28`, and timestep `0.025`. Retrieval integrates `dr/dt = χ g ∇C` in the source's anisotropic Gaussian field. Preserve the field parameters, initial state, durations, mobility, and response combination when adapting presentation alone.

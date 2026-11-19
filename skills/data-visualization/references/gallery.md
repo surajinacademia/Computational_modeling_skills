@@ -16,8 +16,8 @@ Open the [nine-page PDF gallery](../assets/gallery.pdf) (overview plus eight wor
 Cases 01, 02, and 06 call the CSV templates ([tutorials](tutorials.md)); the rest define direct example functions. From `skills/data-visualization/` (omitting `--output` or `--output-dir` overwrites bundled PDFs; see [api.md](api.md) for dependencies and data regeneration):
 
 ```sh
-python assets/examples/distribution/source.py --output /private/tmp/distribution-review.pdf
-python scripts/build_gallery.py --output-dir /private/tmp/data-vis-gallery-review
+python assets/examples/distribution/source.py --output <output.pdf>
+python scripts/build_gallery.py --output-dir <approved-directory>
 ```
 
 Inspect standalone PDFs and the overview per the [completion and verification criteria](../SKILL.md#completion-checks-and-stopping-condition).

@@ -60,11 +60,15 @@ def _read(value):
     nb = nbformat.from_dict(json.loads(data))
     if nb.get("nbformat") != 4:
         raise ValueError("Requires notebook format 4")
-    nb.nbformat_minor = max(nb.get("nbformat_minor", 0), 5)
-    for index, cell in enumerate(nb.get("cells", [])):
-        if "id" not in cell:
-            seed = json.dumps([index, cell.get("cell_type"), cell.get("source")], sort_keys=True)
-            cell.id = "cell-" + _hash(seed.encode())[:20]
+    raw_minor = nb.get("nbformat_minor", 0)
+    if isinstance(raw_minor, bool) or not isinstance(raw_minor, int) or raw_minor < 0:
+        raise ValueError("Requires nonnegative integer nbformat_minor")
+    nb.nbformat_minor = max(raw_minor, 5)
+    if raw_minor < 5:
+        for index, cell in enumerate(nb.get("cells", [])):
+            if "id" not in cell:
+                seed = json.dumps([index, cell.get("cell_type"), cell.get("source")], sort_keys=True)
+                cell.id = "cell-" + _hash(seed.encode())[:20]
     _validate(nb)
     nb = nbformat.reads(json.dumps(nb), as_version=4)
     return path, nb, _hash(data)

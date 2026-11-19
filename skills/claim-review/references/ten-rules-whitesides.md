@@ -23,8 +23,8 @@ For a story arc, apply the rules to the central theme, subthemes, and logical pr
 
 ## Primary sources
 
-- Brett Mensh and Konrad Kording, “Ten simple rules for structuring papers,” *PLOS Computational Biology* 13(9), e1005619 (2017), https://doi.org/10.1371/journal.pcbi.1005619. The article is open access under CC BY.
-- George M. Whitesides, “Whitesides' Group: Writing a Paper,” *Advanced Materials* 16(15) (2004), https://doi.org/10.1002/adma.200400767. Accessible copy: https://www2.tulane.edu/~lamp/whiteside.pdf.
+- Brett Mensh and Konrad Kording, “Ten simple rules for structuring papers,” *PLOS Computational Biology* 13(9), e1005619 (2017), <https://doi.org/10.1371/journal.pcbi.1005619>. The article is open access under CC BY.
+- George M. Whitesides, “Whitesides' Group: Writing a Paper,” *Advanced Materials* 16(15) (2004), <https://doi.org/10.1002/adma.200400767>. Accessible copy: <https://www2.tulane.edu/~lamp/whiteside.pdf>.
 
 The checks below are operational paraphrases, not substitutes for the sources.
 

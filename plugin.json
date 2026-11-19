@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "computational-modeling-skills",
-  "version": "3.0.0",
-  "description": "Sixteen skills for research project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
+  "version": "3.0.1",
+  "description": "Sixteen skills for repository rules and project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
   "author": {
     "name": "Computational Modeling Skills contributors"
   },
@@ -25,11 +25,11 @@
       "interface": {
         "displayName": "Computational Modeling Skills",
         "shortDescription": "Scientific models, paper reproduction, and research workflows",
-        "longDescription": "Sixteen skills for research project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
+        "longDescription": "Sixteen skills for repository rules and project setup, scientific modeling, paper reproduction, model documentation, Jupyter notebooks, linear stability analysis, quantitative plots, scientific schematics, microscopy image analysis, scientific claim review, staged scientific writing, scientific talk planning, request clarification, hard-problem brainstorming, HPC Slurm jobs and sweeps, and end-of-session research lessons.",
         "developerName": "Computational Modeling Skills contributors",
         "category": "Productivity",
         "capabilities": [
-          "Research project setup",
+          "Repository rules and project setup",
           "Scientific modeling",
           "Paper reproduction",
           "Model documentation",
@@ -40,7 +40,9 @@
           "Microscopy image analysis",
           "Scientific claim review",
           "Staged scientific writing",
+          "Scientific talk planning",
           "Request clarification",
+          "Hard-problem brainstorming",
           "HPC Slurm jobs and sweeps",
           "Research session lessons"
         ],

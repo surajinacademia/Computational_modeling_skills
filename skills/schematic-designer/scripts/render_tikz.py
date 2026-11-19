@@ -769,6 +769,23 @@ def _isolated_tex_environment(
         "XDG_CONFIG_HOME": os.fspath(xdg_config),
         "XDG_DATA_HOME": os.fspath(xdg_data),
     }
+    font_directories: List[str] = []
+    for raw_entry in os.environ.get("OSFONTDIR", "").split(os.pathsep):
+        if raw_entry:
+            candidate = Path(raw_entry).expanduser()
+            if candidate.is_dir() and not candidate.is_symlink():
+                font_directories.append(os.fspath(candidate.resolve()))
+    try:
+        home = Path.home()
+    except RuntimeError:
+        home = None
+    if home is not None:
+        for relative_fonts in ("Library/Fonts", ".local/share/fonts", ".fonts"):
+            candidate = home / relative_fonts
+            if candidate.is_dir() and not candidate.is_symlink():
+                font_directories.append(os.fspath(candidate.resolve()))
+    if font_directories:
+        environment["OSFONTDIR"] = os.pathsep.join(dict.fromkeys(font_directories))
 
     # The trailing path separator appends the TeX distribution's trusted
     # defaults.  An exclamation mark disables user TEXMF home/config/output
@@ -1174,7 +1191,7 @@ def _render(
     approved_output = _prepare_output_directory(output_directory)
 
     with tempfile.TemporaryDirectory(prefix="render-tikz-") as temporary:
-        build_directory = Path(temporary)
+        build_directory = Path(temporary).resolve()
         _copy_declared_inputs(declared, build_directory)
         environment = _isolated_tex_environment(
             build_directory,

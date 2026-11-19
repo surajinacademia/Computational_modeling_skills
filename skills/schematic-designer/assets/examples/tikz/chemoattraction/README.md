@@ -16,7 +16,7 @@ The Python panel source is maintained in the sibling [Matplotlib helper folder](
 Run from the skill root with an approved output path:
 
 ```bash
-python3 scripts/build_example.py chemoattraction --output-dir /tmp/schematic-chemoattraction
+python3 scripts/build_example.py chemoattraction --output-dir <approved-directory>
 ```
 
 The build regenerates `field-profile.pdf`, `concentration-map.pdf`, `simulation-summary.pdf`, and `phase-diagram.pdf` in a fresh temporary directory. It generates the shared style, declares both style inputs and all four panels, and compiles the compositor through LuaLaTeX. Final outputs are `chemoattraction-hybrid.pdf` and `chemoattraction-hybrid.svg`; intermediate panels are not exported figure files. The archived panels are never inputs. Follow the [common build and trust requirements](../../../../references/tutorials.md).

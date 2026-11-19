@@ -18,7 +18,7 @@ Run the command from the skill root with an approved output path. This example u
 [PDF](figures/learning-dynamics-tikz.pdf) · [SVG](figures/learning-dynamics-tikz.svg)
 
 ```bash
-python3 scripts/build_example.py learning-tikz --output-dir /tmp/schematic-learning-tikz
+python3 scripts/build_example.py learning-tikz --output-dir <approved-directory>
 ```
 
 Outputs are `learning-dynamics-tikz.pdf` and `learning-dynamics-tikz.svg`. The builder generates the shared style in fresh temporary storage and declares it together with `learning-dynamics-2406.sty` before LuaLaTeX compilation.

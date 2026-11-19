@@ -1,36 +1,36 @@
 ---
 name: lets-be-clear
-description: Clarify vague or incomplete requests by spotting holes in user intent, supplying the facts and tradeoffs needed for informed decisions, confirming unresolved choices, and completing the task. Use when invoked, when checking shared understanding ("are we clear?", "are you clear?", "clear?"), when a request has ambiguity or missing specifications that change the work, when the user asks for help deciding, or when another workflow delegates an unresolved brief, plan, or scope choice. Do not activate for ordinary retrieval, definitions, or already-precise requests.
+description: Clarify vague or incomplete requests by spotting holes in user intent, supplying the facts and tradeoffs needed for informed decisions, confirming unresolved choices, and completing the task. Use when invoked, when checking shared understanding ("are we clear?", "are you clear?", "am I clear?", "clear?"), when a request has ambiguity or missing specifications that change the work, when the user asks for help deciding, or when another workflow delegates an unresolved brief, plan, or scope choice. Do not activate for ordinary retrieval, definitions, or already-precise requests.
 ---
 
 # Let's Be Clear
 
-- Help the user make vague or incomplete intent precise instead of guessing on their behalf: 
-	- supply missing workspace facts, constraints, and concrete tradeoffs, keep the writing direct and conversational, and preserve their voice.
-- Activate when invoked directly, when checking shared understanding (`"are we clear?"`, `"are you clear?"`, `"clear?"`, `"am I clear?"`), when the user asks for help deciding, when ambiguity or unstated assumptions would change the method, scope, cost, or result, or when another workflow delegates an unresolved brief, plan, or scope choice.
+- Help the user make vague or incomplete intent precise instead of guessing on their behalf:
+  - supply missing workspace facts, constraints, and concrete tradeoffs, keep the writing direct and conversational, and preserve their voice.
+- Activate when invoked directly, when checking shared understanding (`"are we clear?"`, `"are you clear?"`, `"am I clear?"`, `"clear?"`), when the user asks for help deciding, when ambiguity or unstated assumptions would change the method, scope, cost, or result, or when another workflow delegates an unresolved brief, plan, or scope choice.
 - Do not activate for ordinary retrieval, definitions, or requests whose intent and inputs are already specific enough to execute, and never force an interview or a fixed number of questions.
 - Keep to one compact pause and write no plan, brief, or note file for the clarification itself; hand a hard problem that needs several rounds of reasoning to `brainstorming`.
 - Never invent scientific parameters, silent model assumptions, or user priorities, and never write an unrequested learning log.
 
 ## 1. Compare intent with context and choose the response
 
-- **Read context without modifying files:** 
-	- Inspect relevant workspace files and conversation history freely while keeping all files untouched during this comparison and any confirmation or clarification pause.
-- **Declutter a message that carries several things (`Declutter`):** 
-	- When one message mixes several tasks, questions, decisions, or background, or runs long and unordered, split it into its separate items before anything else.
-	- Label each item as a task to do, a question to answer, a decision the user already made, or background, and restate each in one plain line.
-	- Put the items in a sensible order, group the ones that belong together, and flag any that conflict with or depend on each other.
-- **Skip the declutter for a simple request:** 
-	- When the message is a single clear action or question, never echo it back; go straight to the gap check.
-- **Find the holes, item by item:** 
-	- For every item, identify holes, vague terms, unstated assumptions, or conflicting goals that alter the method, scope, cost, or conclusion, and never ask questions that available context already answers.
-	- Mark each item as clear or as needing an answer, so the user sees exactly which parts are settled and which are not.
-- **Execute directly when precise and confirmed (`No holes → Execute directly`):** 
-	- When intent and inputs are already unambiguous—and this is either a direct task or a delegated brief matching an agreement already confirmed in this session—skip pausing and go straight to Section 4.
-- **Confirm a precise but unconfirmed specification (`Confirm → Stop or return`):** 
-	- For an explicit check of shared understanding (`"are we clear?"`, `"am I clear?"`) or a new unconfirmed delegated brief with no unresolved holes, restate the exact specification concisely (as the decluttered list of items when the message carried several), pause with a direct `?` question to confirm the plan, brief, scope, or approach, and handle the reply in Section 3.
-- **Clarify underspecified intent (`Clarify`):** 
-	- Confirm unresolved consequential choices before acting by running the compact clarification pause in Section 2 whenever holes, vagueness, or conflicts remain.
+- **Read context without modifying files:**
+  - Inspect relevant workspace files and conversation history freely while keeping all files untouched during this comparison and any confirmation or clarification pause.
+- **Declutter a message that carries several things (`Declutter`):**
+  - When one message mixes several tasks, questions, decisions, or background, or runs long and unordered, split it into its separate items before anything else.
+  - Label each item as a task to do, a question to answer, a decision the user already made, or background, and restate each in one plain line.
+  - Put the items in a sensible order, group the ones that belong together, and flag any that conflict with or depend on each other.
+- **Skip the declutter for a simple request:**
+  - When the message is a single clear action or question, never echo it back; go straight to the gap check.
+- **Find the holes, item by item:**
+  - For every item, identify holes, vague terms, unstated assumptions, or conflicting goals that alter the method, scope, cost, or conclusion, and never ask questions that available context already answers.
+  - Mark each item as clear or as needing an answer, so the user sees exactly which parts are settled and which are not.
+- **Execute directly when precise and confirmed (`No holes → Execute directly`):**
+  - When intent and inputs are already unambiguous—and this is either a direct task or a delegated brief matching an agreement already confirmed in this session—skip pausing and go straight to Section 4.
+- **Confirm a precise but unconfirmed specification (`Confirm → Stop or return`):**
+  - For an explicit check of shared understanding (`"are we clear?"`, `"are you clear?"`, `"am I clear?"`, `"clear?"`) or a new unconfirmed delegated brief with no unresolved holes, restate the exact specification concisely (as the decluttered list of items when the message carried several), pause with a direct `?` question to confirm the plan, brief, scope, or approach, and handle the reply in Section 3.
+- **Clarify underspecified intent (`Clarify`):**
+  - Confirm unresolved consequential choices before acting by running the compact clarification pause in Section 2 whenever holes, vagueness, or conflicts remain.
 
 ## 2. Clarify unresolved choices in one compact pause
 
@@ -43,19 +43,19 @@ description: Clarify vague or incomplete requests by spotting holes in user inte
 
 ## 3. Resolve follow-up replies
 
-- **If the user says `"I don't know yet"` or remains unsure (`Reframe with example`)** 
-	- switch from abstract definitions to a concrete example or a smaller consequence-linked choice, then ask to confirm that narrower choice.
-- **If the reply revises the framing and leaves a new consequential gap:** 
-	- repeat the Section 1 comparison on the updated intent before acting.
-- **If the reply specifies and authorizes the scope in the same turn:** 
-	- proceed directly to Section 4 without asking for a second confirmation.
-- Consult [tutorials.md](tutorials.md) for short worked examples of each decision branch (`Clarify → Reframe with example → Execute`, `No holes → Execute directly`, `Clarify → Confirm → Stop or return`, and `Declutter → Clarify → Execute`).
+- **If the user says `"I don't know yet"` or remains unsure (`Reframe with example`):**
+  - switch from abstract definitions to a concrete example or a smaller consequence-linked choice, then ask to confirm that narrower choice.
+- **If the reply revises the framing and leaves a new consequential gap:**
+  - repeat the Section 1 comparison on the updated intent before acting.
+- **If the reply specifies and authorizes the scope in the same turn:**
+  - proceed directly to Section 4 without asking for a second confirmation.
+- Consult [tutorials.md](tutorials.md) for short worked examples of each decision branch (`Clarify → Reframe with example → Execute`, `No holes → Execute directly`, `Clarify → Confirm → Stop or return`, `Declutter → Clarify → Execute`, and `Skip the declutter`).
 
 ## 4. Deliver by mode and stop
 
-- **Clarification-only request:** 
-	- output the confirmed precise specification and stop without modifying files or executing downstream work.
-- **Delegated workflow brief:** 
-	- return the confirmed brief to the calling workflow and stop this skill so the caller continues.
-- **Direct task:** 
-	- execute the confirmed work, verify the result, state the confirmed assumptions and reasons, and stop once the agreed scope is complete.
+- **Clarification-only request:**
+  - output the confirmed precise specification and stop without modifying files or executing downstream work.
+- **Delegated workflow brief:**
+  - return the confirmed brief to the calling workflow and stop this skill so the caller continues.
+- **Direct task:**
+  - execute the confirmed work, verify the result, state the confirmed assumptions and reasons, and stop once the agreed scope is complete.

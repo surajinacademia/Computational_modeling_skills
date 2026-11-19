@@ -1,26 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 939" width="1200" height="939" role="img" aria-labelledby="t d">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 977" width="1200" height="977" role="img" aria-labelledby="t d">
 <title id="t">Project folders</title>
-<desc id="d">A project folder holds AGENTS.md, README.md and environment.yml; model/ with one folder per model containing src, data, results, plots and docs; tests/ with RECORD.md and test files; shared src, scripts, data, results and plots folders; docs/; and paper/ with one folder per paper. Data, results and plots are kept on this computer only.</desc>
-<rect width="1200" height="939" fill="#ffffff"/>
+<desc id="d">A project folder holds AGENTS.md, README.md, environment.yml and pyproject.toml; model/ with one folder per model containing src, data, results, plots and docs; tests/ with RECORD.md and test files; shared src, scripts, data, results and plots folders; docs/; and paper/ with one folder per paper. Data, results and plots are kept on this computer only.</desc>
+<rect width="1200" height="977" fill="#ffffff"/>
 <text x="70" y="64" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="30" font-weight="700" fill="#111111">Project folders</text>
 <text x="70" y="98" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="17" fill="#666666">Where each kind of file goes, and what stays on this computer</text>
 <path d="M80 162V188H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M80 162V226H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M80 162V264H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M80 162V302H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M114 314V340H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M114 314V378H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M148 390V416H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M148 390V454H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M148 390V492H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M148 390V530H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M148 390V568H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M80 162V606H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M114 618V644H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M114 618V682H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
-<path d="M80 162V720H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M80 162V340H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M114 352V378H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M114 352V416H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M148 428V454H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M148 428V492H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M148 428V530H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M148 428V568H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M148 428V606H166" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M80 162V644H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M114 656V682H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M114 656V720H132" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M80 162V758H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M80 162V796H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
+<path d="M80 162V834H98" fill="none" stroke="#c8c8c8" stroke-width="1.2"/>
 <path d="M70 143h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
 <text x="98" y="155" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="19" font-weight="700" fill="#111111">project/</text>
 <path d="M106 179h10l5 5v14h-15z M116 179v5h5" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
@@ -32,60 +33,63 @@
 <path d="M106 255h10l5 5v14h-15z M116 255v5h5" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
 <text x="132" y="269" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">environment.yml</text>
 <text x="640" y="269" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">One environment for the whole project</text>
-<path d="M104 295h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="132" y="307" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#00768c">model/</text>
-<text x="640" y="307" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">The core models</text>
-<path d="M140 331h10l5 5v14h-15z M150 331v5h5" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="166" y="345" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">README.md</text>
-<text x="640" y="345" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Every model: what it is, which paper uses it</text>
-<path d="M138 371h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="166" y="383" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">&lt;model-name&gt;/</text>
-<text x="640" y="383" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Everything for one model, in one folder</text>
-<path d="M172 409h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="200" y="421" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">src/</text>
-<text x="640" y="421" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Code and notebooks of the model</text>
-<path d="M172 447h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="200" y="459" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">data/</text>
-<text x="640" y="459" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Raw data, never changed</text>
+<path d="M106 293h10l5 5v14h-15z M116 293v5h5" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="132" y="307" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">pyproject.toml</text>
+<text x="640" y="307" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Package metadata for reusable modules in src/</text>
+<path d="M104 333h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="132" y="345" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#00768c">model/</text>
+<text x="640" y="345" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">The core models</text>
+<path d="M140 369h10l5 5v14h-15z M150 369v5h5" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="166" y="383" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">README.md</text>
+<text x="640" y="383" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Every model: what it is, which paper uses it</text>
+<path d="M138 409h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="166" y="421" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">&lt;model-name&gt;/</text>
+<text x="640" y="421" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Everything for one model, in one folder</text>
+<path d="M172 447h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="200" y="459" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">src/</text>
+<text x="640" y="459" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Code and notebooks of the model</text>
 <path d="M172 485h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="200" y="497" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">results/</text>
-<text x="640" y="497" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Results, one dated folder per run</text>
+<text x="200" y="497" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">data/</text>
+<text x="640" y="497" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Raw data, never changed</text>
 <path d="M172 523h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="200" y="535" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">plots/</text>
-<text x="640" y="535" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Figures made from the results</text>
-<path d="M172 561h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="200" y="573" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">docs/</text>
-<text x="640" y="573" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Equations and notes</text>
-<path d="M104 599h7l2.5 3h10.5v12h-20z" fill="none" stroke="#ab3019" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="132" y="611" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#ab3019">tests/</text>
-<text x="640" y="611" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Tests, and the record of every test</text>
-<path d="M140 635h10l5 5v14h-15z M150 635v5h5" fill="none" stroke="#ab3019" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="166" y="649" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#ab3019">RECORD.md</text>
-<text x="640" y="649" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Every test: Hypothesis · Model · Results · Conclusion</text>
+<text x="200" y="535" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">results/</text>
+<text x="640" y="535" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Results, one dated folder per run</text>
+<path d="M172 561h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="200" y="573" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">plots/</text>
+<text x="640" y="573" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Figures made from the results</text>
+<path d="M172 599h7l2.5 3h10.5v12h-20z" fill="none" stroke="#00768c" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="200" y="611" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#00768c">docs/</text>
+<text x="640" y="611" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Equations and notes</text>
+<path d="M104 637h7l2.5 3h10.5v12h-20z" fill="none" stroke="#ab3019" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="132" y="649" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#ab3019">tests/</text>
+<text x="640" y="649" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Tests, and the record of every test</text>
 <path d="M140 673h10l5 5v14h-15z M150 673v5h5" fill="none" stroke="#ab3019" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="166" y="687" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#ab3019">test_*.py</text>
-<text x="640" y="687" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Tests for the code</text>
-<path d="M104 713h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="132" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">src/</text>
-<path d="M183.8 713h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="211.8" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">scripts/</text>
-<path d="M299.4 713h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="327.4" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">data/</text>
-<path d="M388.15 713h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="416.15" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">results/</text>
-<path d="M503.75 713h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="531.75" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">plots/</text>
-<text x="640" y="725" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Used by more than one model</text>
+<text x="166" y="687" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#ab3019">RECORD.md</text>
+<text x="640" y="687" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Every test: Hypothesis · Model · Results · Conclusion</text>
+<path d="M140 711h10l5 5v14h-15z M150 711v5h5" fill="none" stroke="#ab3019" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="166" y="725" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#ab3019">test_*.py</text>
+<text x="640" y="725" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Tests for the code</text>
 <path d="M104 751h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="132" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#111111">docs/</text>
-<text x="640" y="763" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Notes and plans for the project</text>
+<text x="132" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">src/</text>
+<path d="M183.8 751h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="211.8" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">scripts/</text>
+<path d="M299.4 751h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="327.4" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">data/</text>
+<path d="M388.15 751h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="416.15" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">results/</text>
+<path d="M503.75 751h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="531.75" y="763" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" fill="#111111">plots/</text>
+<text x="640" y="763" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Used by more than one model</text>
 <path d="M104 789h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="132" y="801" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#111111">paper/&lt;paper-name&gt;/</text>
-<text x="640" y="801" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Text, figures, and tables of one paper</text>
-<line x1="70" y1="836" x2="1130" y2="836" stroke="#e6e6e6"/>
-<path d="M70 859h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
-<text x="98" y="871" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666">In git and on GitHub</text>
-<path d="M300 859h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
-<text x="328" y="871" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666">On this computer only: git ignores it, and RECORD.md says where it is</text>
-<text x="70" y="906" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666"><tspan fill="#00768c">Blue</tspan>: everything for one model.  <tspan fill="#ab3019">Red</tspan>: the record of tests.  A paper links to the model and run that made each figure.</text>
+<text x="132" y="801" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#111111">docs/</text>
+<text x="640" y="801" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Notes and plans for the project</text>
+<path d="M104 827h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="132" y="839" font-family="'CMU Typewriter Text',Menlo,monospace" font-size="17" font-weight="700" fill="#111111">paper/&lt;paper-name&gt;/</text>
+<text x="640" y="839" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="16" fill="#666666">Text, figures, and tables of one paper</text>
+<line x1="70" y1="874" x2="1130" y2="874" stroke="#e6e6e6"/>
+<path d="M70 897h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round"/>
+<text x="98" y="909" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666">In git and on GitHub</text>
+<path d="M300 897h7l2.5 3h10.5v12h-20z" fill="none" stroke="#111111" stroke-width="1.4" stroke-linejoin="round" stroke-dasharray="3 3"/>
+<text x="328" y="909" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666">On this computer only: git ignores it, and RECORD.md says where it is</text>
+<text x="70" y="944" font-family="'CMU Sans Serif','Helvetica Neue',Arial,sans-serif" font-size="15" fill="#666666"><tspan fill="#00768c">Blue</tspan>: everything for one model.  <tspan fill="#ab3019">Red</tspan>: the record of tests.  A paper links to the model and run that made each figure.</text>
 </svg>

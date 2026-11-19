@@ -5,7 +5,7 @@
 From the skill root:
 
 ```sh
-python3 scripts/build_example.py tikz-tkz-orm-example --output-dir /tmp/tikz-tkz-orm-example
+python3 scripts/build_example.py tikz-tkz-orm-example --output-dir <approved-directory>
 ```
 
 Requires the shared Minimalist profile, LuaLaTeX, CMU fonts and the supported PDF-to-outlined-SVG converter. This is a design example. The package-specific ORM source is redrawn with native TikZ; binary role boxes, uniqueness spans, mandatory participation dots, reading direction markers and all three textual rules are preserved. This source has no tkz-orm package dependency.

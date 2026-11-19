@@ -243,7 +243,7 @@ def export_figure(figure, output_directory, basename):
 
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--output-dir',type=Path,default=Path('outputs'))
+    parser.add_argument('--output-dir',type=Path,required=True)
     args=parser.parse_args()
     export_figure(build_figure(),args.output_dir,OUTPUT_BASENAME)
 

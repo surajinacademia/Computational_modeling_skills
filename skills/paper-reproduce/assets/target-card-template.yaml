@@ -1,5 +1,5 @@
 # Retained optional schema-v1 helper for the former routing rules.
-# Read README.md#legacy-target-card-helper before use; the current two-stage
+# Read README.md#legacy-target-card-helper before use; the current three-choice
 # workflow also supports targets that this schema cannot represent.
 # Replace target-relevant null placeholders before freezing; the validator
 # intentionally rejects an unsigned or incomplete scientific card.
@@ -77,7 +77,7 @@ specification_revision:
   predecessor_card: null
   predecessor_specification_hash: null
   change_reason: initial specification
-  frozen_at: null
+  frozen_at: null # Quoted ISO-8601 date or timestamp string, e.g. "2026-11-18"
   # Generated and checked by scripts/validate_target_card.py; includes the
   # immutable revision fields above, but excludes this hash and run metadata.
   specification_hash: null

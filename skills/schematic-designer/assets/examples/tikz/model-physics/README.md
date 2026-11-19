@@ -12,7 +12,7 @@
 From the skill root:
 
 ```sh
-python3 scripts/build_example.py tikz-model-physics --output-dir /tmp/tikz-model-physics
+python3 scripts/build_example.py tikz-model-physics --output-dir <approved-directory>
 ```
 
 Requires the shared Minimalist profile, LuaLaTeX, CMU fonts and the supported PDF-to-outlined-SVG converter. This is a design example. The previously documented correction of the Higgs heading to scalar boson and the note identifying all inherited numerical values as historical remain.

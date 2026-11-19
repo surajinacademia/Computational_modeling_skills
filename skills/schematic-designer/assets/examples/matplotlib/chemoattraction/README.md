@@ -9,10 +9,10 @@ This folder owns the Python source for four intermediate panels. The maintained 
 From the skill root, build the complete figure with an approved output path:
 
 ```bash
-python3 scripts/build_example.py chemoattraction --output-dir /tmp/schematic-chemoattraction
+python3 scripts/build_example.py chemoattraction --output-dir <approved-directory>
 ```
 
-The builder runs this source in fresh temporary storage to produce `field-profile.pdf`, `concentration-map.pdf`, `simulation-summary.pdf`, and `phase-diagram.pdf`. It declares those inputs to the TikZ compositor and exports `chemoattraction-hybrid.pdf` and `chemoattraction-hybrid.svg`. Do not copy panels from the archive or maintain duplicate final renders in this helper directory. Regenerate panels when their intended physical size changes.
+The builder runs this source (requiring SciPy in addition to NumPy and Matplotlib) in fresh temporary storage to produce `field-profile.pdf`, `concentration-map.pdf`, `simulation-summary.pdf`, and `phase-diagram.pdf`. It declares those inputs to the TikZ compositor and exports `chemoattraction-hybrid.pdf` and `chemoattraction-hybrid.svg`. Do not copy panels from the archive or maintain duplicate final renders in this helper directory. Regenerate panels when their intended physical size changes.
 
 ## Scientific boundary
 

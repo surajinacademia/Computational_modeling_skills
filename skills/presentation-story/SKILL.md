@@ -29,16 +29,17 @@ description: How to give a talk like David Attenborough. Write the beat sheet of
 - **Tell a story, not a paper.** Do not follow manuscript headings or the order in which the work was done; order the material by what the listener needs next.
 - **Start broad, narrow, and return.** Open with the big-picture problem in plain, concrete terms, narrow to the key questions, and end by saying how the answers change the big picture.
 - **Set up a contrast when the talk has one.** When the finding changes how people think, state the current view, then what this talk shows instead, and return to the current view in the conclusion. Not every talk has such a contrast; otherwise state what is known and what is still missing. Do not exaggerate a contrast beyond the evidence.
+- **Test one central hypothesis.** State the central question or hypothesis in the introduction. Each result is a different test of it, such as a prediction, a second method, or an alternative ruled out, and each must add something to the case. A result that adds nothing goes to the backup section. A methods or descriptive talk has a central question instead of a hypothesis; the same rule applies.
 - **Give the main answer early.** End the introduction with the main result in broad strokes; listeners follow details better when they know where the talk is going.
 - **Limit the scope.** Build the talk around one or two main points, three at most. Cut tangents, side projects, and results that do not serve those points.
 - **Fit the time.** Plan to speak for about two-thirds of the slot and leave the rest for questions.
-- **Choose a home slide.** Pick one familiar image, such as a schematic of the system or two competing models, and return to it between results. Use it to recap what was shown and to preview what comes next; it can change as the story develops.
+- **Choose a home slide.** Pick one familiar image, such as a schematic of the system or two competing models, and return to it between results. Use it to say what the last test added to the hypothesis and what the next test asks; it can change as the story develops.
 
 ## Write each part
 
 - **Give each part a numbered title.** A title is a question or a statement. A question tells the audience what to think about; use the question the listener would be asking at that point of the talk. A part may take one slide or several.
 - **Write the points as plain bullets.** Each bullet is one idea, in one short sentence, with the citation for any figure or paper it uses. Use as many bullets as the part needs; do not label them.
-- **End with the answer.** The last bullet answers the title's question as one bounded statement, with the qualification it needs.
+- **End with the answer.** The last bullet answers the title's question as one bounded statement, with the qualification it needs. In a result, it also says what this test adds to the central hypothesis.
 - **Keep working notes apart.** How a number was worked out, sources still to check, and choices not yet agreed go in a **Notes** box under the bullets, written as a Markdown quote (`> **Notes:** ...`), never in a bullet. Ask open questions at the end of `talk.md`.
 - **Tell, then show.** Place the question and the reason for the test before the figure. Then say how to read the figure (axes, conditions, colours) and state the result.
 - **Go into detail and come back.** Start each result at a general level, go into the technical detail where the evidence requires it, and return to a general statement before moving on.
@@ -50,7 +51,7 @@ description: How to give a talk like David Attenborough. Write the beat sheet of
 
 ## Close the talk
 
-- **Conclusions:** answer the opening questions, state the limits, and say what the results mean for the big picture. If the talk set up a contrast, return to it here. Outlook and open questions belong here; do not introduce new results after the conclusion.
+- **Conclusions:** say how the tests together answer the central question or hypothesis, state the limits, and say what the results mean for the big picture. If the talk set up a contrast, return to it here. Outlook and open questions belong here; do not introduce new results after the conclusion.
 - **Acknowledgements:** keep them short so the conclusion stays in mind for the discussion. Note in the relevant bullets where a collaborator's contribution should be credited.
 - **Backup:** list anticipated questions and the omitted evidence or details that answer them.
 
@@ -58,7 +59,7 @@ description: How to give a talk like David Attenborough. Write the beat sheet of
 
 1. Copy [the template](assets/talk-template.md) to `talk.md` in the project, or revise the existing `talk.md` in place.
 2. Write the date under the title. Do not add other fields above the content.
-3. Write the sections in order: Intro, Results, Conclusions, Acknowledgements, Backup. Number the parts continuously across sections.
+3. Write the sections in order: Intro, Results, Conclusions, Acknowledgements, Backup, References. Number the parts continuously across sections.
 4. Write each part as a numbered bold title followed by indented bullets, and a **Notes** box only when there are working notes.
 5. Read the finished beat sheet from start to end. Check that each answer is supported by its cited evidence, that each answer leads to the next title, and that the conclusion answers the introduction.
 6. Put unresolved scientific choices at the end of `talk.md` as numbered questions: each with the background needed to answer it and numbered options. Deliver `talk.md`. Then stop.

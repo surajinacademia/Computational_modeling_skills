@@ -14,7 +14,7 @@
 From the skill root, use an approved output path in place of the example path:
 
 ```bash
-python3 scripts/build_example.py activator-inhibitor --output-dir /tmp/schematic-activator-inhibitor
+python3 scripts/build_example.py activator-inhibitor --output-dir <approved-directory>
 ```
 
 The build writes `activator-inhibitor.pdf` and `activator-inhibitor.svg` using Matplotlib PGF, real LaTeX/CMU, and native TikZ arrowheads. Follow the [shared build and trust requirements](../../../../references/tutorials.md).

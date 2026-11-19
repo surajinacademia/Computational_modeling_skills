@@ -58,7 +58,7 @@ Source check: 2026-08-06. Links point to primary paper records or DOI pages and 
 
 ## 3. Berg and Purcell (1977): turn noise into a quantitative biological limit
 
-**Paper:** H. C. Berg and E. M. Purcell, *Physics of chemoreception*, *Biophysical Journal* 20, 193–219. [Primary paper (DOI)](https://doi.org/10.1016/S0006-3495(77)85544-6) | [Open full text record](https://pmc.ncbi.nlm.nih.gov/articles/PMC1473391/)
+**Paper:** H. C. Berg and E. M. Purcell, *Physics of chemoreception*, *Biophysical Journal* 20, 193–219. [Primary paper (DOI)](https://doi.org/10.1016/S0006-3495%2877%2985544-6) | [Open full text record](https://pmc.ncbi.nlm.nih.gov/articles/PMC1473391/)
 
 **Type:** physical theory applied to biological sensing.
 
@@ -98,7 +98,7 @@ Source check: 2026-08-06. Links point to primary paper records or DOI pages and 
 
 **Type:** single-molecule experiment–model discrimination.
 
-**Influence status:** Included primarily as a structural exemplar. Its worm-like-chain interpretation recurs throughout later single-molecule force measurements, but that recurrence supports reach, not an objective ranking of this paper. [Review of single-molecule DNA mechanics](https://doi.org/10.1016/S0959-440X(00)00085-3) | [Optical-tweezers methods primer](https://doi.org/10.1038/s43586-021-00021-6)
+**Influence status:** Included primarily as a structural exemplar. Its worm-like-chain interpretation recurs throughout later single-molecule force measurements, but that recurrence supports reach, not an objective ranking of this paper. [Review of single-molecule DNA mechanics](https://doi.org/10.1016/S0959-440X%2800%2900085-3) | [Optical-tweezers methods primer](https://doi.org/10.1038/s43586-021-00021-6)
 
 - **Question:** Which polymer description captures the force–extension behavior of an individual long double-stranded DNA molecule?
 - **Gap:** Direct stretching data existed, but their decisive physical interpretation required distinguishing a smoothly bending semiflexible polymer from a freely jointed chain.

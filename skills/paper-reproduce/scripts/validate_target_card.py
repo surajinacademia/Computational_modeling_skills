@@ -4,11 +4,14 @@
 from __future__ import annotations
 
 import argparse
+import datetime
 import hashlib
 import json
+import math
 import os
 from pathlib import Path
 import re
+import sys
 from typing import Any
 
 import yaml
@@ -157,7 +160,7 @@ def is_placeholder(value: Any) -> bool:
 
 
 def validate_string_hygiene(value: Any, label: str, errors: list[str]) -> None:
-    """Reject empty or outer-whitespace strings throughout a frozen card."""
+    """Reject empty or outer-whitespace strings and non-JSON scalars in a card."""
     if isinstance(value, str):
         if not value.strip():
             errors.append(f"{label} must not be blank or whitespace")
@@ -166,10 +169,23 @@ def validate_string_hygiene(value: Any, label: str, errors: list[str]) -> None:
         return
     if isinstance(value, dict):
         for key, nested in value.items():
+            if not isinstance(key, str):
+                errors.append(f"{label}.{key!r} mapping key must be a quoted string")
+            elif not key.strip() or key != key.strip():
+                errors.append(
+                    f"{label}.{key!r} mapping key must not be blank or have outer whitespace"
+                )
             validate_string_hygiene(nested, f"{label}.{key}", errors)
-    elif isinstance(value, list):
+        return
+    if isinstance(value, list):
         for index, nested in enumerate(value):
             validate_string_hygiene(nested, f"{label}[{index}]", errors)
+        return
+    if isinstance(value, float) and not math.isfinite(value):
+        errors.append(f"{label} must be a finite number")
+        return
+    if value is not None and not isinstance(value, (int, float, bool)):
+        errors.append(f"{label} must be a quoted string")
 
 
 def is_canonical_sha256(value: Any) -> bool:
@@ -179,9 +195,27 @@ def is_canonical_sha256(value: Any) -> bool:
     )
 
 
+def is_valid_isolated_root(value: Any) -> bool:
+    """Return true for a non-root isolated output directory without .. traversal."""
+    if not nonblank_string(value) or is_placeholder(value):
+        return False
+    raw_path = Path(value)
+    if ".." in raw_path.parts or ".." in value.replace("\\", "/").split("/"):
+        return False
+    normalized = os.path.normpath(value)
+    norm_path = Path(normalized)
+    if normalized in {".", "/", "//"} or ".." in norm_path.parts:
+        return False
+    if norm_path.is_absolute() and len(norm_path.parts) <= 1:
+        return False
+    return True
+
+
 def path_is_within(child: Any, root: Any) -> bool:
     """Check lexical containment without requiring either path to exist."""
-    if not nonblank_string(child) or not nonblank_string(root):
+    if not nonblank_string(child) or not is_valid_isolated_root(root):
+        return False
+    if ".." in Path(child).parts or ".." in child.replace("\\", "/").split("/"):
         return False
     child_path = Path(os.path.normpath(child))
     root_path = Path(os.path.normpath(root))
@@ -310,11 +344,20 @@ def validate_sensitivity_protocol(
         covered_items.add(audit_item)
         alternatives = entry.get("alternatives")
         declared_alternatives = alternatives_by_item[audit_item]
+        declared_valid = (
+            isinstance(declared_alternatives, list)
+            and bool(declared_alternatives)
+            and all(
+                nonblank_string(item) and not is_placeholder(item)
+                for item in declared_alternatives
+            )
+        )
         if (
             not isinstance(alternatives, list)
             or not alternatives
-            or any(not nonblank_string(item) for item in alternatives)
+            or any(not nonblank_string(item) or is_placeholder(item) for item in alternatives)
             or len(alternatives) != len(set(alternatives))
+            or not declared_valid
             or set(alternatives) != set(declared_alternatives)
         ):
             errors.append(f"{label}.alternatives must cover the audited alternatives")
@@ -374,8 +417,18 @@ def specification_payload(card: dict[str, Any]) -> dict[str, Any]:
 
 def compute_specification_hash(card: dict[str, Any]) -> str:
     """Hash compact, key-sorted, UTF-8 JSON with non-finite numbers rejected."""
+    payload = specification_payload(card)
+    scalar_errors: list[str] = []
+    validate_string_hygiene(payload, "card", scalar_errors)
+    json_errors = [
+        err
+        for err in scalar_errors
+        if "must be a quoted string" in err or "must be a finite number" in err
+    ]
+    if json_errors:
+        raise ValueError("; ".join(json_errors))
     encoded = json.dumps(
-        specification_payload(card),
+        payload,
         allow_nan=False,
         ensure_ascii=False,
         separators=(",", ":"),
@@ -507,22 +560,33 @@ def validate_card(
 ) -> list[str]:
     """Return cross-field provenance and scientific-label errors."""
     errors: list[str] = []
+    try:
+        specification_payload(card)
+    except ValueError as exc:
+        return [str(exc)]
     validate_string_hygiene(card, "card", errors)
+    expected_hash: str | None
     try:
         expected_hash = compute_specification_hash(card)
     except (TypeError, ValueError) as exc:
-        return [str(exc)]
+        expected_hash = None
+        if not any(
+            "must be a quoted string" in err or "must be a finite number" in err
+            for err in errors
+        ):
+            errors.append(str(exc))
 
     revision = card.get("specification_revision")
     if not isinstance(revision, dict):
         return ["specification_revision must be a mapping"]
     stored_hash = revision.get("specification_hash")
-    if stored_hash != expected_hash:
+    if expected_hash is not None and stored_hash != expected_hash:
         errors.append(
             f"specification_hash mismatch: expected {expected_hash}, got {stored_hash!r}"
         )
     for field in ("revision_id", "change_reason", "frozen_at"):
-        if not nonblank_string(revision.get(field)):
+        field_val = revision.get(field)
+        if not nonblank_string(field_val) and not isinstance(field_val, datetime.date):
             errors.append(f"specification_revision.{field} must be set")
     if revision.get("supersedes_revision_id") is not None and not nonblank_string(
         revision.get("supersedes_revision_id")
@@ -652,11 +716,7 @@ def validate_card(
         ):
             errors.append("extension requires at least one authorized change")
         isolated_root = variant_specification.get("isolated_output_root")
-        if (
-            not nonblank_string(isolated_root)
-            or is_placeholder(isolated_root)
-            or isolated_root in {".", "/"}
-        ):
+        if not is_valid_isolated_root(isolated_root):
             errors.append("extension requires an isolated output root")
     if (
         variant == "not_applicable"
@@ -701,15 +761,21 @@ def validate_card(
         if not isinstance(held_out, list) or not held_out:
             errors.append("prediction requires nonempty evaluation condition IDs")
             held_out = []
-        if any(not isinstance(item, str) or not item.strip() for item in calibration):
+        cal_strings_ok = all(
+            isinstance(item, str) and bool(item.strip()) for item in calibration
+        )
+        eval_strings_ok = all(
+            isinstance(item, str) and bool(item.strip()) for item in held_out
+        )
+        if not cal_strings_ok:
             errors.append("calibration condition IDs must be nonempty strings")
-        if any(not isinstance(item, str) or not item.strip() for item in held_out):
-            errors.append("evaluation condition IDs must be nonempty strings")
-        if len(calibration) != len(set(calibration)):
+        elif len(calibration) != len(set(calibration)):
             errors.append("calibration condition IDs must be unique")
-        if len(held_out) != len(set(held_out)):
+        if not eval_strings_ok:
+            errors.append("evaluation condition IDs must be nonempty strings")
+        elif len(held_out) != len(set(held_out)):
             errors.append("evaluation condition IDs must be unique")
-        if set(calibration) & set(held_out):
+        if cal_strings_ok and eval_strings_ok and (set(calibration) & set(held_out)):
             errors.append("prediction calibration and evaluation conditions must be disjoint")
     if verdict == "quantitatively_consistent" and strength != "quantitative":
         errors.append("quantitatively_consistent requires quantitative comparison")
@@ -791,7 +857,14 @@ def validate_card(
                     f"source_audit.items[{index}] unresolved status requires an exact-reproduction effect"
                 )
             alternatives = item.get("alternatives")
-            if not isinstance(alternatives, list) or not alternatives:
+            if (
+                not isinstance(alternatives, list)
+                or not alternatives
+                or any(
+                    not nonblank_string(alt) or is_placeholder(alt)
+                    for alt in alternatives
+                )
+            ):
                 errors.append(
                     f"source_audit.items[{index}] unresolved status requires documented alternatives"
                 )
@@ -907,7 +980,7 @@ def validate_card(
     evaluation_revision = evaluation.get("governing_revision_id")
     if execution_revision is not None and execution_revision != revision.get("revision_id"):
         errors.append("execution governing revision does not match")
-    if execution_hash is not None and execution_hash != expected_hash:
+    if execution_hash is not None and expected_hash is not None and execution_hash != expected_hash:
         errors.append("execution governing specification hash does not match")
     if evaluation_revision is not None and evaluation_revision != revision.get("revision_id"):
         errors.append("evaluation governing revision does not match")
@@ -931,11 +1004,18 @@ def main() -> int:
         help="print the canonical hash without checking the stored value",
     )
     args = parser.parse_args()
-    card = load_card(args.card)
-    if args.compute:
-        print(compute_specification_hash(card))
-        return 0
-    errors = validate_card(card, args.card)
+    try:
+        card = load_card(args.card)
+        if args.compute:
+            print(compute_specification_hash(card))
+            return 0
+        errors = validate_card(card, args.card)
+    except (OSError, yaml.YAMLError, TypeError, ValueError) as exc:
+        if args.compute:
+            sys.stderr.write(f"error: {exc}\n")
+        else:
+            print(json.dumps({"valid": False, "errors": [str(exc)]}, indent=2))
+        return 1
     print(json.dumps({"valid": not errors, "errors": errors}, indent=2))
     return 0 if not errors else 1
 

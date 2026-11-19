@@ -25,7 +25,12 @@ sys.path.insert(0, str(SKILL_ROOT / "assets" / "styles" / "matplotlib"))
 from scientific_neutral import COLORS, apply_style  # noqa: E402
 apply_style()  # Select PGF and CMU/LaTeX before importing pyplot.
 import matplotlib.pyplot as plt  # noqa: E402
-import minimalist  # noqa: E402
+try:
+    import minimalist
+except ModuleNotFoundError as exc:
+    if exc.name != "minimalist":
+        raise
+    minimalist = None
 from native_tikz import arrow  # noqa: E402
 sys.path.insert(0, str(SKILL_ROOT / "assets" / "styles"))
 from minimalist_profile import LINE_PT, MARKER_PT, OPACITY  # noqa: E402
@@ -37,6 +42,10 @@ from vector_output import (  # noqa: E402
 
 SOURCE_POSITIONS = np.array([[5.0, 5.0], [7.0, 3.0], [6.0, 7.0]])
 SENSOR_POSITION = np.array([2.5, 5.0])
+
+
+def _sequential_cmap():
+    return minimalist.get_cmap("sequential") if minimalist is not None else plt.get_cmap("inferno")
 
 
 def field_profile(ax) -> None:
@@ -59,7 +68,7 @@ def concentration_map(ax) -> None:
     for source_x, source_y in SOURCE_POSITIONS:
         distance = np.hypot(x_grid - source_x, y_grid - source_y) + 0.05
         concentration += k0(distance / decay_length)
-    contours = ax.contourf(x_grid, y_grid, concentration, levels=18, cmap=minimalist.get_cmap("sequential"))
+    contours = ax.contourf(x_grid, y_grid, concentration, levels=18, cmap=_sequential_cmap())
     ax.contour(x_grid, y_grid, concentration, levels=7, colors="white", linewidths=LINE_PT["context"])
     colorbar = plt.colorbar(contours, ax=ax, label=r"$C(\mathbf{r})$")
     colorbar.solids.set_rasterized(False)
@@ -136,7 +145,7 @@ def phase_diagram(ax) -> None:
         return np.r_[values[0] - (midpoints[0] - values[0]), midpoints,
                      values[-1] + (values[-1] - midpoints[-1])]
     cells = ax.pcolormesh(edges(kappas), edges(sigmas), order, shading="flat",
-                         cmap=minimalist.get_cmap("sequential"), vmin=0, vmax=1)
+                         cmap=_sequential_cmap(), vmin=0, vmax=1)
     colorbar = plt.colorbar(cells, ax=ax, label=r"$|\langle e^{i\theta}\rangle|$", ticks=[0, 0.5, 1])
     colorbar.solids.set_rasterized(False)
     colorbar.solids.set_edgecolor("face")  # Avoid seams between adjacent vector cells.
