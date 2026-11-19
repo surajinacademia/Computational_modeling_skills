@@ -25,6 +25,7 @@ project/
 ├── AGENTS.md           # Rules for agents
 ├── README.md           # This file
 ├── environment.yml
+├── pyproject.toml
 ├── .gitignore
 ├── model/
 │   ├── README.md       # Every model folder: what it is, what changed, which paper uses it

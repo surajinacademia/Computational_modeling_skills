@@ -13,12 +13,12 @@ This is locally authored guidance for planning the storyline of a scientific tal
 
 ## Where the sources disagree
 
-- **Slide titles:** Alon (through Raj), McConnell, and Ratcliff recommend a sentence that states each slide's point. Stern's [advice against slide text](https://www.howtogiveatalk.com/blog/principle-1-dont-put-words-on-slides) removes titles so the audience reads the data first. The beat sheet does not decide slide titles; it heads each sequence with a question and ends it with a take-home statement, which either title style can use at the slide stage.
+- **Slide titles:** Alon (through Raj), McConnell, and Ratcliff recommend a sentence that states each slide's point. Stern's [advice against slide text](https://www.howtogiveatalk.com/blog/principle-1-dont-put-words-on-slides) removes titles so the audience reads the data first. The beat sheet does not decide slide titles; it gives each numbered part a question or statement title and ends its plain cited talking points with a bounded answer, which either title style can use at the slide stage.
 - **Audience:** Ratcliff and McConnell tailor the level of detail to the audience. Stern prepares for a general scientific audience and assumes no knowledge of the field. The local choice is to ask who the audience is while planning and to explain goals and methods in plain language either way.
 - **Written signposts:** McConnell recaps at each transition with a home slide. Stern avoids agenda slides and relies on spoken introductions. The local choice is a home slide without an agenda list.
 - **Formal conclusion:** Ratcliff and McConnell always recap. Stern treats a formal conclusion as optional when the audience is engaged. The local choice is always to answer the opening questions.
 
 ## Local adaptations and exclusions
 
-- Question headings, take-home statements, the flexible number of beats, the `talk.md` format, and the placement of the level of detail on the diagram's vertical axis are local adaptations requested by the maintainer.
+- Numbered parts with a question or statement title, plain cited talking points ending in a bounded answer, results that each test one central hypothesis, the `talk.md` format, and the placement of the level of detail on the diagram's vertical axis are local adaptations requested by the maintainer.
 - Rehearsal, eye contact, pointers, humour, colour and font choices, and formal question-and-answer coaching are outside this skill. Slide construction is a later stage described in [the Slidev handoff](slidev-handoff.md).

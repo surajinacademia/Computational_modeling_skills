@@ -1,13 +1,12 @@
 ---
 name: repo-rules
 description: Commit research work in a git repository by the rules of the Good Research Code Handbook. Each run reads the changes, puts new files in the right folder, makes one commit per piece of related work that says what changed and why, and records the tests in tests/RECORD.md. In an empty folder it creates the project skeleton. Runs only when the user asks for it by name.
-disable-model-invocation: true
 ---
 
 # Repo Rules
 
 - Run as `/repo-rules` in Claude or `$repo-rules` in Codex.
-- The rules are those of Patrick Mineault's [Good Research Code Handbook](https://goodresearch.dev) (CC BY 4.0). Words in quotation marks are the handbook's own; rules marked *Project* are the maintainer's additions. [handbook.md](references/handbook.md) lists the lessons, the checked quotes, the handbook's examples, and where this skill differs.
+- The rules are those of Patrick Mineault's [Good Research Code Handbook](https://goodresearch.dev) (CC BY 4.0), and three *Project* rules follow William Stafford Noble's [A Quick Guide to Organizing Computational Biology Projects](https://doi.org/10.1371/journal.pcbi.1000424) (2009, CC BY). Words in quotation marks are the handbook's own; the remaining rules marked *Project* are the maintainer's additions. [handbook.md](references/handbook.md) lists the lessons, the checked quotes, the handbook's examples, and where this skill differs.
 - This skill puts files in folders, makes commits, and keeps the record of tests. It does not write or rewrite code, run a simulation, or re-run a notebook.
 
 ## Each run
@@ -37,7 +36,7 @@ Do these steps in this order, and only these:
 Only when the folder is empty, or has files but no git repository.
 
 - **"Initialize a git repository and sync to Github."** First check that no parent folder is already a git repository (`git rev-parse --show-toplevel`); if one is, ask. Then `git init -b main`.
-- **"Create a project skeleton."** Copy from `assets/template/`: [AGENTS.md](assets/template/AGENTS.md), [README.md](assets/template/README.md) with its picture [docs/project-folders.svg](assets/template/docs/project-folders.svg), `gitignore` as `.gitignore`, and `environment.yml`. Copy `model-README.md` as `model/README.md` when there is a model, and `RECORD.md` as `tests/RECORD.md` when there is a test.
+- **"Create a project skeleton."** Copy from `assets/template/`: [AGENTS.md](assets/template/AGENTS.md), [README.md](assets/template/README.md) with its picture [docs/project-folders.svg](assets/template/docs/project-folders.svg), `gitignore` as `.gitignore`, `environment.yml`, and `pyproject.toml`. Copy `model-README.md` as `model/README.md` when there is a model, and `RECORD.md` as `tests/RECORD.md` when there is a test.
 - Create a folder only when a file needs it. Do not add `model/` to a project without a model.
 - Fill the templates only with what the maintainer said or what was read in the project. Where a command or a fact is not known, write "not set up yet"; never make one up.
 - When `AGENTS.md` or `README.md` already exists, add to it. Never replace the rules a project wrote for itself, and never overwrite a file.
@@ -48,6 +47,7 @@ project/
 ├── AGENTS.md           # Rules for agents
 ├── README.md           # Description, installation instructions, and where things are
 ├── environment.yml
+├── pyproject.toml
 ├── .gitignore
 ├── model/
 │   ├── README.md       # Every model folder: what it is, what changed, which paper uses it
@@ -79,6 +79,7 @@ project/
 | Tests for the code, and the record of tests | `tests/` |
 | Text, figures, and tables of a paper | `paper/<paper-name>/` |
 | Documentation and notes for the project | `docs/` |
+| Environment and package files (`environment.yml`, `pyproject.toml`) | root of the project |
 | Files to throw away | `tmp/` |
 
 - **Choose the folder by what the file is for,** not by its extension: a notebook that is the model goes with the model, a notebook that analyses results goes with the scripts.

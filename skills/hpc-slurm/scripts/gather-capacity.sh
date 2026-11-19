@@ -54,6 +54,8 @@ if [[ -n "$node_rows" ]]; then
         END {for (node in seen) count++; print count+0}' <<<"$node_rows"
 else
     printf '%s\n' 'UNKNOWN: node evidence unavailable'
+    printf '\n=== RAW_UNIQUE_IDLE_NODES ===\n'
+    printf '%s\n' 'UNKNOWN: node evidence unavailable'
 fi
 printf '\n=== QUERY_FAILURES ===\n%s\n' "$query_failures"
 (( query_failures == 0 )) || exit 2

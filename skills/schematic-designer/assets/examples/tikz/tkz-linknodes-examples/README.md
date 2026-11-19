@@ -18,7 +18,7 @@ The source's incorrect annotation `sqrt(x) = |x|` is corrected to `sqrt(x²) = |
 From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
-python3 scripts/build_example.py tikz-tkz-linknodes-examples --output-dir /tmp/tkz-linknodes-examples
+python3 scripts/build_example.py tikz-tkz-linknodes-examples --output-dir <approved-directory>
 ```
 
 The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.

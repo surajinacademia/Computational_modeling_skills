@@ -141,21 +141,57 @@ def _direct_command(source: str, position: int) -> bool:
     return slashes % 2 == 0
 
 
-def _walk(path: Path, base: Path) -> tuple[Path, int] | tuple[None, str]:
-    """lstat every component without resolving symlinks or reading file content."""
+def _normalize_macos_alias(path: Path) -> Path:
+    # macOS exposes /tmp and /var through system-owned aliases. Resolve just
+    # these explicit prefixes, never arbitrary user-selected parents.
+    if sys.platform == "darwin" and path.parts[1:2] in [("tmp",), ("var",)]:
+        prefix = Path("/") / path.parts[1]
+        return prefix.resolve().joinpath(*path.parts[2:])
+    return path
+
+
+def _resolve_root(root: Path, base: Path) -> tuple[Path, Path] | tuple[None, str]:
+    """Verify root itself is a non-symlink directory; allow mount symlinks above it."""
     try:
-        raw = path.expanduser()
+        raw = root.expanduser()
     except RuntimeError:
         return None, "cannot be expanded safely"
-    candidate = raw if raw.is_absolute() else base / raw
-    current = Path(candidate.anchor)
+    candidate = _normalize_macos_alias(
+        Path(os.path.abspath(os.fspath(raw if raw.is_absolute() else base / raw)))
+    )
+    try:
+        mode = candidate.lstat().st_mode
+    except FileNotFoundError:
+        return None, "does not exist"
+    except OSError:
+        return None, "is unreadable"
+    if stat.S_ISLNK(mode):
+        return None, "contains a symlink path component"
+    if not stat.S_ISDIR(mode):
+        return None, "must be a directory"
+    try:
+        resolved = (
+            candidate.parent.resolve(strict=True) / candidate.name
+            if candidate != Path(candidate.anchor)
+            else candidate.resolve(strict=True)
+        )
+        resolved_mode = resolved.lstat().st_mode
+    except OSError:
+        return None, "is unreadable"
+    if stat.S_ISLNK(resolved_mode) or not stat.S_ISDIR(resolved_mode):
+        return None, "contains a symlink path component"
+    return resolved, candidate
+
+
+def _walk_components(start: Path, parts: tuple[str, ...]) -> tuple[Path, int] | tuple[None, str]:
+    """lstat each component from start without resolving symlinks."""
+    current = start
     try:
         mode = current.lstat().st_mode
     except OSError:
         return None, "is missing or unreadable"
     if stat.S_ISLNK(mode) or not stat.S_ISDIR(mode):
-        return None, "has an unsafe filesystem root"
-    parts = candidate.parts[1:]
+        return None, "contains a symlink path component"
     for index, part in enumerate(parts):
         if part in ("", "."):
             continue
@@ -176,18 +212,30 @@ def _walk(path: Path, base: Path) -> tuple[Path, int] | tuple[None, str]:
     return current, mode
 
 
-def _absolute(path: Path, base: Path) -> Path:
-    expanded = path.expanduser()
-    return Path(os.path.abspath(os.fspath(expanded if expanded.is_absolute() else base / expanded)))
-
-
-def _safe_file(path: Path, base: Path, root: Path) -> tuple[Path | None, str | None]:
-    candidate = _absolute(path, base)
+def _safe_file(
+    path: Path, base: Path, root: Path, raw_root: Path | None = None,
+) -> tuple[Path | None, str | None]:
+    try:
+        raw = path.expanduser()
+    except RuntimeError:
+        return None, "cannot be expanded safely"
+    combined = _normalize_macos_alias(raw if raw.is_absolute() else base / raw)
+    if raw_root is not None and combined.parts[:len(raw_root.parts)] == raw_root.parts:
+        combined = root.joinpath(*combined.parts[len(raw_root.parts):])
+    candidate = Path(os.path.abspath(os.fspath(combined)))
     try:
         candidate.relative_to(root)
     except ValueError:
         return None, "escapes the analysis root"
-    checked, detail = _walk(path, base)
+    common = 0
+    for left, right in zip(combined.parts, root.parts):
+        if left != right:
+            break
+        common += 1
+    if common == 0:
+        return None, "escapes the analysis root"
+    start = Path(*combined.parts[:common])
+    checked, detail = _walk_components(start, combined.parts[common:])
     if checked is None:
         return None, detail
     if not stat.S_ISREG(detail):
@@ -265,9 +313,10 @@ def _macro_target(source: str, name: str, position: int) -> str | None:
 def _dynamic(name: str) -> bool:
     lowered = name.lower()
     return (
-        (lowered.startswith("if") and lowered != "iff")
+        (name.startswith("if") and name != "iff")
+        or (name.startswith("If") and name != "If")
         or lowered.startswith("@if")
-        or lowered in {"fi", "else", "or", "unless"}
+        or name in {"fi", "else", "or", "unless"}
         or lowered in DYNAMIC_COMMANDS
     )
 
@@ -303,11 +352,10 @@ def validate_report(report: Path, root: Path) -> list[str]:
     """Return bounded structural diagnostics; never writes or executes input."""
     errors: list[str] = []
     cwd = Path.cwd()
-    root_checked, root_mode = _walk(root, cwd)
-    if root_checked is None or not stat.S_ISDIR(root_mode):
-        return [f"analysis root {root_mode if root_checked is None else 'must be a directory'}"]
-    root_path = _absolute(root, cwd)
-    report_path, detail = _safe_file(report, cwd, root_path)
+    root_path, raw_root = _resolve_root(root, cwd)
+    if root_path is None:
+        return [f"analysis root {raw_root}"]
+    report_path, detail = _safe_file(report, cwd, root_path, raw_root)
     if report_path is None:
         return [f"report path {detail}"]
     if report_path.suffix.lower() != ".tex":

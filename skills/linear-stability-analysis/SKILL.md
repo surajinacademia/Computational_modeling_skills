@@ -100,5 +100,5 @@ where $s \in \mathbb{C}$ is the complex temporal growth rate ($\operatorname{Re}
 
 - Package full-analysis outputs in one directory without extra narrative files: self-contained `.tex` report, reproducible Python script, vector figures, `parameters.json`, `spectrum.csv`, compiled PDF (when TeX is installed), and `artifact-manifest.sha256`.
 - **For narrower requests or missing inputs/tools:** deliver verified available outputs only and mark omitted items or unrun checks incomplete.
-- Record SHA-256 hashes of the `.tex` report, Python calculation, `parameters.json`, `spectrum.csv`, figures, compiled PDF, and checker version in `artifact-manifest.sha256` without hashing the manifest itself; report the manifest's own SHA-256 externally.
+- Record SHA-256 hashes of the `.tex` report, Python calculation, `parameters.json`, `spectrum.csv`, figures, compiled PDF, and checker source in `artifact-manifest.sha256` without hashing the manifest itself; report the manifest's own SHA-256 externally.
 - Bound conclusions strictly to linear perturbations and the explored parameter domain, then stop.

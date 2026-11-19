@@ -16,7 +16,7 @@ The cutaway geometry, paired coils, aperture openings, sample holder and beam cr
 From the schematic-designer skill directory, using the documented compatible Python environment:
 
 ```sh
-python3 scripts/build_example.py tikz-transmission-electron-microscope --output-dir /tmp/transmission-electron-microscope
+python3 scripts/build_example.py tikz-transmission-electron-microscope --output-dir <approved-directory>
 ```
 
 The builder generates current style support and compiles trusted source with LuaLaTeX in a fresh work directory. It exports a PDF and an outlined SVG. Inspect labels, mathematical notation, terminal types and clearances at final size. No archived render or local legacy package is a build dependency.

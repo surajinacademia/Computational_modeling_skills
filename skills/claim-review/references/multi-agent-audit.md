@@ -41,11 +41,11 @@ Review an already-written draft, manuscript, preprint, or published paper withou
 - When underlying figures, calculations, simulation outputs, or project files are available, cross-check the manuscript against them to identify omitted contradictions, claim drift, or provenance mismatches.
 - When only the paper is provided, evaluate what the paper itself reports, mark underlying data provenance and unreported analyses as `not independently verified`, never infer whether unavailable evidence existed, and distinguish `not reported in the paper`, `reported but insufficient`, and `cannot assess without source files`.
 - Treat the paper's reference list as an initial domain corpus rather than a verified literature review: check central citations or supplied `literature_review.md` before judging the gap, novelty, significance, or strongest competing alternative hypotheses, and label uninspected citation support `author-cited, not source-verified`.
-- Treat publication status, journal prestige, citation count, and persuasive prose as irrelevant to scientific validity; enter Revise mode only when the user separately authorizes changes to an editable draft.
+- Treat publication status, journal prestige, citation count, and persuasive prose as irrelevant to scientific validity; narrow overstated claims in an editable file only when the user separately authorizes that edit in mode 1.
 
 ## Non-negotiable review behavior
 
-- Treat Critical Review mode as strictly read-only. Do not edit, rename, reformat, or overwrite project files. Return the consolidated review in the response; create `claim-review-audit.md` only when the user explicitly requests a saved report file.
+- Treat modes 1 and 2 as strictly read-only unless the user explicitly authorizes claim-narrowing edits in mode 1. Otherwise do not edit, rename, reformat, or overwrite project files; return the consolidated review in the response, and create `claim-review-audit.md` only when the user explicitly requests a saved report file.
 - Evaluate only evidence present in the supplied manuscripts, outlines, or figures. Label absent information `not assessable`; do not invent results, controls, citations, feedback, or author intent.
 - Treat the central line of reasoning as user-authored or paper-presented. Independent scientific reviewers may test it but must not replace it with a storyline inferred from the results.
 - Require a substantive completed result set and a user-authored or user-confirmed argument before issuing a pre-draft readiness verdict.

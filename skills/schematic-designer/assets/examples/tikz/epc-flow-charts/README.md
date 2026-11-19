@@ -12,7 +12,7 @@ Active Minimalist adaptation. See [attribution](ATTRIBUTION.md) for provenance a
 From the skill root, the supported entry point is:
 
 ```sh
-python3 scripts/build_example.py tikz-epc-flow-charts --output-dir ./output/tikz-epc-flow-charts
+python3 scripts/build_example.py tikz-epc-flow-charts --output-dir <approved-directory>
 ```
 
 The builder generates its style and compiler inputs in a fresh private temporary directory. Use a Python environment with the plotting dependencies and available LuaLaTeX/CMU fonts and supported SVG converters.

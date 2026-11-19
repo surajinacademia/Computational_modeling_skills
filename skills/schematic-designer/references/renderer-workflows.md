@@ -21,7 +21,7 @@ Use this reference after the scientific inventory and before authoring source. K
 
 An input PNG or JPEG never justifies raster delivery: rebuild meaning with editable primitives and keep a raster layer only for real photos or dense scientific fields.
 
-Reuse the project's working Python environment, TeX engine, fonts, and PDF/SVG commands; when setting them up, verify one small test export before a full render and record the working commands. After any failure, diagnose and retry the affected stage, and inspect both final PDF and SVG after edits.
+Reuse the project's working Python environment, TeX engine, fonts, and—when an outlined SVG is requested—PDF-to-SVG commands; when setting them up, verify one small test export before a full render and record the working commands. After any failure, diagnose and retry the affected stage, and inspect the final PDF (and any requested SVG) after edits.
 
 ## Arrowheads
 

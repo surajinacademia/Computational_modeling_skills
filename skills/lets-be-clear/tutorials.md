@@ -13,7 +13,7 @@ Short invented examples showing each branch of the `lets-be-clear` decision tree
 - **Intent as understood:** Test whether your diffusion simulation agrees with the experimental FRAP recovery measurements.
 - **Holes, vagueness, and assumptions:** "Works" could mean out-of-sample prediction at fixed diffusivity or best-fit calibration, and could judge either recovery timescale or final plateau. Guessing for you would mix up curve-fitting with validation.
 - **Facts for an informed decision:** `data/frap_recovery.csv` measures normalized recovery $F(t)/F_0$ at $t = 0, 5, 15, 60\,\mathrm{s}$ ($n = 8$ cells, mean $\pm$ SD) and plateaus near $0.82$ ($\sim 18\%$ immobile fraction). `results/sim_recovery.csv` uses fixed FCS diffusivity $D = 1.2\,\mu\mathrm{m}^2/\mathrm{s}$ assuming $100\%$ mobile fraction ($F/F_0 \to 1$).
-- **Concrete options and recommendation:** (A) **Zero-fit timescale and plateau check** — compare fixed-$D$ raw $F(t)/F_0$ and plateau-normalized kinetics $(F(t)-F_0)/(F_{\infty}-F_0)$ against $1\,\mathrm{SD}$ to test diffusive rate separately from immobile binding; (B) **Two-parameter fit** — fit $D$ and mobile fraction to `frap_recovery.csv`, which calibrates parameters but cannot claim independent validation without held-out data. I recommend **(A)** first so you see whether independent $D$ already predicts the recovery rate.
+- **Concrete options and recommendation:** (A) **Zero-fit timescale and plateau check** — compare fixed-$D$ raw $F(t)/F_0$ and plateau-normalized kinetics $(F(t)-F(0))/(F_{\infty}-F(0))$ against $1\,\mathrm{SD}$ to test diffusive rate separately from immobile binding; (B) **Two-parameter fit** — fit $D$ and mobile fraction to `frap_recovery.csv`, which calibrates parameters but cannot claim independent validation without held-out data. I recommend **(A)** first so you see whether independent $D$ already predicts the recovery rate.
 - **Specify and confirm:** Do you want $1$ experimental SD as the agreement band, and do you confirm starting with the zero-fit comparison plan?
 
 **User:** "I'm not sure whether plateau-normalizing hides a real model failure."
@@ -70,4 +70,3 @@ Short invented examples showing each branch of the `lets-be-clear` decision tree
 **User:** "Change the Figure 2 colormap to viridis."
 
 **Outcome:** The agent makes the change and says what it did. It does not restate the request or list it as an item, because a single clear action has nothing to separate.
-

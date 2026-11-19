@@ -2,7 +2,7 @@
 
 - Use this reference in mode 3, after reviewing claims against results or when the researcher explicitly asks to build or revise `story_arc.md`.
 - The researcher keeps authorship of the scientific argument; the story arc stays bounded by reviewed results.
-- The paragraph-level `outline.md` belongs to `writing-process`, which builds it from a confirmed story arc. Reviewer 2 reviews an outline on request but does not build or revise it.
+- The paragraph-level `outline.md` belongs to `writing-process`, which builds it from a confirmed story arc. Claim Review reviews an outline on request but does not build or revise it.
 
 ## Contents
 

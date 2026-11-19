@@ -71,7 +71,7 @@ apply_style()
 
 def parse_args():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument("--output-dir", type=Path, default=Path("outputs"))
+    parser.add_argument("--output-dir", type=Path, required=True)
     return parser.parse_args()
 
 

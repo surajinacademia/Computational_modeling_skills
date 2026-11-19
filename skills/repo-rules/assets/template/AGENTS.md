@@ -2,12 +2,12 @@
 
 [One paragraph: the research question, the models, and the papers of this project.]
 
-These rules follow the six lessons of Patrick Mineault's [Good Research Code Handbook](https://goodresearch.dev) (CC BY 4.0), in its order. Words in quotation marks are the handbook's own. Rules marked *Project* are additions for this project.
+These rules follow the six lessons of Patrick Mineault's [Good Research Code Handbook](https://goodresearch.dev) (CC BY 4.0), in its order, and three *Project* rules follow William Stafford Noble's [A Quick Guide to Organizing Computational Biology Projects](https://doi.org/10.1371/journal.pcbi.1000424) (2009, CC BY). Words in quotation marks are the handbook's own. Other rules marked *Project* are additions for this project.
 
 ## 1. Set up your project
 
 - **"Pick a short and descriptive name for your project."** Do the same for every folder and file: lowercase with hyphens for folders, snake case for Python files.
-- **"Create a project skeleton."** The handbook's skeleton is `data`, `docs`, `results`, `scripts`, `src`, `tests`, with `.gitignore`, `environment.yml`, and `README.md`. Use it, with the additions below, and put nothing else in the root. Create a folder only when a file needs it.
+- **"Create a project skeleton."** The handbook's skeleton is `data`, `docs`, `results`, `scripts`, `src`, `tests`, with `.gitignore`, `environment.yml`, and `README.md`. Use it, with `AGENTS.md`, `pyproject.toml`, and the folder additions below, and put nothing else in the root. Create a folder only when a file needs it.
 - *Project:* Everything for one model lives in `model/<model-name>/`. Files used by more than one model live in the root folder of the same name. Each paper lives in `paper/<paper-name>/`.
 
 | File | Folder |
@@ -24,6 +24,7 @@ These rules follow the six lessons of Patrick Mineault's [Good Research Code Han
 | Tests for the code, and the record of tests | `tests/` |
 | Text, figures, and tables of a paper | `paper/<paper-name>/` |
 | Documentation and notes for the project | `docs/` |
+| Environment and package files (`environment.yml`, `pyproject.toml`) | root of the project |
 | Files to throw away | `tmp/` |
 
 - *Project:* Choose the folder by what the file is for, not by its extension: a notebook that is the model goes with the model, a notebook that analyses results goes with the scripts.
@@ -31,7 +32,7 @@ These rules follow the six lessons of Patrick Mineault's [Good Research Code Han
 - *Project:* Never move a file or a folder that a running simulation or other running program is using.
 - **"Where you put raw data for your project."** Never change raw data. Save changed data as results, with the script that made it. *Project:* record in `README.md` where raw data came from: the link, the version, and the date it was downloaded.
 - **"Set up a virtual environment."** Use one environment for the project, described in `environment.yml`; install conda packages first and pip packages second. When a package is added, change the file in the same commit.
-- **"Create a pip-installable package."** Put reusable modules in `src/` and install them with `python -m pip install -e .`. Do not change the Python path.
+- **"Create a pip-installable package."** Put reusable modules in `src/`, configure the package in `pyproject.toml`, and install it with `python -m pip install -e .`. Do not change the Python path.
 - **"Initialize a git repository and sync to Github."** Put code, notebooks, documentation, and the environment file in source control. Data goes in only as "very small, text-based datasets (< 10 MBs)". Keep other data, results, figures, and videos out with `.gitignore`.
 - *Project:* A file that git ignores is not saved by a commit, and a commit that is not pushed is not on GitHub. Say in `tests/RECORD.md` which results are kept on this computer only.
 - **"Don't wait until the project is almost finished before you start to commit."** Commit each piece of work when it is done.

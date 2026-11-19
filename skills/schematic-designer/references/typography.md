@@ -52,4 +52,4 @@ Apply the profile's panel, title, body, equation, and small roles consistently a
 
 ## Final check
 
-Check a representative equation with a fraction, Greek symbol, subscript, and superscript for quantity definitions, term explanations, color consistency, valid steps, clear leader attachment, PDF font inventory (CMU text + Computer Modern math), and visual outlined-SVG inspection. In hybrids, compare imported panel type sizes against native TikZ labels at final size.
+Check a representative equation with a fraction, Greek symbol, subscript, and superscript for quantity definitions, term explanations, color consistency, valid steps, clear leader attachment, PDF font inventory (CMU text + Computer Modern math), and—when an outlined SVG is requested—visual SVG inspection. In hybrids, compare imported panel type sizes against native TikZ labels at final size.

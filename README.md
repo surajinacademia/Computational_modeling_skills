@@ -14,10 +14,10 @@ I made these skills to support scientists in their work. Scientific training and
 | [jupyter-notebook](skills/jupyter-notebook/SKILL.md) | Create, maintain, execute, and review Jupyter notebooks for theoretical modeling and scientific data analysis |
 | [linear-stability-analysis](skills/linear-stability-analysis/SKILL.md) | Derive analytical dispersion relations, compute numerical eigenspectra, and report linear stability in 1D or 2D continuum models |
 | [data-visualization](skills/data-visualization/SKILL.md) | Create publication-quality quantitative plots from scientific data while preserving units and experimental replicates |
-| [schematic-designer](skills/schematic-designer/SKILL.md) | Design scientific schematic figures as paired vector PDF and outlined SVG outputs |
+| [schematic-designer](skills/schematic-designer/SKILL.md) | Design scientific schematic figures as vector PDF outputs, with an outlined SVG on request |
 | [image-analysis](skills/image-analysis/SKILL.md) | Measure experimental microscopy images, stacks, and time series with a matched before-and-after figure and supplementary methods |
 | [paper-reproduce](skills/paper-reproduce/SKILL.md) | Reproduce, assess, or apply published models, claims, methods, and results |
-| [claim-review](skills/claim-review/SKILL.md) | Critique and scope scientific claims against results, figures, and controls, with optional outline templates |
+| [claim-review](skills/claim-review/SKILL.md) | Critique and scope scientific claims against results, figures, and controls, with optional audit and story-arc templates |
 | [writing-process](skills/writing-process/SKILL.md) | Turn notes, figures, an outline, or a partial draft into a scientific paper through staged writing |
 | [presentation-story](skills/presentation-story/SKILL.md) | Plan the storyline of a scientific talk as a beat sheet, `talk.md`, with talking points and citations |
 | [lets-be-clear](skills/lets-be-clear/SKILL.md) | Clarify scientific decisions, confirm unresolved choices, and complete the agreed task |

@@ -37,7 +37,7 @@ These sixteen skills cover the research workflow from clarifying questions and s
 | Can I assess a paper's result? | [paper-reproduce](../skills/paper-reproduce/SKILL.md) | Trace sources, missing information, and negative findings. |
 | Do my results justify my claims? | [claim-review](../skills/claim-review/SKILL.md) | Critique and scope claims against figures, controls, and competing explanations. |
 | How do I draft or revise my paper in stages? | [writing-process](../skills/writing-process/SKILL.md) | Order ideas into paragraph outlines, draft from figure titles, and cut for purpose. |
-| How do I plan the story of my talk? | [presentation-story](../skills/presentation-story/SKILL.md) | Lay out the talk as question-led sequences with talking points, citations, and take-home answers. |
+| How do I plan the story of my talk? | [presentation-story](../skills/presentation-story/SKILL.md) | Lay out the talk in numbered parts with a question or statement title, plain cited talking points, and a bounded answer. |
 | How do I run larger calculations? | [hpc-slurm](../skills/hpc-slurm/SKILL.md) | Use the Slurm cluster scheduler and verify completed outputs. |
 | What did we learn from this session? | [ruminations](../skills/ruminations/SKILL.md) | Recap the problem and solution, lessons for the user, and approved rules for the agent. |
 

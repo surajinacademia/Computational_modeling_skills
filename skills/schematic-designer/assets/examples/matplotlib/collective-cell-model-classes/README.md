@@ -25,7 +25,7 @@ After adapting it, check that cells, lattice sites, fields, and coupling links h
 Run from the skill root, replacing the output path with an approved directory:
 
 ```bash
-python3 scripts/build_example.py collective-cell-model-classes --output-dir /private/tmp/schematic-cell-model-classes
+python3 scripts/build_example.py collective-cell-model-classes --output-dir <approved-directory>
 ```
 
 The Matplotlib PGF build writes `collective-cell-model-classes.pdf` and `collective-cell-model-classes.svg`, with CMU/LaTeX and native TikZ heads. Follow the [shared build and trust requirements](../../../../references/tutorials.md) and [vector export checks](../../../../references/vector-export.md). Inspect both exports at the size at which readers will see them.

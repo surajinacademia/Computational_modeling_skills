@@ -78,7 +78,7 @@ description: Create, maintain, execute, or review Jupyter notebooks for scientif
 ## References
 
 - Notebook helper and dependencies: [helper.md](references/helper.md), [scripts/notebook.py](scripts/notebook.py), and [requirements.txt](requirements.txt).
-- Starter template, example, and data guidance: [notebook-template.ipynb](assets/notebook-template.ipynb), [nonlinear-pendulum.ipynb](examples/nonlinear-pendulum.ipynb), and [data-guidance.md](references/data-guidance.md).
+- Starter template, example, and data guidance: [notebook-template.ipynb](assets/notebook-template.ipynb), [nonlinear-pendulum.ipynb](examples/nonlinear-pendulum.ipynb), [examples/requirements.txt](examples/requirements.txt), and [data-guidance.md](references/data-guidance.md).
 - Sibling skills: [computational-modeling](../computational-modeling/SKILL.md), [data-visualization](../data-visualization/SKILL.md), and [lets-be-clear](../lets-be-clear/SKILL.md).
 
 ## Deliverables and stopping condition

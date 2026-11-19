@@ -84,8 +84,8 @@ def parse_args():
     parser.add_argument(
         "--output-dir",
         type=Path,
-        default=Path("outputs"),
-        help="Approved output directory; relative paths resolve from the working directory.",
+        required=True,
+        help="Approved output directory outside the skill tree.",
     )
     return parser.parse_args()
 

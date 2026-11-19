@@ -7,8 +7,8 @@ description: Work through a hard scientific problem with the researcher until a 
 
 - Help the researcher find a solution to a hard scientific problem through conversation: learn why they want it, establish what is known, and reason to an approach they understand and agree with.
 - Activate when the researcher says `"let's figure it out"`, `"brainstorm"`, or `"grill me"`, or asks to think a hard problem, a plan, or a puzzling result through.
-- Use `lets-be-clear` instead for an ordinary request that one clarification pause settles.
-- Keep this a conversation: create no plan, contract, or note file, modify no project file, and stop at the confirmed agreement. Carrying out the agreed work is a separate request; when the researcher asks to keep the reasoning, record it in the model document through `model-documentation`.
+- Use [lets-be-clear](../lets-be-clear/SKILL.md) instead for an ordinary request that one clarification pause settles.
+- Keep this a conversation: create no plan, contract, or note file, modify no project file, and stop at the confirmed agreement. Carrying out the agreed work is a separate request; when the researcher asks to keep the reasoning, record it in the model document through [model-documentation](../model-documentation/SKILL.md).
 - Never invent results, parameter values, citations, or the researcher's priorities, and mark every statement as stated by the researcher, found in a source, or proposed by the agent.
 
 ## 1. Look before asking
@@ -82,4 +82,4 @@ description: Work through a hard scientific problem with the researcher until a 
 ## Worked example and sources
 
 - Read [tutorials.md](tutorials.md) for one problem followed through all seven sections.
-- The conversation design is adapted from the Superpowers `brainstorming` skill by Jesse Vincent (MIT license); see the third-party notices of this collection.
+- The conversation design is adapted from the Superpowers `brainstorming` skill by Jesse Vincent ([MIT license](licenses/superpowers-MIT.txt)); see the third-party notices of this collection.
