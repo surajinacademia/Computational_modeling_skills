@@ -1,5 +1,7 @@
 # Paper Reproduce
 
+An agent that runs a study on its own can become a black box: it returns a result, but the choices behind it (which equations, parameters, data, and pass criteria) stay out of the researcher's view. In Paper Reproduce the agent does the labour, and the researcher makes or reviews each scientific choice along a short decision tree: which check to run, on which target, and how much the agent decides alone. Every choice is recorded with its reason in one notebook, so a researcher who did not write the code can follow the work, check it, and decide whether to trust the result.
+
 [SKILL.md](SKILL.md) is the maintained entrypoint: frame each investigation with three independent choices—the matrix cell of The Turing Way (reproducible, robust, replicable, or generalisable), the target (model or method, claim or hypothesis, result, or experimental measurements), and the working mode (`human-in-the-loop`, `autonomous`, or `guided-learning`)—and follow the nine-step workflow from identifying what the paper provides through Milestone 1 plan agreement, verification and small diagnostic pilots, study execution, comparison, and the Milestone 2 reproducible record. The target record stays readable throughout: an item list, a results table, a logbook, and a progress note. Set qualitative criteria, quantitative criteria, or both when comparison applies; existing implementations and analytical derivations can satisfy matching targets without new simulation runs.
 
 ## Package contents

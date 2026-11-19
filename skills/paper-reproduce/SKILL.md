@@ -7,6 +7,7 @@ description: Reproduce, replicate, test the robustness of, or generalise a publi
 
 - Reproduce, replicate, test the robustness of, or generalise a published paper's model, method, claim, result, or measurements with explicit scientific choices, primary-source traceability, and evidence-bounded conclusions.
 - Keep the researcher inside the work: the agent does the labour, and the researcher can see what was done, how, and why at every step. A verdict without a readable trail is not a deliverable of this skill.
+- Why: an agent that works alone can become a black box in which the choices behind a result stay out of the researcher's view. A researcher can trust a result only when each choice is visible and theirs to accept or change.
 - Exclude standalone literature summaries without an implementation, verification, or assessment target.
 - Keep one target record, and deliver it as one Jupyter notebook (see Deliverables) without parallel specification files.
 - Scale stages to the target: analytical derivations, source audits, measurement extraction, and existing-output evaluations skip unneeded coding or runs while keeping applicable planning and reporting milestones.
